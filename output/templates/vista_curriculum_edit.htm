@@ -1,0 +1,803 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+	<body class="{$stylename} function-edit"  >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		<div class="r-topbar-page">
+			<div data-menu-width="full" 
+				data-fixed 
+				class="r-topheader" 
+				data-resize-name="topbar"
+				data-body-align="left"
+			>
+								{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" r-ori-vert navbar-header" data-itemid="logo" {$item_logo}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</span>
+							 
+							 
+				<span data-cellId="supertop_c2" data-pageid="{$pageid}" class=" r-ori-vert navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{BEGIN menuitems_main}
+<ul data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}"	class="r-menu nav navbar-nav" 
+	data-menulevel="1"
+>
+
+{BEGIN item_children1}
+<li class="
+	{BEGIN item_haschildren2} dropdown {END item_haschildren2} 
+	{$item_current}">
+<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h data-menu-top >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren2}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-bottom"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren2}
+	</span>
+	</a>
+{BEGIN item_showchildren2}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="2">
+	{BEGIN item_children2}
+		{BEGIN item_menulink2}
+		<li class="
+						{BEGIN item_haschildren2} dropdown {END item_haschildren2}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren2}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren2}
+	</span>
+	</a>
+			{BEGIN item_showchildren3}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="3">
+	{BEGIN item_children3}
+		{BEGIN item_menulink3}
+		<li class="
+						{BEGIN item_haschildren3} dropdown {END item_haschildren3}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren3}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren3}
+	</span>
+	</a>
+			{BEGIN item_showchildren4}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="4">
+	{BEGIN item_children4}
+		{BEGIN item_menulink4}
+		<li class="
+						{BEGIN item_haschildren4} dropdown {END item_haschildren4}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren4}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren4}
+	</span>
+	</a>
+			{BEGIN item_showchildren5}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="5">
+	{BEGIN item_children5}
+		{BEGIN item_menulink5}
+		<li class="
+						{BEGIN item_haschildren5} dropdown {END item_haschildren5}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren5}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren5}
+	</span>
+	</a>
+					</li>
+		{END item_menulink5}
+	{END item_children5}
+</ul>
+{END item_showchildren5}
+		</li>
+		{END item_menulink4}
+	{END item_children4}
+</ul>
+{END item_showchildren4}
+		</li>
+		{END item_menulink3}
+	{END item_children3}
+</ul>
+{END item_showchildren3}
+		</li>
+		{END item_menulink2}
+	{END item_children2}
+</ul>
+{END item_showchildren2}
+</li>
+{END item_children1}
+</ul>
+{END menuitems_main}
+			</span>
+							 
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c3" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Conectar			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c3" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		Perfil del usuario		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Desconectarse		
+		</a>
+	</li>
+{END logoutbutton}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
+{END supertop_block}
+					{$locking}
+			</div>	
+			<div data-body-align="left"  data-body-width="standard" class="r-body" data-resize-top="topbar" >
+				<div class="r-top">
+								{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="topbar" {$form_top} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		<h2 data-itemtype="edit_header" data-itemid="edit_header" {$item_edit_header} data-pageid="{$pageid}" >{$pagetitlelabel vista_curriculum edit}</h2>
+		</div>					</div>
+			</div>		
+{END top_block}
+					</div>
+				<div class="r-content">
+										<div class="r-data-block" data-body-width="standard" >
+						
+											<div class="r-above">
+					{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="topbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		<div data-itemtype="edit_message" data-itemid="edit_message" {$item_edit_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
+<h5>{$message}</h5>
+<div>
+{BEGIN message_back_button}
+			<button class="btn btn-sm btn-default" {$backbutton_attrs}>Regresar al menú</button>
+	{END message_back_button}
+{BEGIN message_view_page_button}
+		<a class="btn btn-sm btn-default" href="" {$view_page_button_attrs}>Ver</a>
+{END message_view_page_button}
+</div>
+</div>
+			{END firstAboveGridCell}	
+	</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
+	class=" r-ori-vert			col-md-12
+	
+">
+		 
+		{BEGIN breadcrumb}
+<ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
+<li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
+{BEGIN crumb}
+  <li class="{$crumb_item_class}">
+{BEGIN crumb_title_link}
+	<a {$crumb_attrs}>{$crumb_title}</a>
+{END crumb_title_link}
+{BEGIN crumb_title_span}
+	<span {$crumb_attrs}>{$crumb_title}</span>
+{END crumb_title_span}	
+	{$crumb_dropdown}
+  </li>
+{END crumb}
+</ol>
+{END breadcrumb}		</div>					</div>
+			</div>		
+{END above-grid_block}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+					{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="2"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN foto_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_foto}  r-vertical-field" 
+	data-signal-error-for="foto{$id}" {$required_attr_foto}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="foto" data-fieldname="foto" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_foto}">
+		{BEGIN foto_label}{$label vista_curriculum foto }{END foto_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$foto_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="foto" {$tooltipAttr vista_curriculum foto } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum foto }		</div>
+	</div>
+</div>
+
+
+{END foto_fieldblock}
+											
+{BEGIN resumen_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_resumen}  r-vertical-field" 
+	data-signal-error-for="resumen{$id}" {$required_attr_resumen}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="resumen" data-fieldname="resumen" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_resumen}">
+		{BEGIN resumen_label}{$label vista_curriculum resumen }{END resumen_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$resumen_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="resumen" {$tooltipAttr vista_curriculum resumen } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum resumen }		</div>
+	</div>
+</div>
+
+
+{END resumen_fieldblock}
+											
+{BEGIN nombre_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_nombre}  r-vertical-field" 
+	data-signal-error-for="nombre{$id}" {$required_attr_nombre}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="nombre" data-fieldname="nombre" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_nombre}">
+		{BEGIN nombre_label}{$label vista_curriculum nombre }{END nombre_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$nombre_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="nombre" {$tooltipAttr vista_curriculum nombre } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum nombre }		</div>
+	</div>
+</div>
+
+
+{END nombre_fieldblock}
+											
+{BEGIN apellidos_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_apellidos}  r-vertical-field" 
+	data-signal-error-for="apellidos{$id}" {$required_attr_apellidos}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="apellidos" data-fieldname="apellidos" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_apellidos}">
+		{BEGIN apellidos_label}{$label vista_curriculum apellidos }{END apellidos_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$apellidos_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="apellidos" {$tooltipAttr vista_curriculum apellidos } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum apellidos }		</div>
+	</div>
+</div>
+
+
+{END apellidos_fieldblock}
+											
+{BEGIN nacionalidad_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_nacionalidad}  r-vertical-field" 
+	data-signal-error-for="nacionalidad{$id}" {$required_attr_nacionalidad}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="nacionalidad" data-fieldname="nacionalidad" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_nacionalidad}">
+		{BEGIN nacionalidad_label}{$label vista_curriculum nacionalidad }{END nacionalidad_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$nacionalidad_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="nacionalidad" {$tooltipAttr vista_curriculum nacionalidad } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum nacionalidad }		</div>
+	</div>
+</div>
+
+
+{END nacionalidad_fieldblock}
+											
+{BEGIN fechanac_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fechanac}  r-vertical-field" 
+	data-signal-error-for="fechanac{$id}" {$required_attr_fechanac}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="fechanac" data-fieldname="fechanac" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_fechanac}">
+		{BEGIN fechanac_label}{$label vista_curriculum fechanac }{END fechanac_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$fechanac_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="fechanac" {$tooltipAttr vista_curriculum fechanac } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum fechanac }		</div>
+	</div>
+</div>
+
+
+{END fechanac_fieldblock}
+											
+{BEGIN sexo_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_sexo}  r-vertical-field" 
+	data-signal-error-for="sexo{$id}" {$required_attr_sexo}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="sexo" data-fieldname="sexo" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_sexo}">
+		{BEGIN sexo_label}{$label vista_curriculum sexo }{END sexo_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$sexo_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="sexo" {$tooltipAttr vista_curriculum sexo } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum sexo }		</div>
+	</div>
+</div>
+
+
+{END sexo_fieldblock}
+											
+{BEGIN estado_civil_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_estado_civil}  r-vertical-field" 
+	data-signal-error-for="estado_civil{$id}" {$required_attr_estado_civil}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="estado_civil" data-fieldname="estado_civil" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_estado_civil}">
+		{BEGIN estado_civil_label}{$label vista_curriculum estado_civil }{END estado_civil_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$estado_civil_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="estado_civil" {$tooltipAttr vista_curriculum estado_civil } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum estado_civil }		</div>
+	</div>
+</div>
+
+
+{END estado_civil_fieldblock}
+											
+{BEGIN canthijos_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_canthijos}  r-vertical-field" 
+	data-signal-error-for="canthijos{$id}" {$required_attr_canthijos}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="canthijos" data-fieldname="canthijos" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_canthijos}">
+		{BEGIN canthijos_label}{$label vista_curriculum canthijos }{END canthijos_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$canthijos_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="canthijos" {$tooltipAttr vista_curriculum canthijos } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum canthijos }		</div>
+	</div>
+</div>
+
+
+{END canthijos_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+			 
+																
+
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN distrito_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_distrito_id}  r-vertical-field" 
+	data-signal-error-for="distrito_id{$id}" {$required_attr_distrito_id}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="distrito_id" data-fieldname="distrito_id" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_distrito_id}">
+		{BEGIN distrito_id_label}{$label vista_curriculum distrito_id }{END distrito_id_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$distrito_id_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="distrito_id" {$tooltipAttr vista_curriculum distrito_id } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum distrito_id }		</div>
+	</div>
+</div>
+
+
+{END distrito_id_fieldblock}
+											
+{BEGIN city_id_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_city_id}  r-vertical-field" 
+	data-signal-error-for="city_id{$id}" {$required_attr_city_id}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="city_id" data-fieldname="city_id" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_city_id}">
+		{BEGIN city_id_label}{$label vista_curriculum city_id }{END city_id_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$city_id_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="city_id" {$tooltipAttr vista_curriculum city_id } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum city_id }		</div>
+	</div>
+</div>
+
+
+{END city_id_fieldblock}
+											
+{BEGIN domicilio_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_domicilio}  r-vertical-field" 
+	data-signal-error-for="domicilio{$id}" {$required_attr_domicilio}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="domicilio" data-fieldname="domicilio" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_domicilio}">
+		{BEGIN domicilio_label}{$label vista_curriculum domicilio }{END domicilio_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$domicilio_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="domicilio" {$tooltipAttr vista_curriculum domicilio } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum domicilio }		</div>
+	</div>
+</div>
+
+
+{END domicilio_fieldblock}
+											
+{BEGIN esindigena_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_esindigena}  r-vertical-field" 
+	data-signal-error-for="esindigena{$id}" {$required_attr_esindigena}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="esindigena" data-fieldname="esindigena" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_esindigena}">
+		{BEGIN esindigena_label}{$label vista_curriculum esindigena }{END esindigena_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$esindigena_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="esindigena" {$tooltipAttr vista_curriculum esindigena } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum esindigena }		</div>
+	</div>
+</div>
+
+
+{END esindigena_fieldblock}
+											
+{BEGIN multiselect_discapacidades_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_multiselect_discapacidades}  r-vertical-field" 
+	data-signal-error-for="multiselect_discapacidades{$id}" {$required_attr_multiselect_discapacidades}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="multiselect_discapacidades" data-fieldname="multiselect_discapacidades" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_multiselect_discapacidades}">
+		{BEGIN multiselect_discapacidades_label}{$label vista_curriculum multiselect_discapacidades }{END multiselect_discapacidades_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$multiselect_discapacidades_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="multiselect_discapacidades" {$tooltipAttr vista_curriculum multiselect_discapacidades } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum multiselect_discapacidades }		</div>
+	</div>
+</div>
+
+
+{END multiselect_discapacidades_fieldblock}
+											
+{BEGIN porcentaje_discapacidad_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_porcentaje_discapacidad}  r-vertical-field" 
+	data-signal-error-for="porcentaje_discapacidad{$id}" {$required_attr_porcentaje_discapacidad}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="porcentaje_discapacidad" data-fieldname="porcentaje_discapacidad" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_porcentaje_discapacidad}">
+		{BEGIN porcentaje_discapacidad_label}{$label vista_curriculum porcentaje_discapacidad }{END porcentaje_discapacidad_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$porcentaje_discapacidad_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="porcentaje_discapacidad" {$tooltipAttr vista_curriculum porcentaje_discapacidad } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum porcentaje_discapacidad }		</div>
+	</div>
+</div>
+
+
+{END porcentaje_discapacidad_fieldblock}
+											
+{BEGIN adjunto_potencial_discapacidad_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_adjunto_potencial_discapacidad}  r-vertical-field" 
+	data-signal-error-for="adjunto_potencial_discapacidad{$id}" {$required_attr_adjunto_potencial_discapacidad}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="adjunto_potencial_discapacidad" data-fieldname="adjunto_potencial_discapacidad" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_adjunto_potencial_discapacidad}">
+		{BEGIN adjunto_potencial_discapacidad_label}{$label vista_curriculum adjunto_potencial_discapacidad }{END adjunto_potencial_discapacidad_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$adjunto_potencial_discapacidad_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="adjunto_potencial_discapacidad" {$tooltipAttr vista_curriculum adjunto_potencial_discapacidad } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum adjunto_potencial_discapacidad }		</div>
+	</div>
+</div>
+
+
+{END adjunto_potencial_discapacidad_fieldblock}
+											
+{BEGIN adjunto_certificado_discapacidad_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_adjunto_certificado_discapacidad}  r-vertical-field" 
+	data-signal-error-for="adjunto_certificado_discapacidad{$id}" {$required_attr_adjunto_certificado_discapacidad}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="adjunto_certificado_discapacidad" data-fieldname="adjunto_certificado_discapacidad" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_adjunto_certificado_discapacidad}">
+		{BEGIN adjunto_certificado_discapacidad_label}{$label vista_curriculum adjunto_certificado_discapacidad }{END adjunto_certificado_discapacidad_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$adjunto_certificado_discapacidad_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="adjunto_certificado_discapacidad" {$tooltipAttr vista_curriculum adjunto_certificado_discapacidad } >
+		<div class="text-muted" >
+		{$tooltip vista_curriculum adjunto_certificado_discapacidad }		</div>
+	</div>
+</div>
+
+
+{END adjunto_certificado_discapacidad_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c}
+								</tr>
+			</tbody></table>
+{END grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="topbar" {$form_below-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-6
+	
+">
+		 
+		{BEGIN save_edit}
+<span data-itemtype="edit_save" data-itemid="edit_save" {$item_edit_save} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+							Guardar			</a>
+</span>
+{END save_edit}
+	 
+		{BEGIN close_button}
+<span data-itemtype="edit_close" data-itemid="edit_close" {$item_edit_close} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$closebutton_attrs} >
+							Cancelar			</a>
+</span>
+{END close_button}
+		</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right r-ori-vert			col-md-6
+	
+">
+			</div>					</div>
+			</div>		
+{END below-grid_block}
+	</div>
+
+
+
+
+											
+					</div>
+				</div>
+			</div>
+		</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

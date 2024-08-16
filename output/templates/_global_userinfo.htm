@@ -1,0 +1,623 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Emplea :: Buscador  - {$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="icon" src="images/imgob23/gob_ico.png" type="image/x-icon" sizes="32x32"> 
+	<base href="{$projectPath}">
+	 <link rel="stylesheet" href="images/icons_v4/font/bootstrap-icons.css">
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.mtess.gov.py/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '14']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     crossorigin=""/>
+ 		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+	<body class="{$stylename} function-userinfo"  >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		<div class="r-topbar-page">
+			<div data-menu-width="full" 
+				 
+				class="r-topheader" 
+				data-resize-name="topbar"
+				data-body-align="center"
+			>
+								{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" navbar-header" data-itemid="logo" {$item_logo}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</span>
+		 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{BEGIN menuitems_main}
+<ul data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}"	class="r-menu nav navbar-nav" 
+	data-menulevel="1"
+>
+
+{BEGIN item_children1}
+<li class="
+	{BEGIN item_haschildren2} dropdown {END item_haschildren2} 
+	{$item_current}">
+<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h data-menu-top >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren2}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-bottom"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren2}
+	</span>
+	</a>
+{BEGIN item_showchildren2}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="2">
+	{BEGIN item_children2}
+		{BEGIN item_menulink2}
+		<li class="
+						{BEGIN item_haschildren2} dropdown {END item_haschildren2}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren2}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren2}
+	</span>
+	</a>
+			{BEGIN item_showchildren3}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="3">
+	{BEGIN item_children3}
+		{BEGIN item_menulink3}
+		<li class="
+						{BEGIN item_haschildren3} dropdown {END item_haschildren3}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren3}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren3}
+	</span>
+	</a>
+			{BEGIN item_showchildren4}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="4">
+	{BEGIN item_children4}
+		{BEGIN item_menulink4}
+		<li class="
+						{BEGIN item_haschildren4} dropdown {END item_haschildren4}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren4}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren4}
+	</span>
+	</a>
+			{BEGIN item_showchildren5}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="5">
+	{BEGIN item_children5}
+		{BEGIN item_menulink5}
+		<li class="
+						{BEGIN item_haschildren5} dropdown {END item_haschildren5}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren5}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren5}
+	</span>
+	</a>
+					</li>
+		{END item_menulink5}
+	{END item_children5}
+</ul>
+{END item_showchildren5}
+		</li>
+		{END item_menulink4}
+	{END item_children4}
+</ul>
+{END item_showchildren4}
+		</li>
+		{END item_menulink3}
+	{END item_children3}
+</ul>
+{END item_showchildren3}
+		</li>
+		{END item_menulink2}
+	{END item_children2}
+</ul>
+{END item_showchildren2}
+</li>
+{END item_children1}
+</ul>
+{END menuitems_main}
+			</span>
+							 
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c3" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Conectar			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c3" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		Perfil del usuario		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Desconectarse		
+		</a>
+	</li>
+{END logoutbutton}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
+{END supertop_block}
+					{$locking}
+			</div>	
+			<div data-body-align="center"  data-body-width="compact" class="r-body" data-resize-top="topbar" >
+				<div class="r-top">
+								{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="topbar" {$form_top} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	</div>		
+{END top_block}
+					</div>
+				<div class="r-content">
+										<div class="r-data-block" data-body-width="compact" >
+						
+											<div class="r-above">
+					{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="topbar" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+					{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_fields_message}
+<td
+	{$cell_grid_fields_message}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_fields_message" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="user_fields_title" data-itemid="user_fields_title" {$item_user_fields_title} data-pageid="{$pageid}" data-page="_global_userinfo" data-small >
+Gestión de Usuario</span>
+											{BEGIN message_block}
+<div data-itemtype="fields_message" data-itemid="fields_message" {$item_fields_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
+	<h5>{$message}</h5>
+</div>
+{END message_block}	
+								</td>
+			{END cellblock_grid_fields_message}
+								</tr>
+	 
+	 
+														<tr {$row_grid_1} >
+										
+
+{BEGIN cellblock_grid_fields}
+<td
+	{$cell_grid_fields}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_fields" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN changepwd_link}
+<span data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}" >
+							Cambiar contraseña			</a>
+</span>
+{END changepwd_link}
+	
+								</td>
+			{END cellblock_grid_fields}
+								</tr>
+	 
+	 
+														<tr {$row_grid_2} >
+										
+
+{BEGIN cellblock_grid_fields2}
+<td
+	{$cell_grid_fields2}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_fields2" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN fullname_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="fullname{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label" {$item_edit_field_label} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="fullname" data-fieldname="fullname" data-before-same-field {$required_attr_fullname}>
+		<label class="r-edit-label control-label" for="{$labelfor_fullname}">
+			{BEGIN fullname_label}{$label bolsa_empleo_bolsa_users fullname }{END fullname_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END fullname_fieldblock}
+											{BEGIN fullname_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="fullname{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="fullname" data-fieldname="fullname" data-before-same-field {$required_attr_fullname}>
+		{$fullname_editcontrol}	</div>
+{END fullname_fieldblock}
+											{BEGIN fullname_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="fullname{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip" {$item_edit_field_tooltip} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="fullname" data-fieldname="fullname" >
+		<div data-helpfor="fullname" {$tooltipAttr bolsa_empleo_bolsa_users fullname } >
+			<div class="text-muted">{$tooltip bolsa_empleo_bolsa_users fullname }</div>
+		</div>
+	</div>
+{END fullname_fieldblock}
+	
+								</td>
+			{END cellblock_grid_fields2}
+								</tr>
+	 
+	 
+														<tr {$row_grid_3} >
+										
+
+{BEGIN cellblock_grid_fields1}
+<td
+	{$cell_grid_fields1}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_fields1" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN nro_documento_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="nro_documento{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label1" {$item_edit_field_label1} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="nro_documento" data-fieldname="nro_documento" data-before-same-field {$required_attr_nro_documento}>
+		<label class="r-edit-label control-label" for="{$labelfor_nro_documento}">
+			{BEGIN nro_documento_label}{$label bolsa_empleo_bolsa_users nro_documento }{END nro_documento_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END nro_documento_fieldblock}
+											{BEGIN nro_documento_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="nro_documento{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="nro_documento" data-fieldname="nro_documento" data-before-same-field {$required_attr_nro_documento}>
+		{$nro_documento_editcontrol}	</div>
+{END nro_documento_fieldblock}
+											{BEGIN nro_documento_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="nro_documento{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip1" {$item_edit_field_tooltip1} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="nro_documento" data-fieldname="nro_documento" >
+		<div data-helpfor="nro_documento" {$tooltipAttr bolsa_empleo_bolsa_users nro_documento } >
+			<div class="text-muted">{$tooltip bolsa_empleo_bolsa_users nro_documento }</div>
+		</div>
+	</div>
+{END nro_documento_fieldblock}
+	
+								</td>
+			{END cellblock_grid_fields1}
+								</tr>
+	 
+	 
+														<tr {$row_grid_4} >
+										
+
+{BEGIN cellblock_grid_fields3}
+<td
+	{$cell_grid_fields3}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_fields3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN email_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="email{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label2" {$item_edit_field_label2} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="email" data-fieldname="email" data-before-same-field {$required_attr_email}>
+		<label class="r-edit-label control-label" for="{$labelfor_email}">
+			{BEGIN email_label}{$label bolsa_empleo_bolsa_users email }{END email_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END email_fieldblock}
+											{BEGIN email_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="email{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="email" data-fieldname="email" data-before-same-field {$required_attr_email}>
+		{$email_editcontrol}	</div>
+{END email_fieldblock}
+											{BEGIN email_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="email{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip2" {$item_edit_field_tooltip2} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="email" data-fieldname="email" >
+		<div data-helpfor="email" {$tooltipAttr bolsa_empleo_bolsa_users email } >
+			<div class="text-muted">{$tooltip bolsa_empleo_bolsa_users email }</div>
+		</div>
+	</div>
+{END email_fieldblock}
+	
+								</td>
+			{END cellblock_grid_fields3}
+								</tr>
+	 
+	 
+														<tr {$row_grid_5} >
+										
+
+{BEGIN cellblock_grid_fields4}
+<td
+	{$cell_grid_fields4}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_fields4" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN username_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="username{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label3" {$item_edit_field_label3} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="username" data-fieldname="username" data-before-same-field {$required_attr_username}>
+		<label class="r-edit-label control-label" for="{$labelfor_username}">
+			{BEGIN username_label}{$label bolsa_empleo_bolsa_users username }{END username_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END username_fieldblock}
+											{BEGIN username_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="username{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="username" data-fieldname="username" data-before-same-field {$required_attr_username}>
+		{$username_editcontrol}	</div>
+{END username_fieldblock}
+											{BEGIN username_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="username{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip3" {$item_edit_field_tooltip3} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="username" data-fieldname="username" >
+		<div data-helpfor="username" {$tooltipAttr bolsa_empleo_bolsa_users username } >
+			<div class="text-muted">{$tooltip bolsa_empleo_bolsa_users username }</div>
+		</div>
+	</div>
+{END username_fieldblock}
+	
+								</td>
+			{END cellblock_grid_fields4}
+								</tr>
+	 
+	 
+														<tr {$row_grid_6} >
+										
+
+{BEGIN cellblock_grid_fields5}
+<td
+	{$cell_grid_fields5}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_fields5" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN userpic_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="userpic{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label4" {$item_edit_field_label4} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="userpic" data-fieldname="userpic" data-before-same-field {$required_attr_userpic}>
+		<label class="r-edit-label control-label" for="{$labelfor_userpic}">
+			{BEGIN userpic_label}Muestra el menu{END userpic_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END userpic_fieldblock}
+											{BEGIN userpic_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="userpic{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="userpic" data-fieldname="userpic" data-before-same-field {$required_attr_userpic}>
+		{$userpic_editcontrol}	</div>
+{END userpic_fieldblock}
+											{BEGIN userpic_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="userpic{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip4" {$item_edit_field_tooltip4} data-pageid="{$pageid}" data-page="_global_userinfo" data-field="userpic" data-fieldname="userpic" >
+		<div data-helpfor="userpic" {$tooltipAttr bolsa_empleo_bolsa_users userpic } >
+			<div class="text-muted">{$tooltip bolsa_empleo_bolsa_users userpic }</div>
+		</div>
+	</div>
+{END userpic_fieldblock}
+	
+								</td>
+			{END cellblock_grid_fields5}
+								</tr>
+	 
+	 
+														<tr {$row_grid_7} >
+										
+
+{BEGIN cellblock_grid_buttons}
+<td
+	{$cell_grid_buttons}
+	class=" r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_buttons" data-pageid="{$pageid}" data-page="_global_userinfo"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="user_fields_save" data-itemid="user_fields_save" {$item_user_fields_save} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} id="saveButton{$id}" >
+							Guardar			</a>
+</span>
+	
+								</td>
+			{END cellblock_grid_buttons}
+								</tr>
+			</tbody></table>
+{END grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="topbar" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+	</div>
+
+
+
+
+											
+					</div>
+				</div>
+			</div>
+		</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

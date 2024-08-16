@@ -1,0 +1,20 @@
+Notificación de registro
+
+Te has registrado como usuario en %url%
+
+
+Id: %id_value%
+Nro. de documento: %nro_documento_value%
+Email: %email_value%
+Groupid: %groupid_value%
+Fecha Alta: %fecha_alta_value%
+Llave: %llave_value%
+Estado Llave: %estado_llave_value%
+Senadis: %senadis_value%
+Trabajo Antes: %trabajo_antes_value%
+Foto: %userpic_value%
+Personaid: %personaid_value%
+Nombre Completo: %fullname_value%
+Ingresar con CI:: %username_value%
+Hash Generado: %hash_generado_value%
+Adjunto Foto Perfil: %adjunto_foto_perfil_value%

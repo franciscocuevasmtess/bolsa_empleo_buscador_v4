@@ -1,0 +1,92 @@
+[data-cellid="grid_buttons"][data-page="_global_userinfo"][data-cellid="grid_buttons"][data-page="_global_userinfo"][data-cellid="grid_buttons"][data-page="_global_userinfo"] {
+  padding: 15px;
+}
+[data-page="_global_userinfo"][data-itemid="user_fields_title"] {
+  color: #ffffff;
+  font-size: 24px;
+}
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"] > * > input,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"] > * > textarea,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"] > * > select,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"] > * > * > select,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"] > .form-control-static,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"] > [id^=view],
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"] label,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"][data-page="_global_userinfo"][data-itemid="integrated_edit_field2"] > * > .r-readonly-control {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"] > * > input,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"] > * > textarea,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"] > * > select,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"] > * > * > select,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"] > .form-control-static,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"] > [id^=view],
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"] label,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"][data-page="_global_userinfo"][data-itemid="integrated_edit_field1"] > * > .r-readonly-control {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"] > * > input,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"] > * > textarea,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"] > * > select,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"] > * > * > select,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"] > .form-control-static,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"] > [id^=view],
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"] label,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"][data-page="_global_userinfo"][data-itemid="integrated_edit_field"] > * > .r-readonly-control {
+  color: #000000;
+}
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"] > * > input,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"] > * > textarea,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"] > * > select,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"] > * > * > select,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"] > .form-control-static,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"] > [id^=view],
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"] label,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"][data-page="_global_userinfo"][data-itemid="integrated_edit_field3"] > * > .r-readonly-control {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"] > * > input,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"] > * > textarea,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"] > * > select,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"] > * > * > select,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"] > .form-control-static,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"] > [id^=view],
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"] label,
+[data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"][data-page="_global_userinfo"][data-itemid="integrated_edit_field4"] > * > .r-readonly-control {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="edit_field_label"][data-page="_global_userinfo"][data-itemid="edit_field_label"][data-page="_global_userinfo"][data-itemid="edit_field_label"][data-page="_global_userinfo"][data-itemid="edit_field_label"] {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="edit_field_tooltip"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip"] {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="edit_field_label1"][data-page="_global_userinfo"][data-itemid="edit_field_label1"][data-page="_global_userinfo"][data-itemid="edit_field_label1"][data-page="_global_userinfo"][data-itemid="edit_field_label1"] {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="edit_field_tooltip1"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip1"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip1"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip1"] {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="edit_field_label2"][data-page="_global_userinfo"][data-itemid="edit_field_label2"][data-page="_global_userinfo"][data-itemid="edit_field_label2"][data-page="_global_userinfo"][data-itemid="edit_field_label2"] {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="edit_field_tooltip2"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip2"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip2"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip2"] {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="edit_field_label3"][data-page="_global_userinfo"][data-itemid="edit_field_label3"][data-page="_global_userinfo"][data-itemid="edit_field_label3"][data-page="_global_userinfo"][data-itemid="edit_field_label3"] {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="edit_field_tooltip3"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip3"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip3"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip3"] {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="edit_field_label4"][data-page="_global_userinfo"][data-itemid="edit_field_label4"][data-page="_global_userinfo"][data-itemid="edit_field_label4"][data-page="_global_userinfo"][data-itemid="edit_field_label4"] {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="edit_field_tooltip4"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip4"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip4"][data-page="_global_userinfo"][data-itemid="edit_field_tooltip4"] {
+  color: #ffffff;
+}
+[data-page="_global_userinfo"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+

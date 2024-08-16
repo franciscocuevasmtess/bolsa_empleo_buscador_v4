@@ -1,0 +1,2 @@
+
+Runner.pages.PageSettings.addPageEvent('<global>',Runner.pages.constants.PAGE_LOGIN,"afterInit",function(pageObj,proxy,pageid){$(document).ready(function(){var cedula=$("#username");cedula.attr("placeholder","1234567");var input=$("#password");input.attr("placeholder","ddmmaaaaa");});;});

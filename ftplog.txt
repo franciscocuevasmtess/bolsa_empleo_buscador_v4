@@ -1,0 +1,463 @@
+[Begin ftp config dump]
+{
+    "ccc": "false",
+    "host": "sftp:\/\/192.168.70.213:22",
+    "log-file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\ftplog.txt",
+    "overwrite": "yes",
+    "passive": "false",
+    "ssh": "true",
+    "ssl": "false",
+    "threads": "4",
+    "user": "root",
+    "verbose": "true",
+    "upload": [
+        {
+            "file": "C:\\Users\\jugab\\AppData\\Local\\Temp\\Upl272A.tmp",
+            "url": "\/var\/www\/html\/buscador\/connections\/ConnectionManager.php"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\fonts\\HelveticaNeue Bold.ttf",
+            "url": "\/var\/www\/html\/buscador\/fonts\/HelveticaNeue%20Bold.ttf"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\fonts\\HelveticaNeue Regular.ttf",
+            "url": "\/var\/www\/html\/buscador\/fonts\/HelveticaNeue%20Regular.ttf"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\fonts\\OpenSans\\Apache License.txt",
+            "url": "\/var\/www\/html\/buscador\/fonts\/OpenSans\/Apache%20License.txt"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\fonts\\OpenSans\\web fonts\\OpenSans-Semibold-webfont.eot",
+            "url": "\/var\/www\/html\/buscador\/fonts\/OpenSans\/web%20fonts\/OpenSans-Semibold-webfont.eot"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\fonts\\OpenSans\\web fonts\\OpenSans-Semibold-webfont.svg",
+            "url": "\/var\/www\/html\/buscador\/fonts\/OpenSans\/web%20fonts\/OpenSans-Semibold-webfont.svg"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\fonts\\OpenSans\\web fonts\\OpenSans-Semibold-webfont.ttf",
+            "url": "\/var\/www\/html\/buscador\/fonts\/OpenSans\/web%20fonts\/OpenSans-Semibold-webfont.ttf"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\fonts\\OpenSans\\web fonts\\OpenSans-Semibold-webfont.woff",
+            "url": "\/var\/www\/html\/buscador\/fonts\/OpenSans\/web%20fonts\/OpenSans-Semibold-webfont.woff"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\MINISTERIO TRABAJO_EMPLEO_SEGURIDAD SOCIAL Curvas-01.png",
+            "url": "\/var\/www\/html\/buscador\/images\/MINISTERIO%20TRABAJO_EMPLEO_SEGURIDAD%20SOCIAL%20Curvas-01.png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (1).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(1).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (10).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(10).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (2).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(2).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (3).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(3).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (35).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(35).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (36).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(36).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (37).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(37).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (4).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(4).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (49).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(49).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (5).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(5).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (56).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(56).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (57).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(57).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (6).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(6).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (7).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(7).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (8).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(8).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\images\\Vector (9).png",
+            "url": "\/var\/www\/html\/buscador\/images\/Vector%20(9).png"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\include\\appsettings.php",
+            "url": "\/var\/www\/html\/buscador\/include\/appsettings.php"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\include\\pdfmake\\fonts\\Open Sans.js",
+            "url": "\/var\/www\/html\/buscador\/include\/pdfmake\/fonts\/Open%20Sans.js"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\include\\pdfmake\\fonts\\Roboto Mono.js",
+            "url": "\/var\/www\/html\/buscador\/include\/pdfmake\/fonts\/Roboto%20Mono.js"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\include\\pdfmake\\fonts\\Roboto Slab.js",
+            "url": "\/var\/www\/html\/buscador\/include\/pdfmake\/fonts\/Roboto%20Slab.js"
+        },
+        {
+            "file": "C:\\Users\\jugab\\Desktop\\bolsa_empleo_buscador_v4\\output\\styles\\pages\\_global_login1.css",
+            "url": "\/var\/www\/html\/buscador\/styles\/pages\/_global_login1.css"
+        }
+    ]
+}
+[End ftp config dump]
+
+[17532] 2023-11-14T17:08:57. == Info, 30 bytes:   Trying 192.168.70.213:22...
+[17532] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17532] 2023-11-14T17:08:57. == Info, 25 bytes: SSH MD5 public key: NULL
+[17532] 2023-11-14T17:08:57. == Info, 28 bytes: SSH SHA256 public key: NULL
+[17532] 2023-11-14T17:08:57. == Info, 86 bytes: SSH authentication methods available: publickey,gssapi-keyex,gssapi-with-mic,password
+[17532] 2023-11-14T17:08:57. == Info, 30 bytes: Using SSH private key file ''
+[17532] 2023-11-14T17:08:57. == Info, 122 bytes: SSH public key authentication failed: Unable to extract public key from private key file: Unable to open private key file
+[17532] 2023-11-14T17:08:57. == Info, 36 bytes: Initialized password authentication
+[17532] 2023-11-14T17:08:57. == Info, 24 bytes: Authentication complete
+[17532] 2023-11-14T17:08:57. <= Recv data, 58 bytes: dr-xr-xr-x   17 root     root          240 Sep  4 07:39 .
+[17532] 2023-11-14T17:08:57. <= Recv data, 59 bytes: dr-xr-xr-x   17 root     root          240 Sep  4 07:39 ..
+[17532] 2023-11-14T17:08:57. <= Recv data, 61 bytes: dr-xr-xr-x    5 root     root         4096 Sep 28 07:59 boot
+[17532] 2023-11-14T17:08:57. <= Recv data, 60 bytes: drwxr-xr-x   19 root     root         3040 Oct 19 10:41 dev
+[17532] 2023-11-14T17:08:57. <= Recv data, 61 bytes: dr-xr-xr-x  169 root     root            0 Oct 19 10:41 proc
+[17532] 2023-11-14T17:08:57. <= Recv data, 60 bytes: drwxr-xr-x   29 root     root          880 Oct 19 10:41 run
+[17532] 2023-11-14T17:08:57. <= Recv data, 60 bytes: dr-xr-xr-x   13 root     root            0 Oct 19 10:41 sys
+[17532] 2023-11-14T17:08:57. <= Recv data, 60 bytes: drwxr-xr-x   84 root     root         8192 Oct 19 10:41 etc
+[17532] 2023-11-14T17:08:57. <= Recv data, 61 bytes: dr-xr-x---    7 root     root          217 Oct 13 08:22 root
+[17532] 2023-11-14T17:08:57. <= Recv data, 60 bytes: drwxr-xr-x   20 root     root          278 Jul 11  2019 var
+[17532] 2023-11-14T17:08:57. <= Recv data, 60 bytes: drwxrwxrwt   10 root     root         4096 Nov 14 15:27 tmp
+[17532] 2023-11-14T17:08:57. <= Recv data, 60 bytes: drwxr-xr-x   14 root     root          171 Jul 11  2019 usr
+[17532] 2023-11-14T17:08:57. <= Recv data, 67 bytes: lrwxrwxrwx    1 root     root            7 Jul  9  2019 bin -> bin
+[17532] 2023-11-14T17:08:57. <= Recv data, 69 bytes: lrwxrwxrwx    1 root     root            8 Jul  9  2019 sbin -> sbin
+[17532] 2023-11-14T17:08:57. <= Recv data, 67 bytes: lrwxrwxrwx    1 root     root            7 Jul  9  2019 lib -> lib
+[17532] 2023-11-14T17:08:57. <= Recv data, 71 bytes: lrwxrwxrwx    1 root     root            9 Jul  9  2019 lib64 -> lib64
+[17532] 2023-11-14T17:08:57. <= Recv data, 61 bytes: drwxr-xr-x    5 root     root           86 Aug 28 08:22 home
+[17532] 2023-11-14T17:08:57. <= Recv data, 62 bytes: drwxr-xr-x    2 root     root            6 Apr 11  2018 media
+[17532] 2023-11-14T17:08:57. <= Recv data, 60 bytes: drwxr-xr-x    2 root     root            6 Apr 11  2018 mnt
+[17532] 2023-11-14T17:08:57. <= Recv data, 60 bytes: drwxr-xr-x    3 root     root           21 Jun 15  2020 opt
+[17532] 2023-11-14T17:08:57. <= Recv data, 60 bytes: drwxr-xr-x    2 root     root            6 Apr 11  2018 srv
+[17532] 2023-11-14T17:08:57. <= Recv data, 67 bytes: -rw-------    1 root     root     8489271296 Jul 11  2019 swapfile
+[17532] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[7076] 2023-11-14T17:08:57. == Info, 30 bytes:   Trying 192.168.70.213:22...
+[11516] 2023-11-14T17:08:57. == Info, 30 bytes:   Trying 192.168.70.213:22...
+[4864] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[17696] 2023-11-14T17:08:57. == Info, 30 bytes:   Trying 192.168.70.213:22...
+[4864] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17696] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[11516] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[7076] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[4864] 2023-11-14T17:08:57. => Send data, 5320 bytes: content_of::<C:\Users\jugab\AppData\Local\Temp\Upl272A.tmp>
+[4864] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[4864] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[4864] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[4864] 2023-11-14T17:08:57. => Send data, 20028 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\OpenSans\web fonts\OpenSans-Semibold-webfont.eot>
+[4864] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[4864] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[4864] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[11516] 2023-11-14T17:08:57. == Info, 25 bytes: SSH MD5 public key: NULL
+[11516] 2023-11-14T17:08:57. == Info, 28 bytes: SSH SHA256 public key: NULL
+[7076] 2023-11-14T17:08:57. == Info, 25 bytes: SSH MD5 public key: NULL
+[7076] 2023-11-14T17:08:57. == Info, 28 bytes: SSH SHA256 public key: NULL
+[17696] 2023-11-14T17:08:57. == Info, 25 bytes: SSH MD5 public key: NULL
+[17696] 2023-11-14T17:08:57. == Info, 28 bytes: SSH SHA256 public key: NULL
+[17696] 2023-11-14T17:08:57. == Info, 86 bytes: SSH authentication methods available: publickey,gssapi-keyex,gssapi-with-mic,password
+[7076] 2023-11-14T17:08:57. == Info, 86 bytes: SSH authentication methods available: publickey,gssapi-keyex,gssapi-with-mic,password
+[7076] 2023-11-14T17:08:57. == Info, 30 bytes: Using SSH private key file ''
+[7076] 2023-11-14T17:08:57. == Info, 122 bytes: SSH public key authentication failed: Unable to extract public key from private key file: Unable to open private key file
+[17696] 2023-11-14T17:08:57. == Info, 30 bytes: Using SSH private key file ''
+[17696] 2023-11-14T17:08:57. == Info, 122 bytes: SSH public key authentication failed: Unable to extract public key from private key file: Unable to open private key file
+[11516] 2023-11-14T17:08:57. == Info, 86 bytes: SSH authentication methods available: publickey,gssapi-keyex,gssapi-with-mic,password
+[11516] 2023-11-14T17:08:57. == Info, 30 bytes: Using SSH private key file ''
+[11516] 2023-11-14T17:08:57. == Info, 122 bytes: SSH public key authentication failed: Unable to extract public key from private key file: Unable to open private key file
+[4864] 2023-11-14T17:08:57. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\OpenSans\web fonts\OpenSans-Semibold-webfont.svg>
+[4864] 2023-11-14T17:08:57. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\OpenSans\web fonts\OpenSans-Semibold-webfont.svg>
+[4864] 2023-11-14T17:08:57. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\OpenSans\web fonts\OpenSans-Semibold-webfont.svg>
+[4864] 2023-11-14T17:08:57. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\OpenSans\web fonts\OpenSans-Semibold-webfont.svg>
+[4864] 2023-11-14T17:08:57. => Send data, 22928 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\OpenSans\web fonts\OpenSans-Semibold-webfont.svg>
+[4864] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[4864] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[4864] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17696] 2023-11-14T17:08:57. == Info, 36 bytes: Initialized password authentication
+[17696] 2023-11-14T17:08:57. == Info, 24 bytes: Authentication complete
+[7076] 2023-11-14T17:08:57. == Info, 36 bytes: Initialized password authentication
+[7076] 2023-11-14T17:08:57. == Info, 24 bytes: Authentication complete
+[11516] 2023-11-14T17:08:57. == Info, 36 bytes: Initialized password authentication
+[11516] 2023-11-14T17:08:57. == Info, 24 bytes: Authentication complete
+[4864] 2023-11-14T17:08:57. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\OpenSans\web fonts\OpenSans-Semibold-webfont.ttf>
+[4864] 2023-11-14T17:08:57. => Send data, 9476 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\OpenSans\web fonts\OpenSans-Semibold-webfont.ttf>
+[4864] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[4864] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[4864] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[4864] 2023-11-14T17:08:57. => Send data, 22908 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\OpenSans\web fonts\OpenSans-Semibold-webfont.woff>
+[4864] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[4864] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[4864] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[4864] 2023-11-14T17:08:57. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\MINISTERIO TRABAJO_EMPLEO_SEGURIDAD SOCIAL Curvas-01.png>
+[4864] 2023-11-14T17:08:57. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\MINISTERIO TRABAJO_EMPLEO_SEGURIDAD SOCIAL Curvas-01.png>
+[4864] 2023-11-14T17:08:57. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\MINISTERIO TRABAJO_EMPLEO_SEGURIDAD SOCIAL Curvas-01.png>
+[4864] 2023-11-14T17:08:57. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\MINISTERIO TRABAJO_EMPLEO_SEGURIDAD SOCIAL Curvas-01.png>
+[4864] 2023-11-14T17:08:57. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\MINISTERIO TRABAJO_EMPLEO_SEGURIDAD SOCIAL Curvas-01.png>
+[4864] 2023-11-14T17:08:57. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\MINISTERIO TRABAJO_EMPLEO_SEGURIDAD SOCIAL Curvas-01.png>
+[4864] 2023-11-14T17:08:57. => Send data, 23605 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\MINISTERIO TRABAJO_EMPLEO_SEGURIDAD SOCIAL Curvas-01.png>
+[4864] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[4864] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[11516] 2023-11-14T17:08:57. => Send data, 11323 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\OpenSans\Apache License.txt>
+[11516] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[4864] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[4864] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[11516] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[11516] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469662160 [serially]
+[11516] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[11516] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17696] 2023-11-14T17:08:57. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\HelveticaNeue Regular.ttf>
+[17696] 2023-11-14T17:08:57. => Send data, 11180 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\HelveticaNeue Regular.ttf>
+[17696] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[7076] 2023-11-14T17:08:57. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\HelveticaNeue Bold.ttf>
+[7076] 2023-11-14T17:08:57. => Send data, 9520 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\fonts\HelveticaNeue Bold.ttf>
+[7076] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[17696] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:57. => Send data, 502 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (1).png>
+[7076] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[11516] 2023-11-14T17:08:57. => Send data, 370 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (10).png>
+[11516] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[7076] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469662460 [serially]
+[17696] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469661d20 [serially]
+[7076] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[17696] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[7076] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17696] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[4864] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[11516] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[4864] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[11516] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469662160 [serially]
+[11516] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[11516] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[7076] 2023-11-14T17:08:57. => Send data, 257 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (3).png>
+[17696] 2023-11-14T17:08:57. => Send data, 382 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (2).png>
+[7076] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[17696] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[11516] 2023-11-14T17:08:57. => Send data, 508 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (36).png>
+[11516] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[17696] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[7076] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:57. => Send data, 475 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (35).png>
+[4864] 2023-11-14T17:08:57. == Info, 36 bytes: We are completely uploaded and fine
+[11516] 2023-11-14T17:08:57. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[17696] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469661d20 [serially]
+[7076] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469662460 [serially]
+[11516] 2023-11-14T17:08:57. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469662160 [serially]
+[17696] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[11516] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[7076] 2023-11-14T17:08:57. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[11516] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17696] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[7076] 2023-11-14T17:08:57. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[4864] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[4864] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17696] 2023-11-14T17:08:58. => Send data, 228 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (4).png>
+[7076] 2023-11-14T17:08:58. => Send data, 492 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (37).png>
+[7076] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[17696] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[11516] 2023-11-14T17:08:58. => Send data, 434 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (49).png>
+[4864] 2023-11-14T17:08:58. => Send data, 598 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (5).png>
+[4864] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[11516] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[7076] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[17696] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[7076] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469662460 [serially]
+[17696] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469661d20 [serially]
+[7076] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[7076] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17696] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[17696] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[11516] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[4864] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[11516] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469662160 [serially]
+[11516] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[11516] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17696] 2023-11-14T17:08:58. => Send data, 522 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (57).png>
+[7076] 2023-11-14T17:08:58. => Send data, 553 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (56).png>
+[17696] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[7076] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[7076] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[11516] 2023-11-14T17:08:58. => Send data, 234 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (6).png>
+[4864] 2023-11-14T17:08:58. => Send data, 827 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (7).png>
+[11516] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[4864] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[17696] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[7076] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469662460 [serially]
+[17696] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469661d20 [serially]
+[7076] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[17696] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[7076] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17696] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[4864] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[11516] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[4864] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[11516] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469662160 [serially]
+[11516] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[11516] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[7076] 2023-11-14T17:08:58. => Send data, 692 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (8).png>
+[7076] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[17696] 2023-11-14T17:08:58. => Send data, 660 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\images\Vector (9).png>
+[17696] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[4864] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\appsettings.php>
+[7076] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[17696] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[4864] 2023-11-14T17:08:58. => Send data, 93 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\appsettings.php>
+[4864] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[17696] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469661d20 [serially]
+[7076] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469662460 [serially]
+[7076] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[17696] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[7076] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17696] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[4864] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[11516] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[4864] 2023-11-14T17:08:58. == Info, 63 bytes: Found bundle for host 192.168.70.213: 0x29469646570 [serially]
+[4864] 2023-11-14T17:08:58. == Info, 60 bytes: Re-using existing connection! (#0) with host 192.168.70.213
+[4864] 2023-11-14T17:08:58. == Info, 58 bytes: Connected to 192.168.70.213 (192.168.70.213) port 22 (#0)
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[7076] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[7076] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[7076] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[4864] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[11516] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[17696] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[4864] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[4864] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[7076] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[7076] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[4864] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[11516] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[7076] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[17696] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[4864] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[4864] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[7076] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[7076] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[7076] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[17696] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[4864] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[7076] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[4864] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[4864] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[11516] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[7076] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[7076] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[17696] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[4864] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[4864] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[7076] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[4864] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[7076] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[17696] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[7076] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[4864] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[4864] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[4864] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[7076] 2023-11-14T17:08:58. => Send data, 9251 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Slab.js>
+[7076] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[17696] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[4864] 2023-11-14T17:08:58. => Send data, 23424 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\styles\pages\_global_login1.css>
+[11516] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[4864] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[7076] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[4864] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[17696] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[17696] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[17696] 2023-11-14T17:08:58. => Send data, 24049 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Roboto Mono.js>
+[17696] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[17696] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact
+[11516] 2023-11-14T17:08:58. => Send data, 5536 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 30000 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. => Send data, 21565 bytes: content_of::<C:\Users\jugab\Desktop\bolsa_empleo_buscador_v4\output\include\pdfmake\fonts\Open Sans.js>
+[11516] 2023-11-14T17:08:58. == Info, 36 bytes: We are completely uploaded and fine
+[11516] 2023-11-14T17:08:58. == Info, 49 bytes: Connection #0 to host 192.168.70.213 left intact

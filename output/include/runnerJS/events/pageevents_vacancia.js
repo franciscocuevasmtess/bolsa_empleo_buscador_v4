@@ -1,0 +1,2 @@
+
+Runner.pages.PageSettings.addPageEvent('bolsa_empleo.vacancia',Runner.pages.constants.PAGE_LIST,"afterPageReady",function(pageObj,proxy,pageid,inlineRow,inlineObject,row){var busc=$("#ctlSearchFor1");busc.attr("placeholder","¿Qué trabajo buscas? Ej: Cajero");pageObj.toggleItem("verificar_datos_bt",false);pageObj.getItemButton("verificar_datos_bt").click();;});

@@ -1,0 +1,455 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Emplea :: Buscador  - {$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="icon" src="images/imgob23/gob_ico.png" type="image/x-icon" sizes="32x32"> 
+	<base href="{$projectPath}">
+	 <link rel="stylesheet" href="images/icons_v4/font/bootstrap-icons.css">
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.mtess.gov.py/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '14']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     crossorigin=""/>
+ 		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-search" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel bolsa_empleo_vista_estudios_realizados_union_mec search}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="id" data-fieldname="id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_id}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec id }	</label>
+	<div class="r-search-option">
+		{$searchtype_id}
+	</div>
+	<div class="r-search-field">
+		{$id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$id_editcontrol1}
+	</div>
+	
+</div>
+
+{END id_fieldblock}
+											
+{BEGIN fk_personaid_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fk_personaid}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fk_personaid{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="fk_personaid" data-fieldname="fk_personaid" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fk_personaid}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec fk_personaid }	</label>
+	<div class="r-search-option">
+		{$searchtype_fk_personaid}
+	</div>
+	<div class="r-search-field">
+		{$fk_personaid_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fk_personaid_editcontrol1}
+	</div>
+	
+</div>
+
+{END fk_personaid_fieldblock}
+											
+{BEGIN fecha_hasta_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fecha_hasta}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fecha_hasta{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="fecha_hasta" data-fieldname="fecha_hasta" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fecha_hasta}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec fecha_hasta }	</label>
+	<div class="r-search-option">
+		{$searchtype_fecha_hasta}
+	</div>
+	<div class="r-search-field">
+		{$fecha_hasta_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fecha_hasta_editcontrol1}
+	</div>
+	
+</div>
+
+{END fecha_hasta_fieldblock}
+											
+{BEGIN fecha_desde_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fecha_desde}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fecha_desde{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="fecha_desde" data-fieldname="fecha_desde" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fecha_desde}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec fecha_desde }	</label>
+	<div class="r-search-option">
+		{$searchtype_fecha_desde}
+	</div>
+	<div class="r-search-field">
+		{$fecha_desde_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fecha_desde_editcontrol1}
+	</div>
+	
+</div>
+
+{END fecha_desde_fieldblock}
+											
+{BEGIN fk_cvc_instituciones_educativas_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fk_cvc_instituciones_educativas}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fk_cvc_instituciones_educativas{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="fk_cvc_instituciones_educativas" data-fieldname="fk_cvc_instituciones_educativas" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fk_cvc_instituciones_educativas}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec fk_cvc_instituciones_educativas }	</label>
+	<div class="r-search-option">
+		{$searchtype_fk_cvc_instituciones_educativas}
+	</div>
+	<div class="r-search-field">
+		{$fk_cvc_instituciones_educativas_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fk_cvc_instituciones_educativas_editcontrol1}
+	</div>
+	
+</div>
+
+{END fk_cvc_instituciones_educativas_fieldblock}
+											
+{BEGIN fk_cvc_niveles_academicos_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fk_cvc_niveles_academicos}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fk_cvc_niveles_academicos{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="fk_cvc_niveles_academicos" data-fieldname="fk_cvc_niveles_academicos" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fk_cvc_niveles_academicos}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec fk_cvc_niveles_academicos }	</label>
+	<div class="r-search-option">
+		{$searchtype_fk_cvc_niveles_academicos}
+	</div>
+	<div class="r-search-field">
+		{$fk_cvc_niveles_academicos_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fk_cvc_niveles_academicos_editcontrol1}
+	</div>
+	
+</div>
+
+{END fk_cvc_niveles_academicos_fieldblock}
+											
+{BEGIN titulo_obtenido_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_titulo_obtenido}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="titulo_obtenido{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="titulo_obtenido" data-fieldname="titulo_obtenido" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_titulo_obtenido}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec titulo_obtenido }	</label>
+	<div class="r-search-option">
+		{$searchtype_titulo_obtenido}
+	</div>
+	<div class="r-search-field">
+		{$titulo_obtenido_editcontrol}	</div>
+	<div class="r-search-field">
+		{$titulo_obtenido_editcontrol1}
+	</div>
+	
+</div>
+
+{END titulo_obtenido_fieldblock}
+											
+{BEGIN anhos_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_anhos}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="anhos{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="anhos" data-fieldname="anhos" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_anhos}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec anhos }	</label>
+	<div class="r-search-option">
+		{$searchtype_anhos}
+	</div>
+	<div class="r-search-field">
+		{$anhos_editcontrol}	</div>
+	<div class="r-search-field">
+		{$anhos_editcontrol1}
+	</div>
+	
+</div>
+
+{END anhos_fieldblock}
+											
+{BEGIN institucion_eucativa_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_institucion_eucativa}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="institucion_eucativa{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="institucion_eucativa" data-fieldname="institucion_eucativa" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_institucion_eucativa}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec institucion_eucativa }	</label>
+	<div class="r-search-option">
+		{$searchtype_institucion_eucativa}
+	</div>
+	<div class="r-search-field">
+		{$institucion_eucativa_editcontrol}	</div>
+	<div class="r-search-field">
+		{$institucion_eucativa_editcontrol1}
+	</div>
+	
+</div>
+
+{END institucion_eucativa_fieldblock}
+											
+{BEGIN nivel_academico_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_nivel_academico}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="nivel_academico{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="nivel_academico" data-fieldname="nivel_academico" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_nivel_academico}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec nivel_academico }	</label>
+	<div class="r-search-option">
+		{$searchtype_nivel_academico}
+	</div>
+	<div class="r-search-field">
+		{$nivel_academico_editcontrol}	</div>
+	<div class="r-search-field">
+		{$nivel_academico_editcontrol1}
+	</div>
+	
+</div>
+
+{END nivel_academico_fieldblock}
+											
+{BEGIN periodo_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_periodo}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="periodo{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="periodo" data-fieldname="periodo" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_periodo}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec periodo }	</label>
+	<div class="r-search-option">
+		{$searchtype_periodo}
+	</div>
+	<div class="r-search-field">
+		{$periodo_editcontrol}	</div>
+	<div class="r-search-field">
+		{$periodo_editcontrol1}
+	</div>
+	
+</div>
+
+{END periodo_fieldblock}
+											
+{BEGIN proveedor_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_proveedor}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="proveedor{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="proveedor" data-fieldname="proveedor" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_proveedor}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec proveedor }	</label>
+	<div class="r-search-option">
+		{$searchtype_proveedor}
+	</div>
+	<div class="r-search-field">
+		{$proveedor_editcontrol}	</div>
+	<div class="r-search-field">
+		{$proveedor_editcontrol1}
+	</div>
+	
+</div>
+
+{END proveedor_fieldblock}
+											
+{BEGIN nro_documento_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_nro_documento}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="nro_documento{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="nro_documento" data-fieldname="nro_documento" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_nro_documento}">
+		{$label bolsa_empleo_vista_estudios_realizados_union_mec nro_documento }	</label>
+	<div class="r-search-option">
+		{$searchtype_nro_documento}
+	</div>
+	<div class="r-search-field">
+		{$nro_documento_editcontrol}	</div>
+	<div class="r-search-field">
+		{$nro_documento_editcontrol1}
+	</div>
+	
+</div>
+
+{END nro_documento_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$searchbutton_attrs} data-page=undefined >
+							Buscar			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reiniciar			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Volver a la lista			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN cancel_button}
+<span data-itemtype="search_cancel" data-itemid="search_cancel" {$item_search_cancel} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="cancelButton{$id}" >
+							Cancelar			</a>
+</span>
+{END cancel_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

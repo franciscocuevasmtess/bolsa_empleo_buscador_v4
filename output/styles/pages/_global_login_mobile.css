@@ -1,0 +1,31 @@
+[data-cellid="grid_c16"][data-page="_global_login_mobile"][data-cellid="grid_c16"][data-page="_global_login_mobile"][data-cellid="grid_c16"][data-page="_global_login_mobile"] {
+  width: 70%;
+}
+[data-cellid="footer_c1"][data-page="_global_login_mobile"][data-cellid="footer_c1"][data-page="_global_login_mobile"][data-cellid="footer_c1"][data-page="_global_login_mobile"] {
+  width: 33.33333333%;
+}
+[data-cellid="footer_c2"][data-page="_global_login_mobile"][data-cellid="footer_c2"][data-page="_global_login_mobile"][data-cellid="footer_c2"][data-page="_global_login_mobile"] {
+  width: 66.66666667%;
+}
+[data-page="_global_login_mobile"][data-itemid="text"] {
+  font-weight: bold;
+}
+[data-page="_global_login_mobile"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* ESPECÍFICO PARA EL LOGIN EN VISTA MOBILE*/
+@media (max-width:600px){
+
+ /* Form1 */
+ #form1{
+  display:inline-block;
+  transform:translatex(0px) translatey(0px) !important;
+ }
+ 
+ /* Image */
+ #form_grid_1 tr img{
+  max-width:90%;
+ }
+ 
+}

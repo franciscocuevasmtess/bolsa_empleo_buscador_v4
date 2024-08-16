@@ -1,0 +1,838 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Emplea :: Buscador  - {$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="icon" src="images/imgob23/gob_ico.png" type="image/x-icon" sizes="32x32"> 
+	<base href="{$projectPath}">
+	 <link rel="stylesheet" href="images/icons_v4/font/bootstrap-icons.css">
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.mtess.gov.py/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '14']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     crossorigin=""/>
+ 		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+	<body class="{$stylename} function-view"  >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		<div class="r-topbar-page">
+			<div data-menu-width="full" 
+				 
+				class="r-topheader" 
+				data-resize-name="topbar"
+				data-body-align="left"
+			>
+								{BEGIN supertop_block}
+<nav class="navbar navbar-default" 
+	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
+			 
+							 
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" r-ori-vert navbar-header" data-itemid="logo" {$item_logo}>
+				{BEGIN logo_block}
+	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
+		{$logo}
+	</A>
+{END logo_block}
+				<button data-pageid="1" type="button" class="navbar-toggle collapsed" data-runner-toggle="collapse" data-target="[data-mobile-controlled]">	
+					<span class="sr-only">Toggle navigation</span>	
+					<span class="icon-bar"></span>					
+				</button>				
+			</span>
+							 
+							 
+				<span data-cellId="supertop_c2" data-pageid="{$pageid}" class=" r-ori-vert navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
+				{BEGIN menuitems_main}
+<ul data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}"	class="r-menu nav navbar-nav" 
+	data-menulevel="1"
+>
+
+{BEGIN item_children1}
+<li class="
+	{BEGIN item_haschildren2} dropdown {END item_haschildren2} 
+	{$item_current}">
+<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h data-menu-top >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren2}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-bottom"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren2}
+	</span>
+	</a>
+{BEGIN item_showchildren2}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="2">
+	{BEGIN item_children2}
+		{BEGIN item_menulink2}
+		<li class="
+						{BEGIN item_haschildren2} dropdown {END item_haschildren2}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren2}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren2}
+	</span>
+	</a>
+			{BEGIN item_showchildren3}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="3">
+	{BEGIN item_children3}
+		{BEGIN item_menulink3}
+		<li class="
+						{BEGIN item_haschildren3} dropdown {END item_haschildren3}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren3}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren3}
+	</span>
+	</a>
+			{BEGIN item_showchildren4}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="4">
+	{BEGIN item_children4}
+		{BEGIN item_menulink4}
+		<li class="
+						{BEGIN item_haschildren4} dropdown {END item_haschildren4}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren4}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren4}
+	</span>
+	</a>
+			{BEGIN item_showchildren5}
+<ul class="
+			dropdown-menu
+			{$submenu_class}" 
+		id="submenu{$item_id}" data-menulevel="5">
+	{BEGIN item_children5}
+		{BEGIN item_menulink5}
+		<li class="
+						{BEGIN item_haschildren5} dropdown {END item_haschildren5}
+						{$item_current}"
+		>
+			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
+	{$item_separator}
+	<span class="r-menu-link  "> 
+		<span class="r-menu-title">
+		{$item_icon} {$item_title}
+		</span>
+		{BEGIN item_haschildren5}
+		{BEGIN item_expand_icon}
+		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
+		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
+		{END item_expand_icon}
+		{END item_haschildren5}
+	</span>
+	</a>
+					</li>
+		{END item_menulink5}
+	{END item_children5}
+</ul>
+{END item_showchildren5}
+		</li>
+		{END item_menulink4}
+	{END item_children4}
+</ul>
+{END item_showchildren4}
+		</li>
+		{END item_menulink3}
+	{END item_children3}
+</ul>
+{END item_showchildren3}
+		</li>
+		{END item_menulink2}
+	{END item_children2}
+</ul>
+{END item_showchildren2}
+</li>
+{END item_children1}
+</ul>
+{END menuitems_main}
+			</span>
+							 
+							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c3" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
+				{BEGIN guestloginbutton}
+<span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" href="#" {$guestloginlink_attrs} >
+							Conectar			</a>
+</span>
+{END guestloginbutton}
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c3" data-pageid="{$pageid}" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				{BEGIN loggedas_message}
+<span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+			{BEGIN userbutton_icon}							<span class="glyphicon glyphicon-user"></span>
+						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN userinfo_link}
+	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
+				<a  href="userinfo.php"  title="" >
+				
+		Perfil del usuario		
+		</a>
+	</li>
+{END userinfo_link}
+							{BEGIN logoutbutton}
+	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$logoutlink_attrs}  title="" >
+				
+		Desconectarse		
+		</a>
+	</li>
+{END logoutbutton}
+					</ul>
+	</span>
+</span>
+{END loggedas_message}
+			</span>
+								</nav>
+{END supertop_block}
+					{$locking}
+			</div>	
+			<div data-body-align="left"  data-body-width="standard" class="r-body" data-resize-top="topbar" >
+				<div class="r-top">
+								{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="topbar" {$form_top} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+			</div>					</div>
+			</div>		
+{END top_block}
+					</div>
+				<div class="r-content">
+										<div class="r-data-block" data-body-width="standard" >
+						
+											<div class="r-above">
+					{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="topbar" {$form_above-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	
+">
+		{BEGIN firstAboveGridCell}
+		 
+		{BEGIN breadcrumb}
+<ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
+<li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
+{BEGIN crumb}
+  <li class="{$crumb_item_class}">
+{BEGIN crumb_title_link}
+	<a {$crumb_attrs}>{$crumb_title}</a>
+{END crumb_title_link}
+{BEGIN crumb_title_span}
+	<span {$crumb_attrs}>{$crumb_title}</span>
+{END crumb_title_span}	
+	{$crumb_dropdown}
+  </li>
+{END crumb}
+</ol>
+{END breadcrumb}			{END firstAboveGridCell}	
+	</div>					</div>
+			</div>		
+{END above-grid_block}
+	</div>
+<div class="r-grid">
+	{BEGIN grid_tabs}
+  <ul class="nav nav-tabs bsgrid_tabs">
+	{$grid_tabs_content}
+  </ul>
+{END grid_tabs}
+					{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="left"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="3"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c1}
+<td
+	{$cell_grid_c1}
+	class="r-align-left r-ori-vert"
+	
+			data-single
+			
+	ocolspan="3"		data-cellId="grid_c1" data-pageid="{$pageid}" data-page="vista_curriculum_cvc_view"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<img src="{$file_url images/logo_cvc_final.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" data-page="vista_curriculum_cvc_view" />
+	
+								</td>
+			{END cellblock_grid_c1}
+								</tr>
+	 
+	 
+														<tr {$row_grid_1} >
+										
+
+{BEGIN cellblock_grid_c10}
+<td
+	{$cell_grid_c10}
+	class="r-align-left r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c10" data-pageid="{$pageid}" data-page="vista_curriculum_cvc_view"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN foto_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="foto" data-fieldname="foto" data-compact >
+		{$foto_value}	</div>
+{END foto_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c10}
+			 
+																
+
+{BEGIN cellblock_grid_c13}
+<td
+	{$cell_grid_c13}
+	class="r-align-center r-ori-vert"
+	
+			
+			data-cellId="grid_c13" data-pageid="{$pageid}" data-page="vista_curriculum_cvc_view"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN nombres_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-page="vista_curriculum_cvc_view" data-field="nombres" data-fieldname="nombres" data-compact >
+		{$nombres_value}	</div>
+{END nombres_fieldblock}
+											{BEGIN domicilio_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="domicilio" data-fieldname="domicilio" data-compact >
+		{$domicilio_value}	</div>
+{END domicilio_fieldblock}
+											{BEGIN localidad_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="localidad" data-fieldname="localidad" data-compact >
+		{$localidad_value}	</div>
+{END localidad_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c13}
+			 
+																
+
+{BEGIN cellblock_grid_c11}
+<td
+	{$cell_grid_c11}
+	class="r-align-right r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c11" data-pageid="{$pageid}" data-page="vista_curriculum_cvc_view"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN qr_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="integrated_edit_field31" {$item_integrated_edit_field31} data-pageid="{$pageid}" data-field="qr" data-fieldname="qr" data-compact >
+		{$qr_value}	</div>
+{END qr_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c11}
+								</tr>
+	 
+	 
+														<tr {$row_grid_2} >
+										
+
+{BEGIN cellblock_grid_c24}
+<td
+	{$cell_grid_c24}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+	ocolspan="3"		data-cellId="grid_c24" data-pageid="{$pageid}" data-page="vista_curriculum_cvc_view"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN resumen_fieldblock}
+	<div class="r-view-field" data-itemtype="edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-page="vista_curriculum_cvc_view" data-field="resumen" data-fieldname="resumen" >
+		{$resumen_value}	</div>
+{END resumen_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c24}
+								</tr>
+	 
+	 
+														<tr {$row_grid_3} >
+										
+
+{BEGIN cellblock_grid_c12}
+<td
+	{$cell_grid_c12}
+	class="r-align-right r-ori-vert"
+	
+			
+			data-cellId="grid_c12" data-pageid="{$pageid}" data-page="vista_curriculum_cvc_view"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN valor_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_valor}  r-vertical-field" data-fieldname="valor" data-signal-error-for="valor{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="valor" data-fieldname="valor" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_valor}">
+		
+		{BEGIN valor_label}{$label bolsa_empleo_vista_curriculum_cvc valor }{END valor_label}
+	</label>
+	<div class="" >
+		{$valor_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END valor_fieldblock}
+											
+{BEGIN sexo_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_sexo}  r-vertical-field" data-fieldname="sexo" data-signal-error-for="sexo{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="sexo" data-fieldname="sexo" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_sexo}">
+		
+		{BEGIN sexo_label}{$label bolsa_empleo_vista_curriculum_cvc sexo }{END sexo_label}
+	</label>
+	<div class="" >
+		{$sexo_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END sexo_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c12}
+			 
+																
+
+{BEGIN cellblock_grid_c15}
+<td
+	{$cell_grid_c15}
+	class="r-align-center r-ori-vert"
+	
+			
+			data-cellId="grid_c15" data-pageid="{$pageid}" data-page="vista_curriculum_cvc_view"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN fechanac_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fechanac}  r-vertical-field" data-fieldname="fechanac" data-signal-error-for="fechanac{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="fechanac" data-fieldname="fechanac" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_fechanac}">
+		
+		{BEGIN fechanac_label}{$label bolsa_empleo_vista_curriculum_cvc fechanac }{END fechanac_label}
+	</label>
+	<div class="" >
+		{$fechanac_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END fechanac_fieldblock}
+											
+{BEGIN edad_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_edad}  r-vertical-field" data-fieldname="edad" data-signal-error-for="edad{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="edad" data-fieldname="edad" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_edad}">
+		
+		{BEGIN edad_label}{$label bolsa_empleo_vista_curriculum_cvc edad }{END edad_label}
+	</label>
+	<div class="" >
+		{$edad_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END edad_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c15}
+			 
+																
+
+{BEGIN cellblock_grid_c25}
+<td
+	{$cell_grid_c25}
+	class="r-align-left r-ori-vert"
+	
+			
+			data-cellId="grid_c25" data-pageid="{$pageid}" data-page="vista_curriculum_cvc_view"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN nacionalidad1_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_nacionalidad1}  r-vertical-field" data-fieldname="nacionalidad1" data-signal-error-for="nacionalidad1{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="nacionalidad1" data-fieldname="nacionalidad1" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_nacionalidad1}">
+		
+		{BEGIN nacionalidad1_label}{$label bolsa_empleo_vista_curriculum_cvc nacionalidad1 }{END nacionalidad1_label}
+	</label>
+	<div class="" >
+		{$nacionalidad1_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END nacionalidad1_fieldblock}
+											
+{BEGIN estado_civil_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_estado_civil}  r-vertical-field" data-fieldname="estado_civil" data-signal-error-for="estado_civil{$id}" data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="estado_civil" data-fieldname="estado_civil" data-compact >
+
+		<div class="col-md-12">
+	
+	<label class="" for="{$labelfor_estado_civil}">
+		
+		{BEGIN estado_civil_label}{$label bolsa_empleo_vista_curriculum_cvc estado_civil }{END estado_civil_label}
+	</label>
+	<div class="" >
+		{$estado_civil_value}	</div>
+
+		</div>
+		
+</div>
+
+
+{END estado_civil_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c25}
+								</tr>
+	 
+	 
+																</tbody></table>
+				
+{BEGIN details_vista_para_curri_experiencia_laboral}
+<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_vista_para_curri_experiencia_laboral}			
+							<span>
+					{$detailslButtons_vista_para_curri_experiencia_laboral}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_vista_para_curri_experiencia_laboral}
+		</div>
+	</div>
+</div>
+{END details_vista_para_curri_experiencia_laboral}
+	
+				 
+	 
+												
+{BEGIN details_vista_curri_estudios_realizados}
+<div data-itemtype="details_preview" data-itemid="details_preview1" {$item_details_preview1} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_vista_curri_estudios_realizados}			
+							<span>
+					{$detailslButtons_vista_curri_estudios_realizados}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_vista_curri_estudios_realizados}
+		</div>
+	</div>
+</div>
+{END details_vista_curri_estudios_realizados}
+	
+				 
+	 
+												
+{BEGIN details_vista_curri_programas_realizados}
+<div data-itemtype="details_preview" data-itemid="details_preview2" {$item_details_preview2} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_vista_curri_programas_realizados}			
+							<span>
+					{$detailslButtons_vista_curri_programas_realizados}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_vista_curri_programas_realizados}
+		</div>
+	</div>
+</div>
+{END details_vista_curri_programas_realizados}
+	
+				 
+	 
+												
+{BEGIN details_vista_curri_idiomas}
+<div data-itemtype="details_preview" data-itemid="details_preview3" {$item_details_preview3} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_vista_curri_idiomas}			
+							<span>
+					{$detailslButtons_vista_curri_idiomas}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_vista_curri_idiomas}
+		</div>
+	</div>
+</div>
+{END details_vista_curri_idiomas}
+	
+				 
+	 
+												
+{BEGIN details_vista_curri_movilidad}
+<div data-itemtype="details_preview" data-itemid="details_preview4" {$item_details_preview4} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_vista_curri_movilidad}			
+							<span>
+					{$detailslButtons_vista_curri_movilidad}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_vista_curri_movilidad}
+		</div>
+	</div>
+</div>
+{END details_vista_curri_movilidad}
+	
+				 
+	 
+												
+{BEGIN details_vista_curri_telefonos}
+<div data-itemtype="details_preview" data-itemid="details_preview5" {$item_details_preview5} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_vista_curri_telefonos}			
+							<span>
+					{$detailslButtons_vista_curri_telefonos}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_vista_curri_telefonos}
+		</div>
+	</div>
+</div>
+{END details_vista_curri_telefonos}
+	
+				 
+	 
+												
+{BEGIN details_vista_curri_referencia_laborales}
+<div data-itemtype="details_preview" data-itemid="details_preview6" {$item_details_preview6} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_vista_curri_referencia_laborales}			
+							<span>
+					{$detailslButtons_vista_curri_referencia_laborales}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_vista_curri_referencia_laborales}
+		</div>
+	</div>
+</div>
+{END details_vista_curri_referencia_laborales}
+	
+				{END grid_block}
+	</div>
+<div class="r-below">
+					{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="topbar" {$form_below-grid} data-pageid="{$pageid}" >		
+	 
+				<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class=" r-ori-vert			col-md-6
+	
+">
+			</div>			 
+				<div 
+	data-cellId="below-grid_c2" data-pageid="{$pageid}"	{$cell_below-grid_c2}
+	class="r-align-right r-ori-vert			col-md-6
+	
+">
+		 
+		<span data-itemtype="view_pdf" data-itemid="view_pdf" {$item_view_pdf} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-success   
+	pdflink" data-pdfpage="view" 
+data-scope="0" 
+data-split="0" 
+data-records="10" 
+data-orientation="portrait" 
+data-scale="95" 
+data-filename="Curriculum Cvc.pdf" 
+data-pagesize="LETTER" 
+data-pagetype="view" 
+{$pdflink_attrs} >
+					<span class="glyphicon glyphicon-book"></span>
+							Generar PDF			</a>
+</span>
+		</div>					</div>
+			</div>		
+{END below-grid_block}
+	</div>
+
+
+
+
+											
+					</div>
+				</div>
+			</div>
+		</div>
+		{$footer}
+	{END body}
+	</body>
+</html>
