@@ -34,6 +34,7 @@
 		$this->events["AfterAdd"]=true;
 
 
+
 	}
 
 //	handlers
@@ -147,9 +148,9 @@
 function BeforeShowAdd(&$xt, &$templatefile, $pageObject)
 {
 
-		$pageObject->hideItem("integrated_edit_field1");
+			$pageObject->hideItem("integrated_edit_field1");//oculta el campo persona_id
 
-$pageObject->hideItem("integrated_edit_field7");
+	//$pageObject->hideItem("integrated_edit_field7");//oculta el campo anhos
 ;		
 } // function BeforeShowAdd
 
@@ -223,8 +224,8 @@ $pageObject->hideItem("integrated_edit_field7");
 function BeforeShowEdit(&$xt, &$templatefile, $values, $pageObject)
 {
 
-		$pageObject->hideItem("integrated_edit_field");
-$pageObject->hideItem("integrated_edit_field1");
+			$pageObject->hideItem("integrated_edit_field");
+	//$pageObject->hideItem("integrated_edit_field1");
 ;		
 } // function BeforeShowEdit
 
@@ -426,9 +427,9 @@ $pageObject->hideItem("integrated_edit_field1");
 function BeforeShowList(&$xt, &$templatefile, $pageObject)
 {
 
-		$pageObject->hideItem("simple_grid_field1");
+			$pageObject->hideItem("simple_grid_field1"); //oculta el campo persona_id
 
-$xt->assign("message", "Sin Datos. Añadir Información");
+	$xt->assign("message", "Sin Datos. Añadir Información");
 ;		
 } // function BeforeShowList
 
@@ -495,13 +496,10 @@ $xt->assign("message", "Sin Datos. Añadir Información");
 function BeforeMoveNextList(&$data, &$row, &$record, $recordId, $pageObject)
 {
 
-		if ($data["proveedor"]=="MEC" || $data["proveedor"]=="SNPP" )
-{
-$pageObject->hideItem("grid_edit", $recordId);
-$pageObject->hideItem("custom_button", $recordId); 
-
-
-}
+			if ($data["proveedor"] == "MEC" || $data["proveedor"] == "SNPP"){
+		$pageObject->hideItem("grid_edit", $recordId);
+		$pageObject->hideItem("custom_button", $recordId);
+	}
 
 ;		
 } // function BeforeMoveNextList
@@ -563,9 +561,9 @@ $pageObject->hideItem("custom_button", $recordId);
 function BeforeEdit(&$values, &$sqlValues, $where, &$oldvalues, &$keys, &$message, $inline, $pageObject)
 {
 
-		$values["titulo_obtenido"]=strtoupper($values["titulo_obtenido"]);
+			$values["titulo_obtenido"] = strtoupper($values["titulo_obtenido"]);
 
-return true;
+	return true;
 ;		
 } // function BeforeEdit
 
@@ -632,9 +630,9 @@ return true;
 function BeforeAdd(&$values, &$sqlValues, &$message, $inline, $pageObject)
 {
 
-		$values["titulo_obtenido"]=strtoupper($values["titulo_obtenido"]);
+			$values["titulo_obtenido"] = strtoupper($values["titulo_obtenido"]);
 
-return true;
+	return true;
 ;		
 } // function BeforeAdd
 
@@ -708,33 +706,39 @@ return true;
 function CustomAdd(&$values, &$keys, &$error, $inline, $pageObject)
 {
 
-		function debug_to_console($data, $context = 'Debug in Console') {
+			function debug_to_console($data, $context = 'Debug in Console') {
+		// Buffering to solve problems frameworks, like header() in this and not a solid return.
+		ob_start();
+		
+		$output  = 'console.info(\'' . $context . ':\');';
+		$output .= 'console.log(' . json_encode($data) . ');';
+		$output  = sprintf('<script>%s</script>', $output);
+		
+		echo $output;
+	}
 
-    // Buffering to solve problems frameworks, like header() in this and not a solid return.
-    ob_start();
+	$sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.cvc_estudios_realizados(
+		fk_personaid, 
+		fecha_hasta, 
+		fecha_desde, 
+		fk_cvc_instituciones_educativas, 
+		fk_cvc_niveles_academicos, 
+		titulo_obtenido, 
+		anhos) 
+		values (':1',':2',':3',':4',':5',':6',':7');", 
+	$_SESSION["persona_id"], 
+	$values["fecha_hasta"], 
+	$values["fecha_desde"], 
+	$values["fk_cvc_instituciones_educativas"], 
+	$values["fk_cvc_niveles_academicos"], 
+	$values["titulo_obtenido"], 
+	$values["anhos"]);
 
-    $output  = 'console.info(\'' . $context . ':\');';
-    $output .= 'console.log(' . json_encode($data) . ');';
-    $output  = sprintf('<script>%s</script>', $output);
+	debug_to_console($sql1);
 
-    echo $output;
-}
+	DB::Exec($sql1);
 
-
-
-$sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.cvc_estudios_realizados  (fk_personaid,fecha_hasta,fecha_desde,fk_cvc_instituciones_educativas
-,fk_cvc_niveles_academicos,titulo_obtenido,anhos) values  
- (':1',':2',':3',':4',':5',':6',':7');",$_SESSION["persona_id"],
-$values["fecha_hasta"],$values["fecha_desde"],$values["fk_cvc_instituciones_educativas"]
-,$values["fk_cvc_niveles_academicos"],$values["titulo_obtenido"],$values["anhos"]);
-
-
-debug_to_console($sql1);
-
-
-DB::Exec($sql1);
-
-return false;
+	return false;
 ;		
 } // function CustomAdd
 
@@ -813,28 +817,40 @@ return false;
 function CustomEdit(&$values, $where, &$oldvalues, &$keys, &$error, $inline, $pageObject)
 {
 
-		function debug_to_console($data, $context = 'Debug in Console') {
+			function debug_to_console($data, $context = 'Debug in Console') {
+		// Buffering to solve problems frameworks, like header() in this and not a solid return.
+		ob_start();
+		
+		$output  = 'console.info(\'' . $context . ':\');';
+		$output .= 'console.log(' . json_encode($data) . ');';
+		$output  = sprintf('<script>%s</script>', $output);
+		
+		echo $output;
+	}
+	
+	$sql2 = DB::PrepareSQL("
+		update bolsa_empleo.cvc_estudios_realizados 
+		set fecha_hasta = ':1',
+				fecha_desde = ':2', 
+				fk_cvc_instituciones_educativas = ':3', 
+				fk_cvc_niveles_academicos = ':4', 
+				titulo_obtenido = ':5',
+				anhos = ':6' 
+		where id_estudios_realizados = ':7'", 
+		$values["fecha_hasta"], 
+		$values["fecha_desde"], 
+		$values["fk_cvc_instituciones_educativas"], 
+		$values["fk_cvc_niveles_academicos"],
+		$values["titulo_obtenido"],
+		$values["anhos"],
+		$values["id"]
+		);
+		
+		DB::Exec($sql2);
+		
+		debug_to_console($sql2);
 
-    // Buffering to solve problems frameworks, like header() in this and not a solid return.
-    ob_start();
-
-    $output  = 'console.info(\'' . $context . ':\');';
-    $output .= 'console.log(' . json_encode($data) . ');';
-    $output  = sprintf('<script>%s</script>', $output);
-
-    echo $output;
-}
-
-$sql2 = DB::PrepareSQL("update bolsa_empleo.cvc_estudios_realizados set fecha_hasta = ':1',
-fecha_desde = ':2', fk_cvc_instituciones_educativas = ':3', fk_cvc_niveles_academicos = ':4', titulo_obtenido = ':5',
-anhos = ':6' 
-where id_estudios_realizados = ':7'",$values["fecha_hasta"],$values["fecha_desde"],$values["fk_cvc_instituciones_educativas"], 
-$values["fk_cvc_niveles_academicos"],$values["titulo_obtenido"],$values["anhos"],$keys["id"]);
-DB::Exec($sql2);
-
-debug_to_console($sql2);
-
-return false;
+		return false;
 ;		
 } // function CustomEdit
 
@@ -902,96 +918,144 @@ return false;
 function AfterAdd(&$values, &$keys, $inline, $pageObject)
 {
 
-		$textoresultados = array();
-$falta_datos = 0;
+			$textoresultados = array();
+	$falta_datos = 0;
 
-
-
-$rs = DB::Query("
-    SELECT
-        (SELECT foto FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_foto,
-        (SELECT resumen FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_resumen,
-        (SELECT COUNT(*) FROM eportal.persons_phones WHERE person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
-        (SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
-        (SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
-        (SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
-        (SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion
-" );
-
-
-    while ($datafinal = $rs->fetchAssoc()) {
-
-
-			 $existe_foto = $datafinal['existe_foto'];
-       $existe_resumen = $datafinal['existe_resumen'];
-       $count_phones = $datafinal['count_phones'];
-       $existe_city = $datafinal['existe_city'];
-       $existe_domicilio = $datafinal['existe_domicilio'];
-       $existe_canthijos = $datafinal['existe_canthijos'];
-       $count_educacion = $datafinal['count_educacion'];
-
-
-        if (is_null($existe_foto)) {
-           // $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Foto de Perfil en Informacion Personal.";
-						// $falta_datos = 1;
-				
-        }
-
-        if (is_null($existe_resumen)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Resumen Personal <a href='persons_edit.php'>Ir a información personal</a>";
-						 $falta_datos = 1;
-        }
-
-				 if ($count_phones < 1) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Numero de Contacto <a href='persons_phones_list.php'>Ir a teléfonos</a>";
-						 $falta_datos = 1;
-        }
-
-				 if (is_null($existe_city)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Ciudad <a href='persons_edit.php'>Ir a información personal</a>";
-						 $falta_datos = 1;
-        }
-
-				 if (is_null($existe_domicilio)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Dirección. <a href='persons_edit.php'>Ir a información personal</a>";
-						 $falta_datos = 1;
-        }
-
-         if (is_null($existe_canthijos)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Cantidad Hijos <a href='persons_edit.php'>Ir a información personal</a>";
-						 $falta_datos = 1;
-        }
-
-				
-         if ($count_educacion < 1 ) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Entidad Educativa <a href='vista_estudios_realizados_union_mec_list.php'>Ir a Estudios Realizados</a>";
-						 $falta_datos = 1;
-        }
-
-    }
-
-
-
-if ($falta_datos == '0' ){
-
-$pageObject->setMessageType(MESSAGE_INFO);
-$Mensaje='<h4><span style="color: #000000; ">Información Registrada Correctamente</span></h4><p style="color: #000000; "> ¡Ahora puedes postularte!</p>
-<div>
-
-			
+	$rs = DB::Query("SELECT
+			(SELECT foto FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_foto,
+			(SELECT resumen FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_resumen,
+			(SELECT COUNT(*) FROM eportal.persons_phones WHERE person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
+			(SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
+			(SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
+			(SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
+			(SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion
+		");
 	
+	while ($datafinal = $rs->fetchAssoc()) {
+		$existe_foto = $datafinal['existe_foto'];
+		$existe_resumen = $datafinal['existe_resumen'];
+		$count_phones = $datafinal['count_phones'];
+		$existe_city = $datafinal['existe_city'];
+		$existe_domicilio = $datafinal['existe_domicilio'];
+		$existe_canthijos = $datafinal['existe_canthijos'];
+		$count_educacion = $datafinal['count_educacion'];
+		
+		if (is_null($existe_foto)) {
+			// $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Foto de Perfil en Informacion Personal.";
+			// $falta_datos = 1;
+		}
 
-		<a class="btn btn-sm btn-success" href="vacancia_list.php" id="viewPageButton1">Ir a las Ofertas Laborales</a>
+		if (is_null($existe_resumen)) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Resumen Personal <a href='persons_edit.php'>Ir a información personal</a>";
+			$falta_datos = 1;
+		}
 
-</div>';
-$pageObject->setMessage($Mensaje);
+		if ($count_phones < 1) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Numero de Contacto <a href='persons_phones_list.php'>Ir a teléfonos</a>";
+			$falta_datos = 1;
+		}
 
+		if (is_null($existe_city)) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Ciudad <a href='persons_edit.php'>Ir a información personal</a>";
+			$falta_datos = 1;
+		}
 
+		if (is_null($existe_domicilio)) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Dirección. <a href='persons_edit.php'>Ir a información personal</a>";
+			$falta_datos = 1;
+		}
 
-}
+		if (is_null($existe_canthijos)) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Cantidad Hijos <a href='persons_edit.php'>Ir a información personal</a>";
+			$falta_datos = 1;
+		}
+
+		if ($count_educacion < 1 ) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Entidad Educativa <a href='vista_estudios_realizados_union_mec_list.php'>Ir a Estudios Realizados</a>";
+			$falta_datos = 1;
+		}
+	}
+	
+	if ($falta_datos == '0' ){
+		$pageObject->setMessageType(MESSAGE_INFO);
+		$Mensaje = '<h4><span style="color: #000000; ">Información Registrada Correctamente</span></h4><p style="color: #000000; "> ¡Ahora puedes postularte!</p>
+			<div>
+				<a class="btn btn-sm btn-success" href="vacancia_list.php" id="viewPageButton1">Ir a las Ofertas Laborales</a>
+			</div>';
+
+		$pageObject->setMessage($Mensaje);
+	}
+
+	
 ;		
 } // function AfterAdd
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

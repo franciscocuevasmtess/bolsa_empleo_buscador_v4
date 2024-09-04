@@ -6,11 +6,11 @@ $tdatacvc_movilidad[".OwnerID"] = "";
 $tdatacvc_movilidad[".OriginalTable"] = "bolsa_empleo.cvc_movilidad";
 
 
-$tdatacvc_movilidad[".pagesByType"] = my_json_decode( "{\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" );
+$tdatacvc_movilidad[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
 $tdatacvc_movilidad[".originalPagesByType"] = $tdatacvc_movilidad[".pagesByType"];
-$tdatacvc_movilidad[".pages"] = types2pages( my_json_decode( "{\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdatacvc_movilidad[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdatacvc_movilidad[".originalPages"] = $tdatacvc_movilidad[".pages"];
-$tdatacvc_movilidad[".defaultPages"] = my_json_decode( "{\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
+$tdatacvc_movilidad[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"print\":\"print\",\"search\":\"search\",\"view\":\"view\"}" );
 $tdatacvc_movilidad[".originalDefaultPages"] = $tdatacvc_movilidad[".defaultPages"];
 
 //	field labels
@@ -25,24 +25,28 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldToolTipscvc_movilidad["Spanish"] = array();
 	$placeHolderscvc_movilidad["Spanish"] = array();
 	$pageTitlescvc_movilidad["Spanish"] = array();
-	$fieldLabelscvc_movilidad["Spanish"]["cvc_id_movilidad"] = "Cvc Id Movilidad";
+	$fieldLabelscvc_movilidad["Spanish"]["cvc_id_movilidad"] = "Id Movilidad";
 	$fieldToolTipscvc_movilidad["Spanish"]["cvc_id_movilidad"] = "";
 	$placeHolderscvc_movilidad["Spanish"]["cvc_id_movilidad"] = "";
-	$fieldLabelscvc_movilidad["Spanish"]["ids_tipo_registro_conducir"] = "Tipo Registro Conducir";
+	$fieldLabelscvc_movilidad["Spanish"]["ids_tipo_registro_conducir"] = "Tipo Registro de Conducir";
 	$fieldToolTipscvc_movilidad["Spanish"]["ids_tipo_registro_conducir"] = "";
 	$placeHolderscvc_movilidad["Spanish"]["ids_tipo_registro_conducir"] = "";
-	$fieldLabelscvc_movilidad["Spanish"]["tipo_movilidad"] = "Tipo Movilidad";
+	$fieldLabelscvc_movilidad["Spanish"]["tipo_movilidad"] = "Tipo de Movilidad";
 	$fieldToolTipscvc_movilidad["Spanish"]["tipo_movilidad"] = "";
 	$placeHolderscvc_movilidad["Spanish"]["tipo_movilidad"] = "";
-	$fieldLabelscvc_movilidad["Spanish"]["registro_conducir"] = "Registro Conducir?";
+	$fieldLabelscvc_movilidad["Spanish"]["registro_conducir"] = "Cuenta con Registro de Conducir";
 	$fieldToolTipscvc_movilidad["Spanish"]["registro_conducir"] = "";
 	$placeHolderscvc_movilidad["Spanish"]["registro_conducir"] = "";
-	$fieldLabelscvc_movilidad["Spanish"]["movilidad_propia"] = "Movilidad Propia?";
+	$fieldLabelscvc_movilidad["Spanish"]["movilidad_propia"] = "Cuenta con Movilidad Propia";
 	$fieldToolTipscvc_movilidad["Spanish"]["movilidad_propia"] = "";
 	$placeHolderscvc_movilidad["Spanish"]["movilidad_propia"] = "";
-	$fieldLabelscvc_movilidad["Spanish"]["fk_persona_id"] = "Fk Persona Id";
+	$fieldLabelscvc_movilidad["Spanish"]["fk_persona_id"] = "Persona";
 	$fieldToolTipscvc_movilidad["Spanish"]["fk_persona_id"] = "";
 	$placeHolderscvc_movilidad["Spanish"]["fk_persona_id"] = "";
+	$pageTitlescvc_movilidad["Spanish"]["list"] = "Movilidad Propia";
+	$pageTitlescvc_movilidad["Spanish"]["add"] = "Movilidad Propia, Añadir nuevo";
+	$pageTitlescvc_movilidad["Spanish"]["edit"] = "Movilidad Propia, Editar [{%cvc_id_movilidad}]";
+	$pageTitlescvc_movilidad["Spanish"]["view"] = "Movilidad Propia {%cvc_id_movilidad}";
 	if (count($fieldToolTipscvc_movilidad["Spanish"]))
 		$tdatacvc_movilidad[".isUseToolTips"] = true;
 }
@@ -87,7 +91,7 @@ if( $pages[PAGE_EDIT] ) {
 	$tdatacvc_movilidad[".edit"] = true;
 	$tdatacvc_movilidad[".afterEditAction"] = 1;
 	$tdatacvc_movilidad[".closePopupAfterEdit"] = 1;
-	$tdatacvc_movilidad[".afterEditActionDetTable"] = "Detail tables not found!";
+	$tdatacvc_movilidad[".afterEditActionDetTable"] = "";
 }
 
 if( $pages[PAGE_ADD] ) {
@@ -140,7 +144,7 @@ $tdatacvc_movilidad[".isUseAjaxSuggest"] = true;
 
 
 
-
+																																																																																																																																																																																																																														
 
 $tdatacvc_movilidad[".ajaxCodeSnippetAdded"] = false;
 
@@ -152,7 +156,7 @@ $tdatacvc_movilidad[".addPageEvents"] = false;
 $tdatacvc_movilidad[".isUseTimeForSearch"] = false;
 
 
-$tdatacvc_movilidad[".badgeColor"] = "D2AF80";
+$tdatacvc_movilidad[".badgeColor"] = "cd853f";
 
 
 $tdatacvc_movilidad[".allSearchFields"] = array();
@@ -306,7 +310,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Lookup wizard");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -316,6 +320,34 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	
 	
 
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "bolsa_empleo.tipo_movilidad";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "id_tipo_movilidad";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "descripcion";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
 
 
 		$edata["IsRequired"] = true;
@@ -331,17 +363,14 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 						$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
@@ -362,7 +391,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -462,7 +491,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	$edata["LookupTable"] = "bolsa_empleo.tipo_registro_conducir";
 			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 0;
+		$edata["LCType"] = 3;
 
 	
 		
@@ -470,20 +499,21 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "nombre";
 
-	
+				$edata["LookupWhere"] = "id_registro_conducir > 1";
+
 
 	
-	$edata["LookupOrderBy"] = "id_registro_conducir";
-
-	
-	
-	
-	
+	$edata["LookupOrderBy"] = "nombre";
 
 	
 	
-		$edata["SelectSize"] = 1;
+	
+	
 
+	
+		$edata["Multiselect"] = true;
+
+	
 // End Lookup Settings
 
 
@@ -628,27 +658,28 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	$edata["LookupTable"] = "bolsa_empleo.tipo_movilidad";
 			$edata["autoCompleteFieldsOnEdit"] = 0;
 	$edata["autoCompleteFields"] = array();
-		$edata["LCType"] = 4;
+		$edata["LCType"] = 3;
 
-		$edata["HorizontalLookup"] = true;
-
+	
 		
 	$edata["LinkField"] = "id_tipo_movilidad";
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "descripcion";
 
-	
+				$edata["LookupWhere"] = "id_tipo_movilidad > 1 AND id_tipo_movilidad < 6";
+
 
 	
-	$edata["LookupOrderBy"] = "id_tipo_movilidad";
-
-	
-	
-	
-	
+	$edata["LookupOrderBy"] = "descripcion";
 
 	
 	
+	
+	
+
+	
+		$edata["Multiselect"] = true;
+
 	
 // End Lookup Settings
 
@@ -751,7 +782,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 //  Begin View Formats
 	$fdata["ViewFormats"] = array();
 
-	$vdata = array("ViewFormat" => "");
+	$vdata = array("ViewFormat" => "Custom");
 
 	
 	
@@ -767,8 +798,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	
 	
 	
-		$vdata["NeedEncode"] = true;
-
+	
 	
 		$vdata["truncateText"] = true;
 	$vdata["NumberOfChars"] = 80;
@@ -807,8 +837,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 // End Lookup Settings
 
 
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 	
@@ -828,8 +857,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 //	End validation
 
@@ -961,8 +989,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 // End Lookup Settings
 
 
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 	
@@ -982,8 +1009,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 //	End validation
 
@@ -1087,7 +1113,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Lookup wizard");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -1097,6 +1123,35 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	
 	
 
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "eportal.persons";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "id";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "nombre || ' ' || apellidos";
+
+	
+
+		$edata["CustomDisplay"] = "true";
+
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
 
 
 	
@@ -1111,19 +1166,16 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
+							
 	
-		$edata["autoUpdatable"] = true;
-
 //	End validation
 
 	
@@ -1141,7 +1193,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -1192,6 +1244,24 @@ $masterTablesData["bolsa_empleo.cvc_movilidad"] = array();
 
 
 
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="eportal.persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="personas-pasos";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "personas_pasos";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["bolsa_empleo.cvc_movilidad"][0] = $masterParams;
+				$masterTablesData["bolsa_empleo.cvc_movilidad"][0]["masterKeys"] = array();
+	$masterTablesData["bolsa_empleo.cvc_movilidad"][0]["masterKeys"][]="id";
+				$masterTablesData["bolsa_empleo.cvc_movilidad"][0]["detailKeys"] = array();
+	$masterTablesData["bolsa_empleo.cvc_movilidad"][0]["detailKeys"][]="fk_persona_id";
+		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -1396,10 +1466,4 @@ $tdatacvc_movilidad[".sqlquery"] = $queryData_cvc_movilidad;
 include_once(getabspath("include/cvc_movilidad_events.php"));
 $tdatacvc_movilidad[".hasEvents"] = true;
 
-$query = &$queryData_cvc_movilidad;
-$table = "bolsa_empleo.cvc_movilidad";
-// here goes EVENT_INIT_TABLE event
-$query->addWhere(" fk_persona_id = '".pg_escape_string($_SESSION["persona_id"])."'");
-;
-unset($query);
 ?>

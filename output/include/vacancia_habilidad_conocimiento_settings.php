@@ -132,7 +132,7 @@ $tdatavacancia_habilidad_conocimiento[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																										
+																																																																																																																																																																																																																														
 
 $tdatavacancia_habilidad_conocimiento[".ajaxCodeSnippetAdded"] = false;
 

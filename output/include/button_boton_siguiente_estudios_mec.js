@@ -12,7 +12,7 @@ Runner.buttonEvents["boton_siguiente_estudios_mec"] = function( pageObj, proxy, 
 	if ( !pageObj.buttonEventAfter['boton_siguiente_estudios_mec'] ) {
 		pageObj.buttonEventAfter['boton_siguiente_estudios_mec'] = function( result, ctrl, pageObj, proxy, pageid, rowData, row, params ) {
 			var ajax = ctrl;
-window.location.href = "cvc_experiencia_laboral_list.php";
+	window.location.href = "cvc_experiencia_laboral_list.php";
 
 		}
 	}

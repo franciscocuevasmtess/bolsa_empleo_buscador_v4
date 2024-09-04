@@ -12,10 +12,11 @@
 	function __construct()
 	{
 	// fill list of events
+		$this->events["AfterEdit"]=true;
 
-		$this->events["CustomEdit"]=true;
+		$this->events["BeforeAdd"]=true;
 
-		$this->events["BeforeProcessEdit"]=true;
+		$this->events["AfterDelete"]=true;
 
 
 	}
@@ -43,101 +44,31 @@
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-				// Custom record update
-function CustomEdit(&$values, $where, &$oldvalues, &$keys, &$error, $inline, $pageObject)
+				// After record updated
+function AfterEdit(&$values, $where, &$oldvalues, &$keys, $inline, $pageObject)
 {
 
-		function debug_to_console($data, $context = 'Debug in Console') {
+			//borrar y volver a cargar movilidad_detalle_cvc
+	$sqlDelete = DB::PrepareSQL("DELETE FROM bolsa_empleo.movilidad_detalle_cvc WHERE id_persona_pk = ':1'", $values["fk_persona_id"]);
+	DB::Exec($sqlDelete);
+	//insertar movilidad_detalle_cvc
+	$tiposMovilidades = explode(",", $values["tipo_movilidad"]);
+	foreach ($tiposMovilidades as $value) {
+    $sqlInsert = DB::PrepareSQL("INSERT INTO bolsa_empleo.movilidad_detalle_cvc(id_persona_pk, id_tipo_movilidad_cvc) VALUES (':1',':2')", $values["fk_persona_id"], $value);
+    DB::Exec($sqlInsert);
+	}
 
-    // Buffering to solve problems frameworks, like header() in this and not a solid return.
-    ob_start();
-
-    $output  = 'console.info(\'' . $context . ':\');';
-    $output .= 'console.log(' . json_encode($data) . ');';
-    $output  = sprintf('<script>%s</script>', $output);
-
-    echo $output;
-}
-
-	  
-										$sql2 = DB::PrepareSQL("update bolsa_empleo.cvc_movilidad set movilidad_propia = ':1',
-										registro_conducir = ':2', tipo_movilidad = ':3', ids_tipo_registro_conducir = ':4' 
-										where fk_persona_id = ':5'",$values["movilidad_propia"],$values["registro_conducir"],$values["tipo_movilidad"],
-										$values["ids_tipo_registro_conducir"],$keys["fk_persona_id"]);
-
-										debug_to_console($sql2);
-
-										DB::Exec($sql2);
-
-
-return false;
+	//borrar y volver a cargar registro_conducir_detalle_cvc
+	$sqlDelete = DB::PrepareSQL("DELETE FROM bolsa_empleo.registro_conducir_detalle_cvc WHERE id_persona_pk = ':1'", $values["fk_persona_id"]);
+	DB::Exec($sqlDelete);
+	//insertar registro_conducir_detalle_cvc
+	$tiposRegistroConducir = explode(",", $values["ids_tipo_registro_conducir"]);
+	foreach ($tiposRegistroConducir as $value) {
+    $sqlInsert = DB::PrepareSQL("INSERT INTO bolsa_empleo.registro_conducir_detalle_cvc(id_persona_pk, id_tipo_registro_conducir_cvc) VALUES (':1',':2')", $values["fk_persona_id"], $value);
+    DB::Exec($sqlInsert);
+	}
 ;		
-} // function CustomEdit
+} // function AfterEdit
 
 		
 		
@@ -182,49 +113,41 @@ return false;
 		
 		
 		
-		
 
 		
 		
 		
 		
-				// Edit page: Before process
-function BeforeProcessEdit($pageObject)
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				// Before record added
+function BeforeAdd(&$values, &$sqlValues, &$message, $inline, $pageObject)
 {
 
-		function debug_to_console($data, $context = 'Debug in Console') {
+			//insertar movilidad_detalle_cvc
+	$tiposMovilidades = explode(",", $values["tipo_movilidad"]);
+	foreach ($tiposMovilidades as $value) {
+    $sqlInsert = DB::PrepareSQL("INSERT INTO bolsa_empleo.movilidad_detalle_cvc(id_persona_pk, id_tipo_movilidad_cvc) VALUES (':1',':2')", $values["fk_persona_id"], $value);
+    DB::Exec($sqlInsert);
+	}
+	
+	//insertar registro_conducir_detalle_cvc
+	$tiposRegistroConducir = explode(",", $values["ids_tipo_registro_conducir"]);
+	foreach ($tiposRegistroConducir as $value) {
+    $sqlInsert = DB::PrepareSQL("INSERT INTO bolsa_empleo.registro_conducir_detalle_cvc(id_persona_pk, id_tipo_registro_conducir_cvc) VALUES (':1',':2')", $values["fk_persona_id"], $value);
+    DB::Exec($sqlInsert);
+	}
 
-    // Buffering to solve problems frameworks, like header() in this and not a solid return.
-    ob_start();
-
-    $output  = 'console.info(\'' . $context . ':\');';
-    $output .= 'console.log(' . json_encode($data) . ');';
-    $output  = sprintf('<script>%s</script>', $output);
-
-    echo $output;
-}
-
-
-
-
-$strSQLExistsic = "SELECT * FROM bolsa_empleo.cvc_movilidad WHERE fk_persona_id='".pg_escape_string($_SESSION["persona_id"])."'";
-										$rsExistsic = db_query($strSQLExistsic,$conn);
-										$dataic=db_fetch_array($rsExistsic);
-
-										if(!$dataic)
-										{
-
-
-										$sql2 = DB::PrepareSQL("INSERT INTO bolsa_empleo.cvc_movilidad(fk_persona_id) values (':1'))",$_SESSION["persona_id"]);
-
-										debug_to_console($sql2);
-										DB::Exec($sql2);
-
-
-
-										}
+	return true;
 ;		
-} // function BeforeProcessEdit
+} // function BeforeAdd
 
 		
 		
@@ -239,6 +162,76 @@ $strSQLExistsic = "SELECT * FROM bolsa_empleo.cvc_movilidad WHERE fk_persona_id=
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				// After record deleted
+function AfterDelete($where, &$deleted_values, &$message, $pageObject)
+{
+
+			//borrar movilidad_detalle_cvc
+	$sqlDelete = DB::PrepareSQL("DELETE FROM bolsa_empleo.movilidad_detalle_cvc WHERE id_persona_pk = ':1'", $deleted_values["fk_persona_id"]);
+	DB::Exec($sqlDelete);
+
+	//borrar registro_conducir_detalle_cvc
+	$sqlDelete = DB::PrepareSQL("DELETE FROM bolsa_empleo.registro_conducir_detalle_cvc WHERE id_persona_pk = ':1'", $deleted_values["fk_persona_id"]);
+	DB::Exec($sqlDelete);
+;		
+} // function AfterDelete
+
 		
 		
 		

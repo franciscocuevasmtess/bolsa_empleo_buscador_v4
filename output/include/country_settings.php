@@ -167,7 +167,7 @@ $tdatacountry[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																					
+																																																																																																															
 
 $tdatacountry[".ajaxCodeSnippetAdded"] = false;
 
@@ -2394,6 +2394,36 @@ changeTextControlsToDate( "eportal.country" );
 //if !@TABLE.bReportCrossTab
 
 $detailsTablesData["eportal.country"] = array();
+//	personas-pasos
+	
+	
+
+		$dIndex = 0;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="personas-pasos";
+		$detailsParam["dOriginalTable"] = "eportal.persons";
+
+
+
+		
+		$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "personas_pasos";
+	$detailsParam["dCaptionTable"] = GetTableCaption("personas_pasos");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["eportal.country"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["eportal.country"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["eportal.country"][$dIndex]["masterKeys"][]="code";
+
+				$detailsTablesData["eportal.country"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["eportal.country"][$dIndex]["detailKeys"][]="nacionalidad";
 //endif
 
 // tables which are master tables for current table (detail)

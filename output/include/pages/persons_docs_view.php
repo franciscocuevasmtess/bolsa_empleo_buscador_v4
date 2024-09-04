@@ -1,6 +1,7 @@
 <?php
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
-'master' => array( 'eportal.persons' => array( 'preview' => false ) ),
+'master' => array( 'eportal.persons' => array( 'preview' => false ),
+'personas-pasos' => array( 'preview' => false ) ),
 'fields' => array( 'gridFields' => array( 'id',
 'doctype_id',
 'person_id',

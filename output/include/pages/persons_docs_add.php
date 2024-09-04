@@ -1,5 +1,6 @@
 <?php
-			$optionsArray = array( 'master' => array( 'eportal.persons' => array( 'preview' => false ) ),
+			$optionsArray = array( 'master' => array( 'eportal.persons' => array( 'preview' => false ),
+'personas-pasos' => array( 'preview' => false ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'doctype_id',
 'person_id',

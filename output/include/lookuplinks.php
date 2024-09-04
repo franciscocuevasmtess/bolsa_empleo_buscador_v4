@@ -481,6 +481,20 @@ function InitLookupLinks()
 			$lookupTableLinks["bolsa_empleo.cvc_niveles_academicos1"]["vista_estudios_realizados_union_mec.fk_cvc_niveles_academicos"] = array();
 		}
 		$lookupTableLinks["bolsa_empleo.cvc_niveles_academicos1"]["vista_estudios_realizados_union_mec.fk_cvc_niveles_academicos"]["edit"] = array("table" => "bolsa_empleo.vista_estudios_realizados_union_mec", "field" => "fk_cvc_niveles_academicos", "page" => "edit");
+		if( !isset( $lookupTableLinks["bolsa_empleo.cvc_instituciones_educativas"] ) ) {
+			$lookupTableLinks["bolsa_empleo.cvc_instituciones_educativas"] = array();
+		}
+		if( !isset( $lookupTableLinks["bolsa_empleo.cvc_instituciones_educativas"]["vista_estudios_realizados_union_mec.institucion_eucativa"] )) {
+			$lookupTableLinks["bolsa_empleo.cvc_instituciones_educativas"]["vista_estudios_realizados_union_mec.institucion_eucativa"] = array();
+		}
+		$lookupTableLinks["bolsa_empleo.cvc_instituciones_educativas"]["vista_estudios_realizados_union_mec.institucion_eucativa"]["edit"] = array("table" => "bolsa_empleo.vista_estudios_realizados_union_mec", "field" => "institucion_eucativa", "page" => "edit");
+		if( !isset( $lookupTableLinks["bolsa_empleo.cvc_niveles_academicos"] ) ) {
+			$lookupTableLinks["bolsa_empleo.cvc_niveles_academicos"] = array();
+		}
+		if( !isset( $lookupTableLinks["bolsa_empleo.cvc_niveles_academicos"]["vista_estudios_realizados_union_mec.nivel_academico"] )) {
+			$lookupTableLinks["bolsa_empleo.cvc_niveles_academicos"]["vista_estudios_realizados_union_mec.nivel_academico"] = array();
+		}
+		$lookupTableLinks["bolsa_empleo.cvc_niveles_academicos"]["vista_estudios_realizados_union_mec.nivel_academico"]["edit"] = array("table" => "bolsa_empleo.vista_estudios_realizados_union_mec", "field" => "nivel_academico", "page" => "edit");
 		if( !isset( $lookupTableLinks["eportal.persons"] ) ) {
 			$lookupTableLinks["eportal.persons"] = array();
 		}
@@ -523,6 +537,83 @@ function InitLookupLinks()
 			$lookupTableLinks["bolsa_empleo.nivel_idioma"]["vacancia_requisito_idioma.id_nivel_idioma_lee"] = array();
 		}
 		$lookupTableLinks["bolsa_empleo.nivel_idioma"]["vacancia_requisito_idioma.id_nivel_idioma_lee"]["edit"] = array("table" => "bolsa_empleo.vacancia_requisito_idioma", "field" => "id_nivel_idioma_lee", "page" => "edit");
+		if( !isset( $lookupTableLinks["eportal.country"] ) ) {
+			$lookupTableLinks["eportal.country"] = array();
+		}
+		if( !isset( $lookupTableLinks["eportal.country"]["personas_pasos.nacionalidad"] )) {
+			$lookupTableLinks["eportal.country"]["personas_pasos.nacionalidad"] = array();
+		}
+		$lookupTableLinks["eportal.country"]["personas_pasos.nacionalidad"]["edit"] = array("table" => "personas-pasos", "field" => "nacionalidad", "page" => "edit");
+		if( !isset( $lookupTableLinks["bolsa_empleo.bolsa_sexo"] ) ) {
+			$lookupTableLinks["bolsa_empleo.bolsa_sexo"] = array();
+		}
+		if( !isset( $lookupTableLinks["bolsa_empleo.bolsa_sexo"]["personas_pasos.sexo"] )) {
+			$lookupTableLinks["bolsa_empleo.bolsa_sexo"]["personas_pasos.sexo"] = array();
+		}
+		$lookupTableLinks["bolsa_empleo.bolsa_sexo"]["personas_pasos.sexo"]["edit"] = array("table" => "personas-pasos", "field" => "sexo", "page" => "edit");
+		if( !isset( $lookupTableLinks["eportal.persons_estado_civil_type"] ) ) {
+			$lookupTableLinks["eportal.persons_estado_civil_type"] = array();
+		}
+		if( !isset( $lookupTableLinks["eportal.persons_estado_civil_type"]["personas_pasos.estado_civil"] )) {
+			$lookupTableLinks["eportal.persons_estado_civil_type"]["personas_pasos.estado_civil"] = array();
+		}
+		$lookupTableLinks["eportal.persons_estado_civil_type"]["personas_pasos.estado_civil"]["edit"] = array("table" => "personas-pasos", "field" => "estado_civil", "page" => "edit");
+		if( !isset( $lookupTableLinks["eportal.city"] ) ) {
+			$lookupTableLinks["eportal.city"] = array();
+		}
+		if( !isset( $lookupTableLinks["eportal.city"]["personas_pasos.city_id"] )) {
+			$lookupTableLinks["eportal.city"]["personas_pasos.city_id"] = array();
+		}
+		$lookupTableLinks["eportal.city"]["personas_pasos.city_id"]["edit"] = array("table" => "personas-pasos", "field" => "city_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["eportal.distritos"] ) ) {
+			$lookupTableLinks["eportal.distritos"] = array();
+		}
+		if( !isset( $lookupTableLinks["eportal.distritos"]["personas_pasos.distrito_id"] )) {
+			$lookupTableLinks["eportal.distritos"]["personas_pasos.distrito_id"] = array();
+		}
+		$lookupTableLinks["eportal.distritos"]["personas_pasos.distrito_id"]["edit"] = array("table" => "personas-pasos", "field" => "distrito_id", "page" => "edit");
+		if( !isset( $lookupTableLinks["eportal.persons_indigenas_types"] ) ) {
+			$lookupTableLinks["eportal.persons_indigenas_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["eportal.persons_indigenas_types"]["personas_pasos.esindigena"] )) {
+			$lookupTableLinks["eportal.persons_indigenas_types"]["personas_pasos.esindigena"] = array();
+		}
+		$lookupTableLinks["eportal.persons_indigenas_types"]["personas_pasos.esindigena"]["edit"] = array("table" => "personas-pasos", "field" => "esindigena", "page" => "edit");
+		if( !isset( $lookupTableLinks["eportal.persons_discap_types"] ) ) {
+			$lookupTableLinks["eportal.persons_discap_types"] = array();
+		}
+		if( !isset( $lookupTableLinks["eportal.persons_discap_types"]["personas_pasos.multiselect_discapacidades"] )) {
+			$lookupTableLinks["eportal.persons_discap_types"]["personas_pasos.multiselect_discapacidades"] = array();
+		}
+		$lookupTableLinks["eportal.persons_discap_types"]["personas_pasos.multiselect_discapacidades"]["edit"] = array("table" => "personas-pasos", "field" => "multiselect_discapacidades", "page" => "edit");
+		if( !isset( $lookupTableLinks["bolsa_empleo.tipo_movilidad"] ) ) {
+			$lookupTableLinks["bolsa_empleo.tipo_movilidad"] = array();
+		}
+		if( !isset( $lookupTableLinks["bolsa_empleo.tipo_movilidad"]["cvc_movilidad.cvc_id_movilidad"] )) {
+			$lookupTableLinks["bolsa_empleo.tipo_movilidad"]["cvc_movilidad.cvc_id_movilidad"] = array();
+		}
+		$lookupTableLinks["bolsa_empleo.tipo_movilidad"]["cvc_movilidad.cvc_id_movilidad"]["edit"] = array("table" => "bolsa_empleo.cvc_movilidad", "field" => "cvc_id_movilidad", "page" => "edit");
+		if( !isset( $lookupTableLinks["bolsa_empleo.tipo_registro_conducir"] ) ) {
+			$lookupTableLinks["bolsa_empleo.tipo_registro_conducir"] = array();
+		}
+		if( !isset( $lookupTableLinks["bolsa_empleo.tipo_registro_conducir"]["cvc_movilidad.ids_tipo_registro_conducir"] )) {
+			$lookupTableLinks["bolsa_empleo.tipo_registro_conducir"]["cvc_movilidad.ids_tipo_registro_conducir"] = array();
+		}
+		$lookupTableLinks["bolsa_empleo.tipo_registro_conducir"]["cvc_movilidad.ids_tipo_registro_conducir"]["edit"] = array("table" => "bolsa_empleo.cvc_movilidad", "field" => "ids_tipo_registro_conducir", "page" => "edit");
+		if( !isset( $lookupTableLinks["bolsa_empleo.tipo_movilidad"] ) ) {
+			$lookupTableLinks["bolsa_empleo.tipo_movilidad"] = array();
+		}
+		if( !isset( $lookupTableLinks["bolsa_empleo.tipo_movilidad"]["cvc_movilidad.tipo_movilidad"] )) {
+			$lookupTableLinks["bolsa_empleo.tipo_movilidad"]["cvc_movilidad.tipo_movilidad"] = array();
+		}
+		$lookupTableLinks["bolsa_empleo.tipo_movilidad"]["cvc_movilidad.tipo_movilidad"]["edit"] = array("table" => "bolsa_empleo.cvc_movilidad", "field" => "tipo_movilidad", "page" => "edit");
+		if( !isset( $lookupTableLinks["eportal.persons"] ) ) {
+			$lookupTableLinks["eportal.persons"] = array();
+		}
+		if( !isset( $lookupTableLinks["eportal.persons"]["cvc_movilidad.fk_persona_id"] )) {
+			$lookupTableLinks["eportal.persons"]["cvc_movilidad.fk_persona_id"] = array();
+		}
+		$lookupTableLinks["eportal.persons"]["cvc_movilidad.fk_persona_id"]["edit"] = array("table" => "bolsa_empleo.cvc_movilidad", "field" => "fk_persona_id", "page" => "edit");
 }
 
 ?>

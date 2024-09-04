@@ -137,7 +137,7 @@ $tdatapostulacion[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																																																																																															
+																																																																																																																																																																																																																																																																																																																																																																																																																																																												
 
 $tdatapostulacion[".ajaxCodeSnippetAdded"] = false;
 
@@ -1080,6 +1080,24 @@ $masterTablesData["bolsa_empleo.postulacion"] = array();
 	$masterTablesData["bolsa_empleo.postulacion"][1]["masterKeys"][]="id_vacancias";
 				$masterTablesData["bolsa_empleo.postulacion"][1]["detailKeys"] = array();
 	$masterTablesData["bolsa_empleo.postulacion"][1]["detailKeys"][]="id_vacancia";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="eportal.persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="personas-pasos";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "personas_pasos";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["bolsa_empleo.postulacion"][2] = $masterParams;
+				$masterTablesData["bolsa_empleo.postulacion"][2]["masterKeys"] = array();
+	$masterTablesData["bolsa_empleo.postulacion"][2]["masterKeys"][]="id";
+				$masterTablesData["bolsa_empleo.postulacion"][2]["detailKeys"] = array();
+	$masterTablesData["bolsa_empleo.postulacion"][2]["detailKeys"][]="fk_personaid";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//

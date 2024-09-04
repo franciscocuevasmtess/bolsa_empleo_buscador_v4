@@ -6,11 +6,11 @@ $tdatamejorar_empleabilidad[".OwnerID"] = "";
 $tdatamejorar_empleabilidad[".OriginalTable"] = "bolsa_empleo.mejorar_empleabilidad";
 
 
-$tdatamejorar_empleabilidad[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" );
+$tdatamejorar_empleabilidad[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" );
 $tdatamejorar_empleabilidad[".originalPagesByType"] = $tdatamejorar_empleabilidad[".pagesByType"];
-$tdatamejorar_empleabilidad[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdatamejorar_empleabilidad[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
 $tdatamejorar_empleabilidad[".originalPages"] = $tdatamejorar_empleabilidad[".pages"];
-$tdatamejorar_empleabilidad[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
+$tdatamejorar_empleabilidad[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
 $tdatamejorar_empleabilidad[".originalDefaultPages"] = $tdatamejorar_empleabilidad[".defaultPages"];
 
 //	field labels
@@ -28,9 +28,9 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelsmejorar_empleabilidad["Spanish"]["id_mejorar_empleabilidad"] = "Id Mejorar Empleabilidad";
 	$fieldToolTipsmejorar_empleabilidad["Spanish"]["id_mejorar_empleabilidad"] = "";
 	$placeHoldersmejorar_empleabilidad["Spanish"]["id_mejorar_empleabilidad"] = "";
-	$fieldLabelsmejorar_empleabilidad["Spanish"]["comentario_respuesta"] = " ¿En qué te gustaría capacitarte para mejorar tu empleabilidad?";
+	$fieldLabelsmejorar_empleabilidad["Spanish"]["comentario_respuesta"] = " ¿En qué te gustaría capacitarte para mejorar tu Empleabilidad?";
 	$fieldToolTipsmejorar_empleabilidad["Spanish"]["comentario_respuesta"] = "";
-	$placeHoldersmejorar_empleabilidad["Spanish"]["comentario_respuesta"] = "";
+	$placeHoldersmejorar_empleabilidad["Spanish"]["comentario_respuesta"] = "Ejemplo: Me gustaría capacitarme en cursos de informática y cursos de auxiliar administrativo.";
 	$fieldLabelsmejorar_empleabilidad["Spanish"]["fk_persona_id"] = "Fk Persona Id";
 	$fieldToolTipsmejorar_empleabilidad["Spanish"]["fk_persona_id"] = "";
 	$placeHoldersmejorar_empleabilidad["Spanish"]["fk_persona_id"] = "";
@@ -78,14 +78,14 @@ if( $pages[PAGE_EDIT] ) {
 	$tdatamejorar_empleabilidad[".edit"] = true;
 	$tdatamejorar_empleabilidad[".afterEditAction"] = 1;
 	$tdatamejorar_empleabilidad[".closePopupAfterEdit"] = 1;
-	$tdatamejorar_empleabilidad[".afterEditActionDetTable"] = "";
+	$tdatamejorar_empleabilidad[".afterEditActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_ADD] ) {
 $tdatamejorar_empleabilidad[".add"] = true;
 $tdatamejorar_empleabilidad[".afterAddAction"] = 1;
 $tdatamejorar_empleabilidad[".closePopupAfterAdd"] = 1;
-$tdatamejorar_empleabilidad[".afterAddActionDetTable"] = "";
+$tdatamejorar_empleabilidad[".afterAddActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_LIST] ) {
@@ -131,7 +131,7 @@ $tdatamejorar_empleabilidad[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																					
+																																																																																																																																																																																																																														
 
 $tdatamejorar_empleabilidad[".ajaxCodeSnippetAdded"] = false;
 
@@ -143,7 +143,7 @@ $tdatamejorar_empleabilidad[".addPageEvents"] = false;
 $tdatamejorar_empleabilidad[".isUseTimeForSearch"] = false;
 
 
-$tdatamejorar_empleabilidad[".badgeColor"] = "DAA520";
+$tdatamejorar_empleabilidad[".badgeColor"] = "cd853f";
 
 
 $tdatamejorar_empleabilidad[".allSearchFields"] = array();
@@ -711,6 +711,24 @@ $masterTablesData["bolsa_empleo.mejorar_empleabilidad"] = array();
 
 
 
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="eportal.persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="personas-pasos";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "personas_pasos";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["bolsa_empleo.mejorar_empleabilidad"][0] = $masterParams;
+				$masterTablesData["bolsa_empleo.mejorar_empleabilidad"][0]["masterKeys"] = array();
+	$masterTablesData["bolsa_empleo.mejorar_empleabilidad"][0]["masterKeys"][]="id";
+				$masterTablesData["bolsa_empleo.mejorar_empleabilidad"][0]["detailKeys"] = array();
+	$masterTablesData["bolsa_empleo.mejorar_empleabilidad"][0]["detailKeys"][]="fk_persona_id";
+		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 

@@ -218,7 +218,7 @@ $tdatavista_curriculum_cvc[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																					
+																																																																																																															
 
 $tdatavista_curriculum_cvc[".ajaxCodeSnippetAdded"] = false;
 

@@ -3,10 +3,29 @@
 	<head>
 				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{$pagetitle}</title>
+	<title>Emplea :: Buscador  - {$pagetitle}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="icon" src="images/imgob23/gob_ico.png" type="image/x-icon" sizes="32x32"> 
 	<base href="{$projectPath}">
-		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	 <link rel="stylesheet" href="images/icons_v4/font/bootstrap-icons.css">
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.mtess.gov.py/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '14']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     crossorigin=""/>
+ 		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
 	{BEGIN rtlCSS}
 	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
 	{END rtlCSS}
@@ -23,7 +42,7 @@
 		</style>
 		<div class="r-topbar-page">
 			<div data-menu-width="full" 
-				data-fixed 
+				 
 				class="r-topheader" 
 				data-resize-name="topbar"
 				data-body-align="left"
@@ -262,7 +281,7 @@
 	
 ">
 		 
-		<h2 data-itemtype="edit_header" data-itemid="edit_header" {$item_edit_header} data-pageid="{$pageid}" >{$pagetitlelabel bolsa_empleo_cvc_idiomas edit}</h2>
+		<h2 data-itemtype="edit_header" data-itemid="edit_header" {$item_edit_header} data-pageid="{$pageid}" data-page="cvc_idiomas_edit" >{$pagetitlelabel bolsa_empleo_cvc_idiomas edit}</h2>
 		</div>					</div>
 			</div>		
 {END top_block}
@@ -290,7 +309,7 @@
 			<button class="btn btn-sm btn-default" {$backbutton_attrs}>Volver a la lista</button>
 	{END message_back_button}
 {BEGIN message_view_page_button}
-		<a class="btn btn-sm btn-default" href="cvc_idiomas_view.php?{$editlink}" {$view_page_button_attrs}>Ver</a>
+		<a class="btn btn-sm btn-default" href="" {$view_page_button_attrs}>Ver</a>
 {END message_view_page_button}
 </div>
 </div>
@@ -403,28 +422,6 @@
 
 
 {END fk_id_idioma_escribe_fieldblock}
-											
-{BEGIN fk_personaid_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_fk_personaid}  r-vertical-field" 
-	data-signal-error-for="fk_personaid{$id}" {$required_attr_fk_personaid}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="fk_personaid" data-fieldname="fk_personaid" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_fk_personaid}">
-		{BEGIN fk_personaid_label}{$label bolsa_empleo_cvc_idiomas fk_personaid }{END fk_personaid_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$fk_personaid_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="fk_personaid" {$tooltipAttr bolsa_empleo_cvc_idiomas fk_personaid } >
-		<div class="text-muted" >
-		{$tooltip bolsa_empleo_cvc_idiomas fk_personaid }		</div>
-	</div>
-</div>
-
-
-{END fk_personaid_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}
@@ -487,14 +484,6 @@
 		Reiniciar		
 		</a>
 	</li>
-							{BEGIN view_page_button}
-	<li data-itemtype="edit_view" data-itemid="edit_view" {$item_edit_view} data-pageid="{$pageid}" data-small >
-				<a  href="cvc_idiomas_view.php?{$editlink}" {$view_page_button_attrs}  title="" >
-				
-		Ver		
-		</a>
-	</li>
-{END view_page_button}
 					</ul>
 	</span>
 </span>

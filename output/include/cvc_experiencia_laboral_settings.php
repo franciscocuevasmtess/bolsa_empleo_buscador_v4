@@ -32,31 +32,31 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldToolTipscvc_experiencia_laboral["Spanish"]["fk_persona_id"] = "";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["fk_persona_id"] = "";
 	$fieldLabelscvc_experiencia_laboral["Spanish"]["fk_categoria_id"] = "Categoria";
-	$fieldToolTipscvc_experiencia_laboral["Spanish"]["fk_categoria_id"] = "";
+	$fieldToolTipscvc_experiencia_laboral["Spanish"]["fk_categoria_id"] = "Seleccioná la categoria del empleo.";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["fk_categoria_id"] = "";
 	$fieldLabelscvc_experiencia_laboral["Spanish"]["empresa"] = "Empresa";
-	$fieldToolTipscvc_experiencia_laboral["Spanish"]["empresa"] = "";
+	$fieldToolTipscvc_experiencia_laboral["Spanish"]["empresa"] = "Empresa para la cual trabajaste.";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["empresa"] = "";
 	$fieldLabelscvc_experiencia_laboral["Spanish"]["fk_puesto_ocupacion"] = "Puesto";
-	$fieldToolTipscvc_experiencia_laboral["Spanish"]["fk_puesto_ocupacion"] = "";
+	$fieldToolTipscvc_experiencia_laboral["Spanish"]["fk_puesto_ocupacion"] = "Seleccioná el puesto que ocupabas.";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["fk_puesto_ocupacion"] = "";
 	$fieldLabelscvc_experiencia_laboral["Spanish"]["anhos_de_experiencia"] = "Años de Experiencia";
-	$fieldToolTipscvc_experiencia_laboral["Spanish"]["anhos_de_experiencia"] = "";
+	$fieldToolTipscvc_experiencia_laboral["Spanish"]["anhos_de_experiencia"] = "Campo completado automaticamente.";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["anhos_de_experiencia"] = "";
 	$fieldLabelscvc_experiencia_laboral["Spanish"]["descripcion_puesto"] = "Descripción Puesto";
-	$fieldToolTipscvc_experiencia_laboral["Spanish"]["descripcion_puesto"] = "";
+	$fieldToolTipscvc_experiencia_laboral["Spanish"]["descripcion_puesto"] = "Podés escribir cuales eran tus tareas y funciones principales, responsabilidades, que cargo tenias, qué es lo más importante que quieres que la gente sepa sobre tu trabajo.";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["descripcion_puesto"] = "";
-	$fieldLabelscvc_experiencia_laboral["Spanish"]["fecha_inicio"] = "Año Inicio";
-	$fieldToolTipscvc_experiencia_laboral["Spanish"]["fecha_inicio"] = "";
+	$fieldLabelscvc_experiencia_laboral["Spanish"]["fecha_inicio"] = "Año de Inicio";
+	$fieldToolTipscvc_experiencia_laboral["Spanish"]["fecha_inicio"] = "Ingresá el año de tu inicio laboral.";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["fecha_inicio"] = "";
-	$fieldLabelscvc_experiencia_laboral["Spanish"]["fecha_fin"] = "Año Fin";
-	$fieldToolTipscvc_experiencia_laboral["Spanish"]["fecha_fin"] = "";
+	$fieldLabelscvc_experiencia_laboral["Spanish"]["fecha_fin"] = "Año de Fin";
+	$fieldToolTipscvc_experiencia_laboral["Spanish"]["fecha_fin"] = "Ingresá el año de culminación laboral.";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["fecha_fin"] = "";
 	$fieldLabelscvc_experiencia_laboral["Spanish"]["fk_habilidades"] = "Habilidades";
-	$fieldToolTipscvc_experiencia_laboral["Spanish"]["fk_habilidades"] = "";
+	$fieldToolTipscvc_experiencia_laboral["Spanish"]["fk_habilidades"] = "Tu Habilidad relevante, tus Competencias técnicas y blandas desarrolladas.";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["fk_habilidades"] = "";
 	$fieldLabelscvc_experiencia_laboral["Spanish"]["meses_de_experiencia"] = "Meses de Experiencia";
-	$fieldToolTipscvc_experiencia_laboral["Spanish"]["meses_de_experiencia"] = "";
+	$fieldToolTipscvc_experiencia_laboral["Spanish"]["meses_de_experiencia"] = "Ingresá los meses trabajados.";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["meses_de_experiencia"] = "";
 	$fieldLabelscvc_experiencia_laboral["Spanish"]["periodo"] = "Período";
 	$fieldToolTipscvc_experiencia_laboral["Spanish"]["periodo"] = "";
@@ -64,14 +64,12 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelscvc_experiencia_laboral["Spanish"]["anhos_de_experiencia_completa"] = "Experiencia";
 	$fieldToolTipscvc_experiencia_laboral["Spanish"]["anhos_de_experiencia_completa"] = "";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["anhos_de_experiencia_completa"] = "";
-	$fieldLabelscvc_experiencia_laboral["Spanish"]["ocupacion_descripcion"] = "Puesto";
-	$fieldToolTipscvc_experiencia_laboral["Spanish"]["ocupacion_descripcion"] = "";
-	$placeHolderscvc_experiencia_laboral["Spanish"]["ocupacion_descripcion"] = "";
 	$fieldLabelscvc_experiencia_laboral["Spanish"]["proveedor"] = "Proveedor";
 	$fieldToolTipscvc_experiencia_laboral["Spanish"]["proveedor"] = "";
 	$placeHolderscvc_experiencia_laboral["Spanish"]["proveedor"] = "";
 	$pageTitlescvc_experiencia_laboral["Spanish"]["add"] = "Experiencia Laboral, Añadir nuevo";
 	$pageTitlescvc_experiencia_laboral["Spanish"]["edit"] = "Experiencia Laboral, Editar";
+	$pageTitlescvc_experiencia_laboral["Spanish"]["list"] = "Experiencia Laboral";
 	if (count($fieldToolTipscvc_experiencia_laboral["Spanish"]))
 		$tdatacvc_experiencia_laboral[".isUseToolTips"] = true;
 }
@@ -169,7 +167,7 @@ $tdatacvc_experiencia_laboral[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																																																																																																																																																																				
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											
 
 $tdatacvc_experiencia_laboral[".ajaxCodeSnippetAdded"] = false;
 
@@ -202,7 +200,6 @@ $tdatacvc_experiencia_laboral[".googleLikeFields"][] = "fk_habilidades";
 $tdatacvc_experiencia_laboral[".googleLikeFields"][] = "meses_de_experiencia";
 $tdatacvc_experiencia_laboral[".googleLikeFields"][] = "periodo";
 $tdatacvc_experiencia_laboral[".googleLikeFields"][] = "anhos_de_experiencia_completa";
-$tdatacvc_experiencia_laboral[".googleLikeFields"][] = "ocupacion_descripcion";
 $tdatacvc_experiencia_laboral[".googleLikeFields"][] = "proveedor";
 
 
@@ -235,13 +232,13 @@ $tstrOrderBy = "ORDER BY bolsa_empleo.cvc_experiencia_laboral.proveedor DESC, bo
 $tdatacvc_experiencia_laboral[".strOrderBy"] = $tstrOrderBy;
 
 $tdatacvc_experiencia_laboral[".orderindexes"] = array();
-			$tdatacvc_experiencia_laboral[".orderindexes"][] = array(15, (0 ? "ASC" : "DESC"), "bolsa_empleo.cvc_experiencia_laboral.proveedor");
+			$tdatacvc_experiencia_laboral[".orderindexes"][] = array(14, (0 ? "ASC" : "DESC"), "bolsa_empleo.cvc_experiencia_laboral.proveedor");
 			$tdatacvc_experiencia_laboral[".orderindexes"][] = array(1, (0 ? "ASC" : "DESC"), "bolsa_empleo.cvc_experiencia_laboral.cvc_id_experiencia_laboral");
 
 
-$tdatacvc_experiencia_laboral[".sqlHead"] = "SELECT bolsa_empleo.cvc_experiencia_laboral.cvc_id_experiencia_laboral,  bolsa_empleo.cvc_experiencia_laboral.fk_persona_id,  bolsa_empleo.cvc_experiencia_laboral.fk_categoria_id,  bolsa_empleo.cvc_experiencia_laboral.empresa,  bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion,  bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia,  bolsa_empleo.cvc_experiencia_laboral.descripcion_puesto,  bolsa_empleo.cvc_experiencia_laboral.fecha_inicio,  bolsa_empleo.cvc_experiencia_laboral.fecha_fin,  bolsa_empleo.cvc_experiencia_laboral.fk_habilidades,  bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia,  concat(fecha_inicio, '-', fecha_fin) AS periodo,  CONCAT(anhos_de_experiencia, ' años y ', meses_de_experiencia, ' meses') AS anhos_de_experiencia_completa,  bolsa_empleo.vista_ocupaciones.descripcion AS ocupacion_descripcion,  bolsa_empleo.cvc_experiencia_laboral.proveedor";
-$tdatacvc_experiencia_laboral[".sqlFrom"] = "FROM bolsa_empleo.cvc_experiencia_laboral  LEFT OUTER JOIN bolsa_empleo.vista_ocupaciones ON bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion = bolsa_empleo.vista_ocupaciones.id_ocu_puest_clasi";
-$tdatacvc_experiencia_laboral[".sqlWhereExpr"] = "bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia >= 0      AND bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia >= 0";
+$tdatacvc_experiencia_laboral[".sqlHead"] = "SELECT bolsa_empleo.cvc_experiencia_laboral.cvc_id_experiencia_laboral,  bolsa_empleo.cvc_experiencia_laboral.fk_persona_id,  bolsa_empleo.cvc_experiencia_laboral.fk_categoria_id,  bolsa_empleo.cvc_experiencia_laboral.empresa,  bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion,  bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia,  bolsa_empleo.cvc_experiencia_laboral.descripcion_puesto,  bolsa_empleo.cvc_experiencia_laboral.fecha_inicio,  bolsa_empleo.cvc_experiencia_laboral.fecha_fin,  bolsa_empleo.cvc_experiencia_laboral.fk_habilidades,  bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia,  concat(fecha_inicio, '-', fecha_fin) AS periodo,  CONCAT(anhos_de_experiencia, ' años y ', meses_de_experiencia, ' meses') AS anhos_de_experiencia_completa,  bolsa_empleo.cvc_experiencia_laboral.proveedor";
+$tdatacvc_experiencia_laboral[".sqlFrom"] = "FROM bolsa_empleo.cvc_experiencia_laboral  INNER JOIN bolsa_empleo.ocupaciones_nuevas ON bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion = bolsa_empleo.ocupaciones_nuevas.id_ocu_puest_clasic";
+$tdatacvc_experiencia_laboral[".sqlWhereExpr"] = "(bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia >= 0) AND (bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia >= 0)";
 $tdatacvc_experiencia_laboral[".sqlTail"] = "";
 
 
@@ -2149,147 +2146,10 @@ $tdatacvc_experiencia_laboral[".hideMobileList"] = array();
 
 	$tdatacvc_experiencia_laboral["anhos_de_experiencia_completa"] = $fdata;
 		$tdatacvc_experiencia_laboral[".searchableFields"][] = "anhos_de_experiencia_completa";
-//	ocupacion_descripcion
-//	Custom field settings
-	$fdata = array();
-	$fdata["Index"] = 14;
-	$fdata["strName"] = "ocupacion_descripcion";
-	$fdata["GoodName"] = "ocupacion_descripcion";
-	$fdata["ownerTable"] = "bolsa_empleo.vista_ocupaciones";
-	$fdata["Label"] = GetFieldLabel("bolsa_empleo_cvc_experiencia_laboral","ocupacion_descripcion");
-	$fdata["FieldType"] = 200;
-
-
-	
-	
-			
-
-		$fdata["strField"] = "descripcion";
-
-	
-	
-		$fdata["isSQLExpression"] = true;
-	$fdata["FullName"] = "bolsa_empleo.vista_ocupaciones.descripcion";
-
-	
-	
-				$fdata["UploadFolder"] = "files";
-
-//  Begin View Formats
-	$fdata["ViewFormats"] = array();
-
-	$vdata = array("ViewFormat" => "");
-
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-		$vdata["NeedEncode"] = true;
-
-	
-		$vdata["truncateText"] = true;
-	$vdata["NumberOfChars"] = 80;
-
-	$fdata["ViewFormats"]["view"] = $vdata;
-//  End View Formats
-
-//	Begin Edit Formats
-	$fdata["EditFormats"] = array();
-
-	$edata = array("EditFormat" => "Text field");
-
-	
-		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
-	$edata["weekdays"] = "[]";
-
-
-	
-	
-
-
-
-	
-	
-	
-	
-			$edata["acceptFileTypesHtml"] = "";
-
-		$edata["maxNumberOfFiles"] = 1;
-
-	
-	
-	
-	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
-		$edata["controlWidth"] = 200;
-
-//	Begin validation
-	$edata["validateAs"] = array();
-	$edata["validateAs"]["basicValidate"] = array();
-	$edata["validateAs"]["customMessages"] = array();
-	
-	
-//	End validation
-
-	
-			
-	
-	
-	
-	$fdata["EditFormats"]["edit"] = $edata;
-//	End Edit Formats
-
-
-	$fdata["isSeparate"] = false;
-
-
-
-
-// the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
-
-			// the default search options list
-				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
-// the end of search options settings
-
-
-//Filters settings
-	$fdata["filterTotals"] = 0;
-		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
-		$fdata["showCollapsed"] = false;
-
-		$fdata["sortValueType"] = 0;
-		$fdata["numberOfVisibleItems"] = 10;
-
-		$fdata["filterBy"] = 0;
-
-	
-
-	
-	
-//end of Filters settings
-
-
-	$tdatacvc_experiencia_laboral["ocupacion_descripcion"] = $fdata;
-		$tdatacvc_experiencia_laboral[".searchableFields"][] = "ocupacion_descripcion";
 //	proveedor
 //	Custom field settings
 	$fdata = array();
-	$fdata["Index"] = 15;
+	$fdata["Index"] = 14;
 	$fdata["strName"] = "proveedor";
 	$fdata["GoodName"] = "proveedor";
 	$fdata["ownerTable"] = "bolsa_empleo.cvc_experiencia_laboral";
@@ -2653,6 +2513,24 @@ $masterTablesData["bolsa_empleo.cvc_experiencia_laboral"] = array();
 	$masterTablesData["bolsa_empleo.cvc_experiencia_laboral"][2]["detailKeys"][]="fk_habilidades";
 		
 	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="eportal.persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="personas-pasos";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "personas_pasos";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["bolsa_empleo.cvc_experiencia_laboral"][3] = $masterParams;
+				$masterTablesData["bolsa_empleo.cvc_experiencia_laboral"][3]["masterKeys"] = array();
+	$masterTablesData["bolsa_empleo.cvc_experiencia_laboral"][3]["masterKeys"][]="id";
+				$masterTablesData["bolsa_empleo.cvc_experiencia_laboral"][3]["detailKeys"] = array();
+	$masterTablesData["bolsa_empleo.cvc_experiencia_laboral"][3]["detailKeys"][]="fk_persona_id";
+		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -2673,18 +2551,18 @@ function createSqlQuery_cvc_experiencia_laboral()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "bolsa_empleo.cvc_experiencia_laboral.cvc_id_experiencia_laboral,  bolsa_empleo.cvc_experiencia_laboral.fk_persona_id,  bolsa_empleo.cvc_experiencia_laboral.fk_categoria_id,  bolsa_empleo.cvc_experiencia_laboral.empresa,  bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion,  bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia,  bolsa_empleo.cvc_experiencia_laboral.descripcion_puesto,  bolsa_empleo.cvc_experiencia_laboral.fecha_inicio,  bolsa_empleo.cvc_experiencia_laboral.fecha_fin,  bolsa_empleo.cvc_experiencia_laboral.fk_habilidades,  bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia,  concat(fecha_inicio, '-', fecha_fin) AS periodo,  CONCAT(anhos_de_experiencia, ' años y ', meses_de_experiencia, ' meses') AS anhos_de_experiencia_completa,  bolsa_empleo.vista_ocupaciones.descripcion AS ocupacion_descripcion,  bolsa_empleo.cvc_experiencia_laboral.proveedor";
-$proto0["m_strFrom"] = "FROM bolsa_empleo.cvc_experiencia_laboral  LEFT OUTER JOIN bolsa_empleo.vista_ocupaciones ON bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion = bolsa_empleo.vista_ocupaciones.id_ocu_puest_clasi";
-$proto0["m_strWhere"] = "bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia >= 0      AND bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia >= 0";
+$proto0["m_strFieldList"] = "bolsa_empleo.cvc_experiencia_laboral.cvc_id_experiencia_laboral,  bolsa_empleo.cvc_experiencia_laboral.fk_persona_id,  bolsa_empleo.cvc_experiencia_laboral.fk_categoria_id,  bolsa_empleo.cvc_experiencia_laboral.empresa,  bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion,  bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia,  bolsa_empleo.cvc_experiencia_laboral.descripcion_puesto,  bolsa_empleo.cvc_experiencia_laboral.fecha_inicio,  bolsa_empleo.cvc_experiencia_laboral.fecha_fin,  bolsa_empleo.cvc_experiencia_laboral.fk_habilidades,  bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia,  concat(fecha_inicio, '-', fecha_fin) AS periodo,  CONCAT(anhos_de_experiencia, ' años y ', meses_de_experiencia, ' meses') AS anhos_de_experiencia_completa,  bolsa_empleo.cvc_experiencia_laboral.proveedor";
+$proto0["m_strFrom"] = "FROM bolsa_empleo.cvc_experiencia_laboral  INNER JOIN bolsa_empleo.ocupaciones_nuevas ON bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion = bolsa_empleo.ocupaciones_nuevas.id_ocu_puest_clasic";
+$proto0["m_strWhere"] = "(bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia >= 0) AND (bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia >= 0)";
 $proto0["m_strOrderBy"] = "ORDER BY bolsa_empleo.cvc_experiencia_laboral.proveedor DESC, bolsa_empleo.cvc_experiencia_laboral.cvc_id_experiencia_laboral DESC";
 	
 		;
 			$proto0["cipherer"] = null;
 $proto2=array();
-$proto2["m_sql"] = "bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia >= 0      AND bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia >= 0";
+$proto2["m_sql"] = "(bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia >= 0) AND (bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia >= 0)";
 $proto2["m_uniontype"] = "SQLL_AND";
 	$obj = new SQLNonParsed(array(
-	"m_sql" => "bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia >= 0      AND bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia >= 0"
+	"m_sql" => "(bolsa_empleo.cvc_experiencia_laboral.anhos_de_experiencia >= 0) AND (bolsa_empleo.cvc_experiencia_laboral.meses_de_experiencia >= 0)"
 ));
 
 $proto2["m_column"]=$obj;
@@ -2702,7 +2580,7 @@ $proto4["m_column"]=$obj;
 $proto4["m_contained"] = array();
 $proto4["m_strCase"] = ">= 0";
 $proto4["m_havingmode"] = false;
-$proto4["m_inBrackets"] = false;
+$proto4["m_inBrackets"] = true;
 $proto4["m_useAlias"] = false;
 $obj = new SQLLogicalExpr($proto4);
 
@@ -2720,7 +2598,7 @@ $proto6["m_column"]=$obj;
 $proto6["m_contained"] = array();
 $proto6["m_strCase"] = ">= 0";
 $proto6["m_havingmode"] = false;
-$proto6["m_inBrackets"] = false;
+$proto6["m_inBrackets"] = true;
 $proto6["m_useAlias"] = false;
 $obj = new SQLLogicalExpr($proto6);
 
@@ -2968,118 +2846,118 @@ $obj = new SQLFieldListItem($proto37);
 $proto0["m_fieldlist"][]=$obj;
 						$proto43=array();
 			$obj = new SQLField(array(
-	"m_strName" => "descripcion",
-	"m_strTable" => "bolsa_empleo.vista_ocupaciones",
-	"m_srcTableName" => "bolsa_empleo.cvc_experiencia_laboral"
-));
-
-$proto43["m_sql"] = "bolsa_empleo.vista_ocupaciones.descripcion";
-$proto43["m_srcTableName"] = "bolsa_empleo.cvc_experiencia_laboral";
-$proto43["m_expr"]=$obj;
-$proto43["m_alias"] = "ocupacion_descripcion";
-$obj = new SQLFieldListItem($proto43);
-
-$proto0["m_fieldlist"][]=$obj;
-						$proto45=array();
-			$obj = new SQLField(array(
 	"m_strName" => "proveedor",
 	"m_strTable" => "bolsa_empleo.cvc_experiencia_laboral",
 	"m_srcTableName" => "bolsa_empleo.cvc_experiencia_laboral"
 ));
 
-$proto45["m_sql"] = "bolsa_empleo.cvc_experiencia_laboral.proveedor";
-$proto45["m_srcTableName"] = "bolsa_empleo.cvc_experiencia_laboral";
-$proto45["m_expr"]=$obj;
-$proto45["m_alias"] = "";
-$obj = new SQLFieldListItem($proto45);
+$proto43["m_sql"] = "bolsa_empleo.cvc_experiencia_laboral.proveedor";
+$proto43["m_srcTableName"] = "bolsa_empleo.cvc_experiencia_laboral";
+$proto43["m_expr"]=$obj;
+$proto43["m_alias"] = "";
+$obj = new SQLFieldListItem($proto43);
 
 $proto0["m_fieldlist"][]=$obj;
 $proto0["m_fromlist"] = array();
-												$proto47=array();
-$proto47["m_link"] = "SQLL_MAIN";
-			$proto48=array();
-$proto48["m_strName"] = "bolsa_empleo.cvc_experiencia_laboral";
-$proto48["m_srcTableName"] = "bolsa_empleo.cvc_experiencia_laboral";
-$proto48["m_columns"] = array();
-$proto48["m_columns"][] = "cvc_id_experiencia_laboral";
-$proto48["m_columns"][] = "fk_persona_id";
-$proto48["m_columns"][] = "fk_categoria_id";
-$proto48["m_columns"][] = "empresa";
-$proto48["m_columns"][] = "fk_puesto_ocupacion";
-$proto48["m_columns"][] = "anhos_de_experiencia";
-$proto48["m_columns"][] = "descripcion_puesto";
-$proto48["m_columns"][] = "fecha_inicio";
-$proto48["m_columns"][] = "fecha_fin";
-$proto48["m_columns"][] = "fk_habilidades";
-$proto48["m_columns"][] = "meses_de_experiencia";
-$proto48["m_columns"][] = "proveedor";
-$obj = new SQLTable($proto48);
+												$proto45=array();
+$proto45["m_link"] = "SQLL_MAIN";
+			$proto46=array();
+$proto46["m_strName"] = "bolsa_empleo.cvc_experiencia_laboral";
+$proto46["m_srcTableName"] = "bolsa_empleo.cvc_experiencia_laboral";
+$proto46["m_columns"] = array();
+$proto46["m_columns"][] = "cvc_id_experiencia_laboral";
+$proto46["m_columns"][] = "fk_persona_id";
+$proto46["m_columns"][] = "fk_categoria_id";
+$proto46["m_columns"][] = "empresa";
+$proto46["m_columns"][] = "fk_puesto_ocupacion";
+$proto46["m_columns"][] = "anhos_de_experiencia";
+$proto46["m_columns"][] = "descripcion_puesto";
+$proto46["m_columns"][] = "fecha_inicio";
+$proto46["m_columns"][] = "fecha_fin";
+$proto46["m_columns"][] = "fk_habilidades";
+$proto46["m_columns"][] = "meses_de_experiencia";
+$proto46["m_columns"][] = "proveedor";
+$obj = new SQLTable($proto46);
 
-$proto47["m_table"] = $obj;
-$proto47["m_sql"] = "bolsa_empleo.cvc_experiencia_laboral";
-$proto47["m_alias"] = "";
-$proto47["m_srcTableName"] = "bolsa_empleo.cvc_experiencia_laboral";
-$proto49=array();
-$proto49["m_sql"] = "";
-$proto49["m_uniontype"] = "SQLL_UNKNOWN";
+$proto45["m_table"] = $obj;
+$proto45["m_sql"] = "bolsa_empleo.cvc_experiencia_laboral";
+$proto45["m_alias"] = "";
+$proto45["m_srcTableName"] = "bolsa_empleo.cvc_experiencia_laboral";
+$proto47=array();
+$proto47["m_sql"] = "";
+$proto47["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto49["m_column"]=$obj;
-$proto49["m_contained"] = array();
-$proto49["m_strCase"] = "";
-$proto49["m_havingmode"] = false;
-$proto49["m_inBrackets"] = false;
-$proto49["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto49);
+$proto47["m_column"]=$obj;
+$proto47["m_contained"] = array();
+$proto47["m_strCase"] = "";
+$proto47["m_havingmode"] = false;
+$proto47["m_inBrackets"] = false;
+$proto47["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto47);
 
-$proto47["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto47);
+$proto45["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto45);
 
 $proto0["m_fromlist"][]=$obj;
-												$proto51=array();
-$proto51["m_link"] = "SQLL_LEFTJOIN";
-			$proto52=array();
-$proto52["m_strName"] = "bolsa_empleo.vista_ocupaciones";
-$proto52["m_srcTableName"] = "bolsa_empleo.cvc_experiencia_laboral";
-$proto52["m_columns"] = array();
-$proto52["m_columns"][] = "id_ocu_puest_clasi";
-$proto52["m_columns"][] = "descripcion";
-$proto52["m_columns"][] = "codigo";
-$proto52["m_columns"][] = "color";
-$obj = new SQLTable($proto52);
+												$proto49=array();
+$proto49["m_link"] = "SQLL_INNERJOIN";
+			$proto50=array();
+$proto50["m_strName"] = "bolsa_empleo.ocupaciones_nuevas";
+$proto50["m_srcTableName"] = "bolsa_empleo.cvc_experiencia_laboral";
+$proto50["m_columns"] = array();
+$proto50["m_columns"][] = "id_ocu_puest_clasic";
+$proto50["m_columns"][] = "descripcion";
+$proto50["m_columns"][] = "codigo";
+$proto50["m_columns"][] = "color";
+$proto50["m_columns"][] = "tipo_registro";
+$obj = new SQLTable($proto50);
 
-$proto51["m_table"] = $obj;
-$proto51["m_sql"] = "LEFT OUTER JOIN bolsa_empleo.vista_ocupaciones ON bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion = bolsa_empleo.vista_ocupaciones.id_ocu_puest_clasi";
-$proto51["m_alias"] = "";
-$proto51["m_srcTableName"] = "bolsa_empleo.cvc_experiencia_laboral";
-$proto53=array();
-$proto53["m_sql"] = "bolsa_empleo.vista_ocupaciones.id_ocu_puest_clasi = bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion";
-$proto53["m_uniontype"] = "SQLL_UNKNOWN";
+$proto49["m_table"] = $obj;
+$proto49["m_sql"] = "INNER JOIN bolsa_empleo.ocupaciones_nuevas ON bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion = bolsa_empleo.ocupaciones_nuevas.id_ocu_puest_clasic";
+$proto49["m_alias"] = "";
+$proto49["m_srcTableName"] = "bolsa_empleo.cvc_experiencia_laboral";
+$proto51=array();
+$proto51["m_sql"] = "bolsa_empleo.ocupaciones_nuevas.id_ocu_puest_clasic = bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion";
+$proto51["m_uniontype"] = "SQLL_UNKNOWN";
 						$obj = new SQLField(array(
-	"m_strName" => "id_ocu_puest_clasi",
-	"m_strTable" => "bolsa_empleo.vista_ocupaciones",
+	"m_strName" => "id_ocu_puest_clasic",
+	"m_strTable" => "bolsa_empleo.ocupaciones_nuevas",
 	"m_srcTableName" => "bolsa_empleo.cvc_experiencia_laboral"
 ));
 
-$proto53["m_column"]=$obj;
-$proto53["m_contained"] = array();
-$proto53["m_strCase"] = "= bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion";
-$proto53["m_havingmode"] = false;
-$proto53["m_inBrackets"] = false;
-$proto53["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto53);
+$proto51["m_column"]=$obj;
+$proto51["m_contained"] = array();
+$proto51["m_strCase"] = "= bolsa_empleo.cvc_experiencia_laboral.fk_puesto_ocupacion";
+$proto51["m_havingmode"] = false;
+$proto51["m_inBrackets"] = false;
+$proto51["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto51);
 
-$proto51["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto51);
+$proto49["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto49);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
 $proto0["m_orderby"] = array();
-												$proto55=array();
+												$proto53=array();
 						$obj = new SQLField(array(
 	"m_strName" => "proveedor",
+	"m_strTable" => "bolsa_empleo.cvc_experiencia_laboral",
+	"m_srcTableName" => "bolsa_empleo.cvc_experiencia_laboral"
+));
+
+$proto53["m_column"]=$obj;
+$proto53["m_bAsc"] = 0;
+$proto53["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto53);
+
+$proto0["m_orderby"][]=$obj;					
+												$proto55=array();
+						$obj = new SQLField(array(
+	"m_strName" => "cvc_id_experiencia_laboral",
 	"m_strTable" => "bolsa_empleo.cvc_experiencia_laboral",
 	"m_srcTableName" => "bolsa_empleo.cvc_experiencia_laboral"
 ));
@@ -3088,19 +2966,6 @@ $proto55["m_column"]=$obj;
 $proto55["m_bAsc"] = 0;
 $proto55["m_nColumn"] = 0;
 $obj = new SQLOrderByItem($proto55);
-
-$proto0["m_orderby"][]=$obj;					
-												$proto57=array();
-						$obj = new SQLField(array(
-	"m_strName" => "cvc_id_experiencia_laboral",
-	"m_strTable" => "bolsa_empleo.cvc_experiencia_laboral",
-	"m_srcTableName" => "bolsa_empleo.cvc_experiencia_laboral"
-));
-
-$proto57["m_column"]=$obj;
-$proto57["m_bAsc"] = 0;
-$proto57["m_nColumn"] = 0;
-$obj = new SQLOrderByItem($proto57);
 
 $proto0["m_orderby"][]=$obj;					
 $proto0["m_srcTableName"]="bolsa_empleo.cvc_experiencia_laboral";		
@@ -3114,7 +2979,7 @@ $queryData_cvc_experiencia_laboral = createSqlQuery_cvc_experiencia_laboral();
 	
 		;
 
-															
+														
 
 $tdatacvc_experiencia_laboral[".sqlquery"] = $queryData_cvc_experiencia_laboral;
 

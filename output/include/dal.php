@@ -47,6 +47,7 @@ function DBLookup($sql)
   */
 class tDAL
 {
+	var $tbleportal_at_192_168_70_170_bolsa_empleo_bolsa_sexo;
 	var $tbleportal_at_192_168_70_170_bolsa_empleo_bolsa_users;
 	var $tbleportal_at_192_168_70_170_bolsa_empleo_buscador_audit_audit;
 	var $tbleportal_at_192_168_70_170_bolsa_empleo_cvc_categoria_experiencia;
@@ -88,7 +89,6 @@ class tDAL
 	var $tbleportal_at_192_168_70_170_bolsa_empleo_vista_curriculum_cvc;
 	var $tbleportal_at_192_168_70_170_bolsa_empleo_vista_estudios_realizados_union_mec;
 	var $tbleportal_at_192_168_70_170_bolsa_empleo_vista_movilidad_persona;
-	var $tbleportal_at_192_168_70_170_bolsa_empleo_vista_ocupaciones;
 	var $tbleportal_at_192_168_70_170_eportal_city;
 	var $tbleportal_at_192_168_70_170_eportal_country;
 	var $tbleportal_at_192_168_70_170_eportal_distritos;
@@ -110,6 +110,7 @@ class tDAL
 	{
 		if($this->lstTables)
 			return;
+		$this->lstTables[] = array("name" => "bolsa_sexo", "varname" => "eportal_at_192_168_70_170_bolsa_empleo_bolsa_sexo", "altvarname" => "bolsa_sexo", "connId" => "eportal_at_192_168_70_170", "schema" => "bolsa_empleo", "connName" => "eportal at 192.168.70.170");
 		$this->lstTables[] = array("name" => "bolsa_users", "varname" => "eportal_at_192_168_70_170_bolsa_empleo_bolsa_users", "altvarname" => "bolsa_users", "connId" => "eportal_at_192_168_70_170", "schema" => "bolsa_empleo", "connName" => "eportal at 192.168.70.170");
 		$this->lstTables[] = array("name" => "buscador_audit_audit", "varname" => "eportal_at_192_168_70_170_bolsa_empleo_buscador_audit_audit", "altvarname" => "buscador_audit_audit", "connId" => "eportal_at_192_168_70_170", "schema" => "bolsa_empleo", "connName" => "eportal at 192.168.70.170");
 		$this->lstTables[] = array("name" => "cvc_categoria_experiencia", "varname" => "eportal_at_192_168_70_170_bolsa_empleo_cvc_categoria_experiencia", "altvarname" => "cvc_categoria_experiencia", "connId" => "eportal_at_192_168_70_170", "schema" => "bolsa_empleo", "connName" => "eportal at 192.168.70.170");
@@ -151,7 +152,6 @@ class tDAL
 		$this->lstTables[] = array("name" => "vista_curriculum_cvc", "varname" => "eportal_at_192_168_70_170_bolsa_empleo_vista_curriculum_cvc", "altvarname" => "vista_curriculum_cvc", "connId" => "eportal_at_192_168_70_170", "schema" => "bolsa_empleo", "connName" => "eportal at 192.168.70.170");
 		$this->lstTables[] = array("name" => "vista_estudios_realizados_union_mec", "varname" => "eportal_at_192_168_70_170_bolsa_empleo_vista_estudios_realizados_union_mec", "altvarname" => "vista_estudios_realizados_union_mec", "connId" => "eportal_at_192_168_70_170", "schema" => "bolsa_empleo", "connName" => "eportal at 192.168.70.170");
 		$this->lstTables[] = array("name" => "vista_movilidad_persona", "varname" => "eportal_at_192_168_70_170_bolsa_empleo_vista_movilidad_persona", "altvarname" => "vista_movilidad_persona", "connId" => "eportal_at_192_168_70_170", "schema" => "bolsa_empleo", "connName" => "eportal at 192.168.70.170");
-		$this->lstTables[] = array("name" => "vista_ocupaciones", "varname" => "eportal_at_192_168_70_170_bolsa_empleo_vista_ocupaciones", "altvarname" => "vista_ocupaciones", "connId" => "eportal_at_192_168_70_170", "schema" => "bolsa_empleo", "connName" => "eportal at 192.168.70.170");
 		$this->lstTables[] = array("name" => "city", "varname" => "eportal_at_192_168_70_170_eportal_city", "altvarname" => "city", "connId" => "eportal_at_192_168_70_170", "schema" => "eportal", "connName" => "eportal at 192.168.70.170");
 		$this->lstTables[] = array("name" => "country", "varname" => "eportal_at_192_168_70_170_eportal_country", "altvarname" => "country", "connId" => "eportal_at_192_168_70_170", "schema" => "eportal", "connName" => "eportal at 192.168.70.170");
 		$this->lstTables[] = array("name" => "distritos", "varname" => "eportal_at_192_168_70_170_eportal_distritos", "altvarname" => "distritos", "connId" => "eportal_at_192_168_70_170", "schema" => "eportal", "connName" => "eportal at 192.168.70.170");

@@ -1,7 +1,8 @@
 <?php
 			$optionsArray = array( 'pdf' => array( 'pdfView' => false ),
 'master' => array( 'eportal.persons' => array( 'preview' => false ),
-'bolsa_empleo.vacancia' => array( 'preview' => false ) ),
+'bolsa_empleo.vacancia' => array( 'preview' => false ),
+'personas-pasos' => array( 'preview' => false ) ),
 'fields' => array( 'gridFields' => array( 'id_postulacion',
 'id_vacancia',
 'id_estado',

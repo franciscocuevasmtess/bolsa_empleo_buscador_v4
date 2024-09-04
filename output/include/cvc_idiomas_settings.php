@@ -6,11 +6,11 @@ $tdatacvc_idiomas[".OwnerID"] = "";
 $tdatacvc_idiomas[".OriginalTable"] = "bolsa_empleo.cvc_idiomas";
 
 
-$tdatacvc_idiomas[".pagesByType"] = my_json_decode( "{\"list\":[\"list\"],\"search\":[\"search\"]}" );
+$tdatacvc_idiomas[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" );
 $tdatacvc_idiomas[".originalPagesByType"] = $tdatacvc_idiomas[".pagesByType"];
-$tdatacvc_idiomas[".pages"] = types2pages( my_json_decode( "{\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdatacvc_idiomas[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdatacvc_idiomas[".originalPages"] = $tdatacvc_idiomas[".pages"];
-$tdatacvc_idiomas[".defaultPages"] = my_json_decode( "{\"list\":\"list\",\"search\":\"search\"}" );
+$tdatacvc_idiomas[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
 $tdatacvc_idiomas[".originalDefaultPages"] = $tdatacvc_idiomas[".defaultPages"];
 
 //	field labels
@@ -29,17 +29,20 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldToolTipscvc_idiomas["Spanish"]["id_cvc_idiomas"] = "";
 	$placeHolderscvc_idiomas["Spanish"]["id_cvc_idiomas"] = "";
 	$fieldLabelscvc_idiomas["Spanish"]["fk_id_idioma"] = "Idioma";
-	$fieldToolTipscvc_idiomas["Spanish"]["fk_id_idioma"] = "";
+	$fieldToolTipscvc_idiomas["Spanish"]["fk_id_idioma"] = "Seleccioná el idioma que hablas.";
 	$placeHolderscvc_idiomas["Spanish"]["fk_id_idioma"] = "";
 	$fieldLabelscvc_idiomas["Spanish"]["fk_id_idioma_habla"] = "Nivel de Habla";
-	$fieldToolTipscvc_idiomas["Spanish"]["fk_id_idioma_habla"] = "";
+	$fieldToolTipscvc_idiomas["Spanish"]["fk_id_idioma_habla"] = "Seleccioná el nivel de fluidez al hablar que tenes con este idioma.";
 	$placeHolderscvc_idiomas["Spanish"]["fk_id_idioma_habla"] = "";
 	$fieldLabelscvc_idiomas["Spanish"]["fk_id_idioma_escribe"] = "Nivel de Escritura";
-	$fieldToolTipscvc_idiomas["Spanish"]["fk_id_idioma_escribe"] = "";
+	$fieldToolTipscvc_idiomas["Spanish"]["fk_id_idioma_escribe"] = "Seleccioná el nivel de escritura que tenes con este idioma.";
 	$placeHolderscvc_idiomas["Spanish"]["fk_id_idioma_escribe"] = "";
 	$fieldLabelscvc_idiomas["Spanish"]["fk_personaid"] = "Fk Personaid";
 	$fieldToolTipscvc_idiomas["Spanish"]["fk_personaid"] = "";
 	$placeHolderscvc_idiomas["Spanish"]["fk_personaid"] = "";
+	$pageTitlescvc_idiomas["Spanish"]["list"] = "Nivel de Idiomas";
+	$pageTitlescvc_idiomas["Spanish"]["add"] = "Nivel de Idiomas, Añadir nuevo";
+	$pageTitlescvc_idiomas["Spanish"]["edit"] = "Nivel de Idiomas, Editar [{%id_cvc_idiomas}]";
 	if (count($fieldToolTipscvc_idiomas["Spanish"]))
 		$tdatacvc_idiomas[".isUseToolTips"] = true;
 }
@@ -137,7 +140,7 @@ $tdatacvc_idiomas[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																										
+																																																																																																																																																																																																																																																																																																																																													
 
 $tdatacvc_idiomas[".ajaxCodeSnippetAdded"] = false;
 
@@ -149,7 +152,7 @@ $tdatacvc_idiomas[".addPageEvents"] = false;
 $tdatacvc_idiomas[".isUseTimeForSearch"] = false;
 
 
-$tdatacvc_idiomas[".badgeColor"] = "DC143C";
+$tdatacvc_idiomas[".badgeColor"] = "dc143c";
 
 
 $tdatacvc_idiomas[".allSearchFields"] = array();
@@ -1062,6 +1065,24 @@ $masterTablesData["bolsa_empleo.cvc_idiomas"] = array();
 	$masterTablesData["bolsa_empleo.cvc_idiomas"][0]["masterKeys"][]="id";
 				$masterTablesData["bolsa_empleo.cvc_idiomas"][0]["detailKeys"] = array();
 	$masterTablesData["bolsa_empleo.cvc_idiomas"][0]["detailKeys"][]="fk_personaid";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="eportal.persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="personas-pasos";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "personas_pasos";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["bolsa_empleo.cvc_idiomas"][1] = $masterParams;
+				$masterTablesData["bolsa_empleo.cvc_idiomas"][1]["masterKeys"] = array();
+	$masterTablesData["bolsa_empleo.cvc_idiomas"][1]["masterKeys"][]="id";
+				$masterTablesData["bolsa_empleo.cvc_idiomas"][1]["detailKeys"] = array();
+	$masterTablesData["bolsa_empleo.cvc_idiomas"][1]["detailKeys"][]="fk_personaid";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//

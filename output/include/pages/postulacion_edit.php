@@ -1,6 +1,7 @@
 <?php
 			$optionsArray = array( 'master' => array( 'eportal.persons' => array( 'preview' => false ),
-'bolsa_empleo.vacancia' => array( 'preview' => false ) ),
+'bolsa_empleo.vacancia' => array( 'preview' => false ),
+'personas-pasos' => array( 'preview' => false ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'id_vacancia',
 'id_estado',

@@ -778,9 +778,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "1859_1713438353";
+$projectBuildKey = "2623_1725298806";
 $wizardBuildKey = "41974";
-$projectBuildNumber = "1859";
+$projectBuildNumber = "2623";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -859,6 +859,9 @@ $tableCaptions["Spanish"]["bolsa_empleo_feria_empleo"] = "Feria Empleo";
 $tableCaptions["Spanish"]["bolsa_empleo_vacancia_requisito_idioma"] = "Requisitos Idiomas";
 $tableCaptions["Spanish"]["bolsa_empleo_modalidad_trabajo"] = "Modalidad Trabajo";
 $tableCaptions["Spanish"]["bolsa_empleo_tipo_remuneracion"] = "Tipo Remuneracion";
+$tableCaptions["Spanish"]["personas_pasos"] = "Personas-pasos";
+$tableCaptions["Spanish"]["bolsa_empleo_bolsa_sexo"] = "Bolsa Sexo";
+$tableCaptions["Spanish"]["bolsa_empleo_cvc_movilidad"] = "Cvc Movilidad";
 
 
 $globalEvents = new class_GlobalEvents;

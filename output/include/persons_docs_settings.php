@@ -134,7 +134,7 @@ $tdatapersons_docs[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																										
+																																																																																																																																																																																																																																																																																																																																													
 
 $tdatapersons_docs[".ajaxCodeSnippetAdded"] = false;
 
@@ -890,6 +890,24 @@ $masterTablesData["eportal.persons_docs"] = array();
 	$masterTablesData["eportal.persons_docs"][0]["masterKeys"][]="id";
 				$masterTablesData["eportal.persons_docs"][0]["detailKeys"] = array();
 	$masterTablesData["eportal.persons_docs"][0]["detailKeys"][]="person_id";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="eportal.persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="personas-pasos";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "personas_pasos";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["eportal.persons_docs"][1] = $masterParams;
+				$masterTablesData["eportal.persons_docs"][1]["masterKeys"] = array();
+	$masterTablesData["eportal.persons_docs"][1]["masterKeys"][]="id";
+				$masterTablesData["eportal.persons_docs"][1]["detailKeys"] = array();
+	$masterTablesData["eportal.persons_docs"][1]["detailKeys"][]="person_id";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//

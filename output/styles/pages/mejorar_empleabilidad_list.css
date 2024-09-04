@@ -7,6 +7,18 @@
 [data-cellid="grid_cell_icons"][data-page="mejorar_empleabilidad_list"][data-cellid="grid_cell_icons"][data-page="mejorar_empleabilidad_list"][data-cellid="grid_cell_icons"][data-page="mejorar_empleabilidad_list"] {
   white-space: nowrap;
 }
+[data-page="mejorar_empleabilidad_list"][data-itemid="add"] > .btn {
+  font-family: "Open Sans";
+}
+[data-page="mejorar_empleabilidad_list"][data-itemid="simple_grid_field1"] {
+  font-family: "Open Sans";
+}
+[data-page="mejorar_empleabilidad_list"][data-itemid="simple_grid_field2"] {
+  font-family: "Open Sans";
+}
+[data-page="mejorar_empleabilidad_list"][data-itemid="simple_grid_field4"] {
+  font-family: "Open Sans";
+}
 [data-page="mejorar_empleabilidad_list"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;
 }

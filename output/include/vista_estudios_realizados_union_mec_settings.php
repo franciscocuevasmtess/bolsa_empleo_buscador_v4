@@ -6,11 +6,11 @@ $tdatavista_estudios_realizados_union_mec[".OwnerID"] = "";
 $tdatavista_estudios_realizados_union_mec[".OriginalTable"] = "bolsa_empleo.vista_estudios_realizados_union_mec";
 
 
-$tdatavista_estudios_realizados_union_mec[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" );
+$tdatavista_estudios_realizados_union_mec[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" );
 $tdatavista_estudios_realizados_union_mec[".originalPagesByType"] = $tdatavista_estudios_realizados_union_mec[".pagesByType"];
-$tdatavista_estudios_realizados_union_mec[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdatavista_estudios_realizados_union_mec[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"search\":[\"search\"]}" ) );
 $tdatavista_estudios_realizados_union_mec[".originalPages"] = $tdatavista_estudios_realizados_union_mec[".pages"];
-$tdatavista_estudios_realizados_union_mec[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
+$tdatavista_estudios_realizados_union_mec[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"search\":\"search\"}" );
 $tdatavista_estudios_realizados_union_mec[".originalDefaultPages"] = $tdatavista_estudios_realizados_union_mec[".defaultPages"];
 
 //	field labels
@@ -32,22 +32,22 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["fk_personaid"] = "";
 	$placeHoldersvista_estudios_realizados_union_mec["Spanish"]["fk_personaid"] = "";
 	$fieldLabelsvista_estudios_realizados_union_mec["Spanish"]["fecha_hasta"] = "Año de finalización";
-	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["fecha_hasta"] = "";
+	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["fecha_hasta"] = "Ingresá el año que culminaste tus estudios.";
 	$placeHoldersvista_estudios_realizados_union_mec["Spanish"]["fecha_hasta"] = "";
 	$fieldLabelsvista_estudios_realizados_union_mec["Spanish"]["fecha_desde"] = "Año de inicio";
-	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["fecha_desde"] = "";
+	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["fecha_desde"] = "Ingresá el año que iniciaste tus estudios.";
 	$placeHoldersvista_estudios_realizados_union_mec["Spanish"]["fecha_desde"] = "";
 	$fieldLabelsvista_estudios_realizados_union_mec["Spanish"]["fk_cvc_instituciones_educativas"] = "Institución Educativa";
-	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["fk_cvc_instituciones_educativas"] = "";
+	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["fk_cvc_instituciones_educativas"] = "<p>Seleccioná la institución educativa en la que realizaste tus estudios.</p><ul><li>Sí tu estudio es del extranjero buscá \"EXTRANJERO\"</li><li>Si no encontras la intitución buscá \"OTRO\"</li></ul>";
 	$placeHoldersvista_estudios_realizados_union_mec["Spanish"]["fk_cvc_instituciones_educativas"] = "";
 	$fieldLabelsvista_estudios_realizados_union_mec["Spanish"]["fk_cvc_niveles_academicos"] = "Nivel Educativo";
-	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["fk_cvc_niveles_academicos"] = "";
+	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["fk_cvc_niveles_academicos"] = "Seleccioná tu nivel educativo";
 	$placeHoldersvista_estudios_realizados_union_mec["Spanish"]["fk_cvc_niveles_academicos"] = "";
 	$fieldLabelsvista_estudios_realizados_union_mec["Spanish"]["titulo_obtenido"] = "Título Obtenido";
-	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["titulo_obtenido"] = "";
+	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["titulo_obtenido"] = "Ejemplo: Computación básica y avanzada(Word,Excel,PowerPoint), Cursando el 4to semestre de la carrera de administración de empresas.";
 	$placeHoldersvista_estudios_realizados_union_mec["Spanish"]["titulo_obtenido"] = "";
 	$fieldLabelsvista_estudios_realizados_union_mec["Spanish"]["anhos"] = "Años de Formación";
-	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["anhos"] = "";
+	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["anhos"] = "Campo completado automaticamente.";
 	$placeHoldersvista_estudios_realizados_union_mec["Spanish"]["anhos"] = "";
 	$fieldLabelsvista_estudios_realizados_union_mec["Spanish"]["institucion_eucativa"] = "Institución Educativa";
 	$fieldToolTipsvista_estudios_realizados_union_mec["Spanish"]["institucion_eucativa"] = "";
@@ -162,7 +162,7 @@ $tdatavista_estudios_realizados_union_mec[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																										
+																																																																																																																																																																																																																																																																																																																																													
 
 $tdatavista_estudios_realizados_union_mec[".ajaxCodeSnippetAdded"] = false;
 
@@ -174,7 +174,7 @@ $tdatavista_estudios_realizados_union_mec[".addPageEvents"] = true;
 $tdatavista_estudios_realizados_union_mec[".isUseTimeForSearch"] = false;
 
 
-$tdatavista_estudios_realizados_union_mec[".badgeColor"] = "008b8b";
+$tdatavista_estudios_realizados_union_mec[".badgeColor"] = "cd853f";
 
 
 $tdatavista_estudios_realizados_union_mec[".allSearchFields"] = array();
@@ -1341,7 +1341,7 @@ $tdatavista_estudios_realizados_union_mec[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text area");
+	$edata = array("EditFormat" => "Text field");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -1364,17 +1364,18 @@ $tdatavista_estudios_realizados_union_mec[".hideMobileList"] = array();
 	
 	
 	
-				$edata["nRows"] = 100;
-			$edata["nCols"] = 200;
+	
+			$edata["HTML5InuptType"] = "text";
 
-	
-	
+		$edata["EditParams"] = "";
+		
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
 							
 	
 //	End validation
@@ -1482,7 +1483,7 @@ $tdatavista_estudios_realizados_union_mec[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Lookup wizard");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -1492,6 +1493,34 @@ $tdatavista_estudios_realizados_union_mec[".hideMobileList"] = array();
 	
 	
 
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "bolsa_empleo.cvc_instituciones_educativas";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "cvc_id_instituciones_educativas";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "descripcion";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
 
 
 	
@@ -1506,11 +1535,8 @@ $tdatavista_estudios_realizados_union_mec[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=255";
-
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
@@ -1536,7 +1562,7 @@ $tdatavista_estudios_realizados_union_mec[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -1546,7 +1572,8 @@ $tdatavista_estudios_realizados_union_mec[".hideMobileList"] = array();
 //Filters settings
 	$fdata["filterTotals"] = 0;
 		$fdata["filterMultiSelect"] = 0;
-			$fdata["filterFormat"] = "Values list";
+		$fdata["filterTotalFields"] = "id";
+		$fdata["filterFormat"] = "Values list";
 		$fdata["showCollapsed"] = false;
 
 		$fdata["sortValueType"] = 0;
@@ -1621,7 +1648,7 @@ $tdatavista_estudios_realizados_union_mec[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Lookup wizard");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -1631,6 +1658,34 @@ $tdatavista_estudios_realizados_union_mec[".hideMobileList"] = array();
 	
 	
 
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "bolsa_empleo.cvc_niveles_academicos";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "cvc_id_niveles_academicos";
+	$edata["LinkFieldType"] = 0;
+	$edata["DisplayField"] = "descripcion";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
 
 
 	
@@ -1645,11 +1700,8 @@ $tdatavista_estudios_realizados_union_mec[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-			$edata["EditParams"].= " maxlength=255";
-
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
@@ -1675,7 +1727,7 @@ $tdatavista_estudios_realizados_union_mec[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Contains";
+		$fdata["defaultSearchOption"] = "Equals";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -2161,6 +2213,24 @@ $masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"] = array();
 	$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][0]["detailKeys"][]="fk_personaid";
 		
 	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="eportal.persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="personas-pasos";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "personas_pasos";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1] = $masterParams;
+				$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1]["masterKeys"] = array();
+	$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1]["masterKeys"][]="id";
+				$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1]["detailKeys"] = array();
+	$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1]["detailKeys"][]="fk_personaid";
+		
+	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
 
 
@@ -2516,7 +2586,7 @@ $tdatavista_estudios_realizados_union_mec[".hasEvents"] = true;
 $query = &$queryData_vista_estudios_realizados_union_mec;
 $table = "bolsa_empleo.vista_estudios_realizados_union_mec";
 // here goes EVENT_INIT_TABLE event
-$query->addWhere(" nro_documento = '".pg_escape_string($_SESSION["cedula"])."'");
+	$query->addWhere(" nro_documento = '".pg_escape_string($_SESSION["cedula"])."'");
 ;
 unset($query);
 ?>

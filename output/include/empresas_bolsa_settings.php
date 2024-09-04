@@ -131,7 +131,7 @@ $tdataempresas_bolsa[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																					
+																																																																																																															
 
 $tdataempresas_bolsa[".ajaxCodeSnippetAdded"] = false;
 
@@ -792,6 +792,7 @@ $proto13["m_columns"][] = "cantidad_vacancia";
 $proto13["m_columns"][] = "geolocation";
 $proto13["m_columns"][] = "fk_id_feria_empleo";
 $proto13["m_columns"][] = "usuario";
+$proto13["m_columns"][] = "origen";
 $obj = new SQLTable($proto13);
 
 $proto12["m_table"] = $obj;

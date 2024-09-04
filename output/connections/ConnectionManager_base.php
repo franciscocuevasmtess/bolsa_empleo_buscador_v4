@@ -296,6 +296,9 @@ class ConnectionManager_Base
 		$connectionsIds["bolsa_empleo.vacancia_requisito_idioma"] = "eportal_at_192_168_70_170";
 		$connectionsIds["bolsa_empleo.modalidad_trabajo"] = "eportal_at_192_168_70_170";
 		$connectionsIds["bolsa_empleo.tipo_remuneracion"] = "eportal_at_192_168_70_170";
+		$connectionsIds["personas-pasos"] = "eportal_at_192_168_70_170";
+		$connectionsIds["bolsa_empleo.bolsa_sexo"] = "eportal_at_192_168_70_170";
+		$connectionsIds["bolsa_empleo.cvc_movilidad"] = "eportal_at_192_168_70_170";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

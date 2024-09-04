@@ -20,6 +20,7 @@
 		$this->events["AfterAdd"]=true;
 
 
+
 	}
 
 //	handlers
@@ -406,6 +407,72 @@ $pageObject->setMessage($Mensaje);
 ;		
 } // function AfterAdd
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		

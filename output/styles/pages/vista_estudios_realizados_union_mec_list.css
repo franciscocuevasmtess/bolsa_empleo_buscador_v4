@@ -22,6 +22,42 @@
 [data-cellid="grid_footcell_field7"][data-page="vista_estudios_realizados_union_mec_list"][data-cellid="grid_footcell_field7"][data-page="vista_estudios_realizados_union_mec_list"][data-cellid="grid_footcell_field7"][data-page="vista_estudios_realizados_union_mec_list"] {
   white-space: nowrap;
 }
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="simple_grid_field"] {
+  font-family: "Open Sans";
+}
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="simple_grid_field6"] {
+  font-family: "Open Sans";
+}
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="simple_grid_field8"] {
+  font-family: "Open Sans";
+}
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="simple_grid_field9"] {
+  font-family: "Open Sans";
+}
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="add"] > .btn {
+  font-family: "Open Sans";
+}
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="simple_grid_field10"] {
+  font-family: "Open Sans";
+}
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="simple_grid_field11"] {
+  font-family: "Open Sans";
+}
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="simple_grid_field13"] {
+  font-family: "Open Sans";
+}
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="simple_grid_field15"] {
+  font-family: "Open Sans";
+}
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="grid_field"] {
+  font-family: "Open Sans";
+}
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="grid_field_label"] {
+  font-family: "Open Sans";
+}
+[data-page="vista_estudios_realizados_union_mec_list"][data-itemid="text"] {
+  font-family: "Open Sans";
+}
 [data-page="vista_estudios_realizados_union_mec_list"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;
 }

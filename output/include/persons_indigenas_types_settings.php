@@ -128,7 +128,7 @@ $tdatapersons_indigenas_types[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																					
+																																																																																																															
 
 $tdatapersons_indigenas_types[".ajaxCodeSnippetAdded"] = false;
 
@@ -529,6 +529,36 @@ changeTextControlsToDate( "eportal.persons_indigenas_types" );
 //if !@TABLE.bReportCrossTab
 
 $detailsTablesData["eportal.persons_indigenas_types"] = array();
+//	personas-pasos
+	
+	
+
+		$dIndex = 0;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="personas-pasos";
+		$detailsParam["dOriginalTable"] = "eportal.persons";
+
+
+
+		
+		$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "personas_pasos";
+	$detailsParam["dCaptionTable"] = GetTableCaption("personas_pasos");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["eportal.persons_indigenas_types"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["eportal.persons_indigenas_types"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["eportal.persons_indigenas_types"][$dIndex]["masterKeys"][]="id_persons_indigenas_types";
+
+				$detailsTablesData["eportal.persons_indigenas_types"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["eportal.persons_indigenas_types"][$dIndex]["detailKeys"][]="esindigena";
 //endif
 
 // tables which are master tables for current table (detail)

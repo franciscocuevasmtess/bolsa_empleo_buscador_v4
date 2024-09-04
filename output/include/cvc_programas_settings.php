@@ -6,11 +6,11 @@ $tdatacvc_programas[".OwnerID"] = "";
 $tdatacvc_programas[".OriginalTable"] = "bolsa_empleo.cvc_programas";
 
 
-$tdatacvc_programas[".pagesByType"] = my_json_decode( "{\"list\":[\"list\"],\"search\":[\"search\"]}" );
+$tdatacvc_programas[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\",\"list1\"],\"search\":[\"search\"]}" );
 $tdatacvc_programas[".originalPagesByType"] = $tdatacvc_programas[".pagesByType"];
-$tdatacvc_programas[".pages"] = types2pages( my_json_decode( "{\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdatacvc_programas[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\",\"list1\"],\"search\":[\"search\"]}" ) );
 $tdatacvc_programas[".originalPages"] = $tdatacvc_programas[".pages"];
-$tdatacvc_programas[".defaultPages"] = my_json_decode( "{\"list\":\"list\",\"search\":\"search\"}" );
+$tdatacvc_programas[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
 $tdatacvc_programas[".originalDefaultPages"] = $tdatacvc_programas[".defaultPages"];
 
 //	field labels
@@ -28,15 +28,18 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelscvc_programas["Spanish"]["id_cvc_id_programas"] = "Id Cvc Id Programas";
 	$fieldToolTipscvc_programas["Spanish"]["id_cvc_id_programas"] = "";
 	$placeHolderscvc_programas["Spanish"]["id_cvc_id_programas"] = "";
-	$fieldLabelscvc_programas["Spanish"]["fk_id_programas"] = "Habilidad en:";
-	$fieldToolTipscvc_programas["Spanish"]["fk_id_programas"] = "";
+	$fieldLabelscvc_programas["Spanish"]["fk_id_programas"] = "Habilidad en";
+	$fieldToolTipscvc_programas["Spanish"]["fk_id_programas"] = "Seleccioná el conocimiento en alguna herramienta informática que tenes.";
 	$placeHolderscvc_programas["Spanish"]["fk_id_programas"] = "";
 	$fieldLabelscvc_programas["Spanish"]["fk_id_nivel_programa"] = "Nivel";
-	$fieldToolTipscvc_programas["Spanish"]["fk_id_nivel_programa"] = "";
+	$fieldToolTipscvc_programas["Spanish"]["fk_id_nivel_programa"] = "Seleccioná tu nivel.";
 	$placeHolderscvc_programas["Spanish"]["fk_id_nivel_programa"] = "";
 	$fieldLabelscvc_programas["Spanish"]["fk_personaid"] = "Personaid";
 	$fieldToolTipscvc_programas["Spanish"]["fk_personaid"] = "";
 	$placeHolderscvc_programas["Spanish"]["fk_personaid"] = "";
+	$pageTitlescvc_programas["Spanish"]["list"] = "Habilidades Informaticas";
+	$pageTitlescvc_programas["Spanish"]["add"] = "Habilidades Informaticas, Añadir nuevo";
+	$pageTitlescvc_programas["Spanish"]["edit"] = "Habilidades Informaticas, Editar [{%id_cvc_id_programas}]";
 	if (count($fieldToolTipscvc_programas["Spanish"]))
 		$tdatacvc_programas[".isUseToolTips"] = true;
 }
@@ -134,7 +137,7 @@ $tdatacvc_programas[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																																																																																																																																																																				
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											
 
 $tdatacvc_programas[".ajaxCodeSnippetAdded"] = false;
 
@@ -146,7 +149,7 @@ $tdatacvc_programas[".addPageEvents"] = true;
 $tdatacvc_programas[".isUseTimeForSearch"] = false;
 
 
-$tdatacvc_programas[".badgeColor"] = "DB7093";
+$tdatacvc_programas[".badgeColor"] = "db7093";
 
 
 $tdatacvc_programas[".allSearchFields"] = array();
@@ -1087,6 +1090,24 @@ $masterTablesData["bolsa_empleo.cvc_programas"] = array();
 	$masterTablesData["bolsa_empleo.cvc_programas"][2]["masterKeys"][]="id";
 				$masterTablesData["bolsa_empleo.cvc_programas"][2]["detailKeys"] = array();
 	$masterTablesData["bolsa_empleo.cvc_programas"][2]["detailKeys"][]="fk_personaid";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="eportal.persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="personas-pasos";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "personas_pasos";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["bolsa_empleo.cvc_programas"][3] = $masterParams;
+				$masterTablesData["bolsa_empleo.cvc_programas"][3]["masterKeys"] = array();
+	$masterTablesData["bolsa_empleo.cvc_programas"][3]["masterKeys"][]="id";
+				$masterTablesData["bolsa_empleo.cvc_programas"][3]["detailKeys"] = array();
+	$masterTablesData["bolsa_empleo.cvc_programas"][3]["detailKeys"][]="fk_personaid";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//

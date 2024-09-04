@@ -139,7 +139,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"<h2 class=\"ql-align-center\">Estudios y Capacitaciones</h2>","hidden":"{$item_hide_text}","isHtml":true},
+			{"text":"<h2 class=\"ql-align-center\">Estudios y Capacitaciones</h2>","hidden":"{$item_hide_text}","font":"Open Sans","isHtml":true},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -211,7 +211,16 @@ pdfDocument = {
 			"text": [
 		
 				
+			{"text":"","hidden":"{$item_hide_add}","font":"Open Sans"},
+				
+				
 			{"text":"","hidden":"{$item_hide_inline_add}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_inline_save_all}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_inline_cancel_all}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -234,10 +243,13 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"Mostrando %first% - %last% de %total%","hidden":"{$item_hide_details_found}","isHtml":true,"page_indicator":true},
+			{"text":"Mostrando %first% - %last%","hidden":"{$item_hide_details_found_unknown}","isHtml":true,"page_indicator":true},
 				
 				
 			{"text":"","hidden":"{$item_hide_page_size}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_print_panel}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -261,10 +273,8 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":"","hidden":"{$item_hide_add}"},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -355,7 +365,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel bolsa_empleo_vista_estudios_realizados_union_mec titulo_obtenido }","hidden":"{$item_hide_simple_grid_field}","bold":true},
+			{"text":"{$jslabel bolsa_empleo_vista_estudios_realizados_union_mec titulo_obtenido }","hidden":"{$item_hide_simple_grid_field}","font":"Open Sans","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -384,7 +394,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel bolsa_empleo_vista_estudios_realizados_union_mec institucion_eucativa }","hidden":"{$item_hide_simple_grid_field11}","bold":true},
+			{"text":"{$jslabel bolsa_empleo_vista_estudios_realizados_union_mec institucion_eucativa }","hidden":"{$item_hide_simple_grid_field11}","font":"Open Sans","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -413,7 +423,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel bolsa_empleo_vista_estudios_realizados_union_mec nivel_academico }","hidden":"{$item_hide_simple_grid_field15}","bold":true},
+			{"text":"{$jslabel bolsa_empleo_vista_estudios_realizados_union_mec nivel_academico }","hidden":"{$item_hide_simple_grid_field15}","font":"Open Sans","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -442,7 +452,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel bolsa_empleo_vista_estudios_realizados_union_mec periodo }","hidden":"{$item_hide_simple_grid_field13}","bold":true},
+			{"text":"{$jslabel bolsa_empleo_vista_estudios_realizados_union_mec periodo }","hidden":"{$item_hide_simple_grid_field13}","font":"Open Sans","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -471,7 +481,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel bolsa_empleo_vista_estudios_realizados_union_mec proveedor }","hidden":"{$item_hide_grid_field_label}","bold":true},
+			{"text":"{$jslabel bolsa_empleo_vista_estudios_realizados_union_mec proveedor }","hidden":"{$item_hide_grid_field_label}","font":"Open Sans","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -534,10 +544,13 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_grid_edit}"},
+			{"text":"","hidden":"{$item_hide_grid_inline_save}"},
 				
 				
 			{"text":"","hidden":"{$item_hide_grid_inline_cancel}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_edit}"},
 				
 				
 			{"text":""},
@@ -569,7 +582,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$titulo_obtenido_pdfvalue},"hidden":"{$item_hide_simple_grid_field6}"},
+			{"text":{$titulo_obtenido_pdfvalue},"hidden":"{$item_hide_simple_grid_field6}","font":"Open Sans"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -598,7 +611,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$institucion_eucativa_pdfvalue},"hidden":"{$item_hide_simple_grid_field8}"},
+			{"text":{$institucion_eucativa_pdfvalue},"hidden":"{$item_hide_simple_grid_field8}","font":"Open Sans"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -627,7 +640,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$nivel_academico_pdfvalue},"hidden":"{$item_hide_simple_grid_field9}"},
+			{"text":{$nivel_academico_pdfvalue},"hidden":"{$item_hide_simple_grid_field9}","font":"Open Sans"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -656,7 +669,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$periodo_pdfvalue},"hidden":"{$item_hide_simple_grid_field10}"},
+			{"text":{$periodo_pdfvalue},"hidden":"{$item_hide_simple_grid_field10}","font":"Open Sans"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -685,7 +698,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$proveedor_pdfvalue},"hidden":"{$item_hide_grid_field}"},
+			{"text":{$proveedor_pdfvalue},"hidden":"{$item_hide_grid_field}","font":"Open Sans"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -957,6 +970,9 @@ pdfDocument = {
 		
 				
 			{"text":"","hidden":"{$item_hide_pagination}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_next_page}"},
 				
 		  ],
   "border": [ false, false, false, false ],

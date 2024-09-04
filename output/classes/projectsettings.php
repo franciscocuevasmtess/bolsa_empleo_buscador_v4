@@ -3684,6 +3684,12 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "modalidad_trabajo" ] = "bolsa_empleo.modalidad_trabajo";
 	$projectEntities[ "bolsa_empleo.tipo_remuneracion" ] = array( "url" => "tipo_remuneracion", "type" => 0 );
 	$projectEntitiesReverse[ "tipo_remuneracion" ] = "bolsa_empleo.tipo_remuneracion";
+	$projectEntities[ "personas-pasos" ] = array( "url" => "personas_pasos", "type" => 1 );
+	$projectEntitiesReverse[ "personas_pasos" ] = "personas-pasos";
+	$projectEntities[ "bolsa_empleo.bolsa_sexo" ] = array( "url" => "bolsa_sexo", "type" => 0 );
+	$projectEntitiesReverse[ "bolsa_sexo" ] = "bolsa_empleo.bolsa_sexo";
+	$projectEntities[ "bolsa_empleo.cvc_movilidad" ] = array( "url" => "cvc_movilidad", "type" => 0 );
+	$projectEntitiesReverse[ "cvc_movilidad" ] = "bolsa_empleo.cvc_movilidad";
 }
 
 function findTable( $table ) {

@@ -132,7 +132,7 @@ $tdatavacancia_requisito_excluyente_detalle[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																										
+																																																																																																																																																																																																																														
 
 $tdatavacancia_requisito_excluyente_detalle[".ajaxCodeSnippetAdded"] = false;
 

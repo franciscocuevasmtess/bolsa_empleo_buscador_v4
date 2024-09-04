@@ -131,7 +131,7 @@ $tdatapersons_estado_civil_type[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																					
+																																																																																																															
 
 $tdatapersons_estado_civil_type[".ajaxCodeSnippetAdded"] = false;
 
@@ -670,6 +670,36 @@ changeTextControlsToDate( "eportal.persons_estado_civil_type" );
 //if !@TABLE.bReportCrossTab
 
 $detailsTablesData["eportal.persons_estado_civil_type"] = array();
+//	personas-pasos
+	
+	
+
+		$dIndex = 0;
+	$detailsParam = array();
+	$detailsParam["dDataSourceTable"]="personas-pasos";
+		$detailsParam["dOriginalTable"] = "eportal.persons";
+
+
+
+		
+		$detailsParam["dType"]=PAGE_LIST;
+	$detailsParam["dShortTable"] = "personas_pasos";
+	$detailsParam["dCaptionTable"] = GetTableCaption("personas_pasos");
+	$detailsParam["masterKeys"] =array();
+	$detailsParam["detailKeys"] =array();
+
+
+		
+	$detailsTablesData["eportal.persons_estado_civil_type"][$dIndex] = $detailsParam;
+
+	
+		$detailsTablesData["eportal.persons_estado_civil_type"][$dIndex]["masterKeys"] = array();
+
+	$detailsTablesData["eportal.persons_estado_civil_type"][$dIndex]["masterKeys"][]="id";
+
+				$detailsTablesData["eportal.persons_estado_civil_type"][$dIndex]["detailKeys"] = array();
+
+	$detailsTablesData["eportal.persons_estado_civil_type"][$dIndex]["detailKeys"][]="estado_civil";
 //endif
 
 // tables which are master tables for current table (detail)

@@ -215,6 +215,27 @@
 			</span>
 							 
 							 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
+				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+										<span class="glyphicon glyphicon-cog"></span>
+												<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN editselected_link}
+	<li data-itemtype="edit_selected" data-itemid="edit_selected" {$item_edit_selected} data-pageid="{$pageid}" data-small >
+				<a  href="#" {$editselectedlink_attrs} {$editselectedlink_span}  title="" >
+				
+		Editar los seleccionados		
+		</a>
+	</li>
+{END editselected_link}
+					</ul>
+	</span>
+</span>
+			</span>
+		 
 				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
 				{BEGIN guestloginbutton}
 <span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
@@ -280,7 +301,7 @@
 	
 ">
 		 
-		<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-small > 
+		<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-page="persons_referencia_list" data-small > 
 	<h2 class="ql-align-center">Referencias Personales</h2></span>
 		</div>					</div>
 			 
@@ -353,11 +374,28 @@
 			 
 				<div 
 	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
-	class=" r-ori-vert			col-md-6
+	class="			col-md-6
 	
 ">
 		{BEGIN firstAboveGridCell}
-				{END firstAboveGridCell}	
+		 
+		{BEGIN add_link}
+<span data-itemtype="add" data-itemid="add" {$item_add} data-pageid="{$pageid}" data-page="persons_referencia_list" data-small data-button-item>
+	<a type="button" title="Nuevo" class="btn btn-danger   
+	" {$addlink_attrs} href="persons_referencia_add.php{$stateLink_full}" >
+					<span class="glyphicon glyphicon-plus"></span>
+							Añadir nuevo			</a>
+</span>
+{END add_link}
+	 
+		{BEGIN inlineadd_link}
+<span data-itemtype="inline_add" data-itemid="inline_add" {$item_inline_add} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$inlineaddlink_attrs} >
+							Añadir nuevo			</a>
+</span>
+{END inlineadd_link}
+			{END firstAboveGridCell}	
 	</div>			 
 				<div 
 	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
@@ -365,8 +403,8 @@
 	
 ">
 		 
-		<span data-itemtype="details_found" data-itemid="details_found" {$item_details_found} data-pageid="{$pageid}" data-small >
-{$mlp_push}{$mlparam first var first_shown}{$mlparam last var last_shown}{$mlparam total var records_found}{mlang_message DISPLAYING}{$mlp_pop}</span>	 
+		<span data-itemtype="details_found_unknown" data-itemid="details_found_unknown" {$item_details_found_unknown} data-pageid="{$pageid}" data-small >
+{$mlp_push}{$mlparam first var first_shown}{$mlparam last var last_shown}{$mlparam total var records_found}{mlang_message DISPLAYING_UNKNOWN}{$mlp_pop}</span>	 
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
 </span>		</div>					</div>
@@ -379,15 +417,6 @@
 	
 ">
 		 
-		{BEGIN inlineadd_link}
-<span data-itemtype="inline_add" data-itemid="inline_add" {$item_inline_add} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-danger   
-	" {$inlineaddlink_attrs} >
-					<span class="glyphicon glyphicon-plus"></span>
-							Añadir nuevo			</a>
-</span>
-{END inlineadd_link}
-	 
 		{BEGIN cancelall_link}
 <span data-itemtype="inline_cancel_all" data-itemid="inline_cancel_all" {$item_inline_cancel_all} data-pageid="{$pageid}" data-small data-button-item>
 	<a type="button" title="" class="btn btn-default   
@@ -473,28 +502,6 @@
 	
 	</th>
 	{END cellblock_grid_headcell_icons}
-									{BEGIN cellblock_grid_headcell_checkbox}
-	<th
-	
-	{$cell_grid_headcell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_headcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="persons_referencia_list"	
-		data-checkbox-cell
-	>
-
-	 
-		{BEGIN checkbox_column}
-<span data-itemtype="grid_checkbox_head" data-itemid="grid_checkbox_head" {$item_grid_checkbox_head} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkboxheader_attrs}>
-</span>
-{END checkbox_column}
-	
-	</th>
-	{END cellblock_grid_headcell_checkbox}
 									{BEGIN cellblock_grid_headcell_field}
 	<th
 	
@@ -512,7 +519,7 @@
 		{BEGIN fk_id_persons_referencia_tipo_fieldheadercolumn}
 	{BEGIN fk_id_persons_referencia_tipo_fieldheader}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fk_id_persons_referencia_tipo" data-fieldname="fk_id_persons_referencia_tipo" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-page="persons_referencia_list" data-record-id="{$recId}" data-field="fk_id_persons_referencia_tipo" data-fieldname="fk_id_persons_referencia_tipo" 
 
 			{$fk_id_persons_referencia_tipo_orderlinkattrs}
 	
@@ -546,7 +553,7 @@
 		{BEGIN cargo_fieldheadercolumn}
 	{BEGIN cargo_fieldheader}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="cargo" data-fieldname="cargo" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-page="persons_referencia_list" data-record-id="{$recId}" data-field="cargo" data-fieldname="cargo" 
 
 			{$cargo_orderlinkattrs}
 	
@@ -580,7 +587,7 @@
 		{BEGIN nombre_fieldheadercolumn}
 	{BEGIN nombre_fieldheader}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="nombre" data-fieldname="nombre" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-page="persons_referencia_list" data-record-id="{$recId}" data-field="nombre" data-fieldname="nombre" 
 
 			{$nombre_orderlinkattrs}
 	
@@ -614,7 +621,7 @@
 		{BEGIN telefono_fieldheadercolumn}
 	{BEGIN telefono_fieldheader}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="telefono" data-fieldname="telefono" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-page="persons_referencia_list" data-record-id="{$recId}" data-field="telefono" data-fieldname="telefono" 
 
 			{$telefono_orderlinkattrs}
 	
@@ -669,17 +676,6 @@
 	>
 
 	 
-		{BEGIN inlineedit_column}
-{BEGIN inlineedit_link}
-<span data-itemtype="grid_inline_edit" data-itemid="grid_inline_edit" {$item_grid_inline_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="Editar" class="btn-link   
-	 glyphicon glyphicon-edit" {$inlineeditlink_attrs} title="Editar" >		
-				
-								</a>
-</span>
-{END inlineedit_link}
-{END inlineedit_column}
-	 
 		{BEGIN inline_save}
 <span data-itemtype="grid_inline_save" data-itemid="grid_inline_save" {$item_grid_inline_save} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
 	<a type="button" title="Guardar" class="btn-link   
@@ -698,38 +694,26 @@
 </span>
 {END inline_cancel}
 	 
+		{BEGIN edit_column}
+{BEGIN edit_link}
+<span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Editar" class="btn-link   
+	 glyphicon glyphicon-pencil" href="persons_referencia_edit.php?{$editlink}" {$editlink_attrs} title="Editar" >		
+				
+								</a>
+</span>
+{END edit_link}
+{END edit_column}
+	 
 		<span data-itemtype="custom_button" data-itemid="custom_button" {$item_custom_button} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="" class="btn-link   
+	<a type="button" title="Eliminar" class="btn-link   
 	 glyphicon glyphicon-remove-sign" id="New_Button4" href="javascript:void(0)" typeid="ib" >		
 				
 								</a>
 </span>
 	
 	</td>
-										{BEGIN cellblock_grid_cell_checkbox}
-	<td
-	
-	{$cell_grid_cell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_cell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"	
-		data-checkbox-cell
-	>
-
-	 
-		{BEGIN checkbox_column}
-<span data-itemtype="grid_checkbox" data-itemid="grid_checkbox" {$item_grid_checkbox} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkbox_attrs}
-		>
-</span>	
-{END checkbox_column}
-	
-	</td>
-	{END cellblock_grid_cell_checkbox}
-									{BEGIN cellblock_grid_cell_field}
+										{BEGIN cellblock_grid_cell_field}
 	<td
 	
 	{$cell_grid_cell_field}
@@ -744,7 +728,7 @@
 
 	 
 		{BEGIN fk_id_persons_referencia_tipo_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fk_id_persons_referencia_tipo" data-fieldname="fk_id_persons_referencia_tipo" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-page="persons_referencia_list" data-record-id="{$recId}" data-field="fk_id_persons_referencia_tipo" data-fieldname="fk_id_persons_referencia_tipo" data-default-width >
 {$fk_id_persons_referencia_tipo_value}
 </span>
 {END fk_id_persons_referencia_tipo_fieldcolumn}	
@@ -765,7 +749,7 @@
 
 	 
 		{BEGIN cargo_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="cargo" data-fieldname="cargo" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-page="persons_referencia_list" data-record-id="{$recId}" data-field="cargo" data-fieldname="cargo" data-default-width >
 {$cargo_value}
 </span>
 {END cargo_fieldcolumn}	
@@ -786,7 +770,7 @@
 
 	 
 		{BEGIN nombre_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="nombre" data-fieldname="nombre" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field1" {$item_simple_grid_field1} data-pageid="{$pageid}" data-page="persons_referencia_list" data-record-id="{$recId}" data-field="nombre" data-fieldname="nombre" data-default-width >
 {$nombre_value}
 </span>
 {END nombre_fieldcolumn}	
@@ -807,7 +791,7 @@
 
 	 
 		{BEGIN telefono_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="telefono" data-fieldname="telefono" data-default-width >
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-page="persons_referencia_list" data-record-id="{$recId}" data-field="telefono" data-fieldname="telefono" data-default-width >
 {$telefono_value}
 </span>
 {END telefono_fieldcolumn}	
@@ -860,21 +844,6 @@
 	
 	</td>
 	{END cellblock_grid_footcell_icons}
-									{BEGIN cellblock_grid_footcell_checkbox}
-	<td
-	
-	{$cell_grid_footcell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_checkbox}
 									{BEGIN cellblock_grid_footcell_field}
 	<td
 	
@@ -964,7 +933,7 @@
 			 
 				<div 
 	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
-	class="r-align-center r-ori-vert			col-md-12
+	class="r-align-center			col-md-12
 	
 ">
 		 
@@ -973,6 +942,15 @@
 {$pagination}
 </span>
 {END pagination_block}
+	 
+		{BEGIN next_records}
+<span data-itemtype="next_page" data-itemid="next_page" {$item_next_page} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn-link   
+	 " data-function="nextpage" data-page="{$next_page}" href="{$next_page_link}" >		
+				
+					{$mlp_push}{$mlparam n var pagesize}{mlang_message NEXT_RECORDS}{$mlp_pop}			</a>
+</span>
+{END next_records}
 		</div>					</div>
 			</div>		
 {END below-grid_block}

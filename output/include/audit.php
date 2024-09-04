@@ -622,6 +622,18 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="personas-pasos")
+		{
+			return false;
+		}
+		if($table=="bolsa_empleo.bolsa_sexo")
+		{
+			return false;
+		}
+		if($table=="bolsa_empleo.cvc_movilidad")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1193,6 +1205,18 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="bolsa_empleo.tipo_remuneracion")
+		{
+			return false;
+		}
+		if($table=="personas-pasos")
+		{
+			return false;
+		}
+		if($table=="bolsa_empleo.bolsa_sexo")
+		{
+			return false;
+		}
+		if($table=="bolsa_empleo.cvc_movilidad")
 		{
 			return false;
 		}

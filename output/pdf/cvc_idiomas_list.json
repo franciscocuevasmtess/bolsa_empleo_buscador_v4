@@ -79,9 +79,6 @@ pdfDocument = {
 										{BEGIN col_grid_4}
 					"%",
 					{END col_grid_4}
-										{BEGIN col_grid_5}
-					"%",
-					{END col_grid_5}
 															],
 											heights: [ // first height for header part
 					"%",
@@ -234,8 +231,13 @@ pdfDocument = {
 	
 			"text": [
 		
-				'',
-	  ],
+				
+			{"text":"","hidden":"{$item_hide_add}","font":"Open Sans"},
+				
+				
+			{"text":"","hidden":"{$item_hide_inline_add}"},
+				
+		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -256,7 +258,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"Mostrando %first% - %last% de %total%","hidden":"{$item_hide_details_found}","isHtml":true,"page_indicator":true},
+			{"text":"Mostrando %first% - %last%","hidden":"{$item_hide_details_found_unknown}","isHtml":true,"page_indicator":true},
 				
 				
 			{"text":"","hidden":"{$item_hide_page_size}"},
@@ -283,9 +285,6 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":"","hidden":"{$item_hide_inline_add}"},
-				
 				
 			{"text":"","hidden":"{$item_hide_inline_cancel_all}"},
 				
@@ -364,34 +363,6 @@ pdfDocument = {
       },
 
 {END cellblock_grid_headcell_icons}
-																							{BEGIN cellblock_grid_headcell_checkbox}
-{
-	cellId: 'headcell_checkbox',
-	col:0,
-	row:0,
-				style: 'headcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_grid_checkbox_head}"},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_headcell_checkbox}
 																							{BEGIN cellblock_grid_headcell_field}
 {
 	cellId: 'headcell_field',
@@ -411,7 +382,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel bolsa_empleo_cvc_idiomas fk_id_idioma }","hidden":"{$item_hide_simple_grid_field4}","bold":true},
+			{"text":"{$jslabel bolsa_empleo_cvc_idiomas fk_id_idioma }","hidden":"{$item_hide_simple_grid_field4}","font":"Open Sans","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -440,7 +411,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel bolsa_empleo_cvc_idiomas fk_id_idioma_habla }","hidden":"{$item_hide_simple_grid_field5}","bold":true},
+			{"text":"{$jslabel bolsa_empleo_cvc_idiomas fk_id_idioma_habla }","hidden":"{$item_hide_simple_grid_field5}","font":"Open Sans","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -469,7 +440,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel bolsa_empleo_cvc_idiomas fk_id_idioma_escribe }","hidden":"{$item_hide_simple_grid_field6}","bold":true},
+			{"text":"{$jslabel bolsa_empleo_cvc_idiomas fk_id_idioma_escribe }","hidden":"{$item_hide_simple_grid_field6}","font":"Open Sans","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -532,13 +503,13 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_grid_inline_edit}"},
-				
-				
 			{"text":"","hidden":"{$item_hide_grid_inline_save}"},
 				
 				
 			{"text":"","hidden":"{$item_hide_grid_inline_cancel}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_grid_edit}"},
 				
 				
 			{"text":""},
@@ -551,34 +522,6 @@ pdfDocument = {
       },
 
 {END cellblock_grid_cell_icons}
-																							{BEGIN cellblock_grid_cell_checkbox}
-{
-	cellId: 'cell_checkbox',
-	col:0,
-	row:0,
-				style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_grid_checkbox}"},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_cell_checkbox}
 																							{BEGIN cellblock_grid_cell_field}
 {
 	cellId: 'cell_field',
@@ -598,7 +541,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$fk_id_idioma_pdfvalue},"hidden":"{$item_hide_simple_grid_field1}"},
+			{"text":{$fk_id_idioma_pdfvalue},"hidden":"{$item_hide_simple_grid_field1}","font":"Open Sans"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -627,7 +570,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$fk_id_idioma_habla_pdfvalue},"hidden":"{$item_hide_simple_grid_field2}"},
+			{"text":{$fk_id_idioma_habla_pdfvalue},"hidden":"{$item_hide_simple_grid_field2}","font":"Open Sans"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -656,7 +599,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$fk_id_idioma_escribe_pdfvalue},"hidden":"{$item_hide_simple_grid_field3}"},
+			{"text":{$fk_id_idioma_escribe_pdfvalue},"hidden":"{$item_hide_simple_grid_field3}","font":"Open Sans"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -730,32 +673,6 @@ pdfDocument = {
       },
 
 {END cellblock_grid_footcell_icons}
-																							{BEGIN cellblock_grid_footcell_checkbox}
-{
-	cellId: 'footcell_checkbox',
-	col:0,
-	row:0,
-				style: 'footcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ true, true, true, true ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_footcell_checkbox}
 																							{BEGIN cellblock_grid_footcell_field}
 {
 	cellId: 'footcell_field',
@@ -902,6 +819,9 @@ pdfDocument = {
 		
 				
 			{"text":"","hidden":"{$item_hide_pagination}"},
+				
+				
+			{"text":"","hidden":"{$item_hide_next_page}"},
 				
 		  ],
   "border": [ false, false, false, false ],

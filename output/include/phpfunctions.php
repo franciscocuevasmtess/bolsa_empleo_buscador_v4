@@ -1390,6 +1390,30 @@ $formattedDate = strftime('%A %d de %B %Y', $date->getTimestamp()); // Imprimir 
 $value = utf8_encode($formattedDate);;
 		return $value;
 	}
+				if($table=="personas-pasos" && $field=="sexo")
+	{
+		if ($value["sexo"] == 'F') {  
+     $value="Femenino";  
+}
+
+if ($value["sexo"] == 'M') {  
+     $value="Masculino";  
+}
+
+
+
+
+
+
+ 
+$value="<span style='color: " . $color . "'>" .$value . "</span>"; ;
+		return $value;
+	}
+				if($table=="bolsa_empleo.cvc_movilidad" && $field=="registro_conducir")
+	{
+		;
+		return $value;
+	}
 	return $value;
 }
 
@@ -1436,6 +1460,22 @@ function GetDefaultValue($field, $ptype, $table="")
 				if($table=="eportal.persons_referencia" && $field=="id_persona")
 	{
 		return $_SESSION["persona_id"];
+	}
+				if($table=="eportal.persons_referencia" && $field=="fk_id_persons_referencia_tipo")
+	{
+		return 2;
+	}
+				if($table=="bolsa_empleo.cvc_idiomas" && $field=="fk_id_idioma")
+	{
+		return 1;
+	}
+				if($table=="bolsa_empleo.cvc_idiomas" && $field=="fk_id_idioma_habla")
+	{
+		return 1;
+	}
+				if($table=="bolsa_empleo.cvc_idiomas" && $field=="fk_id_idioma_escribe")
+	{
+		return 1;
 	}
 				if($table=="bolsa_empleo.cvc_idiomas" && $field=="fk_personaid")
 	{
@@ -1488,6 +1528,22 @@ function GetDefaultValue($field, $ptype, $table="")
 				if($table=="bolsa_empleo.mejorar_empleabilidad" && $field=="fk_persona_id")
 	{
 		return $_SESSION["persona_id"];
+	}
+				if($table=="personas-pasos" && $field=="esindigena")
+	{
+		return 1;
+	}
+				if($table=="personas-pasos" && $field=="multiselect_discapacidades")
+	{
+		return 1;
+	}
+				if($table=="bolsa_empleo.cvc_movilidad" && $field=="registro_conducir")
+	{
+		return NO;
+	}
+				if($table=="bolsa_empleo.cvc_movilidad" && $field=="movilidad_propia")
+	{
+		return NO;
 	}
 	return "";
 }
@@ -1543,6 +1599,10 @@ function GetAutoUpdateValue($field, $ptype, $table="")
 				if($table=="bolsa_empleo.mejorar_empleabilidad" && $field=="fk_persona_id")
 	{
 		return $_SESSION["persona_id"];
+	}
+				if($table=="personas-pasos" && $field=="multiselect_discapacidades")
+	{
+		return 1;
 	}
 	return "";
 }

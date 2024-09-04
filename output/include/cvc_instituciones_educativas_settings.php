@@ -140,7 +140,7 @@ $tdatacvc_instituciones_educativas[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																					
+																																																																																																															
 
 $tdatacvc_instituciones_educativas[".ajaxCodeSnippetAdded"] = false;
 
@@ -193,10 +193,11 @@ $tdatacvc_instituciones_educativas[".warnLeavingPages"] = true;
 
 
 
-$tstrOrderBy = "";
+$tstrOrderBy = "ORDER BY 	cvc_id_instituciones_educativas DESC";
 $tdatacvc_instituciones_educativas[".strOrderBy"] = $tstrOrderBy;
 
 $tdatacvc_instituciones_educativas[".orderindexes"] = array();
+			$tdatacvc_instituciones_educativas[".orderindexes"][] = array(1, (0 ? "ASC" : "DESC"), "cvc_id_instituciones_educativas");
 
 
 $tdatacvc_instituciones_educativas[".sqlHead"] = "SELECT cvc_id_instituciones_educativas,  	descripcion,  	codigo_institucion,  	nivel,  	nombre_departamento,  	nombre_distrito";
@@ -1132,7 +1133,7 @@ $proto0["m_strHead"] = "SELECT";
 $proto0["m_strFieldList"] = "cvc_id_instituciones_educativas,  	descripcion,  	codigo_institucion,  	nivel,  	nombre_departamento,  	nombre_distrito";
 $proto0["m_strFrom"] = "FROM bolsa_empleo.cvc_instituciones_educativas";
 $proto0["m_strWhere"] = "";
-$proto0["m_strOrderBy"] = "";
+$proto0["m_strOrderBy"] = "ORDER BY 	cvc_id_instituciones_educativas DESC";
 	
 		;
 			$proto0["cipherer"] = null;
@@ -1293,6 +1294,19 @@ $obj = new SQLFromListItem($proto18);
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
 $proto0["m_orderby"] = array();
+												$proto22=array();
+						$obj = new SQLField(array(
+	"m_strName" => "cvc_id_instituciones_educativas",
+	"m_strTable" => "bolsa_empleo.cvc_instituciones_educativas",
+	"m_srcTableName" => "bolsa_empleo.cvc_instituciones_educativas"
+));
+
+$proto22["m_column"]=$obj;
+$proto22["m_bAsc"] = 0;
+$proto22["m_nColumn"] = 0;
+$obj = new SQLOrderByItem($proto22);
+
+$proto0["m_orderby"][]=$obj;					
 $proto0["m_srcTableName"]="bolsa_empleo.cvc_instituciones_educativas";		
 $obj = new SQLQuery($proto0);
 

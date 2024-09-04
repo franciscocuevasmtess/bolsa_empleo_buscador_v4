@@ -11,11 +11,16 @@ header('Expires: 0');
 include("include/dbcommon.php");
 
 // Tu código de conexión a la base de datos
-$host = "192.168.70.186";
+//Produccion
+//$host = "192.168.70.186";
+//$dbname = "eportal";
+//$user = "postgres";
+//$password = "i54R1943cMzrkbH1";
+//Desarrollo
+$host = "192.168.70.170";
 $dbname = "eportal";
-$user = "postgres";
-$password = "i54R1943cMzrkbH1";
-
+$user = "franciscocuevas";
+$password = "6XP4fJe8tX7sdTaL6Rfk";
 
 // Establecer la conexión
 $conn_string = "host=$host dbname=$dbname user=$user password=$password";
@@ -28,7 +33,8 @@ if (!$connection) {
 // Obtener el número de página y el término de búsqueda desde el cliente
 $page = isset($_GET['page']) ? $_GET['page'] : 1;
 $searchTerm = isset($_GET['term']) ? $_GET['term'] : '';
-$records_per_page = 10;
+//$records_per_page = 10;
+$records_per_page = 25;
 
 // Calcular el offset para la consulta
 $offset = ($page - 1) * $records_per_page;
@@ -63,10 +69,7 @@ while ($row = pg_fetch_assoc($result)) {
 // Devolver los datos y la información de paginación en formato JSON
 echo json_encode(array('results' => $response, 'pagination' => array('more' => ($page < $totalPages))));
 
-
 // Cerrar la conexión a la base de datos
 pg_close($connection);
-
-
 
 ?>

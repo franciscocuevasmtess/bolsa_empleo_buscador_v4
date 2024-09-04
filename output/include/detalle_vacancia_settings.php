@@ -231,7 +231,7 @@ $tdatadetalle_vacancia[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																										
+																																																																																																																																																																																																																														
 
 $tdatadetalle_vacancia[".ajaxCodeSnippetAdded"] = false;
 
@@ -6409,6 +6409,7 @@ $proto82["m_columns"][] = "cantidad_vacancia";
 $proto82["m_columns"][] = "geolocation";
 $proto82["m_columns"][] = "fk_id_feria_empleo";
 $proto82["m_columns"][] = "usuario";
+$proto82["m_columns"][] = "origen";
 $obj = new SQLTable($proto82);
 
 $proto81["m_table"] = $obj;

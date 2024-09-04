@@ -309,6 +309,12 @@ function checkTableName($shortTName )
 		return true;
 	if ("tipo_remuneracion" == $shortTName )
 		return true;
+	if ("personas_pasos" == $shortTName )
+		return true;
+	if ("bolsa_sexo" == $shortTName )
+		return true;
+	if ("cvc_movilidad" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -836,6 +842,33 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="bolsa_empleo.tipo_remuneracion";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("personas-pasos");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="personas-pasos";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("bolsa_empleo.bolsa_sexo");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="bolsa_empleo.bolsa_sexo";
+	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("bolsa_empleo.cvc_movilidad");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="bolsa_empleo.cvc_movilidad";
+	}
 	return $arr;
 }
 
@@ -898,6 +931,9 @@ function GetTablesListWithoutSecurity()
 	$arr[]="bolsa_empleo.vacancia_requisito_idioma";
 	$arr[]="bolsa_empleo.modalidad_trabajo";
 	$arr[]="bolsa_empleo.tipo_remuneracion";
+	$arr[]="personas-pasos";
+	$arr[]="bolsa_empleo.bolsa_sexo";
+	$arr[]="bolsa_empleo.cvc_movilidad";
 	return $arr;
 }
 
@@ -1780,6 +1816,21 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="bolsa_empleo.tipo_remuneracion" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="personas-pasos" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="bolsa_empleo.bolsa_sexo" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="bolsa_empleo.cvc_movilidad" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;

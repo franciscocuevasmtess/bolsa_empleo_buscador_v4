@@ -6,11 +6,11 @@ $tdatapersons_referencia[".OwnerID"] = "";
 $tdatapersons_referencia[".OriginalTable"] = "eportal.persons_referencia";
 
 
-$tdatapersons_referencia[".pagesByType"] = my_json_decode( "{\"list\":[\"list\"],\"search\":[\"search\"]}" );
+$tdatapersons_referencia[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" );
 $tdatapersons_referencia[".originalPagesByType"] = $tdatapersons_referencia[".pagesByType"];
-$tdatapersons_referencia[".pages"] = types2pages( my_json_decode( "{\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdatapersons_referencia[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdatapersons_referencia[".originalPages"] = $tdatapersons_referencia[".pages"];
-$tdatapersons_referencia[".defaultPages"] = my_json_decode( "{\"list\":\"list\",\"search\":\"search\"}" );
+$tdatapersons_referencia[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
 $tdatapersons_referencia[".originalDefaultPages"] = $tdatapersons_referencia[".defaultPages"];
 
 //	field labels
@@ -29,10 +29,10 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldToolTipspersons_referencia["Spanish"]["id"] = "";
 	$placeHolderspersons_referencia["Spanish"]["id"] = "";
 	$fieldLabelspersons_referencia["Spanish"]["nombre"] = "Nombre";
-	$fieldToolTipspersons_referencia["Spanish"]["nombre"] = "";
+	$fieldToolTipspersons_referencia["Spanish"]["nombre"] = "Nombre completo";
 	$placeHolderspersons_referencia["Spanish"]["nombre"] = "";
 	$fieldLabelspersons_referencia["Spanish"]["telefono"] = "Telefono";
-	$fieldToolTipspersons_referencia["Spanish"]["telefono"] = "";
+	$fieldToolTipspersons_referencia["Spanish"]["telefono"] = "Número de teléfono";
 	$placeHolderspersons_referencia["Spanish"]["telefono"] = "";
 	$fieldLabelspersons_referencia["Spanish"]["id_persona"] = "Id Persona";
 	$fieldToolTipspersons_referencia["Spanish"]["id_persona"] = "";
@@ -40,12 +40,15 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelspersons_referencia["Spanish"]["ci"] = "Ci";
 	$fieldToolTipspersons_referencia["Spanish"]["ci"] = "";
 	$placeHolderspersons_referencia["Spanish"]["ci"] = "";
-	$fieldLabelspersons_referencia["Spanish"]["cargo"] = "Cargo";
-	$fieldToolTipspersons_referencia["Spanish"]["cargo"] = "";
+	$fieldLabelspersons_referencia["Spanish"]["cargo"] = "Cargo/Relación";
+	$fieldToolTipspersons_referencia["Spanish"]["cargo"] = "Cargo que ocupa en la empresa o la relación de parentesco que tiene contigo.";
 	$placeHolderspersons_referencia["Spanish"]["cargo"] = "";
-	$fieldLabelspersons_referencia["Spanish"]["fk_id_persons_referencia_tipo"] = "Tipo";
-	$fieldToolTipspersons_referencia["Spanish"]["fk_id_persons_referencia_tipo"] = "";
+	$fieldLabelspersons_referencia["Spanish"]["fk_id_persons_referencia_tipo"] = "Tipo de referencia";
+	$fieldToolTipspersons_referencia["Spanish"]["fk_id_persons_referencia_tipo"] = "Es una recomendación que una persona hace sobre ti, generalmente un ex jefe, profesor, mentor o colega. Esta persona puede dar fe de tus capacidades, tu ética laboral y tu desempeño en tareas específicas.";
 	$placeHolderspersons_referencia["Spanish"]["fk_id_persons_referencia_tipo"] = "";
+	$pageTitlespersons_referencia["Spanish"]["list"] = "Referencias Personales";
+	$pageTitlespersons_referencia["Spanish"]["add"] = "Referencias Personales, Añadir nuevo";
+	$pageTitlespersons_referencia["Spanish"]["edit"] = "Referencias Personales, Editar [{%id}]";
 	if (count($fieldToolTipspersons_referencia["Spanish"]))
 		$tdatapersons_referencia[".isUseToolTips"] = true;
 }
@@ -143,7 +146,7 @@ $tdatapersons_referencia[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																										
+																																																																																																																																																																																																																																																																																																																																													
 
 $tdatapersons_referencia[".ajaxCodeSnippetAdded"] = false;
 
@@ -1300,6 +1303,24 @@ $masterTablesData["eportal.persons_referencia"] = array();
 	$masterTablesData["eportal.persons_referencia"][0]["masterKeys"][]="id";
 				$masterTablesData["eportal.persons_referencia"][0]["detailKeys"] = array();
 	$masterTablesData["eportal.persons_referencia"][0]["detailKeys"][]="id_persona";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="eportal.persons";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="personas-pasos";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "personas_pasos";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["eportal.persons_referencia"][1] = $masterParams;
+				$masterTablesData["eportal.persons_referencia"][1]["masterKeys"] = array();
+	$masterTablesData["eportal.persons_referencia"][1]["masterKeys"][]="id";
+				$masterTablesData["eportal.persons_referencia"][1]["detailKeys"] = array();
+	$masterTablesData["eportal.persons_referencia"][1]["detailKeys"][]="id_persona";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//

@@ -242,7 +242,7 @@ $tdatavacancia[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																					
+																																																																																																															
 
 $tdatavacancia[".ajaxCodeSnippetAdded"] = false;
 
@@ -7333,6 +7333,7 @@ $proto96["m_columns"][] = "cantidad_vacancia";
 $proto96["m_columns"][] = "geolocation";
 $proto96["m_columns"][] = "fk_id_feria_empleo";
 $proto96["m_columns"][] = "usuario";
+$proto96["m_columns"][] = "origen";
 $obj = new SQLTable($proto96);
 
 $proto95["m_table"] = $obj;
