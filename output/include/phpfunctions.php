@@ -1023,6 +1023,11 @@ function CustomExpression($value, $data, $field, $ptype, $table="")
 	global $strTableName;
 	if(!$table)
 		$table = $strTableName;
+				if($table=="bolsa_empleo.vacancia" && $field=="salario")
+	{
+		$value = format_number($value,0,',','.');;
+		return $value;
+	}
 				if($table=="bolsa_empleo.vacancia" && $field=="fecha_expiracion_vacancia")
 	{
 		/*
@@ -1121,7 +1126,8 @@ HTML;
 }
 */
 
-setlocale(LC_TIME, 'es_VE.UTF-8','esp'); // Crear un objeto DateTime
+
+setlocale(LC_TIME, 'es_ES.UTF-8','esp'); // Crear un objeto DateTime
 
 $date = new DateTime($value); // Formatear la fecha usando strftime 
 
@@ -1173,7 +1179,7 @@ if ($data["id_estado"] == '6') {
 	}
 				if($table=="bolsa_empleo.vacancia" && $field=="fecha_creacion_vacancia")
 	{
-		setlocale(LC_TIME, 'es_VE.UTF-8','esp'); // Crear un objeto DateTime
+		setlocale(LC_TIME, 'es_ES.UTF-8','esp'); // Crear un objeto DateTime
 
 $date = new DateTime($value); // Formatear la fecha usando strftime 
 
@@ -1409,11 +1415,6 @@ if ($value["sexo"] == 'M') {
 $value="<span style='color: " . $color . "'>" .$value . "</span>"; ;
 		return $value;
 	}
-				if($table=="bolsa_empleo.cvc_movilidad" && $field=="registro_conducir")
-	{
-		;
-		return $value;
-	}
 	return $value;
 }
 
@@ -1536,14 +1537,6 @@ function GetDefaultValue($field, $ptype, $table="")
 				if($table=="personas-pasos" && $field=="multiselect_discapacidades")
 	{
 		return 1;
-	}
-				if($table=="bolsa_empleo.cvc_movilidad" && $field=="registro_conducir")
-	{
-		return NO;
-	}
-				if($table=="bolsa_empleo.cvc_movilidad" && $field=="movilidad_propia")
-	{
-		return NO;
 	}
 	return "";
 }

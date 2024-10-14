@@ -3690,6 +3690,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "bolsa_sexo" ] = "bolsa_empleo.bolsa_sexo";
 	$projectEntities[ "bolsa_empleo.cvc_movilidad" ] = array( "url" => "cvc_movilidad", "type" => 0 );
 	$projectEntitiesReverse[ "cvc_movilidad" ] = "bolsa_empleo.cvc_movilidad";
+	$projectEntities[ "bolsa_empleo.bolsa_users_cambio_contrasenha" ] = array( "url" => "bolsa_users_cambio_contrasenha", "type" => 1 );
+	$projectEntitiesReverse[ "bolsa_users_cambio_contrasenha" ] = "bolsa_empleo.bolsa_users_cambio_contrasenha";
 }
 
 function findTable( $table ) {

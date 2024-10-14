@@ -406,6 +406,56 @@ if($buttId=='New_Button22')
 	}
 	buttonHandler_New_Button22($params);
 }
+if($buttId=='New_Button23')
+{
+	//  for login page users table can be turned off
+	if( $table != GLOBAL_PAGES )
+	{
+		require_once("include/". GetTableURL( $table ) ."_variables.php");
+		$cipherer = new RunnerCipherer( $table );
+	}
+	buttonHandler_New_Button23($params);
+}
+if($buttId=='btn_guardar_cambio_contrasenha')
+{
+	//  for login page users table can be turned off
+	if( $table != GLOBAL_PAGES )
+	{
+		require_once("include/". GetTableURL( $table ) ."_variables.php");
+		$cipherer = new RunnerCipherer( $table );
+	}
+	buttonHandler_btn_guardar_cambio_contrasenha($params);
+}
+if($buttId=='btn_cambio_contrasenha')
+{
+	//  for login page users table can be turned off
+	if( $table != GLOBAL_PAGES )
+	{
+		require_once("include/". GetTableURL( $table ) ."_variables.php");
+		$cipherer = new RunnerCipherer( $table );
+	}
+	buttonHandler_btn_cambio_contrasenha($params);
+}
+if($buttId=='btn_redirige_vacancias')
+{
+	//  for login page users table can be turned off
+	if( $table != GLOBAL_PAGES )
+	{
+		require_once("include/". GetTableURL( $table ) ."_variables.php");
+		$cipherer = new RunnerCipherer( $table );
+	}
+	buttonHandler_btn_redirige_vacancias($params);
+}
+if($buttId=='btn_cambio_contrasenha1')
+{
+	//  for login page users table can be turned off
+	if( $table != GLOBAL_PAGES )
+	{
+		require_once("include/". GetTableURL( $table ) ."_variables.php");
+		$cipherer = new RunnerCipherer( $table );
+	}
+	buttonHandler_btn_cambio_contrasenha1($params);
+}
 
 if( $eventId == 'city_id_event' && "eportal.persons" == $table )
 {
@@ -473,20 +523,20 @@ function buttonHandler_New_Button($params)
 	}
 
 	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
-	//asignar contraseña segura
-		$caracteres_permitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnpqrstuvwxyz0123456789';
-		$tamanho = strlen($caracteres_permitidos);
-		$clave = '';
-		for($i = 0; $i < 24; $i++) {
-			$clave .= $caracteres_permitidos[rand(0, $tamanho - 1)];
-			}
+		//asignar contraseña segura
+	$caracteres_permitidos = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnpqrstuvwxyz0123456789';
+	$tamanho = strlen($caracteres_permitidos);
+	$clave = '';
+	for($i = 0; $i < 24; $i++) {
+		$clave .= $caracteres_permitidos[rand(0, $tamanho - 1)];
+	}
 
-//$client_id=1052; //desarrollo
-$client_id=29; //produccion
-//$url='https://devidentidad.mitic.gov.py/login?clientId='.$client_id.'&scope=read&responseType=code&state='.$clave;
-	$url='https://identidad.paraguay.gov.py/login?clientId=29&scope=read&responseType=code&state='.$clave;
+	//$client_id=1052; //desarrollo
+	$client_id = 29; //produccion
+	//$url = 'https://devidentidad.mitic.gov.py/login?clientId='.$client_id.'&scope=read&responseType=code&state='.$clave;
+	$url = 'https://identidad.paraguay.gov.py/login?clientId=29&scope=read&responseType=code&state=' . $clave;
 
-$result["url"]=$url;;
+	$result["url"] = $url;;
 	RunnerContext::pop();
 	echo my_json_encode($result);
 	$button->deleteTempFiles();
@@ -1103,106 +1153,99 @@ function buttonHandler_boton_postularse($params)
 	}
 
 	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
-	
-
-$record = $button->getCurrentRecord();
-
-$result["id_vacancias"]=$record["id_vacancias"];
-
-
-
-
-$textoresultados = array();
-$falta_datos = 0;
-
-
-
-$rs = DB::Query("
-    SELECT
-        (SELECT foto FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_foto,
-        (SELECT resumen FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_resumen,
-        (SELECT COUNT(*) FROM eportal.persons_phones WHERE type = 2 and person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
-        (SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
-        (SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
-        (SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
-        (SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion
-" );
-
-
+			$record = $button->getCurrentRecord();
+    $result["id_vacancias"] = $record["id_vacancias"];
+    $textoresultados = array();
+    $falta_datos = 0;
+    
+    $rs = DB::Query("
+        SELECT
+            (SELECT foto FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_foto,
+            (SELECT resumen FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_resumen,
+            (SELECT COUNT(*) FROM eportal.persons_phones WHERE type = 2 and person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
+            (SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
+            (SELECT domicilio FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
+            (SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
+            (SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion,
+						 (SELECT COUNT(*) FROM bolsa_empleo.cvc_experiencia_laboral WHERE fk_persona_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_experiencia_laboral,
+            (SELECT COUNT(*) FROM eportal.persons_referencia WHERE id_persona = '".pg_escape_string($_SESSION["persona_id"])."') AS count_referencias_personales,
+            (SELECT COUNT(*) FROM bolsa_empleo.cvc_idiomas WHERE fk_personaid = '".pg_escape_string($_SESSION["persona_id"])."') AS count_idiomas
+        ");
     while ($datafinal = $rs->fetchAssoc()) {
+        $existe_foto = $datafinal['existe_foto'];
+        $existe_resumen = $datafinal['existe_resumen'];
+        $count_phones = $datafinal['count_phones'];
+        $existe_city = $datafinal['existe_city'];
+        $existe_domicilio = $datafinal['existe_domicilio'];
+        $existe_canthijos = $datafinal['existe_canthijos'];
+        $count_educacion = $datafinal['count_educacion'];
 
-
-			 $existe_foto = $datafinal['existe_foto'];
-       $existe_resumen = $datafinal['existe_resumen'];
-       $count_phones = $datafinal['count_phones'];
-       $existe_city = $datafinal['existe_city'];
-       $existe_domicilio = $datafinal['existe_domicilio'];
-       $existe_canthijos = $datafinal['existe_canthijos'];
-       $count_educacion = $datafinal['count_educacion'];
-
-
+				$count_experiencia_laboral = $datafinal['count_experiencia_laboral'];
+        $count_referencias_personales = $datafinal['count_referencias_personales'];
+        $count_idiomas = $datafinal['count_idiomas'];
+        
         if (is_null($existe_foto)) {
-           // $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Foto de Perfil en Informacion Personal.";
+            // $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Foto de Perfil en Informacion Personal.";
 						// $falta_datos = 1;
-				
         }
 
         if (is_null($existe_resumen)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Resumen Personal <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Resumen Personal)</a>';
+						$falta_datos = 1;
         }
 
-				 if ($count_phones < 1) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Numero de Teléfono(WhatsApp) <a href='persons_edit.ph'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
+				if ($count_phones < 1) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Número de Teléfono(WhatsApp))</a>';
+						$falta_datos = 1;
         }
 
-				 if (is_null($existe_city)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Ciudad <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
+				if (is_null($existe_city)) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Ciudad)</a>';
+						$falta_datos = 1;
         }
 
-				 if (is_null($existe_domicilio)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Dirección. <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
+				if (is_null($existe_domicilio)) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php"> Información Básica (Dirección)</a>';
+						$falta_datos = 1;
         }
 
-         if (is_null($existe_canthijos)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Cantidad Hijos <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
+        if (is_null($existe_canthijos)) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Cantidad de Hijos)</a>';
+						$falta_datos = 1;
+        }
+
+				if ($count_educacion < 1 ) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#2">Estudios Realizados</a>';
+						$falta_datos = 1;
         }
 
 				
-         if ($count_educacion < 1 ) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Entidad Educativa <a href='vista_estudios_realizados_union_mec_list.php'>Ir a Estudios Realizados</a>";
-						 $falta_datos = 1;
+				if ($count_experiencia_laboral < 1) {
+							$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#3">Experiencia Laboral</a>';
+							$falta_datos = 1;
+        }
+
+        if ($count_referencias_personales < 1) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#4">Referencias Personales</a>';
+            $falta_datos = 1;
+        }
+
+        if ($count_idiomas < 1) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#5">Conocimiento de idiomas</a>';
+            $falta_datos = 1;
         }
 
     }
 
-if ($falta_datos == '0' ){
-
-$result['falta_datos'] = 0;
-
-$strSQLExistsinsert = DB::PrepareSQL("INSERT INTO bolsa_empleo.postulacion
-					(id_vacancia,
-						id_estado,
-						fk_personaid) 
-					values (':1',':2',':3');",
-						$result["id_vacancias"],5,$_SESSION["persona_id"]);
-				
-			DB::Exec($strSQLExistsinsert);
-
-}else{
-
-$result['falta_datos'] = 1;
-
-$result['mensaje']= $textoresultados;
-
-}
-
-
-;
+    if ($falta_datos == '0' ) {
+        $result['falta_datos'] = 0;
+        $strSQLExistsinsert = DB::PrepareSQL("INSERT INTO bolsa_empleo.postulacion(id_vacancia, id_estado, fk_personaid) 
+            values (':1',':2',':3');", $result["id_vacancias"], 5, $_SESSION["persona_id"]);
+				DB::Exec($strSQLExistsinsert);
+    } else {
+        $result['falta_datos'] = 1;
+        $result['mensaje']= $textoresultados;
+    };
 	RunnerContext::pop();
 	echo my_json_encode($result);
 	$button->deleteTempFiles();
@@ -1256,17 +1299,13 @@ function buttonHandler_boton_salir_postulacion($params)
 	}
 
 	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
-	
+		$record = $button->getCurrentRecord();
 
-$record = $button->getCurrentRecord();
+	$result["id_vacancias"] = $record["id_vacancias"];
 
-$result["id_vacancias"]=$record["id_vacancias"];
+	$strSQLdelete = DB::PrepareSQL("DELETE FROM bolsa_empleo.postulacion where id_vacancia =':1' and fk_personaid= ':2';", $result["id_vacancias"], $_SESSION["persona_id"]);
 
-$strSQLdelete = DB::PrepareSQL("DELETE FROM bolsa_empleo.postulacion where id_vacancia =':1'
-and fk_personaid= ':2';",$result["id_vacancias"],$_SESSION["persona_id"]);
-
-DB::Exec($strSQLdelete);
-;
+	DB::Exec($strSQLdelete);;
 	RunnerContext::pop();
 	echo my_json_encode($result);
 	$button->deleteTempFiles();
@@ -1698,78 +1737,91 @@ function buttonHandler_verificar_datos($params)
 	}
 
 	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
-	/*VERIFICAR DATOS FALTANTES E INDICARLO INMEDIATAMENTE LUEGO DEL LOGIN*/
-$textoresultados = array();
-$falta_datos = 0;
-
-$rsDatos = DB::Query("
-    SELECT
-        (SELECT resumen FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_resumen,
-        (SELECT COUNT(*) FROM eportal.persons_phones WHERE type = 2 and person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
-        (SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
-        (SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
-        (SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
-        (SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion
-" );
-
-
+			/*VERIFICAR DATOS FALTANTES E INDICARLO INMEDIATAMENTE LUEGO DEL LOGIN*/
+    $textoresultados = array();
+    $falta_datos = 0;
+    
+    $rsDatos = DB::Query("
+        SELECT
+            (SELECT resumen FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_resumen,
+            (SELECT COUNT(*) FROM eportal.persons_phones WHERE type = 2 and person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
+            (SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
+            (SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
+            (SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
+            (SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion,
+            (SELECT COUNT(*) FROM bolsa_empleo.cvc_experiencia_laboral WHERE fk_persona_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_experiencia_laboral,
+            (SELECT COUNT(*) FROM eportal.persons_referencia WHERE id_persona = '".pg_escape_string($_SESSION["persona_id"])."') AS count_referencias_personales,
+            (SELECT COUNT(*) FROM bolsa_empleo.cvc_idiomas WHERE fk_personaid = '".pg_escape_string($_SESSION["persona_id"])."') AS count_idiomas
+        ");
+    
     while ($datafinal = $rsDatos->fetchAssoc()) {
-
-
-		
-       $existe_resumen = $datafinal['existe_resumen'];
-       $count_phones = $datafinal['count_phones'];
-       $existe_city = $datafinal['existe_city'];
-       $existe_domicilio = $datafinal['existe_domicilio'];
-       $existe_canthijos = $datafinal['existe_canthijos'];
-       $count_educacion = $datafinal['count_educacion'];
-
-				
+        $existe_resumen = $datafinal['existe_resumen'];
+        $count_phones = $datafinal['count_phones'];
+        $existe_city = $datafinal['existe_city'];
+        $existe_domicilio = $datafinal['existe_domicilio'];
+        $existe_canthijos = $datafinal['existe_canthijos'];
+        $count_educacion = $datafinal['count_educacion'];
+				$count_experiencia_laboral = $datafinal['count_experiencia_laboral'];
+        $count_referencias_personales = $datafinal['count_referencias_personales'];
+        $count_idiomas = $datafinal['count_idiomas'];
 
         if (is_null($existe_resumen)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Resumen Personal <br> <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Resumen Personal)</a>';
+            $falta_datos = 1;
+        }
+    
+        if ($count_phones < 1) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Número de Teléfono(WhatsApp))</a>';
+            $falta_datos = 1;
+        }
+    
+        if (is_null($existe_city)) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Ciudad)</a>';
+            $falta_datos = 1;
+        }
+    
+        if (is_null($existe_domicilio)) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php"> Información Básica (Dirección)</a>';
+            $falta_datos = 1;
+        }
+    
+        if (is_null($existe_canthijos)) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Cantidad de Hijos)</a>';
+            $falta_datos = 1;
+        }
+    
+        if ($count_educacion < 1 ) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#2">Estudios Realizados</a>';
+            $falta_datos = 1;
         }
 
-				 if ($count_phones < 1) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Número de Contacto <br> <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
+
+				if ($count_experiencia_laboral < 1) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#3">Experiencia Laboral</a>';
+            $falta_datos = 1;
         }
 
-				 if (is_null($existe_city)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Ciudad <br> <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
+        if ($count_referencias_personales < 1) {
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#4">Referencias Personales</a>';
+            $falta_datos = 1;
         }
 
-				 if (is_null($existe_domicilio)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Dirección. <br> <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
-        }
-
-         if (is_null($existe_canthijos)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Cantidad Hijos <br> <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
-        }
-
-				
-         if ($count_educacion < 1 ) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Entidad Educativa <br> <a href='vista_estudios_realizados_union_mec_list.php'>Ir a Estudios Realizados</a>";
-						 $falta_datos = 1;
+        if ($count_idiomas < 1) {
+							$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#5">Conocimiento de idiomas</a>';
+            $falta_datos = 1;
         }
 
     }
-/*CARGAR EN SESION BANDERA + MENSAJE*/
-	if ($falta_datos == '1' ){
-				$result['faltan_datos'] = '1';
-				$result['mensajeVerificacion']= $textoresultados;
-		}else{
 
-				$result['faltan_datos'] = '0';
-
-				$result['mensajeVerificacion']= $textoresultados;
-		}
-
-/*-------*/;
+    /*CARGAR EN SESION BANDERA + MENSAJE*/
+    if ($falta_datos == '1' ) {
+        $result['faltan_datos'] = '1';
+        $result['mensajeVerificacion'] = $textoresultados;
+    } else {
+        $result['faltan_datos'] = '0';
+        $result['mensajeVerificacion'] = $textoresultados;
+    }
+    /*-------*/;
 	RunnerContext::pop();
 	echo my_json_encode($result);
 	$button->deleteTempFiles();
@@ -1823,10 +1875,10 @@ function buttonHandler_New_Button8($params)
 	}
 
 	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
-	$record = $button->getCurrentRecord();
-$data = array();
-$data["id_mejorar_empleabilidad"] = $record["id_mejorar_empleabilidad"];
-DB::Delete("mejorar_empleabilidad", $data );;
+		$record = $button->getCurrentRecord();
+	$data = array();
+	$data["id_mejorar_empleabilidad"] = $record["id_mejorar_empleabilidad"];
+	DB::Delete("mejorar_empleabilidad", $data );;
 	RunnerContext::pop();
 	echo my_json_encode($result);
 	$button->deleteTempFiles();
@@ -1992,7 +2044,7 @@ function buttonHandler_New_Button11($params)
 
 	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
 			$record = $button->getCurrentRecord();
-
+		
 		$result["id"] = $record["id"];
 		$result["nombre"] = $params["nombre"];
 		$result["foto"] = $params["foto"];
@@ -2013,85 +2065,159 @@ function buttonHandler_New_Button11($params)
 		$result["adjunto_potencial_discapacidad"] = $record["adjunto_potencial_discapacidad"];
 		$result["nro_cel"] = $params["nro_cel"];
 		
+		
+		//**********  ***********************************************************  ************//
+		//Validación para estudios y capacitaciones.
+		$sqlEstudiosRealizados = DB::PrepareSQL("SELECT COUNT(*) as total 
+                                             FROM bolsa_empleo.cvc_estudios_realizados
+                                                        LEFT JOIN bolsa_empleo.cvc_instituciones_educativas ON cvc_estudios_realizados.fk_cvc_instituciones_educativas = cvc_instituciones_educativas.cvc_id_instituciones_educativas
+                                                        LEFT JOIN bolsa_empleo.cvc_niveles_academicos ON cvc_estudios_realizados.fk_cvc_niveles_academicos = cvc_niveles_academicos.cvc_id_niveles_academicos
+                                                        LEFT JOIN bolsa_empleo.bolsa_users ON cvc_estudios_realizados.fk_personaid = bolsa_users.personaid 
+                                             WHERE cvc_estudios_realizados.fk_personaid = ':1'", $_SESSION["persona_id"]);
+		$resultEstudiosRealizados = DB::Query($sqlEstudiosRealizados);
+		$dataEstudiosRealizados = $resultEstudiosRealizados->fetchAssoc();
+		
+		$sqlDetalleAcademicoMec = DB::PrepareSQL("SELECT COUNT(*) as total 
+                                                    FROM bolsa_empleo.detalle_academico_mec
+                                                        LEFT JOIN bolsa_empleo.bolsa_users ON detalle_academico_mec.persona_id = bolsa_users.personaid 
+                                                    WHERE detalle_academico_mec.persona_id = ':1'", $_SESSION["persona_id"]);
+		$resultDetalleAcademicoMec = DB::Query($sqlDetalleAcademicoMec);
+		$dataDetalleAcademicoMec = $resultDetalleAcademicoMec->fetchAssoc();
+		if ($dataEstudiosRealizados["total"] == 0 && $dataDetalleAcademicoMec["total"] == 0) {
+			//hay error, faltan datos en este paso(estudios_realizados)
+			$result["cvc_estudios_realizados_error"] = true;
+		} else {
+			$result["cvc_estudios_realizados_error"] = false;
+		}
+
+		//Validación para experiencia laboral
+		$sqlExperienciaLaboral = DB::PrepareSQL("SELECT COUNT(*) as total FROM bolsa_empleo.cvc_experiencia_laboral WHERE fk_persona_id = ':1'", $_SESSION["persona_id"]);
+		$resultExperienciaLaboral = DB::Query($sqlExperienciaLaboral);
+		$dataExperienciaLaboral = $resultExperienciaLaboral->fetchAssoc();
+		if ($dataExperienciaLaboral["total"] == 0) {
+			//hay error, faltan datos en este paso(experiencia_laboral)
+			$result["cvc_experiencia_laboral_error"] = true;
+		} else {
+			$result["cvc_experiencia_laboral_error"] = false;
+		}
+
+		//Validación para referencias personales
+		$sqlPersonsReferencia = DB::PrepareSQL("SELECT COUNT(*) as total FROM eportal.persons_referencia WHERE id_persona = ':1'", $_SESSION["persona_id"]);
+		$resultPersonsReferencia = DB::Query($sqlPersonsReferencia);
+		$dataPersonsReferencia = $resultPersonsReferencia->fetchAssoc();
+		if ($dataPersonsReferencia["total"] == 0) {
+			//hay error, faltan datos en este paso(personas_referencia)
+			$result["persons_referencia_error"] = true;
+		} else {
+			$result["persons_referencia_error"] = false;
+		}
+
+		//Validación para conocimiento de idiomas.
+		$sqlIdiomas = DB::PrepareSQL("SELECT COUNT(*) as total FROM bolsa_empleo.cvc_idiomas WHERE fk_personaid = ':1'", $_SESSION["persona_id"]);
+		$resultIdiomas = DB::Query($sqlIdiomas);
+		$dataIdiomas = $resultIdiomas->fetchAssoc();
+		if ($dataIdiomas["total"] == 0) {
+			//hay error, faltan datos en este paso(idiomas)
+			$result["cvc_idiomas_error"] = true;
+		} else {
+			$result["cvc_idiomas_error"] = false;
+		}
+		
+		
+		//if ( !$result["cvc_estudios_realizados_error"] && !$result["cvc_experiencia_laboral_error"] && !$result["persons_referencia_error"] && !$result["cvc_idiomas_error"] ) {
+			 //no hay error, continuar con los siguientes pasos.
+				
 		//borrar y volver a cargar discapacidades
 		$sqldisb = DB::PrepareSQL("DELETE FROM eportal.persons_discapacidades WHERE person_id = ':1'", $result["id"]);
-    DB::Exec($sqldisb);
-		
+		DB::Exec($sqldisb);
 		//insertar discapacidad
 		$zonas_cuerpo = explode(",", $result["multiselec_discapacidades"]);
-    foreach ($zonas_cuerpo as $value) {
-				$sqldis = DB::PrepareSQL("INSERT INTO eportal.persons_discapacidades(person_id, tipo_discapacidad_id) VALUES (':1',':2')", $result["id"], $value);
-				DB::Exec($sqldis);
-    }
+		foreach ($zonas_cuerpo as $value) {
+			$sqldis = DB::PrepareSQL("INSERT INTO eportal.persons_discapacidades(person_id, tipo_discapacidad_id) VALUES (':1',':2')", $result["id"], $value);
+			DB::Exec($sqldis);
+		}
 
 		//borrar y volver a cargar tel
 		$sqldisb = DB::PrepareSQL("DELETE FROM eportal.persons_phones WHERE person_id = ':1'", $result["id"]);
-    DB::Exec($sqldisb);
-
-    //insertar tel
+		DB::Exec($sqldisb);
+		//insertar tel
 		$sqltel = DB::PrepareSQL("INSERT INTO eportal.persons_phones(person_id, type, phone) VALUES (':1', 2, ':2')", $result["id"], $result["nro_cel"]);
-    DB::Exec($sqltel);
+		DB::Exec($sqltel);
+		$result["validacion_pasos_error"] = false;
+
 
 		if (empty($oldvalues["foto"])) {
-				$sql2 = "UPDATE eportal.persons 
-                    SET canthijos = '".pg_escape_string($result["canthijos"])."',
-                        domicilio = '".pg_escape_string($result["domicilio"])."',
-                        estado_civil = '".pg_escape_string($result["estado_civil"])."', 
-                        city_id = '".pg_escape_string($result["city_id"])."', 
-                        distrito_id = '".pg_escape_string($result["distrito_id"])."',
-                        esindigena = '".pg_escape_string($result["esindigena"])."', 
-                        foto = '".pg_escape_bytea($result["foto"])."', 
-                        porcentaje_discapacidad = '".pg_escape_string($result["porcentaje_discapacidad"])."',
-                        adjunto_certificado_discapacidad = '".pg_escape_string($result["adjunto_certificado_discapacidad"])."', 
-                        adjunto_potencial_discapacidad = '".pg_escape_string($result["adjunto_potencial_discapacidad"])."', 
-                        resumen = '".pg_escape_string($result["resumen"])."' 
-                    WHERE id = '".pg_escape_string($result["id"])."'";
-        CustomQuery($sql2);
-    }
+			$sql2 = "UPDATE eportal.persons 
+								SET canthijos = '".pg_escape_string($result["canthijos"])."',
+										domicilio = '".pg_escape_string($result["domicilio"])."',
+										estado_civil = '".pg_escape_string($result["estado_civil"])."', 
+										city_id = '".pg_escape_string($result["city_id"])."', 
+										distrito_id = '".pg_escape_string($result["distrito_id"])."',
+										esindigena = '".pg_escape_string($result["esindigena"])."', 
+										foto = '".pg_escape_bytea($result["foto"])."', 
+										porcentaje_discapacidad = '".pg_escape_string($result["porcentaje_discapacidad"])."',
+										adjunto_certificado_discapacidad = '".pg_escape_string($result["adjunto_certificado_discapacidad"])."', 
+										adjunto_potencial_discapacidad = '".pg_escape_string($result["adjunto_potencial_discapacidad"])."', 
+										resumen = '".pg_escape_string($result["resumen"])."' 
+								WHERE id = '".pg_escape_string($result["id"])."'";
+			CustomQuery($sql2);
+		}
 
 		if (!empty($values["foto"])) {
-				$sql2 = "UPDATE eportal.persons 
-                    SET canthijos = '".pg_escape_string($result["canthijos"])."',
-                        domicilio = '".pg_escape_string($result["domicilio"])."',
-                        estado_civil = '".pg_escape_string($result["estado_civil"])."', 
-                        city_id = '".pg_escape_string($result["city_id"])."', 
-                        distrito_id = '".pg_escape_string($result["distrito_id"])."',
-                        esindigena = '".pg_escape_string($result["esindigena"])."', 
-                        foto = '".pg_escape_bytea($result["foto"])."', 
-                        porcentaje_discapacidad = '".pg_escape_string($result["porcentaje_discapacidad"])."',
-                        adjunto_certificado_discapacidad = '".pg_escape_string($result["adjunto_certificado_discapacidad"])."', 
-                        adjunto_potencial_discapacidad = '".pg_escape_string($result["adjunto_potencial_discapacidad"])."', 
-                        resumen = '".pg_escape_string($result["resumen"])."'  
-                    WHERE id = '".pg_escape_string($result["id"])."'";
-        CustomQuery($sql2);
-    }
-
+			$sql2 = "UPDATE eportal.persons 
+								SET canthijos = '".pg_escape_string($result["canthijos"])."',
+										domicilio = '".pg_escape_string($result["domicilio"])."',
+										estado_civil = '".pg_escape_string($result["estado_civil"])."', 
+										city_id = '".pg_escape_string($result["city_id"])."', 
+										distrito_id = '".pg_escape_string($result["distrito_id"])."',
+										esindigena = '".pg_escape_string($result["esindigena"])."', 
+										foto = '".pg_escape_bytea($result["foto"])."', 
+										porcentaje_discapacidad = '".pg_escape_string($result["porcentaje_discapacidad"])."',
+										adjunto_certificado_discapacidad = '".pg_escape_string($result["adjunto_certificado_discapacidad"])."', 
+										adjunto_potencial_discapacidad = '".pg_escape_string($result["adjunto_potencial_discapacidad"])."', 
+										resumen = '".pg_escape_string($result["resumen"])."'  
+								WHERE id = '".pg_escape_string($result["id"])."'";
+			CustomQuery($sql2);
+		}
+		
 		if (!empty($oldvalues["foto"])) {
-				$sql2 = DB::PrepareSQL("UPDATE eportal.persons 
-                                    SET canthijos = ':1',
-                                        domicilio = ':2', 
-                                        estado_civil = ':3', 
-                                        city_id = ':4', 
-                                        distrito_id = ':5',
-                                        esindigena = ':6', 
-                                        porcentaje_discapacidad = ':7',
-                                        adjunto_certificado_discapacidad = ':8', 
-                                        adjunto_potencial_discapacidad = ':9', 
-                                        resumen = ':10'  
-                                    WHERE id = ':11'",
-                                    $result["canthijos"],
-                                    $result["domicilio"],
-                                    $result["estado_civil"],
-                                    $result["city_id"],
-                                    $result["distrito_id"],
-                                    $result["esindigena"],
-                                    $result["porcentaje_discapacidad"], 
-                                    $result["adjunto_certificado_discapacidad"],
-                                    $result["adjunto_potencial_discapacidad"],
-                                    $result["resumen"],
-                                    $result["id"]);
-        DB::Exec($sql2);
-    };
+			$sql2 = DB::PrepareSQL("UPDATE eportal.persons 
+																SET canthijos = ':1',
+																		domicilio = ':2', 
+																		estado_civil = ':3', 
+																		city_id = ':4', 
+																		distrito_id = ':5',
+																		esindigena = ':6', 
+																		porcentaje_discapacidad = ':7',
+																		adjunto_certificado_discapacidad = ':8', 
+																		adjunto_potencial_discapacidad = ':9', 
+																		resumen = ':10'  
+																WHERE id = ':11'",
+			$result["canthijos"],
+			$result["domicilio"],
+			$result["estado_civil"],
+			$result["city_id"],
+			$result["distrito_id"],
+			$result["esindigena"],
+			$result["porcentaje_discapacidad"], 
+			$result["adjunto_certificado_discapacidad"],
+			$result["adjunto_potencial_discapacidad"],
+			$result["resumen"],
+			$result["id"]);
+			DB::Exec($sql2);
+	}
+	
+	//if ( !$result["cvc_estudios_realizados_error"] && !$result["cvc_experiencia_laboral_error"] && !$result["persons_referencia_error"] && !$result["cvc_idiomas_error"] ) {
+		//
+	//} else {
+		//$result["validacion_pasos_error"] = true;
+	//}
+
+	if ( $result["cvc_estudios_realizados_error"] || $result["cvc_experiencia_laboral_error"] || $result["persons_referencia_error"] || $result["cvc_idiomas_error"] ) {
+		$result["validacion_pasos_error"] = true;
+	}
+	//**********  ***********************************************************  ************//
+;
 	RunnerContext::pop();
 	echo my_json_encode($result);
 	$button->deleteTempFiles();
@@ -2586,10 +2712,10 @@ function buttonHandler_New_Button20($params)
 	}
 
 	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
-	$record = $button->getCurrentRecord();
-$data = array();
-$data["cvc_id_movilidad"] = $record["cvc_id_movilidad"];
-DB::Delete("cvc_movilidad", $data );
+		$record = $button->getCurrentRecord();
+	$data = array();
+	$data["cvc_id_movilidad"] = $record["cvc_id_movilidad"];
+	DB::Delete("cvc_movilidad", $data );
 ;
 	RunnerContext::pop();
 	echo my_json_encode($result);
@@ -2701,7 +2827,281 @@ function buttonHandler_New_Button22($params)
 	}
 
 	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
+	;
+	RunnerContext::pop();
+	echo my_json_encode($result);
+	$button->deleteTempFiles();
+}
+function buttonHandler_New_Button23($params)
+{
+	global $strTableName;
+	$result = array();
+
+	// create new button object for get record data
+	$params["keys"] = (array)my_json_decode(postvalue('keys'));
+	$params["isManyKeys"] = postvalue('isManyKeys');
+	$params["location"] = postvalue('location');
+
+	$button = new Button($params);
+	$ajax = $button; // for examle from HELP
+	$keys = $button->getKeys();
+
+	$masterData = false;
+	if ( isset($params['masterData']) && count($params['masterData']) > 0 )
+	{
+		$masterData = $params['masterData'];
+	}
+	else if ( isset($params["masterTable"]) )
+	{
+		$masterData = $button->getMasterData($params["masterTable"]);
+	}
 	
+	$contextParams = array();
+	if ( $params["location"] == PAGE_VIEW )
+	{
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["masterData"] = $masterData;
+	}
+	else if ( $params["location"] == PAGE_EDIT )
+	{
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["newData"] = $params['fieldsData'];
+		$contextParams["masterData"] = $masterData;
+	}
+	else if ( $params["location"] == "grid" )
+	{	
+		$params["location"] = "list";
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["newData"] = $params['fieldsData'];
+		$contextParams["masterData"] = $masterData;
+	}
+	else 
+	{
+		$contextParams["masterData"] = $masterData;
+	}
+
+	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
+	// Put your code here.
+$result["txt"] = $params["txt"]." world!";
+;
+	RunnerContext::pop();
+	echo my_json_encode($result);
+	$button->deleteTempFiles();
+}
+function buttonHandler_btn_guardar_cambio_contrasenha($params)
+{
+	global $strTableName;
+	$result = array();
+
+	// create new button object for get record data
+	$params["keys"] = (array)my_json_decode(postvalue('keys'));
+	$params["isManyKeys"] = postvalue('isManyKeys');
+	$params["location"] = postvalue('location');
+
+	$button = new Button($params);
+	$ajax = $button; // for examle from HELP
+	$keys = $button->getKeys();
+
+	$masterData = false;
+	if ( isset($params['masterData']) && count($params['masterData']) > 0 )
+	{
+		$masterData = $params['masterData'];
+	}
+	else if ( isset($params["masterTable"]) )
+	{
+		$masterData = $button->getMasterData($params["masterTable"]);
+	}
+	
+	$contextParams = array();
+	if ( $params["location"] == PAGE_VIEW )
+	{
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["masterData"] = $masterData;
+	}
+	else if ( $params["location"] == PAGE_EDIT )
+	{
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["newData"] = $params['fieldsData'];
+		$contextParams["masterData"] = $masterData;
+	}
+	else if ( $params["location"] == "grid" )
+	{	
+		$params["location"] = "list";
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["newData"] = $params['fieldsData'];
+		$contextParams["masterData"] = $masterData;
+	}
+	else 
+	{
+		$contextParams["masterData"] = $masterData;
+	}
+
+	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
+	;
+	RunnerContext::pop();
+	echo my_json_encode($result);
+	$button->deleteTempFiles();
+}
+function buttonHandler_btn_cambio_contrasenha($params)
+{
+	global $strTableName;
+	$result = array();
+
+	// create new button object for get record data
+	$params["keys"] = (array)my_json_decode(postvalue('keys'));
+	$params["isManyKeys"] = postvalue('isManyKeys');
+	$params["location"] = postvalue('location');
+
+	$button = new Button($params);
+	$ajax = $button; // for examle from HELP
+	$keys = $button->getKeys();
+
+	$masterData = false;
+	if ( isset($params['masterData']) && count($params['masterData']) > 0 )
+	{
+		$masterData = $params['masterData'];
+	}
+	else if ( isset($params["masterTable"]) )
+	{
+		$masterData = $button->getMasterData($params["masterTable"]);
+	}
+	
+	$contextParams = array();
+	if ( $params["location"] == PAGE_VIEW )
+	{
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["masterData"] = $masterData;
+	}
+	else if ( $params["location"] == PAGE_EDIT )
+	{
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["newData"] = $params['fieldsData'];
+		$contextParams["masterData"] = $masterData;
+	}
+	else if ( $params["location"] == "grid" )
+	{	
+		$params["location"] = "list";
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["newData"] = $params['fieldsData'];
+		$contextParams["masterData"] = $masterData;
+	}
+	else 
+	{
+		$contextParams["masterData"] = $masterData;
+	}
+
+	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
+	$result["user_id"] = $_SESSION["user_id"];
+;
+	RunnerContext::pop();
+	echo my_json_encode($result);
+	$button->deleteTempFiles();
+}
+function buttonHandler_btn_redirige_vacancias($params)
+{
+	global $strTableName;
+	$result = array();
+
+	// create new button object for get record data
+	$params["keys"] = (array)my_json_decode(postvalue('keys'));
+	$params["isManyKeys"] = postvalue('isManyKeys');
+	$params["location"] = postvalue('location');
+
+	$button = new Button($params);
+	$ajax = $button; // for examle from HELP
+	$keys = $button->getKeys();
+
+	$masterData = false;
+	if ( isset($params['masterData']) && count($params['masterData']) > 0 )
+	{
+		$masterData = $params['masterData'];
+	}
+	else if ( isset($params["masterTable"]) )
+	{
+		$masterData = $button->getMasterData($params["masterTable"]);
+	}
+	
+	$contextParams = array();
+	if ( $params["location"] == PAGE_VIEW )
+	{
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["masterData"] = $masterData;
+	}
+	else if ( $params["location"] == PAGE_EDIT )
+	{
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["newData"] = $params['fieldsData'];
+		$contextParams["masterData"] = $masterData;
+	}
+	else if ( $params["location"] == "grid" )
+	{	
+		$params["location"] = "list";
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["newData"] = $params['fieldsData'];
+		$contextParams["masterData"] = $masterData;
+	}
+	else 
+	{
+		$contextParams["masterData"] = $masterData;
+	}
+
+	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
+	
+;
+	RunnerContext::pop();
+	echo my_json_encode($result);
+	$button->deleteTempFiles();
+}
+function buttonHandler_btn_cambio_contrasenha1($params)
+{
+	global $strTableName;
+	$result = array();
+
+	// create new button object for get record data
+	$params["keys"] = (array)my_json_decode(postvalue('keys'));
+	$params["isManyKeys"] = postvalue('isManyKeys');
+	$params["location"] = postvalue('location');
+
+	$button = new Button($params);
+	$ajax = $button; // for examle from HELP
+	$keys = $button->getKeys();
+
+	$masterData = false;
+	if ( isset($params['masterData']) && count($params['masterData']) > 0 )
+	{
+		$masterData = $params['masterData'];
+	}
+	else if ( isset($params["masterTable"]) )
+	{
+		$masterData = $button->getMasterData($params["masterTable"]);
+	}
+	
+	$contextParams = array();
+	if ( $params["location"] == PAGE_VIEW )
+	{
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["masterData"] = $masterData;
+	}
+	else if ( $params["location"] == PAGE_EDIT )
+	{
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["newData"] = $params['fieldsData'];
+		$contextParams["masterData"] = $masterData;
+	}
+	else if ( $params["location"] == "grid" )
+	{	
+		$params["location"] = "list";
+		$contextParams["data"] = $button->getRecordData();
+		$contextParams["newData"] = $params['fieldsData'];
+		$contextParams["masterData"] = $masterData;
+	}
+	else 
+	{
+		$contextParams["masterData"] = $masterData;
+	}
+
+	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
+	$result["user_id"] = $_SESSION["user_id"];
 ;
 	RunnerContext::pop();
 	echo my_json_encode($result);

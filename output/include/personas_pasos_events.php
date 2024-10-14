@@ -50,33 +50,34 @@
 function BeforeEdit(&$values, &$sqlValues, $where, &$oldvalues, &$keys, &$message, $inline, $pageObject)
 {
 
-				$cantidadDeElementos = 0;
-    $existeEntregaEnArray = 0;
-    
-    //verificar que sea valido seleccion de discapacidades
-    $id_multados_multi = explode(",", $values['multiselect_discapacidades']);
-    
-    foreach ($id_multados_multi as $valueToInsert) {
-			if ($valueToInsert == '1') {
-				$existeEntregaEnArray = 1;
-			}
-		
-     $cantidadDeElementos = $cantidadDeElementos + 1;
+			$cantidadDeElementos = 0;
+	$existeEntregaEnArray = 0;
+
+	//verificar que sea valido seleccion de discapacidades
+	$id_multados_multi = explode(",", $values['multiselect_discapacidades']);
+
+	foreach ($id_multados_multi as $valueToInsert) {
+		if ($valueToInsert == '1') {
+			$existeEntregaEnArray = 1;
 		}
-    
-    if ($existeEntregaEnArray == 1 and $cantidadDeElementos > 1 ) {
-				$message = "Si seleccionó NINGUNA DISCAPACIDAD, solamente esa debe estar, no seleccione otras más!!" ;
-        return false;
-    }
-    
-    if ($existeEntregaEnArray == 1 and $cantidadDeElementos == 1 ) {
-			$values['porcentaje_discapacidad'] = 0;
-    }
 
-    $values["resumen"] = strtoupper($values["resumen"]);
-    $values["domicilio"] = strtoupper($values["domicilio"]);
+		$cantidadDeElementos = $cantidadDeElementos + 1;
+	}
 
-    return true;
+	if ($existeEntregaEnArray == 1 and $cantidadDeElementos > 1 ) {
+		$message = "Si seleccionó NINGUNA DISCAPACIDAD, solamente esa debe estar, no seleccione otras más!!" ;
+		return false;
+	}
+
+	if ($existeEntregaEnArray == 1 and $cantidadDeElementos == 1 ) {
+		$values['porcentaje_discapacidad'] = 0;
+	}
+
+	$values["resumen"] = strtoupper($values["resumen"]);
+	$values["domicilio"] = strtoupper($values["domicilio"]);
+
+	
+	return true;
 ;		
 } // function BeforeEdit
 
@@ -153,7 +154,6 @@ function CustomEdit(&$values, $where, &$oldvalues, &$keys, &$error, $inline, $pa
 		    //borrar y volver a cargar discapacidades
     $sqldisb = DB::PrepareSQL("DELETE FROM eportal.persons_discapacidades WHERE person_id = ':1'", $keys["id"]);
     DB::Exec($sqldisb);
-
     //insertar discapacidad
     $zonas_cuerpo = explode(",", $values["multiselect_discapacidades"]);
     foreach ($zonas_cuerpo as $value) {
@@ -164,7 +164,6 @@ function CustomEdit(&$values, $where, &$oldvalues, &$keys, &$error, $inline, $pa
     //borrar y volver a cargar tel
     $sqldisb = DB::PrepareSQL("DELETE FROM eportal.persons_phones WHERE person_id = ':1'", $keys["id"]);
     DB::Exec($sqldisb);
-
     //insertar tel
     $sqltel = DB::PrepareSQL("INSERT INTO eportal.persons_phones(person_id, type, phone) VALUES (':1', 2, ':2')", $keys["id"], $values["nro_cel"]);
     DB::Exec($sqltel);
@@ -339,6 +338,12 @@ function ProcessValuesEdit(&$values, $pageObject)
     if ($data2) {
         $values['nro_cel'] = $data2["phone"];
     }
+
+
+		//Oculta el boton "Guardar Cambios"	
+		//$pageObject->hideItem("custom_button", $recordId);
+		//Oculta el boton "Guardar"(El que esta por default)
+		$pageObject->hideItem("edit_save", $recordId);
 ;		
 } // function ProcessValuesEdit
 
@@ -530,13 +535,7 @@ function ProcessValuesEdit(&$values, $pageObject)
 function AfterEdit(&$values, $where, &$oldvalues, &$keys, $inline, $pageObject)
 {
 
-		
-		$pageObject->setMessageType(MESSAGE_INFO);
-    $pageObject->setMessage("Registro Actualizado Correctamente");
-
-    verificardatospostulacion();
-
-
+				verificardatospostulacion();
 
 ;		
 } // function AfterEdit

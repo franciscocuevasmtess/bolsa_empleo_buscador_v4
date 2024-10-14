@@ -221,7 +221,7 @@ $tdatapersonas_pasos[".isUseAjaxSuggest"] = true;
 
 
 																																						
-																																																																																																																																																																																																																																																																																																																																																																																																																							
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																			
 
 $tdatapersonas_pasos[".ajaxCodeSnippetAdded"] = false;
 
@@ -412,7 +412,7 @@ $tdatapersonas_pasos[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Readonly");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -437,19 +437,15 @@ $tdatapersonas_pasos[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+							
 	
 //	End validation
 
@@ -5268,11 +5264,11 @@ $detailsTablesData["personas-pasos"] = array();
 	
 		$detailsTablesData["personas-pasos"][$dIndex]["masterKeys"] = array();
 
-	$detailsTablesData["personas-pasos"][$dIndex]["masterKeys"][]="id";
+	$detailsTablesData["personas-pasos"][$dIndex]["masterKeys"][]="nro_documento";
 
 				$detailsTablesData["personas-pasos"][$dIndex]["detailKeys"] = array();
 
-	$detailsTablesData["personas-pasos"][$dIndex]["detailKeys"][]="fk_personaid";
+	$detailsTablesData["personas-pasos"][$dIndex]["detailKeys"][]="nro_documento";
 //	bolsa_empleo.mejorar_empleabilidad
 	
 	

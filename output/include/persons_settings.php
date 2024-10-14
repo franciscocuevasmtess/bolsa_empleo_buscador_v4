@@ -220,7 +220,7 @@ $tdatapersons[".isUseAjaxSuggest"] = true;
 
 
 											
-																																																																																																					
+																																																																																																																				
 
 $tdatapersons[".ajaxCodeSnippetAdded"] = false;
 
@@ -5241,11 +5241,11 @@ $detailsTablesData["eportal.persons"] = array();
 	
 		$detailsTablesData["eportal.persons"][$dIndex]["masterKeys"] = array();
 
-	$detailsTablesData["eportal.persons"][$dIndex]["masterKeys"][]="id";
+	$detailsTablesData["eportal.persons"][$dIndex]["masterKeys"][]="nro_documento";
 
 				$detailsTablesData["eportal.persons"][$dIndex]["detailKeys"] = array();
 
-	$detailsTablesData["eportal.persons"][$dIndex]["detailKeys"][]="fk_personaid";
+	$detailsTablesData["eportal.persons"][$dIndex]["detailKeys"][]="nro_documento";
 //endif
 
 // tables which are master tables for current table (detail)

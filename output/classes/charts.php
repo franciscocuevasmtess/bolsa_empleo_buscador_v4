@@ -490,6 +490,8 @@ class Chart
 			return true;
 		if("bolsa_empleo.cvc_movilidad" == $this->chrt_array['tables'][0])
 			return true;
+		if("bolsa_empleo.bolsa_users" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

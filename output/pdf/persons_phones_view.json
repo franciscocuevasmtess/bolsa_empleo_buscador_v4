@@ -113,7 +113,8 @@ pdfDocument = {
 				cellId: 'c1',
 				row:  0,
 				col:  1,
-				text: ''
+				text: '',
+				compensateColspan: true
 			},
 							],
 		

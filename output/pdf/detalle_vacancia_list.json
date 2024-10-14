@@ -1433,13 +1433,13 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"<i class=\"bi bi-calendar3\"></i> <b>Publicado el:</b>","hidden":"{$item_hide_text22}","fontSize":14,"font":"Open Sans","isHtml":true},
+			{"text":"<i class=\"bi bi-calendar3\"></i> <b>Publicado:</b>","hidden":"{$item_hide_text22}","fontSize":14,"font":"Open Sans","isHtml":true},
 				
 				
 			{"text":{$fecha_creacion_vacancia_pdfvalue},"hidden":"{$item_hide_grid_field7}","fontSize":14,"font":"Open Sans"},
 				
 				
-			{"text":"<b>Expira el:</b>","hidden":"{$item_hide_text23}","fontSize":14,"font":"Open Sans","isHtml":true},
+			{"text":"<b>Expira:</b>","hidden":"{$item_hide_text23}","fontSize":14,"font":"Open Sans","isHtml":true},
 				
 				
 			{"text":{$fecha_expiracion_vacancia_pdfvalue},"hidden":"{$item_hide_grid_field16}","fontSize":14,"font":"Open Sans"},

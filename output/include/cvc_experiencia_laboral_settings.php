@@ -167,7 +167,7 @@ $tdatacvc_experiencia_laboral[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																											
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						
 
 $tdatacvc_experiencia_laboral[".ajaxCodeSnippetAdded"] = false;
 
@@ -1824,8 +1824,10 @@ $tdatacvc_experiencia_laboral[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Regular expression");
+				$edata["validateAs"]["regExp"] = "^(0|[1-9]\\d*|[1-6]\\d|70)\$";
+	$edata["validateAs"]["customMessages"]["RegExp"] = array("message" => "The value is invalid", "messageType" => "Text");
+			$edata["validateAs"]["basicValidate"][] = "IsRequired";
 		
 	
 //	End validation

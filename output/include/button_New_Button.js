@@ -12,12 +12,11 @@ Runner.buttonEvents["New_Button"] = function( pageObj, proxy, pageid ) {
 	if ( !pageObj.buttonEventAfter['New_Button'] ) {
 		pageObj.buttonEventAfter['New_Button'] = function( result, ctrl, pageObj, proxy, pageid, rowData, row, params ) {
 			var ajax = ctrl;
-// Put your code here.
-//var message =  "Enviado a Identidad Electrónica!!!";
-//ajax.setMessage(message);
-if (result["url"]) {
-location.href=result["url"];
-}
+	//var message =  "Enviado a Identidad Electrónica!!!";
+	//ajax.setMessage(message);
+	if (result["url"]) {
+		location.href = result["url"];
+	}
 		}
 	}
 	

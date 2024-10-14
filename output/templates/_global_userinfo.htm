@@ -3,7 +3,7 @@
 	<head>
 				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Emplea :: Buscador  - {$pagetitle}</title>
+	<title>EmpleaPy :: Buscador :: {$pagetitle}</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel="icon" src="images/imgob23/gob_ico.png" type="image/x-icon" sizes="32x32"> 
 	<base href="{$projectPath}">
@@ -25,7 +25,11 @@
 <!-- End Matomo Code -->
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      crossorigin=""/>
- 		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+ <link rel="icon" href="https://emplea.mtess.gov.py/wp-content/uploads/2023/11/cropped-elemento_logo-emplea-py-colores-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://emplea.mtess.gov.py/wp-content/uploads/2023/11/cropped-elemento_logo-emplea-py-colores-180x180.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
 	{BEGIN rtlCSS}
 	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
 	{END rtlCSS}
@@ -52,7 +56,7 @@
 	data-location="supertop" id="form_supertop_{$pageid}" data-makeup="topbar" {$form_supertop} data-pageid="{$pageid}" >
 			 
 							 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" navbar-header" data-itemid="logo" {$item_logo}>
+				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" r-ori-vert navbar-header" data-itemid="logo" {$item_logo}>
 				{BEGIN logo_block}
 	<A data-itemtype="logo" data-itemid="logo" {$item_logo} data-pageid="{$pageid}" class="navbar-brand" href="{$home_link}" data-pageid="{$pageid}" {$logo_hiddenattr}>
 		{$logo}
@@ -62,156 +66,6 @@
 					<span class="sr-only">Toggle navigation</span>	
 					<span class="icon-bar"></span>					
 				</button>				
-			</span>
-		 
-				<span data-cellId="supertop_c1" data-pageid="{$pageid}" class=" navbar-collapse" data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}">
-				{BEGIN menuitems_main}
-<ul data-itemtype="menu" data-itemid="menu" {$item_menu} data-pageid="{$pageid}"	class="r-menu nav navbar-nav" 
-	data-menulevel="1"
->
-
-{BEGIN item_children1}
-<li class="
-	{BEGIN item_haschildren2} dropdown {END item_haschildren2} 
-	{$item_current}">
-<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h data-menu-top >
-	{$item_separator}
-	<span class="r-menu-link  "> 
-		<span class="r-menu-title">
-		{$item_icon} {$item_title}
-		</span>
-		{BEGIN item_haschildren2}
-		{BEGIN item_expand_icon}
-		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-bottom"></span>
-		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
-		{END item_expand_icon}
-		{END item_haschildren2}
-	</span>
-	</a>
-{BEGIN item_showchildren2}
-<ul class="
-			dropdown-menu
-			{$submenu_class}" 
-		id="submenu{$item_id}" data-menulevel="2">
-	{BEGIN item_children2}
-		{BEGIN item_menulink2}
-		<li class="
-						{BEGIN item_haschildren2} dropdown {END item_haschildren2}
-						{$item_current}"
-		>
-			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
-	{$item_separator}
-	<span class="r-menu-link  "> 
-		<span class="r-menu-title">
-		{$item_icon} {$item_title}
-		</span>
-		{BEGIN item_haschildren2}
-		{BEGIN item_expand_icon}
-		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
-		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
-		{END item_expand_icon}
-		{END item_haschildren2}
-	</span>
-	</a>
-			{BEGIN item_showchildren3}
-<ul class="
-			dropdown-menu
-			{$submenu_class}" 
-		id="submenu{$item_id}" data-menulevel="3">
-	{BEGIN item_children3}
-		{BEGIN item_menulink3}
-		<li class="
-						{BEGIN item_haschildren3} dropdown {END item_haschildren3}
-						{$item_current}"
-		>
-			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
-	{$item_separator}
-	<span class="r-menu-link  "> 
-		<span class="r-menu-title">
-		{$item_icon} {$item_title}
-		</span>
-		{BEGIN item_haschildren3}
-		{BEGIN item_expand_icon}
-		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
-		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
-		{END item_expand_icon}
-		{END item_haschildren3}
-	</span>
-	</a>
-			{BEGIN item_showchildren4}
-<ul class="
-			dropdown-menu
-			{$submenu_class}" 
-		id="submenu{$item_id}" data-menulevel="4">
-	{BEGIN item_children4}
-		{BEGIN item_menulink4}
-		<li class="
-						{BEGIN item_haschildren4} dropdown {END item_haschildren4}
-						{$item_current}"
-		>
-			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
-	{$item_separator}
-	<span class="r-menu-link  "> 
-		<span class="r-menu-title">
-		{$item_icon} {$item_title}
-		</span>
-		{BEGIN item_haschildren4}
-		{BEGIN item_expand_icon}
-		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
-		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
-		{END item_expand_icon}
-		{END item_haschildren4}
-	</span>
-	</a>
-			{BEGIN item_showchildren5}
-<ul class="
-			dropdown-menu
-			{$submenu_class}" 
-		id="submenu{$item_id}" data-menulevel="5">
-	{BEGIN item_children5}
-		{BEGIN item_menulink5}
-		<li class="
-						{BEGIN item_haschildren5} dropdown {END item_haschildren5}
-						{$item_current}"
-		>
-			<a {$item_attrs} title="{$item_tooltip}" data-menu-link data-menu-h >
-	{$item_separator}
-	<span class="r-menu-link  "> 
-		<span class="r-menu-title">
-		{$item_icon} {$item_title}
-		</span>
-		{BEGIN item_haschildren5}
-		{BEGIN item_expand_icon}
-		<span class="r-menu-expand-icon glyphicon glyphicon-triangle-right"></span>
-		<span class="r-menu-mobile-expand-icon fa fa-angle-left"></span>
-		{END item_expand_icon}
-		{END item_haschildren5}
-	</span>
-	</a>
-					</li>
-		{END item_menulink5}
-	{END item_children5}
-</ul>
-{END item_showchildren5}
-		</li>
-		{END item_menulink4}
-	{END item_children4}
-</ul>
-{END item_showchildren4}
-		</li>
-		{END item_menulink3}
-	{END item_children3}
-</ul>
-{END item_showchildren3}
-		</li>
-		{END item_menulink2}
-	{END item_children2}
-</ul>
-{END item_showchildren2}
-</li>
-{END item_children1}
-</ul>
-{END menuitems_main}
 			</span>
 							 
 							 

@@ -65,11 +65,11 @@
 'view' => false,
 'print' => false ),
 'layoutHelper' => array( 'formItems' => array( 'formItems' => array( 'above-grid' => array( 'breadcrumb',
-'step_nav',
-'edit_message' ),
+'step_nav' ),
 'below-grid' => array( 'next_step',
 'edit_save',
-'edit_close' ),
+'edit_close',
+'text_accion_postularse' ),
 'supertop' => array( 'logo',
 'menu',
 'loginform_login',
@@ -93,8 +93,8 @@
 'integrated_edit_field14',
 'integrated_edit_field15',
 'integrated_edit_field12',
-'text1',
-'custom_button' ),
+'custom_button',
+'text1' ),
 'step2' => array( 'details_preview',
 'text2' ),
 'step3' => array( 'details_preview1',
@@ -109,15 +109,13 @@
 'details_preview6' ),
 'step8' => array( 'details_preview5',
 'text8' ) ),
-'formXtTags' => array( 'below-grid' => array( 'nextStepButton',
-'save_edit',
-'close_button' ) ),
+'formXtTags' => array(  ),
 'itemForms' => array( 'breadcrumb' => 'above-grid',
 'step_nav' => 'above-grid',
-'edit_message' => 'above-grid',
 'next_step' => 'below-grid',
 'edit_save' => 'below-grid',
 'edit_close' => 'below-grid',
+'text_accion_postularse' => 'below-grid',
 'logo' => 'supertop',
 'menu' => 'supertop',
 'loginform_login' => 'supertop',
@@ -141,8 +139,8 @@
 'integrated_edit_field14' => 'grid',
 'integrated_edit_field15' => 'grid',
 'integrated_edit_field12' => 'grid',
-'text1' => 'grid',
 'custom_button' => 'grid',
+'text1' => 'grid',
 'details_preview' => 'step2',
 'text2' => 'step2',
 'details_preview1' => 'step3',
@@ -193,10 +191,10 @@
 'cellId' => 'c' ),
 'integrated_edit_field12' => array( 'location' => 'grid',
 'cellId' => 'c' ),
+'custom_button' => array( 'location' => 'grid',
+'cellId' => 'c' ),
 'text1' => array( 'location' => 'grid',
 'cellId' => 'c6' ),
-'custom_button' => array( 'location' => 'grid',
-'cellId' => 'c8' ),
 'details_preview' => array( 'location' => 'step2',
 'cellId' => 'c1' ),
 'text2' => array( 'location' => 'step2',
@@ -229,8 +227,7 @@
 'username_button' => 3,
 'loginform_login' => 3,
 'breadcrumb' => 2 ) ),
-'itemsByType' => array( 'edit_message' => array( 'edit_message' ),
-'edit_save' => array( 'edit_save' ),
+'itemsByType' => array( 'edit_save' => array( 'edit_save' ),
 'edit_close' => array( 'edit_close' ),
 'integrated_edit_field' => array( 'integrated_edit_field16',
 'integrated_edit_field17',
@@ -254,7 +251,6 @@
 'menu' => array( 'menu' ),
 'username_button' => array( 'username_button' ),
 'loginform_login' => array( 'loginform_login' ),
-'userinfo_link' => array( 'userinfo_link' ),
 'logout_link' => array( 'logout_link' ),
 'breadcrumb' => array( 'breadcrumb' ),
 'next_step' => array( 'next_step' ),
@@ -267,7 +263,8 @@
 'text5',
 'text6',
 'text7',
-'text8' ),
+'text8',
+'text_accion_postularse' ),
 'details_preview' => array( 'details_preview',
 'details_preview1',
 'details_preview2',
@@ -275,7 +272,8 @@
 'details_preview4',
 'details_preview5',
 'details_preview6' ),
-'custom_button' => array( 'custom_button' ) ),
+'custom_button' => array( 'custom_button',
+'custom_button1' ) ),
 'cellMaps' => array( 'grid' => array( 'cells' => array( 'c4' => array( 'cols' => array( 0,
 1 ),
 'rows' => array( 0 ),
@@ -314,17 +312,9 @@
 'c' => array( 'cols' => array( 1 ),
 'rows' => array( 3 ),
 'tags' => array(  ),
-'items' => array( 'integrated_edit_field8',
-'integrated_edit_field9',
-'integrated_edit_field7',
-'integrated_edit_field10',
-'integrated_edit_field11',
-'integrated_edit_field13',
-'integrated_edit_field14',
-'integrated_edit_field15',
-'integrated_edit_field12' ),
+'items' => array(  ),
 'fixedAtServer' => true,
-'fixedAtClient' => false ),
+'fixedAtClient' => true ),
 'c5' => array( 'cols' => array( 0,
 1 ),
 'rows' => array( 4 ),
@@ -337,8 +327,8 @@
 'rows' => array( 5 ),
 'tags' => array(  ),
 'items' => array(  ),
-'fixedAtServer' => true,
-'fixedAtClient' => true ) ),
+'fixedAtServer' => false,
+'fixedAtClient' => false ) ),
 'width' => 2,
 'height' => 6 ),
 'step2' => array( 'cells' => array( 'c' => array( 'cols' => array( 0 ),
@@ -447,7 +437,8 @@
 'register_activate_message' => array(  ),
 'details_found' => array(  ) ),
 'hasCustomButtons' => true,
-'customButtons' => array( 'New_Button11' ),
+'customButtons' => array( 'New_Button11',
+'btn_cambio_contrasenha' ),
 'hasNotifications' => false,
 'menus' => array( array( 'id' => 'main',
 'horizontal' => true ) ),
@@ -457,7 +448,8 @@
 'nextPrev' => false ),
 'events' => array( 'maps' => array(  ),
 'mapsData' => array(  ),
-'buttons' => array( 'New_Button11' ) ),
+'buttons' => array( 'New_Button11',
+'btn_cambio_contrasenha' ) ),
 'edit' => array( 'updateSelected' => false ) );
 			$pageArray = array( 'id' => 'edit',
 'type' => 'edit',
@@ -496,7 +488,7 @@ array( 'section' => '',
 }
 ' ),
 'c3' => array( 'model' => 'c1',
-'items' => array( 'edit_message' ) ),
+'items' => array(  ) ),
 'c4' => array( 'model' => 'c2',
 'items' => array(  ),
 'align' => 'left' ) ),
@@ -509,7 +501,8 @@ array( 'cell' => 'c2' ) ),
 'cells' => array( 'c1' => array( 'model' => 'c1',
 'items' => array( 'next_step',
 'edit_save',
-'edit_close' ) ),
+'edit_close',
+'text_accion_postularse' ) ),
 'c2' => array( 'model' => 'c2',
 'items' => array(  ) ) ),
 'deferredItems' => array(  ),
@@ -532,7 +525,8 @@ array( 'cell' => 'c3' ) ),
 'grid' => array( array( 'cells' => array( array( 'cell' => 'c1' ) ),
 'section' => '' ) ),
 'cells' => array( 'c1' => array( 'model' => 'c1',
-'items' => array( 'text' ) ) ),
+'items' => array( 'text' ),
+'orientation' => 'horizontal' ) ),
 'deferredItems' => array(  ),
 'recsPerRow' => 1 ),
 'grid' => array( 'modelId' => 'simple-edit',
@@ -573,7 +567,8 @@ array( 'section' => '',
 'integrated_edit_field13',
 'integrated_edit_field14',
 'integrated_edit_field15',
-'integrated_edit_field12' ) ),
+'integrated_edit_field12',
+'custom_button' ) ),
 'c4' => array( 'model' => 'c3',
 'items' => array(  ) ),
 'c5' => array( 'model' => 'c3',
@@ -582,13 +577,71 @@ array( 'section' => '',
 'c6' => array( 'model' => 'c3',
 'items' => array( 'text1' ),
 'align' => 'center',
-'font-family' => 'Open Sans' ),
+'font-family' => 'Open Sans',
+'customCSS' => '/* Put  your custom CSS code here */
+
+:host {
+  color: red;
+}
+
+
+[7:49, 11/9/2024] Ing. Cristian Aceval MTESS: /* Link */
+#gridRow10 span span a{
+ color:#2980b9;
+}
+[9:09, 11/9/2024] Ing. Cristian Aceval MTESS: /* Alert Division */
+#form_grid_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+ transform:translatex(0px) translatey(0px);
+}
+
+/* Span Tag */
+#form_grid_1 .alert span{
+ position:static;
+ display:inline;
+}
+
+/* Alert Division */
+#form_step2_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+
+/* Alert Division */
+#form_step3_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+/* Alert Division */
+#form_step4_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+/* Alert Division */
+#form_step5_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+#form_step6_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+#form_step7_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+#form_step8_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}' ),
 'c7' => array( 'model' => 'c3',
 'items' => array(  ),
 'align' => 'center' ),
 'c8' => array( 'model' => 'c3',
-'items' => array( 'custom_button' ),
-'align' => 'left' ) ),
+'items' => array(  ),
+'align' => 'right',
+'padding' => array( 'padding' => '20px' ) ) ),
 'deferredItems' => array(  ),
 'columnCount' => 1,
 'inlineLabels' => false,
@@ -701,14 +754,14 @@ array( 'cells' => array( array( 'cell' => 'c1' ) ),
 'items' => array( 'details_preview5' ) ),
 'c' => array( 'model' => 'c1',
 'items' => array( 'text8' ),
-'align' => 'center' ) ),
+'align' => 'center',
+'orientation' => 'horizontal' ) ),
 'deferredItems' => array(  ),
 'columnCount' => 1,
 'inlineLabels' => false,
 'separateLabels' => false ) ),
-'items' => array( 'edit_message' => array( 'type' => 'edit_message' ),
-'edit_save' => array( 'type' => 'edit_save',
-'icon' => array( 'glyph' => '' ) ),
+'items' => array( 'edit_save' => array( 'type' => 'edit_save',
+'icon' => array( 'fa' => 'save' ) ),
 'edit_close' => array( 'type' => 'edit_close' ),
 'integrated_edit_field16' => array( 'field' => 'foto',
 'type' => 'integrated_edit_field',
@@ -879,10 +932,9 @@ array( 'cells' => array( array( 'cell' => 'c1' ) ),
 'type' => 8 ) ),
 'menu' => array( 'type' => 'menu' ),
 'username_button' => array( 'type' => 'username_button',
-'items' => array( 'userinfo_link',
+'items' => array( 'custom_button1',
 'logout_link' ) ),
 'loginform_login' => array( 'type' => 'loginform_login' ),
-'userinfo_link' => array( 'type' => 'userinfo_link' ),
 'logout_link' => array( 'type' => 'logout_link' ),
 'breadcrumb' => array( 'type' => 'breadcrumb',
 'mobileControl' => '',
@@ -896,13 +948,14 @@ array( 'cells' => array( array( 'cell' => 'c1' ) ),
 'updateOnEdit' => false,
 'font-family' => 'Open Sans',
 'tooltip' => array( 'field' => 'nro_cel',
-'table' => 'personas-pasos',
+'table' => null,
 'type' => 4 ),
 'placeholder' => array( 'field' => 'nro_cel',
 'table' => null,
 'type' => 5 ) ),
 'next_step' => array( 'type' => 'next_step',
-'font-family' => 'Open Sans' ),
+'font-family' => 'Open Sans',
+'icon' => array( 'fa' => 'arrow-right' ) ),
 'step_nav' => array( 'type' => 'step_nav',
 'font-family' => 'Open Sans' ),
 'text' => array( 'type' => 'text',
@@ -1003,13 +1056,15 @@ array( 'cells' => array( array( 'cell' => 'c1' ) ),
 'popup' => false,
 'pageId' => 'list' ),
 'custom_button' => array( 'eventId' => 'New_Button11',
-'label' => array( 'text' => 'Guardar Cambios',
-'type' => 0 ),
+'label' => array( 'type' => 0,
+'text' => 'Guardar' ),
 'type' => 'custom_button',
-'tooltip' => array( 'text' => 'Guardar Cambios de Información Básica',
+'tooltip' => array( 'text' => 'Guardar los cambios de la Información Básica',
 'type' => 0 ),
 'background' => '#4e49f8',
-'color' => '#ffffff' ),
+'color' => '#ffffff',
+'icon' => array( 'fa' => 'save' ),
+'padding' => array( 'padding' => '10px' ) ),
 'details_preview6' => array( 'type' => 'details_preview',
 'table' => 'bolsa_empleo.cvc_movilidad',
 'items' => array(  ),
@@ -1020,12 +1075,25 @@ array( 'cells' => array( array( 'cell' => 'c1' ) ),
 'table' => 'bolsa_empleo.cvc_movilidad',
 'type' => 7 ) ),
 'text8' => array( 'type' => 'text',
-'label' => array( 'text' => '<div class="alert alert-light"><h4>Descubrí nuevas oportunidades. ¡Indica las áreas en las que te gustaría capacitarte y te recomendaremos los cursos perfectos para vos!
-</h4><span class="badge text-bg-primary">PASOS 8/8</span></div>',
+'label' => array( 'text' => '<div class="alert alert-light"><h4>Descubrí nuevas oportunidades. ¡Indica las áreas en las que te gustaría capacitarte y te recomendaremos los cursos perfectos para vos!</h4>
+<span class="badge text-bg-primary">PASOS 8/8</span>
+</div>',
 'type' => 0 ),
 'editedByRte' => false,
 'color' => '#ffffff',
-'font-family' => 'Open Sans' ) ),
+'font-family' => 'Open Sans' ),
+'text_accion_postularse' => array( 'type' => 'text',
+'label' => array( 'text' => '<a href="vacancia_list.php" class="btn btn-success" title="Postularse a Oferta Laboral"> <i class="bi bi-check-circle-fill"></i> Postularse</a>',
+'type' => 0 ),
+'editedByRte' => false ),
+'custom_button1' => array( 'eventId' => 'btn_cambio_contrasenha',
+'label' => array( 'text' => 'Cambiar Contraseña',
+'type' => 0 ),
+'type' => 'custom_button',
+'buttonSize' => 'small',
+'buttonStyle' => 'primary',
+'tooltip' => array( 'text' => 'Cambiar Contraseña',
+'type' => 0 ) ) ),
 'dbProps' => array(  ),
 'steps' => array( array( 'location' => 'grid',
 'label' => array( 'text' => 'Información Básica <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">1</span>',

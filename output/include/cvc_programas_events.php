@@ -387,22 +387,13 @@ $rs = DB::Query("
 
 
 
-if ($falta_datos == '0' ){
-
-$pageObject->setMessageType(MESSAGE_INFO);
-$Mensaje='<h4><span style="color: #000000; ">Información Registrada Correctamente</span></h4><p style="color: #000000; "> ¡Ahora puedes postularte!</p>
-<div>
-
-			
-	
-
-		<a class="btn btn-sm btn-success" href="vacancia_list.php" id="viewPageButton1">Ir a las Ofertas Laborales</a>
-
-</div>';
-$pageObject->setMessage($Mensaje);
-
-
-
+if ($falta_datos == '0' ) {
+	$pageObject->setMessageType(MESSAGE_INFO);
+	$Mensaje = '<h4><span style="color: #000000; ">Información Registrada Correctamente</span></h4><p style="color: #000000; "> ¡Ahora puedes postularte!</p>
+								<div>
+									<a class="btn btn-sm btn-success" href="vacancia_list.php" id="viewPageButton1">Ir a las Ofertas Laborales</a>
+							</div>';
+	$pageObject->setMessage($Mensaje);
 }
 ;		
 } // function AfterAdd

@@ -9,43 +9,43 @@ Runner.buttonEvents["New_Button11"] = function( pageObj, proxy, pageid ) {
 	
 	var resumen = document.getElementById('value_resumen_' + pageid).value;
 	params["resumen"] = resumen;
-
+	
 	var nombre = document.getElementById('value_nombre_' + pageid).value;
 	params["nombre"] = nombre;
     
 	var foto = document.getElementById('value_foto_' + pageid).value;
 	params["foto"] = foto;
-
+	
 	var apellidos = document.getElementById('value_apellidos_' + pageid).value;
 	params["apellidos"] = apellidos;
 	
 	var nacionalidad = document.getElementById('value_nacionalidad_' + pageid).value;
 	params["nacionalidad"] = nacionalidad;
-
+	
 	var fechanac = document.getElementById('value_fechanac_' + pageid).value;
 	params["fechanac"] = fechanac;
 	
 	var sexo = document.getElementById('value_sexo_' + pageid).value;
 	params["sexo"] = sexo;
-
+	
 	var estado_civil = document.getElementById('readonly_value_estado_civil_' + pageid).value;
 	params["estado_civil"] = estado_civil;
 	
 	var canthijos = document.getElementById('value_canthijos_' + pageid).value;
 	params["canthijos"] = canthijos;
-
+	
 	var city_id = document.getElementById('value_city_id_' + pageid).value;
 	params["city_id"] = city_id;
 	
 	var distrito_id = document.getElementById('readonly_value_distrito_id_' + pageid).value;
 	params["distrito_id"] = distrito_id;
-
+	
 	var domicilio = document.getElementById('value_domicilio_' + pageid).value;
 	params["domicilio"] = domicilio;
     
 	var selectedValueEsIndigena = document.getElementById('value_esindigena_' + pageid).value;
 	params["selectedValueEsIndigena"] = selectedValueEsIndigena;
-
+	
 	var selectedValueMultiSelecDiscapacidades = document.getElementById('value_multiselect_discapacidades_' + pageid).value;
 	params["selectedValueMultiSelecDiscapacidades"] = selectedValueMultiSelecDiscapacidades;
 	
@@ -61,45 +61,77 @@ Runner.buttonEvents["New_Button11"] = function( pageObj, proxy, pageid ) {
 	if (!resumen) {
 		// El campo está vacío o es un valor "falso".
 		error = true;
-		alert("El campo Descripción profesional es obligatorio.");
+		Swal.fire({
+			icon: "warning",
+			title: "Ups, parece que falta algo...",
+			text: "Por favor, describe brevemente tu profesión."
+		});
 	}
 	
 	if (!canthijos) {
 		error = true;
-		alert("El campo Cantidad hijos es obligatorio.");
+		Swal.fire({
+			icon: "warning",
+			title: "Ups, parece que falta algo...",
+			text: "Indica la cantidad de hijos que tienes."
+		});
 	} else if (canthijos < 0) {
 		error = true;
-		alert("El campo Cantidad hijos no puede ser un valor negativo.");
+		Swal.fire({
+			icon: "warning",
+			title: "Ups, parece que falta algo...",
+			text: "La cantidad de hijos no puede ser negativa."
+		});
 	}
 	
 	if (!city_id) {
 		// El campo está vacío o es un valor "falso".
 		error = true;
-		alert("El campo Ciudad es obligatorio.");
+		Swal.fire({
+			icon: "warning",
+			title: "Ups, parece que falta algo...",
+			text: "Selecciona la ciudad en la que resides."
+		});
 	}
 	
 	if (!domicilio) {
 		// El campo está vacío o es un valor "falso".
 		error = true;
-		alert("El campo Dirección es obligatorio.");
+		Swal.fire({
+			icon: "warning",
+			title: "Ups, parece que falta algo...",
+			text: "Ingresa tu dirección completa."
+		});
 	}
 	
 	if (!selectedValueEsIndigena) {
 		// El campo está vacío o es un valor "falso".
 		error = true;
-		alert("El campo Etnia es obligatorio.")
+		Swal.fire({
+			icon: "warning",
+			title: "Ups, parece que falta algo...",
+			text: "Para completar tu registro, necesitamos que nos indiques tu etnia. Esta información nos ayuda a comprender mejor a nuestros usuarios."
+		});
 	}
 	
 	if (!selectedValueMultiSelecDiscapacidades) {
 		// El campo está vacío o es un valor "falso".
 		error = true;
-		alert("El campo Discapacidad es obligatorio.")
+		Swal.fire({
+			icon: "warning",
+			title: "Ups, parece que falta algo...",
+			text: "Indica si tienes alguna discapacidad."
+		});
 	}
 	
 	if (!nro_cel) {
 		// El campo está vacío o es un valor "falso".
 		error = true;
-		alert("El campo Teléfono(WhatsApp) es obligatorio.")
+		Swal.fire({
+			icon: "warning",
+			title: "Ups, parece que falta algo...",
+			text: "Ingresa tu número de teléfono."
+		});
 	}
 	
 	if (!error) {
@@ -114,13 +146,44 @@ Runner.buttonEvents["New_Button11"] = function( pageObj, proxy, pageid ) {
 	if ( !pageObj.buttonEventAfter['New_Button11'] ) {
 		pageObj.buttonEventAfter['New_Button11'] = function( result, ctrl, pageObj, proxy, pageid, rowData, row, params ) {
 			var ajax = ctrl;
-//alert("ACTUALIZACION EXITOSA EN PERSONAS");
 
-Swal.fire({
-  title: "Actualización Exitosa!",
-  text: "Se actualizaron correctamente los datos!",
-  icon: "success"
-});
+/*if ( !result["cvc_estudios_realizados_error"] && !result["cvc_experiencia_laboral_error"] && !result["persons_referencia_error"] && !result["cvc_idiomas_error"] ) {
+	Swal.fire({
+	  title: "Actualización Exitosa!",
+	  text: "Se actualizaron correctamente los datos!",
+	  icon: "success"
+	});
+} else {
+	if(result["cvc_estudios_realizados_error"]) {
+		Swal.fire({
+			title: "¡Importante!",
+			text: "Necesitamos que agregues al menos un estudio que hayas realizado. Por favor, completa la sección de Estudios y Capacitaciones para continuar.",
+			icon: "warning"
+		});
+	} else if (result["cvc_experiencia_laboral_error"]) {
+		Swal.fire({
+			title: "¡Importante!",
+			text: "Necesitamos que agregues al menos una experiencia laboral. Por favor, Sino tenes experiencia selecciona 'Primer Empleo en la categoria' y Guarda tus datos!",
+			icon: "warning"
+		});
+	} else if (result["persons_referencia_error"]) {
+		Swal.fire({
+			title: "¡Importante!",
+			text: "Necesitamos que agregues al menos una referencia personal. Por favor, completa la sección de Referencias Personales para continuar.",
+			icon: "warning"
+		});
+		
+	} else if (result["cvc_idiomas_error"]) {
+		Swal.fire({
+			title: "¡Importante!",
+			text: "Necesitamos que agregues al menos un idioma que manejas. Por favor, completa la sección de Conocimiento de idiomas para continuar.",
+			icon: "warning"
+		});
+	}
+
+}*/
+
+$("#saveButton1").click();
 
 		}
 	}

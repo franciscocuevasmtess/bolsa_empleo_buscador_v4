@@ -231,7 +231,7 @@ $tdatadetalle_vacancia[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																																																																																																														
+																																																																																																																																																																																																																																																												
 
 $tdatadetalle_vacancia[".ajaxCodeSnippetAdded"] = false;
 

@@ -37,6 +37,7 @@ class class_GlobalEvents extends eventsBase
 		$this->events["AfterUnsuccessfulLogin"]=true;
 
 
+
 //	onscreen events
 		$this->events["bolsa_empleo_vacancia_snippet"] = true;
 		$this->events["bolsa_empleo_vacancia_map"] = true;
@@ -49,6 +50,7 @@ class class_GlobalEvents extends eventsBase
 		$this->events["snipped_mensaje_falta_campos_postulacion"] = true;
 		$this->events["bolsa_empleo_vacancia_snippet4"] = true;
 		$this->events["bolsa_empleo_vacancia_snippet5"] = true;
+		$this->events["bolsa_empleo_bolsa_users_cambio_contrasenha_snippet"] = true;
 
 
 
@@ -66,215 +68,156 @@ function BeforeLogin(&$username, &$password, &$message, $pageObject, &$values)
 {
 
 		//NO PERMITIR PUNTOS EN USERNAME
-												//$cedula_valida= preg_match("/^[0-9]+[A-Z]?$/", $username);
-												if(preg_match('/^[0-9]+[A-Z]?$/', $username)==FALSE){
-													$message= "No ha introducido caracteres numéricos. Por favor, asegúrese de introducir correctamente el número de cédula".$cedula_valida;
-													return false;
-												}
+//$cedula_valida = preg_match("/^[0-9]+[A-Z]?$/", $username);
+if (preg_match('/^[0-9]+[A-Z]?$/', $username) == FALSE) {
+	$message = "No ha introducido caracteres numéricos. Por favor, asegúrese de introducir correctamente el número de cédula " . $cedula_valida;
+	return false;
+}
 
-//si existe usuario no verificar mas IC, hare que el motor de phprunner verifique la contrasena existente
+// Si existe usuario no verificar mas IC, hare que el motor de phprunner verifique la contrasena existente
+$strSQLExistsic = "SELECT * 
+											FROM bolsa_empleo.bolsa_users 
+											WHERE nro_documento = '" . pg_escape_string($username) . "'";
+$rsExistsic = db_query($strSQLExistsic, $conn);
+$dataic = db_fetch_array($rsExistsic);
+if($dataic) {
+	//
+} else {
+	$página_inicio1 = file_get_contents('https://bolsa.mtess.gov.py/buscador/sii_ci_bolsa.php?ci=' . $username);
+	// Obtenemos valor del Campo IC
+	$array1 = explode(':', $página_inicio1);
+	$fechaNacimiento = trim(pg_escape_string(utf8_encode($array1[3])));
+	// Reformatear la fecha (de 'Y-m-d' a 'dmY')
+	$fechaReformateada = date("dmY", strtotime($fechaNacimiento));
+	//$_SESSION['ic'] = trim(pg_escape_string(utf8_encode($array1[6])));
+	$_SESSION['fecha_nac_para_password'] = $fechaReformateada;
 
-										$strSQLExistsic = "SELECT * FROM bolsa_empleo.bolsa_users WHERE nro_documento='".pg_escape_string($username)."'";
-										$rsExistsic = db_query($strSQLExistsic,$conn);
-										$dataic=db_fetch_array($rsExistsic);
+	// VERIFICAR SI ES MAYOR DE EDAD
+	$fechaNac = new DateTime($fechaNacimiento);
+	$hoy = new DateTime();
+	$edad = $hoy->diff($fechaNac);
+	$edad_anios = $edad->format("%y");
+	if ($edad_anios < 18) {
+		$message = "¡Bienvenido/a! Para registrarte en el portal, debes ser mayor de edad. ¡Esperamos tenerte pronto!";
+		return false;
+	}
 
-										if($dataic)
-										{
-										
-
-										}else{
-
-
-												$página_inicio1 = file_get_contents('https://bolsa.mtess.gov.py/buscador/sii_ci_bolsa.php?ci='.$username);
-							
-												//obtenemos valor del Campo IC
-												$array1 = explode(':', $página_inicio1);
-											
-												$fechaNacimiento = trim(pg_escape_string(utf8_encode($array1[3])));
-												// Reformatear la fecha (de 'Y-m-d' a 'dmY')
-												$fechaReformateada = date("dmY", strtotime($fechaNacimiento));
-												//$_SESSION['ic']=trim(pg_escape_string(utf8_encode($array1[6])));
-
-												$_SESSION['fecha_nac_para_password']=$fechaReformateada;
-											
-											//VERIFICAR SI ES MAYOR DE EDAD
-
-												$fechaNac = new DateTime($fechaNacimiento);
-												$hoy = new DateTime();
-												$edad = $hoy->diff($fechaNac);
-												$edad_anios = $edad ->format("%y");
-												if($edad_anios < 18){
-													$message = "¡Bienvenido/a! Para registrarte en el portal, debes ser mayor de edad. ¡Esperamos tenerte pronto!";
-													return false;
-												}
-
-
-														if ($_SESSION['fecha_nac_para_password']==$password){
-
-														}else{
-															$message = "Datos incorrectos";
-															return false;
-
-														}
+	if ($_SESSION['fecha_nac_para_password'] == $password) {
+		//
+	} else {
+		$message = "Datos incorrectos";
+		return false;
+	}
+}
 
 
-
-									}
-
-
-
-
-										//sólo le dejaré entrar si existe la persona.
-										$strSQLExistsl = "select * from eportal.persons_docs where valor='".pg_escape_string($username)."'";
-										$rsExistsl = db_query($strSQLExistsl,$conn);
-										$datal=db_fetch_array($rsExistsl);
-										if(!$datal)
-										{
-													//insertar paraguayo
-													$página_inicio = file_get_contents('https://bolsa.mtess.gov.py/buscador/sii_ci_bolsa.php?ci='.$username);
-													//echo $página_inicio;
-													//obtenemos valor del Campo CI
-													$array = explode(':', $página_inicio);
-													
-													//$parte=explode("T",$array[2]);
-															
-																
-																if(isset($array[3])){
-																	
-												// SE REALIZA LA CONSULTA EN ESTADO CIVIL PARA OBTENER LA ID Y PODER INSERTAR DE ESE MODO
-
-													$estado_civil = "SELECT eportal.persons_estado_civil_type.id AS estado_civil FROM eportal.persons_estado_civil_type
-													 where eportal.persons_estado_civil_type.id='".$array[5]."'";
-														$resul_estado_civil = db_query($estado_civil,$conn);
-													
-														$data_estado_civil=db_fetch_array($resul_estado_civil);
-						
-														// CONSULTA PARA OBTENER EL CODIGO DE NACIONALIDAD PARA EL INSERTADO
-
-													$nacionalidad = "SELECT
-														eportal.country.code
-														FROM
-														eportal.country
-														where eportal.country.code='".$array[2]."'";
-														$resul_nacionalidad = db_query($nacionalidad,$conn);
-														$data_resul_nacionalidad=db_fetch_array($resul_nacionalidad);
-
-
-																		//verificar si existe CI en Persona
-																				
-																				
-																					//si no existe la persona, se insertan los valores de manera secuencial
-																					//insertar persona.
-																					$sql_insert="INSERT INTO eportal.persons(
-																											nombre,
-																											apellidos,
-																											nacionalidad,
-																											fechanac,
-																											sexo,
-																											estado_civil,
-																											actualizado)
-																								VALUES  (
-																											'".trim(pg_escape_string(utf8_encode($array[0])))."',
-																											'".trim(pg_escape_string(utf8_encode($array[1])))."',
-																											'".trim(pg_escape_string(utf8_encode($data_resul_nacionalidad['code'])))."',
-																											'".trim(pg_escape_string(utf8_encode($array[3])))."',
-																											'".trim(pg_escape_string(utf8_encode($array[5])))."',
-																											'".trim(pg_escape_string(utf8_encode($data_estado_civil['estado_civil'])))."',
-																																									1
-																											) returning id;";
-																										   
-																				$rs_insert = db_query($sql_insert,$conn);
-											
-																				while ($row_insert = pg_fetch_row($rs_insert)){ 
-																					
-																															$userdata["id_person"]=$row_insert[0];
-																						$sql_insert_2="INSERT INTO eportal.persons_docs (doctype_id,
-																																							person_id,
-																																							valor)
-																																				VALUES
-																																							('1', '".$row_insert[0]."', '".trim(pg_escape_string(utf8_encode($username)))."');";
-																																							db_query($sql_insert_2,$conn);   
-																																							// echo $sql_insert_2;            
-																				}//fin while
-																					//fin insertar documento de identidad				
-																}
-
-										}
+//Sólo le dejaré entrar si existe la persona.
+$strSQLExistsl = "SELECT * 
+											FROM eportal.persons_docs 
+											WHERE valor = '" . pg_escape_string($username) . "'";
+$rsExistsl = db_query($strSQLExistsl,$conn);
+$datal = db_fetch_array($rsExistsl);
+if(!$datal) {
+	//insertar paraguayo
+	$página_inicio = file_get_contents('https://bolsa.mtess.gov.py/buscador/sii_ci_bolsa.php?ci=' . $username);
+	//echo $página_inicio;
+	//obtenemos valor del Campo CI
+	$array = explode(':', $página_inicio);
+	//$parte = explode("T", $array[2]);
+	
+	if (isset($array[3])) {
+		// SE REALIZA LA CONSULTA EN ESTADO CIVIL PARA OBTENER LA ID Y PODER INSERTAR DE ESE MODO
+		$estado_civil = "SELECT eportal.persons_estado_civil_type.id AS estado_civil 
+												FROM eportal.persons_estado_civil_type 
+												WHERE eportal.persons_estado_civil_type.id = '" . $array[5] . "'";
+		$resul_estado_civil = db_query($estado_civil, $conn);
+		$data_estado_civil = db_fetch_array($resul_estado_civil);
+		
+		// CONSULTA PARA OBTENER EL CODIGO DE NACIONALIDAD PARA EL INSERTADO
+		$nacionalidad = "SELECT eportal.country.code 
+												FROM eportal.country 
+												WHERE eportal.country.code = '" . $array[2] . "'";
+		$resul_nacionalidad = db_query($nacionalidad, $conn);
+		$data_resul_nacionalidad = db_fetch_array($resul_nacionalidad);
+		
+		//Verificar si existe CI en Persona
+		
+		//Si no existe la persona, se insertan los valores de manera secuencial
+		//insertar persona.
+		$sql_insert = "INSERT INTO eportal.persons(nombre, apellidos, nacionalidad, fechanac, sexo, estado_civil, actualizado) 
+										VALUES ('" . trim(pg_escape_string(utf8_encode($array[0]))) . "','" 
+																. trim(pg_escape_string(utf8_encode($array[1]))) . "','" 
+																. trim(pg_escape_string(utf8_encode($data_resul_nacionalidad['code']))) . "','" 
+																. trim(pg_escape_string(utf8_encode($array[3]))) . "','" 
+																. trim(pg_escape_string(utf8_encode($array[5]))) . "','" 
+																. trim(pg_escape_string(utf8_encode($data_estado_civil['estado_civil']))) . "',
+																	1) returning id;";
+		$rs_insert = db_query($sql_insert, $conn);
+		while ($row_insert = pg_fetch_row($rs_insert)) { 
+			$userdata["id_person"] = $row_insert[0];
+			$sql_insert_2 = "INSERT INTO eportal.persons_docs (doctype_id, person_id, valor)
+												VALUES ('1', '" . $row_insert[0] . "', '" . trim(pg_escape_string(utf8_encode($username))) . "');";
+			db_query($sql_insert_2, $conn);
+			//echo $sql_insert_2;
+		} //fin while		
+	} //fin insertar documento de identidad	
+} //fin !$datal
 
 
-										//si existe usuario
+//Si existe usuario
+$strSQLExists2 = "SELECT username, clave, email, fullname, groupid, active, personaid, nro_documento, reset_token, reset_date 
+											FROM bolsa_empleo.bolsa_users 
+											WHERE nro_documento = '" . pg_escape_string($username) . "'";
+$rsExists2 = db_query($strSQLExists2, $conn);
+$data2 = db_fetch_array($rsExists2);
+if ($data2) {
+	$_SESSION['contra'] = $data2['clave'];
+	$_SESSION["persona_id"] = $data2["personaid"];
+}
 
-										$strSQLExists2 = "SELECT username,clave, email, fullname, groupid, active, personaid, nro_documento, reset_token, reset_date
-																				FROM bolsa_empleo.bolsa_users
-																				WHERE nro_documento='".pg_escape_string($username)."'";
-										$rsExists2 = db_query($strSQLExists2,$conn);
-										$data2=db_fetch_array($rsExists2);
+if (!$data2) {
+	//Sólo le dejaré entrar si existe el usuario.
+	$strSQLExists3 = "SELECT * 
+												FROM eportal.persons_docs pd 
+														JOIN eportal.eportal.persons p ON pd.person_id = p.id 
+												WHERE pd.valor = '" . pg_escape_string($username) . "'";
+	$rsExists3 = db_query($strSQLExists3, $conn);
+	$data3 = db_fetch_array($rsExists3);
+	if ($data3) {
+		//Crear hash unico
+		
+		// Genera una cadena aleatoria única
+		$randomString = bin2hex(random_bytes(16)); // Cambia la longitud según tus necesidades
+		
+		// Combina la cadena aleatoria con un valor único (por ejemplo, la fecha actual)
+		$uniqueValue = now(); // Puedes usar otro valor único si lo prefieres
+		
+		// Concatena la cadena aleatoria y el valor único
+		$combinedString = $randomString . $uniqueValue;
 
-										if($data2)
-										{
-											$_SESSION['contra']=$data2['clave'];
-											$_SESSION["persona_id"]=$data2["personaid"];
-										}
-										if(!$data2)
-										{
+		// Calcula el hash utilizando SHA-384
+		$uniqueHash = hash('sha384', $combinedString);
 
-																//sólo le dejaré entrar si existe el usuario.
-																$strSQLExists3 = "select * from eportal.persons_docs pd 
-																											join eportal.eportal.persons p 
-																											on pd.person_id = p.id 
-																											where pd.valor='".pg_escape_string($username)."'";
-																$rsExists3 = db_query($strSQLExists3,$conn);
-																$data3=db_fetch_array($rsExists3);
-																if($data3)
-																{
+		// $uniqueHash ahora contiene un hash único utilizando SHA-384 que puedes usar en tus consultas
+		//insertar usuario
+		$insert_usuario = "INSERT INTO bolsa_empleo.bolsa_users(username, clave, email, fullname, groupid, active, personaid, nro_documento, hash_generado)
+												VALUES('" . pg_escape_string($username) . "','" 
+																	. pg_escape_string($_SESSION['fecha_nac_para_password']) . "', '" 
+																	. pg_escape_string($_SESSION['User_Email']) . "', '" 
+																	. pg_escape_string($data3['nombre']) . ' ' . $data3['apellidos'] . "', 
+																	'3', 
+																	1,
+																	'" . pg_escape_string($data3['id']) . "', '"
+																	. pg_escape_string($username) . "','" 
+																	. pg_escape_string($uniqueHash)."') RETURNING clave;";
+		$rx = db_query($insert_usuario, $conn);
+		$row = db_fetch_array($rx);
+		$new_id = $row['clave'];
+		$_SESSION['contra'] = $new_id;
+		$_SESSION["persona_id"] = $data3["id"];
 
-
-																//crear  hash unico
-
-																// Genera una cadena aleatoria única
-																$randomString = bin2hex(random_bytes(16)); // Cambia la longitud según tus necesidades
-
-																// Combina la cadena aleatoria con un valor único (por ejemplo, la fecha actual)
-																$uniqueValue = now(); // Puedes usar otro valor único si lo prefieres
-
-																// Concatena la cadena aleatoria y el valor único
-																$combinedString = $randomString . $uniqueValue;
-
-																// Calcula el hash utilizando SHA-384
-																$uniqueHash = hash('sha384', $combinedString);
-
-																// $uniqueHash ahora contiene un hash único utilizando SHA-384 que puedes usar en tus consultas
-																		//insertar usuario
-																					$insert_usuario= " INSERT INTO bolsa_empleo.bolsa_users
-																																(username, 
-																																	clave, 
-																																	email, 
-																																fullname, 
-																																groupid, 
-																																active, 
-																																personaid, 
-																															nro_documento,
-																															hash_generado)
-																																VALUES('".pg_escape_string($username)."',
-																																		'".pg_escape_string($_SESSION['fecha_nac_para_password'])."', 
-																																		'".pg_escape_string($_SESSION['User_Email'])."', 
-																																		'".pg_escape_string($data3['nombre']).' '.$data3['apellidos']."', 
-																																		'3', 
-																																		1,
-																																		'".pg_escape_string($data3['id'])."', 
-																																		'".pg_escape_string($username)."',
-																																		'".pg_escape_string($uniqueHash)."') RETURNING clave;";
-																										$rx=db_query($insert_usuario,$conn);
-																										$row = db_fetch_array($rx);
-																										$new_id = $row['clave'];
-																										$_SESSION['contra']=$new_id;
-																										$_SESSION["persona_id"]=$data3["id"];
-																					
-																}
-															
-															
-										}	
-										
+	} //fin $data3
+} //fin !$data2	
 
 return true;
 ;		
@@ -314,29 +257,41 @@ return true;
 function AfterSuccessfulLogin($username, $password, &$data, $pageObject)
 {
 
-		
-
-$sqlllave = "update bolsa_empleo.bolsa_users set estado_llave = 0 where username = '".pg_escape_string($_SESSION['usuario'])."'";
+		$sqlllave = "UPDATE bolsa_empleo.bolsa_users 
+								SET estado_llave = 0 
+								WHERE username = '" . pg_escape_string($_SESSION['usuario']) . "'";
 CustomQuery($sqlllave);
 
-$_SESSION["nivel"]=$data["groupid"];
-$_SESSION["persona_id"]=$data["personaid"];
-$_SESSION["hash_generado"]=$data["hash_generado"];
-$_SESSION["cedula"]=$data["nro_documento"];
+$_SESSION["nivel"] = $data["groupid"];
+$_SESSION["persona_id"] = $data["personaid"];
+$_SESSION["hash_generado"] = $data["hash_generado"];
+$_SESSION["cedula"] = $data["nro_documento"];
 
 
-
-
-
-
+// VALIDACION PARA SABER SI LA CONTRASEÑA ES LA FECHA DE NACIMIENTO, REDIRECCIONAR AL USUARIO PARA QUE REALIZE EL CAMBIO CORRESPONDIENTE.
+$sql_fechanac = DB::PrepareSQL("SELECT to_char(p.fechanac, 'DDMMYYYY') as fechanac, bu.id as user_id  
+																		FROM eportal.persons p 
+																						JOIN eportal.persons_docs pd ON pd.person_id = p.id
+																						JOIN bolsa_empleo.bolsa_users bu ON bu.personaid = p.id
+																		WHERE pd.valor = ':1'", $username);
+$rsExistsfechanac = DB::Query($sql_fechanac);
+$dataExistsfechanac = $rsExistsfechanac->fetchAssoc();
+$_SESSION["user_id"] = $dataExistsfechanac['user_id'];
+if ($dataExistsfechanac['fechanac'] == $password) {
+		$_SESSION["bandera_cambio_contrasenha"] = 1;
+		//$_SESSION["user_id"] = $dataExistsfechanac['user_id'];
+		header("Location: bolsa_users_cambio_contrasenha_edit.php?editid1=" . $dataExistsfechanac['user_id']);
+		exit();
+}
+// ******************** //
 
 
 
 // INICIO traer datos mec ultimo-grado
 
-$json_url= 'https://integra.mtess.gov.py/api-al/mec-ultimo-grado/'.$_SESSION["cedula"];
+$json_url= 'https://integra.mtess.gov.py/api-al/mec-ultimo-grado/' . $_SESSION["cedula"];
 //$json_data = file_get_contents($json_url);
-//$dataf = json_decode($json_data,true);
+//$dataf = json_decode($json_data, true);
 
 // Configura el tiempo límite en segundos (por ejemplo, 10 segundos)
 $timeout = 1;
@@ -345,54 +300,92 @@ $timeout = 1;
 $context = stream_context_create(['http' => ['timeout' => $timeout]]);
 
 try {
-    // Intenta obtener el contenido de la URL con el contexto de flujo
-    $json_data = file_get_contents($json_url, false, $context);
-
-    // Si la operación fue exitosa, decodifica el JSON en un objeto PHP
-    $dataf = json_decode($json_data, true);
-
-    // Puedes continuar con el procesamiento de $dataf aquí
+	// Intenta obtener el contenido de la URL con el contexto de flujo
+	$json_data = file_get_contents($json_url, false, $context);
+	
+	// Si la operación fue exitosa, decodifica el JSON en un objeto PHP
+	$dataf = json_decode($json_data, true);
+	
+	// Puedes continuar con el procesamiento de $dataf aquí
 } catch (Exception $e) {
-    // Si ocurre un error, captura la excepción y maneja el error adecuadamente
-    echo 'Error: ' . $e->getMessage();
-    // Puedes tomar acciones adicionales, como mostrar un mensaje de error o registrar el problema en un archivo de registro
+	// Si ocurre un error, captura la excepción y maneja el error adecuadamente
+	echo 'Error: ' . $e->getMessage();
+	// Puedes tomar acciones adicionales, como mostrar un mensaje de error o registrar el problema en un archivo de registro
 }
-
 
 
 // Verifica si es un array o no
 if (is_array($dataf['retornar_detalle_academico_response']['value'])) {
+	$firstItem = reset($dataf['retornar_detalle_academico_response']['value']);
 
-      $firstItem = reset($dataf['retornar_detalle_academico_response']['value']);
+	if (is_array($firstItem)) {
+		// Es un array multidimensional, procesa cada elemento interno
+		foreach ($dataf['retornar_detalle_academico_response']['value'] as $item) {
+			// Sentencia SQL para insertar el registro en la tabla
+			$sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.detalle_academico_mec (especialidad_academica, 
+																																										fecha_informacion, 
+																																										apellido, 
+																																										nivel_educativo, 
+																																										fecha_nacimiento, 
+																																										institucion, 
+																																										titulo_academico, 
+																																										fecha_resolucion, 
+																																										numero_resolucion, 
+																																										nombre, 
+																																										grado_academico,persona_id) 
+																VALUES (':1',':2',':3',':4',':5',':6',':7',':8',':9',':10',':11',':12');",
+																				$item['especialidad_academica'],
+																				$item['fecha_informacion'],
+																				$item['apellido'],
+																				$item['nivel_educativo'],
+																				$item['fecha_nacimiento'],
+																				$item['institucion'],
+																				$item['titulo_academico'],
+																				$item['fecha_resolucion'],
+																				(int)$item['numero_resolucion'],
+																				$item['nombre'],
+																				$item['grado_academico'],
+																				$_SESSION["persona_id"]);
+			DB::Exec($sql1);
+		} //fin foreach
+	} else {
+		// Es un array unidimensional, procesa cada elemento como se muestra en el ejemplo anterior
+		$values1 = $dataf['retornar_detalle_academico_response']['value'];
+		$item = $values1;
+		// Sentencia SQL para insertar el registro en la tabla
+		$sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.detalle_academico_mec (especialidad_academica, 
+																																									fecha_informacion, 
+																																									apellido, 
+																																									nivel_educativo, 
+																																									fecha_nacimiento, 
+																																									institucion, 
+																																									titulo_academico, 
+																																									fecha_resolucion, 
+																																									numero_resolucion, 
+																																									nombre, 
+																																									grado_academico,
+																																									persona_id) 
+															VALUES (':1',':2',':3',':4',':5',':6',':7',':8',':9',':10',':11',':12');",
+																	$item['especialidad_academica'],
+																	$item['fecha_informacion'],
+																	$item['apellido'],
+																	$item['nivel_educativo'],
+																	$item['fecha_nacimiento'],
+																	$item['institucion'],
+																	$item['titulo_academico'],
+																	$item['fecha_resolucion'],
+																	(int)$item['numero_resolucion'],
+																	$item['nombre'],
+																	$item['grado_academico'],
+																	$_SESSION["persona_id"]);
+		DB::Exec($sql1);
+	}//fin else
 
-			  if (is_array($firstItem)) {
-        // Es un array multidimensional, procesa cada elemento interno
-        foreach ($dataf['retornar_detalle_academico_response']['value'] as $item) {
-          
-                // Sentencia SQL para insertar el registro en la tabla
-				 $sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.detalle_academico_mec (especialidad_academica, fecha_informacion, apellido, nivel_educativo, fecha_nacimiento, institucion, titulo_academico, fecha_resolucion, numero_resolucion, nombre, grado_academico,persona_id) 
-					VALUES (':1',':2',':3',':4',':5',':6',':7',':8',':9',':10',':11',':12');",$item['especialidad_academica'],$item['fecha_informacion'],$item['apellido'],$item['nivel_educativo'],$item['fecha_nacimiento'],
-					$item['institucion'],$item['titulo_academico'],$item['fecha_resolucion'],(int)$item['numero_resolucion'],$item['nombre'],$item['grado_academico'],$_SESSION["persona_id"]);
-			   DB::Exec($sql1);
-        }
-    } else {
-        // Es un array unidimensional, procesa cada elemento como se muestra en el ejemplo anterio
-				$values1 = $dataf['retornar_detalle_academico_response']['value'];
-				$item = $values1;
-            // Sentencia SQL para insertar el registro en la tabla
-				 $sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.detalle_academico_mec (especialidad_academica, fecha_informacion, apellido, nivel_educativo, fecha_nacimiento, institucion, titulo_academico, fecha_resolucion, numero_resolucion, nombre, grado_academico,persona_id) 
-					VALUES (':1',':2',':3',':4',':5',':6',':7',':8',':9',':10',':11',':12');",$item['especialidad_academica'],$item['fecha_informacion'],$item['apellido'],$item['nivel_educativo'],$item['fecha_nacimiento'],
-					$item['institucion'],$item['titulo_academico'],$item['fecha_resolucion'],(int)$item['numero_resolucion'],$item['nombre'],$item['grado_academico'],$_SESSION["persona_id"]);
-			   DB::Exec($sql1);      
-    }
-
-}
-// FIN traer datos mec ultimo-grado
+}// FIN traer datos mec ultimo-grado
 
 
 // INICIO traer datos mec-datos-egresado
-
-$json_url= 'https://integra.mtess.gov.py/api-al/mec-datos-egresado/'.$_SESSION["cedula"];
+$json_url = 'https://integra.mtess.gov.py/api-al/mec-datos-egresado/' . $_SESSION["cedula"];
 //$json_data = file_get_contents($json_url);
 //$dataf = json_decode($json_data,true);
 
@@ -403,134 +396,206 @@ $timeout = 1;
 $context = stream_context_create(['http' => ['timeout' => $timeout]]);
 
 try {
-    // Intenta obtener el contenido de la URL con el contexto de flujo
-    $json_data = file_get_contents($json_url, false, $context);
+	// Intenta obtener el contenido de la URL con el contexto de flujo
+	$json_data = file_get_contents($json_url, false, $context);
+	
+	// Si la operación fue exitosa, decodifica el JSON en un objeto PHP
+	$dataf = json_decode($json_data, true);
 
-    // Si la operación fue exitosa, decodifica el JSON en un objeto PHP
-    $dataf = json_decode($json_data, true);
-
-    // Puedes continuar con el procesamiento de $dataf aquí
+	// Puedes continuar con el procesamiento de $dataf aquí
 } catch (Exception $e) {
-    // Si ocurre un error, captura la excepción y maneja el error adecuadamente
-    echo 'Error: ' . $e->getMessage();
-    // Puedes tomar acciones adicionales, como mostrar un mensaje de error o registrar el problema en un archivo de registro
+	// Si ocurre un error, captura la excepción y maneja el error adecuadamente
+	echo 'Error: ' . $e->getMessage();
+	// Puedes tomar acciones adicionales, como mostrar un mensaje de error o registrar el problema en un archivo de registro
 }
 
 
 
 // Verifica si es un array o no
 if (is_array($dataf)) {
-
-      $firstItem = reset($dataf);
-
-			  if (is_array($firstItem)) {
-        // Es un array multidimensional, procesa cada elemento interno
-        foreach ($dataf as $item) {
-          
-         $fecha_nac= $item['fecha_nacimiento'];
-         $fechaFormateada_nac = date("Y-m-d", strtotime($fecha_nac));
-         $fechaFormateada_reso = date("Y-m-d", strtotime($fecha_reso));
-                // Sentencia SQL para insertar el registro en la tabla
+	$firstItem = reset($dataf);
+	
+	if (is_array($firstItem)) {
+		// Es un array multidimensional, procesa cada elemento interno
+		foreach ($dataf as $item) {
+			$fecha_nac = $item['fecha_nacimiento'];
+			$fechaFormateada_nac = date("Y-m-d", strtotime($fecha_nac));
+			$fechaFormateada_reso = date("Y-m-d", strtotime($fecha_reso));
+			// Sentencia SQL para insertar el registro en la tabla
 			if ($item['Status'] !== 'False') {
-				 $sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.detalle_academico_mec (especialidad_academica, fecha_informacion, apellido, nivel_educativo, fecha_nacimiento, institucion, titulo_academico, fecha_resolucion, numero_resolucion, nombre, grado_academico,persona_id) 
-					VALUES (':1',':2',':3',':4',':5',':6',':7',':8',':9',':10',':11',':12');",$item['curso'],now(),$item['apellido_estudiante'],'Educacion Básica	',$fechaFormateada_nac,
-					$item['nombre_institucion'],$item['curso'],now(),(int)$item['periodo'],$item['nombre_estudiante'],$item['curso'],$_SESSION["persona_id"]);
-         
-			   DB::Exec($sql1);
-        }
+				$sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.detalle_academico_mec (especialidad_academica, 
+																																											fecha_informacion, 
+																																											apellido, 
+																																											nivel_educativo, 
+																																											fecha_nacimiento, 
+																																											institucion, 
+																																											titulo_academico, 
+																																											fecha_resolucion, 
+																																											numero_resolucion, 
+																																											nombre, 
+																																											grado_academico,
+																																											persona_id) 
+																	VALUES (':1',':2',':3',':4',':5',':6',':7',':8',':9',':10',':11',':12');",
+																						$item['curso'],
+																						now(),
+																						$item['apellido_estudiante'],
+																						'Educacion Básica	',
+																						$fechaFormateada_nac,
+																						$item['nombre_institucion'],
+																						$item['curso'],
+																						now(),
+																						(int)$item['periodo'],
+																						$item['nombre_estudiante'],
+																						$item['curso'],
+																						$_SESSION["persona_id"]);
+				DB::Exec($sql1);
+			} //fin $item['Status']
+		} //fin foreach
+	} else {
+		// Es un array unidimensional, procesa cada elemento como se muestra en el ejemplo anterior
+		$values1 = $dataf;
+		$item = $values1;
+		$fecha_nac = $item['fecha_nacimiento'];
+		$fechaFormateada_nac = date("Y-m-d", strtotime($fecha_nac));
+		$fechaFormateada_reso = date("Y-m-d", strtotime($fecha_reso));
+		// Sentencia SQL para insertar el registro en la tabla
+		if ($item['Status'] !== 'False') {
+			$sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.detalle_academico_mec (especialidad_academica, 
+																																										fecha_informacion, 
+																																										apellido, 
+																																										nivel_educativo, 
+																																										fecha_nacimiento, 
+																																										institucion, 
+																																										titulo_academico, 
+																																										fecha_resolucion, 
+																																										numero_resolucion, 
+																																										nombre, 
+																																										grado_academico,persona_id) 
+																		VALUES (':1',':2',':3',':4',':5',':6',':7',':8',':9',':10',':11',':12');",
+																							$item['curso'],
+																							now(),
+																							$item['apellido_estudiante'],
+																							'Educacion Básica	',
+																							$fechaFormateada_nac,
+																							$item['nombre_institucion'],
+																							$item['curso'],
+																							now(),
+																							(int)$item['periodo'],
+																							$item['nombre_estudiante'],
+																							$item['curso'],$_SESSION["persona_id"]);
+			DB::Exec($sql1);
+		} //fin $item['Status'] !== 'False'
+	}
+}// FIN traer mec-datos-egresado
 
-        }
-    } else {
-        // Es un array unidimensional, procesa cada elemento como se muestra en el ejemplo anterio
-				$values1 = $dataf;
-				$item = $values1;
-         $fecha_nac= $item['fecha_nacimiento'];
-         $fechaFormateada_nac = date("Y-m-d", strtotime($fecha_nac));
-         $fechaFormateada_reso = date("Y-m-d", strtotime($fecha_reso));
-                // Sentencia SQL para insertar el registro en la tabla
-			if ($item['Status'] !== 'False') {
-				 $sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.detalle_academico_mec (especialidad_academica, fecha_informacion, apellido, nivel_educativo, fecha_nacimiento, institucion, titulo_academico, fecha_resolucion, numero_resolucion, nombre, grado_academico,persona_id) 
-					VALUES (':1',':2',':3',':4',':5',':6',':7',':8',':9',':10',':11',':12');",$item['curso'],now(),$item['apellido_estudiante'],'Educacion Básica	',$fechaFormateada_nac,
-					$item['nombre_institucion'],$item['curso'],now(),(int)$item['periodo'],$item['nombre_estudiante'],$item['curso'],$_SESSION["persona_id"]);
-         
-			   DB::Exec($sql1);
-			}
-    }
 
-}
-// FIN traer mec-datos-egresado
-
-$strSQLExistsl = DB::PrepareSQL("SELECT
-  DISTINCT ON (x.empresa_id) x.empresa_id ,
-	x.persona_id,  
-	UPPER(eportal.empresas.legal) AS nombre_empresa, 
-	eportal.empresas.document AS ruc, 
-	cargo.descripcion AS cargo,
-	x.id as empleado_id,
-  (SELECT EXTRACT(YEAR FROM empleados_movimientos.fecha) as fecha FROM mtess.empleados_movimientos where empleado_id = x.id and tipo = 1 order by fecha asc limit 1) as fecha_entrada,
-	(SELECT EXTRACT(YEAR FROM empleados_movimientos.fecha) as fecha FROM mtess.empleados_movimientos where empleado_id = x.id and tipo = 2 order by fecha desc limit 1) as fecha_salida,
-	EXTRACT(YEAR FROM AGE((SELECT date(empleados_movimientos.fecha) as 
-	fecha FROM mtess.empleados_movimientos where empleado_id = x.id and tipo = 2 order by fecha desc limit 1),
-	(SELECT date(empleados_movimientos.fecha) as fecha FROM mtess.empleados_movimientos where empleado_id = x.id and tipo = 1 order by fecha asc limit 1))) AS anhos_experiencia,
-  EXTRACT(MONTH FROM AGE((SELECT date(empleados_movimientos.fecha) as fecha FROM mtess.empleados_movimientos 
-	where empleado_id = x.id and tipo = 2 order by fecha desc limit 1), (SELECT date(empleados_movimientos.fecha) as 
-	fecha FROM mtess.empleados_movimientos where empleado_id = x.id and tipo = 1 order by fecha asc limit 1))) AS meses_experiencia,
-	'REOP' as proveedor
-FROM
-	mtess.empleados x
-	INNER JOIN
-	eportal.empresas
-	ON 
-		x.empresa_id = eportal.empresas.id
-	INNER JOIN
-	mtess.empleado_cargo AS cargo
-	ON 
-		x.cargo_id = cargo.id
-		where x.persona_id =':1' ",$_SESSION["persona_id"]);
-
+$strSQLExistsl = DB::PrepareSQL("SELECT DISTINCT ON (x.empresa_id) x.empresa_id,
+																						x.persona_id,  
+																						UPPER(eportal.empresas.legal) AS nombre_empresa, 
+																						eportal.empresas.document AS ruc, 
+																						cargo.descripcion AS cargo,
+																						x.id as empleado_id,
+																						(SELECT EXTRACT(YEAR FROM empleados_movimientos.fecha) as fecha 
+																							FROM mtess.empleados_movimientos 
+																							WHERE empleado_id = x.id 
+																							AND tipo = 1 
+																							ORDER BY fecha asc 
+																							LIMIT 1) as fecha_entrada,
+																						(SELECT EXTRACT(YEAR FROM empleados_movimientos.fecha) as fecha 
+																							FROM mtess.empleados_movimientos 
+																							WHERE empleado_id = x.id 
+																							AND tipo = 2 
+																							ORDER BY fecha desc 
+																							LIMIT 1) as fecha_salida,
+																						EXTRACT(YEAR FROM AGE(
+																								(
+																									SELECT date(empleados_movimientos.fecha) AS fecha 
+																									FROM mtess.empleados_movimientos 
+																									WHERE empleado_id = x.id 
+																									AND tipo = 2 
+																									ORDER BY fecha desc 
+																									LIMIT 1
+																								),
+																								(
+																									SELECT date(empleados_movimientos.fecha) AS fecha 
+																									FROM mtess.empleados_movimientos 
+																									WHERE empleado_id = x.id 
+																									AND tipo = 1 
+																									ORDER BY fecha asc 
+																									LIMIT 1
+																								))
+																							) AS anhos_experiencia,
+																						EXTRACT(MONTH FROM AGE(
+																							(SELECT date(empleados_movimientos.fecha) AS fecha 
+																								FROM mtess.empleados_movimientos 
+																								WHERE empleado_id = x.id 
+																								AND tipo = 2 
+																								ORDER BY fecha desc 
+																								LIMIT 1), 
+																							(SELECT date(empleados_movimientos.fecha) AS fecha 
+																								FROM mtess.empleados_movimientos 
+																								WHERE empleado_id = x.id 
+																								AND tipo = 1 
+																								ORDER BY fecha asc 
+																								LIMIT 1))
+																						) AS meses_experiencia,
+																						'REOP' as proveedor
+																		FROM mtess.empleados x
+																					INNER JOIN eportal.empresas ON x.empresa_id = eportal.empresas.id
+																					INNER JOIN mtess.empleado_cargo AS cargo ON x.cargo_id = cargo.id
+																		WHERE x.persona_id = ':1' ", $_SESSION["persona_id"]);
 $rsExistsl = DB::Query($strSQLExistsl);
-
-while( $data1 = $rsExistsl->fetchAssoc() )
-{
-
-$sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.cvc_experiencia_laboral (fk_persona_id, empresa, anhos_de_experiencia, 
-descripcion_puesto	, fecha_inicio, fecha_fin, meses_de_experiencia, proveedor) VALUES (':1',':2',':3',':4',':5',':6',':7',':8');",$_SESSION["persona_id"],
-$data1['nombre_empresa'],$data1['anhos_experiencia'],$data1['cargo'],$data1['fecha_entrada'],$data1['fecha_salida'],$data1['meses_experiencia'],
-$data1['proveedor']);
-
-DB::Exec($sql1);
-
+while( $data1 = $rsExistsl->fetchAssoc() ) {
+	$sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.cvc_experiencia_laboral (fk_persona_id, 
+																																									empresa, 
+																																									anhos_de_experiencia, 
+																																									descripcion_puesto, 
+																																									fecha_inicio, 
+																																									fecha_fin, 
+																																									meses_de_experiencia, 
+																																									proveedor) 
+															VALUES (':1',':2',':3',':4',':5',':6',':7',':8');",
+																$_SESSION["persona_id"],
+																$data1['nombre_empresa'],
+																$data1['anhos_experiencia'],
+																$data1['cargo'],
+																$data1['fecha_entrada'],
+																$data1['fecha_salida'],
+																$data1['meses_experiencia'],
+																$data1['proveedor']);
+	DB::Exec($sql1);
 }
+
 
 //TRAER DATOS DE IPS
-
-$strSQLExists2 = DB::PrepareSQL("SELECT
-	UPPER(x.empleador) AS nombre_empresa, 
-	x.ruc,
-	EXTRACT (YEAR FROM x.fechaentrada) as fecha_entrada,
-	EXTRACT (YEAR FROM x.fechasalida) as fecha_salida,
-  EXTRACT (YEAR FROM (AGE (x.fechasalida,x.fechaentrada))) as anhos_experiencia,
-	EXTRACT (MONTH FROM (AGE (x.fechasalida,x.fechaentrada))) as meses_experiencia,
-	'IPS' as proveedor
-FROM
-	ws_ips.empleados_por_fecha x
-where  x.numeroci =':1' ",$_SESSION["cedula"]);
-
+$strSQLExists2 = DB::PrepareSQL("SELECT UPPER(x.empleador) AS nombre_empresa, 
+																						x.ruc,
+																						EXTRACT (YEAR FROM x.fechaentrada) as fecha_entrada,
+																						EXTRACT (YEAR FROM x.fechasalida) as fecha_salida,
+																						EXTRACT (YEAR FROM (AGE (x.fechasalida, x.fechaentrada))) as anhos_experiencia,
+																						EXTRACT (MONTH FROM (AGE (x.fechasalida, x.fechaentrada))) as meses_experiencia,
+																						'IPS' AS proveedor
+																		FROM ws_ips.empleados_por_fecha x
+																		WHERE x.numeroci = ':1' ", $_SESSION["cedula"]);
 $rsExists2 = DB::Query($strSQLExists2);
-
-while( $data2 = $rsExists2->fetchAssoc() )
-{
-
-$sql2 = DB::PrepareSQL("INSERT INTO bolsa_empleo.cvc_experiencia_laboral (fk_persona_id, empresa, anhos_de_experiencia, 
-fecha_inicio, fecha_fin, meses_de_experiencia, proveedor) VALUES (':1',':2',':3',':4',':5',
-':6',':7');",$_SESSION["persona_id"], $data2['nombre_empresa'],$data2['anhos_experiencia'],$data2['fecha_entrada'],
-$data2['fecha_salida'],$data2['meses_experiencia'], $data2['proveedor']);
-
-
-DB::Exec($sql2);
-
+while( $data2 = $rsExists2->fetchAssoc() ) {
+	$sql2 = DB::PrepareSQL("INSERT INTO bolsa_empleo.cvc_experiencia_laboral (fk_persona_id, 
+																																									empresa, 
+																																									anhos_de_experiencia, 
+																																									fecha_inicio, 
+																																									fecha_fin, 
+																																									meses_de_experiencia, 
+																																									proveedor) 
+															VALUES (':1',':2',':3',':4',':5',':6',':7');",
+																$_SESSION["persona_id"], 
+																$data2['nombre_empresa'],
+																$data2['anhos_experiencia'],
+																$data2['fecha_entrada'],
+																$data2['fecha_salida'],
+																$data2['meses_experiencia'], 
+																$data2['proveedor']);
+	DB::Exec($sql2);
 }
-
 
 
 header("Location: vacancia_list.php");
@@ -587,7 +652,7 @@ exit();
 function ModifyMenuItem(&$menuItem)
 {
 
-		if (Security::isLoggedIn()) {
+			if (Security::isLoggedIn()) {
       return true;
   }
   return false;
@@ -622,104 +687,72 @@ function ModifyMenuItem(&$menuItem)
 function BeforeShowLogin(&$xt, &$templatefile, $pageObject)
 {
 
-		//$pageObject->hideItem("image", $recordId);
-$pageObject->hideItem("boton_2", $recordId);
+			//$pageObject->hideItem("image", $recordId);
+  $pageObject->hideItem("boton_2", $recordId);
+	
+	/*
+	$message_success= '
+		 <style type="text/css">
+			  #form1 .r-panel-page .panel-primary .panel-body #form_above-grid_1 .row .col-md-12 span {
+					width:100% !important;
+			  }
+		 </style>
 
-/*
+		 <div data-itemtype="login_message" data-itemid="login_message" data-pageid="1" class="alert alert-success" role="alert">
+		 <p text-aling=justify>
+					Puedes ingresar al Portal autenticándote con: <br><b><i class="bi bi-dot"></i> Identidad Electrónica</b> 
+					<br><b><i class="bi bi-dot"></i> Cédula de Identidad</b>.</p>
+		</div>';
+	$xt->assign('message_success', $message_success);
+	*/
+        
+	/*
+	<style type="text/css">
+		 #form_supertop_1 .r-ori-vert img {
+			  position:relative;
+			  left:12em;
+		 }
+	</style>
+	*/
 
-$message_success= '
+	/*
+		<style type="text/css">
+			 #form1 .r-panel-page {
+				  min-width:70%;
+			 }
+		</style>
+	*/
+	
+	/*SOLO PARA EL LOGIN*/
+	$header_x = '<style type="text/css">
+									#form_supertop_1 .row {
+										 width:100%;
+									}
+									#form1 .r-panel-page {
+										 min-width:70%;
+									}
 
-<style type="text/css">
-
-#form1 .r-panel-page .panel-primary .panel-body #form_above-grid_1 .row .col-md-12 span{
- width:100% !important;
-}
-</style>
-
-
-<div data-itemtype="login_message" data-itemid="login_message" data-pageid="1" class="alert alert-success" role="alert">
-										<p text-aling=justify>Puedes ingresar al Portal autenticándote con: <br><b><i class="bi bi-dot"></i> Identidad Electrónica</b> 
-<br><b><i class="bi bi-dot"></i> Cédula de Identidad</b>.</p>
-	</div>';
-
-$xt->assign('message_success',$message_success);
-*/
-
-
-/*
-<style type="text/css">
-#form_supertop_1 .r-ori-vert img{
- position:relative;
- left:12em;
-}
-</style>
-*/
-
-
-/*
-<style type="text/css">
-#form1 .r-panel-page{
- min-width:70%;
-}
-</style>
-*/
-
-/*SOLO PARA EL LOGIN*/
-
-$header_x='
-
-<style type="text/css">
-#form_supertop_1 .row{
- width:100%;
-}
-
-
-#form1 .r-panel-page{
- min-width:70%;
-}
-
-  /* Panel heading */
-.r-panel-page .panel-primary .panel-heading{
-  background-color:#ec008c;
-  border-bottom-style:none;
- }
- 
-.panel-default > .panel-heading  {
-      display: block;
-}
-
-
-</style>
-
-<div data-menu-width="full" class="r-topheader" data-resize-name="topbar" data-body-align="center">
-								
-<nav class="navbar navbar-default" data-location="supertop" id="form_supertop_1" data-makeup="topbar" data-pageid="1">
-			 
-							 
-				<span data-cellid="supertop_c1" data-pageid="1" class="r-align-left navbar-header" data-itemid="logo">
-				
-	<a data-itemtype="logo" data-itemid="logo" data-pageid="1" data-page="vacancia_list" class="navbar-brand" href="vacancia_list.php?page=list">
-		<img src="images/imgob23/emplea_b.png" style="max-width: 100%;  height:4vh; " class="image wp-image-113  attachment-full size-full" alt="Tabicón del Gobierno y Trabajo" decoding="async">
-	</a>
-
-								
-			</span>
-		 
-				
-							 
-							 
-				
-		 
-				
+								/* Panel heading */
+								.r-panel-page .panel-primary .panel-heading {
+									 background-color:#ec008c;
+									 border-bottom-style:none;
+								}
+						
+								.panel-default > .panel-heading  {
+									 display: block;
+								}
+							</style>
+						  <div data-menu-width="full" class="r-topheader" data-resize-name="topbar" data-body-align="center">
+								<nav class="navbar navbar-default" data-location="supertop" id="form_supertop_1" data-makeup="topbar" data-pageid="1">
+									 <span data-cellid="supertop_c1" data-pageid="1" class="r-align-left navbar-header" data-itemid="logo">
+										  <a data-itemtype="logo" data-itemid="logo" data-pageid="1" data-page="vacancia_list" class="navbar-brand" href="vacancia_list.php?page=list">
+												<img src="images/imgob23/emplea_b.png" style="max-width: 100%; height:4vh;" class="image wp-image-113 attachment-full size-full" alt="Tabicón del Gobierno y Trabajo" decoding="async">
+										  </a>
+									 </span>
 								</nav>
+						  </div>';
 
-					
-			</div>
-						';
-
-
-
-$xt->assign('header',$header_x);
+	$xt->assign('header', $header_x);
 ;		
 } // function BeforeShowLogin
 
@@ -792,12 +825,11 @@ $xt->assign('header',$header_x);
 function ModifyMenu(&$menu)
 {
 
-		if( $menu->name() == "main" ) {
-    // modify main menu here
-}
+			if( $menu->name() == "main" ) {
+			// modify main menu here
+	}
 
-$menu->addURL( "<i class='bi bi-qr-code-scan'></i> "."Descargar CV", "https://bolsa.mtess.gov.py/buscador/cv.php?hash_generado=".$_SESSION["hash_generado"]);
-
+	$menu->addURL( "<i class='bi bi-qr-code-scan'></i> "."Descargar CV", "https://bolsa.mtess.gov.py/buscador/cv.php?hash_generado=".$_SESSION["hash_generado"]);
 ;		
 } // function ModifyMenu
 
@@ -849,10 +881,40 @@ $menu->addURL( "<i class='bi bi-qr-code-scan'></i> "."Descargar CV", "https://bo
 function AfterUnsuccessfulLogin($username, $password, &$message, $pageObject, $userdata)
 {
 
-		$message="Usuario o Contraseña incorrectos";
+			$message = "Usuario o Contraseña incorrectos";
 ;		
 } // function AfterUnsuccessfulLogin
 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 		
@@ -940,7 +1002,6 @@ INNER JOIN bolsa_empleo.empresas_bolsa_sucursales ON bolsa_empleo.vacancia_empre
 LEFT OUTER JOIN bolsa_empleo.vista_ocupaciones ON bolsa_empleo.vacancia_puesto.fk_ocupacion_puesto = bolsa_empleo.vista_ocupaciones.id_ocu_puest_clasi
 ORDER BY bolsa_empleo.vacancia.id_vacancias DESC, bolsa_empleo.vacancia.id_estado_vacancia");
 
-
 echo <<<HTML
     <div id="map" style="height:300px"></div>
 
@@ -993,15 +1054,7 @@ echo <<<HTML
        
     </script>
 HTML;
-
-   
-
-*/
-
-
-
-	
-    
+*/    
 	;
 }
 	function event__global__snippet(&$params)
@@ -1028,20 +1081,15 @@ echo $breadcrumb_personalizado;
 }
 	function event_sdk_share_and_facebook(&$params)
 	{
-	
-//$che_url 		=	 $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
-//funcion para copiar enlace
-
-echo '
-				 <script type="text/javascript"> 							
+		//$che_url 		=	 $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+	//funcion para copiar enlace
+	echo '<script type="text/javascript"> 							
 								function Copiar(cadena) {  
 								  var copyText = "He visto esta vacancia en la Bolsa de Empleo de la Dirección General de Empleo (DGE) del Ministerio de Trabajo, Empleo y Seguridad Social (Mtess). Para ver el puesto de " + "'.$_SESSION["compartir_vacancia_text"].'" + ", Seguir el enlace: ";
 								 navigator.clipboard.writeText(copyText + " "+ cadena );
 								  Swal.fire(\'¡Listo!\',\'Texto copiado\',\'success\');
 								}					
-					</script>
-
-				';
+					</script>';
 
 /*
 $cargar_sdk='<!-- Load Facebook SDK for JavaScript -->
@@ -1055,7 +1103,6 @@ fjs.parentNode.insertBefore(js, fjs);
 }(document, "script", "facebook-jssdk"));</script>';
 
 echo $cargar_sdk;
-
 */
 	;
 }
@@ -1200,6 +1247,12 @@ echo '<script>
 	function event_bolsa_empleo_vacancia_snippet5(&$params)
 	{
 	
+	;
+}
+	function event_bolsa_empleo_bolsa_users_cambio_contrasenha_snippet(&$params)
+	{
+	// Put your code here.
+echo '<img src="images/imgob23/emplea_b.png" style="max-width: 100%;  height:4vh;" class="image wp-image-113  attachment-full size-full" alt="Tabicón del Gobierno y Trabajo" decoding="async" >';
 	;
 }
 

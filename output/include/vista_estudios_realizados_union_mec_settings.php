@@ -162,7 +162,7 @@ $tdatavista_estudios_realizados_union_mec[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																																																																																																																																																																																																																													
+																																																																																																																																																																																																																																																																																																																																																																																										
 
 $tdatavista_estudios_realizados_union_mec[".ajaxCodeSnippetAdded"] = false;
 
@@ -2208,9 +2208,9 @@ $masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"] = array();
 	$masterParams["type"] = PAGE_LIST;
 					$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][0] = $masterParams;
 				$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][0]["masterKeys"] = array();
-	$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][0]["masterKeys"][]="id";
+	$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][0]["masterKeys"][]="nro_documento";
 				$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][0]["detailKeys"] = array();
-	$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][0]["detailKeys"][]="fk_personaid";
+	$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][0]["detailKeys"][]="nro_documento";
 		
 	//endif
 	
@@ -2226,9 +2226,9 @@ $masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"] = array();
 	$masterParams["type"] = PAGE_LIST;
 					$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1] = $masterParams;
 				$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1]["masterKeys"] = array();
-	$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1]["masterKeys"][]="id";
+	$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1]["masterKeys"][]="nro_documento";
 				$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1]["detailKeys"] = array();
-	$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1]["detailKeys"][]="fk_personaid";
+	$masterTablesData["bolsa_empleo.vista_estudios_realizados_union_mec"][1]["detailKeys"][]="nro_documento";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//

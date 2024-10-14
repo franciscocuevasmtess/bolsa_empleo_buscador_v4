@@ -1,5 +1,7 @@
 <?php
-			$optionsArray = array( 'master' => array( 'eportal.persons' => array( 'preview' => false ) ),
+			$optionsArray = array( 'master' => array( 'eportal.persons_data_types' => array( 'preview' => false ),
+'eportal.persons' => array( 'preview' => false ),
+'bolsa_empleo.bolsa_users_cambio_contrasenha' => array( 'preview' => false ) ),
 'captcha' => array( 'captcha' => false ),
 'fields' => array( 'gridFields' => array( 'person_id',
 'type',

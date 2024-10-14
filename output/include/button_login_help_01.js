@@ -5,16 +5,14 @@ Runner.buttonEvents["login_help_01"] = function( pageObj, proxy, pageid ) {
 	if ( !pageObj.buttonEventBefore['login_help_01'] ) {
 		pageObj.buttonEventBefore['login_help_01'] = function( params, ctrl, pageObj, proxy, pageid, rowData, row, submit ) {		
 			var ajax = ctrl;
-Swal.fire({
- icon: 'Consejo: ',
- title: 'CONTRASEÑA POR DEFECTO',
-html: `
-    Tu contraseña por defecto es: <br>Fecha de nacimiento (ddmmaaaa). <b>Ej: 21041986</b> <br>Consejo: Recomendamos cambiar contraseña luego del primer inicio de sesión.
-  `,
- //text: 'Tu contraseña por defecto es: \nFecha de nacimiento (ddmmyyyy). Ej: 21041986 \nConsejo: Recomendamos cambiar contraseña luego del primer inicio de sesión.',
- imageUrl: 'images/cambiar_pass.png',
-  imageAlt: 'Imagen Recomendamos cambiar contraseña luego del primer inicio de sesión.'
-})
+	Swal.fire({
+		icon: 'Consejo: ',
+		title: 'CONTRASEÑA POR DEFECTO',
+		html: `Tu contraseña por defecto es: <br>Fecha de nacimiento (ddmmaaaa). <b>Ej: 21041986</b> <br>Consejo: Recomendamos cambiar contraseña luego del primer inicio de sesión.`,
+		//text: 'Tu contraseña por defecto es: \nFecha de nacimiento (ddmmyyyy). Ej: 21041986 \nConsejo: Recomendamos cambiar contraseña luego del primer inicio de sesión.',
+		imageUrl: 'images/cambiar_pass.png',
+		imageAlt: 'Imagen Recomendamos cambiar contraseña luego del primer inicio de sesión.'
+	})
 		}
 	}
 	

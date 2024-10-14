@@ -627,7 +627,7 @@ $ajaxSearchStartsWith = true;
 
 
 
-$globalSettings["LandingPageType"] = 2;
+$globalSettings["LandingPageType"] = 1;
 $globalSettings["LandingTable"] = "bolsa_empleo.vacancia";
 $globalSettings["LandingPage"] = "list";
 $globalSettings["LandingURL"] = "login.php";
@@ -651,6 +651,11 @@ $globalSettings["apiGoogleMapsCode"] = "";
 
 $globalSettings["useEmbedMapsAPI"] = 0 != 0;
 
+//password global settings for register page
+$globalSettings["pwdStrong"] = true;
+$globalSettings["pwdLen"] = 8;
+$globalSettings["pwdUnique"] = 4;
+$globalSettings["pwdDigits"] = 2;
 
 
 /**
@@ -716,9 +721,9 @@ $styleOverrides["detalle_vacancia_list"] = array(
 $globalSettings["mapProvider"]=1;
 
 $globalSettings["CaptchaSettings"] = array();
-$globalSettings["CaptchaSettings"]["type"] = 0;
-$globalSettings["CaptchaSettings"]["siteKey"] = "";
-$globalSettings["CaptchaSettings"]["secretKey"] = "";
+$globalSettings["CaptchaSettings"]["type"] = 1;
+$globalSettings["CaptchaSettings"]["siteKey"] = "6LcnLUgqAAAAAHDxbu8IySKU4YJtqEqhc-PVcClF";
+$globalSettings["CaptchaSettings"]["secretKey"] = "6LcnLUgqAAAAAK3qidJaWCFHgKdXLTN27IY4p_98";
 $globalSettings["CaptchaSettings"]["captchaPassesCount"] = "5";
 
 
@@ -778,9 +783,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "2623_1725298806";
+$projectBuildKey = "3305_1725298806";
 $wizardBuildKey = "41974";
-$projectBuildNumber = "2623";
+$projectBuildNumber = "3305";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -862,6 +867,7 @@ $tableCaptions["Spanish"]["bolsa_empleo_tipo_remuneracion"] = "Tipo Remuneracion
 $tableCaptions["Spanish"]["personas_pasos"] = "Personas-pasos";
 $tableCaptions["Spanish"]["bolsa_empleo_bolsa_sexo"] = "Bolsa Sexo";
 $tableCaptions["Spanish"]["bolsa_empleo_cvc_movilidad"] = "Cvc Movilidad";
+$tableCaptions["Spanish"]["bolsa_empleo_bolsa_users_cambio_contrasenha"] = "Bolsa Users Cambio Contrasenha";
 
 
 $globalEvents = new class_GlobalEvents;
@@ -980,181 +986,172 @@ $fieldFilterValueShrinkPostfix = "...";
 
 
 // here goes EVENT_INIT_APP event
-function verify2($bundle, $key) {
-    return hash_equals(
-      hash_hmac('sha256', mb_substr($bundle, 64, null, '8bit'), $key),
-      mb_substr($bundle, 0, 64, '8bit')
-    );
-}
+setlocale(LC_TIME, 'es_ES.UTF-8','esp');
 
-function decrypt2($hash, $password) {
-    $iv = hex2bin(substr($hash, 0, 32));
-    $data = hex2bin(substr($hash, 32));
-    $key = $password;
-    if (!verify2($data, $key)) {
-      return null;
-    }
-    return openssl_decrypt(mb_substr($data, 64, null, '8bit'),'aes-256-ctr',$key,OPENSSL_RAW_DATA,$iv);
-}
+	function verify2($bundle, $key) {
+		return hash_equals(
+													hash_hmac('sha256', mb_substr($bundle, 64, null, '8bit'), $key),
+													mb_substr($bundle, 0, 64, '8bit')
+											);
+	}
 
+	function decrypt2($hash, $password) {
+		$iv = hex2bin(substr($hash, 0, 32));
+		$data = hex2bin(substr($hash, 32));
+		$key = $password;
+		if (!verify2($data, $key)) {
+			return null;
+		}
+		
+		return openssl_decrypt(mb_substr($data, 64, null, '8bit'), 'aes-256-ctr', $key, OPENSSL_RAW_DATA, $iv);
+	}
+	
+	if ($_GET["encoding"]) {
+		$sql = DB::PrepareSQL("select * from bolsa_empleo.bolsa_users where username = ':1'", $_SESSION['usuario']);
+		$rs = DB::Query($sql);
+		$data = $rs->fetchAssoc();
+		if ($data['estado_llave'] == '1') {
+			$decrypted_string = decrypt2($_GET["encoding"], $data['llave']);
+			$porciones = explode('&', $decrypted_string);
+		
+			if (Security::checkUsernamePassword($_SESSION['usuario'],$_SESSION['contra'])) {
+				Security::loginAs($porciones[0], true);
+			}
+		} else {
+			Security::logout();
+			header("Location: vacancia_list.php");
+			exit();
+		}
+	}
 
+	//llamar funcion popup verificacion datos vacancias
+	function verificardatospostulacion() {
+		$textoresultados = array();
+		$falta_datos = 0;
+		
+		$rs = DB::Query("SELECT
+												(SELECT foto FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_foto,
+												(SELECT resumen FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_resumen,
+												(SELECT COUNT(*) FROM eportal.persons_phones WHERE type = 2 and person_id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_phones,
+												(SELECT city_id FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_city,
+												(SELECT domicilio FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_domicilio,
+												(SELECT canthijos FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_canthijos,
+												(SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '" . pg_escape_string($_SESSION["cedula"]) . "') AS count_educacion,
+												(SELECT COUNT(*) FROM bolsa_empleo.cvc_experiencia_laboral WHERE fk_persona_id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_experiencia_laboral,
+												(SELECT COUNT(*) FROM eportal.persons_referencia WHERE id_persona = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_referencias_personales,
+												(SELECT COUNT(*) FROM bolsa_empleo.cvc_idiomas WHERE fk_personaid = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_idiomas
+										");
+		
+		while ($datafinal = $rs->fetchAssoc()) {
+			$existe_foto = $datafinal['existe_foto'];
+			$existe_resumen = $datafinal['existe_resumen'];
+			$count_phones = $datafinal['count_phones'];
+			$existe_city = $datafinal['existe_city'];
+			$existe_domicilio = $datafinal['existe_domicilio'];
+			$existe_canthijos = $datafinal['existe_canthijos'];
+			$count_educacion = $datafinal['count_educacion'];
+			$count_experiencia_laboral = $datafinal['count_experiencia_laboral'];
+			$count_referencias_personales = $datafinal['count_referencias_personales'];
+			$count_idiomas = $datafinal['count_idiomas'];
+			
+			if (is_null($existe_foto)) {
+				// $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Foto de Perfil en Informacion Personal.";
+				// $falta_datos = 1;
+			}
+			
+			if (is_null($existe_resumen)) {
+				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Resumen Personal)</a>';
+				$falta_datos = 1;
+			}
+			
+			if ($count_phones < 1) {
+				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Número de Teléfono(WhatsApp))</a>';
+				$falta_datos = 1;
+			}
+			
+			if (is_null($existe_city)) {
+				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Ciudad)</a>';
+				$falta_datos = 1;
+			}
+			
+			if (is_null($existe_domicilio)) {
+				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php"> Información Básica (Dirección)</a>';
+				$falta_datos = 1;
+			}
+			
+			if (is_null($existe_canthijos)) {
+				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Cantidad de Hijos)</a>';
+				$falta_datos = 1;
+			}
+			
+			if ($count_educacion < 1) {
+				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#2">Estudios Realizados</a>';
+				$falta_datos = 1;
+			}
+			
+			if ($count_experiencia_laboral < 1) {
+				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#3">Experiencia Laboral</a>';
+				$falta_datos = 1;
+			}
 
-if ($_GET["encoding"])
-{
+			if ($count_referencias_personales < 1) {
+				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#4">Referencias Personales</a>';
+				$falta_datos = 1;
+			}
 
-
-$sql = DB::PrepareSQL("select * from bolsa_empleo.bolsa_users where username = ':1'",$_SESSION['usuario']);
-$rs = DB::Query($sql);
-$data=$rs->fetchAssoc();
-if($data['estado_llave'] == '1')
-{
-
-$decrypted_string=decrypt2($_GET["encoding"], $data['llave']);
-$porciones = explode('&', $decrypted_string);
-
-
-if (Security::checkUsernamePassword($_SESSION['usuario'],$_SESSION['contra'])){
-Security::loginAs($porciones[0], true);
-}
-
-
-
-}else{
-Security::logout();
-header("Location: vacancia_list.php");
-exit();
-
-
-}
-}
-
-///llamar funcion popup verificacion datos vacancias
-function verificardatospostulacion() {
-
-
-$textoresultados = array();
-$falta_datos = 0;
-
-$rs = DB::Query("
-    SELECT
-        (SELECT foto FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_foto,
-        (SELECT resumen FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_resumen,
-        (SELECT COUNT(*) FROM eportal.persons_phones WHERE type = 2 and person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
-        (SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
-        (SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
-        (SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
-        (SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion
-" );
-
-
-    while ($datafinal = $rs->fetchAssoc()) {
-
-
-			 $existe_foto = $datafinal['existe_foto'];
-       $existe_resumen = $datafinal['existe_resumen'];
-       $count_phones = $datafinal['count_phones'];
-       $existe_city = $datafinal['existe_city'];
-       $existe_domicilio = $datafinal['existe_domicilio'];
-       $existe_canthijos = $datafinal['existe_canthijos'];
-       $count_educacion = $datafinal['count_educacion'];
-
-
-        if (is_null($existe_foto)) {
-           // $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Foto de Perfil en Informacion Personal.";
-						// $falta_datos = 1;
-				
-        }
-
-        if (is_null($existe_resumen)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Resumen Personal <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
-        }
-
-				 if ($count_phones < 1) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Numero de Contacto <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
-        }
-
-				 if (is_null($existe_city)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Ciudad <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
-        }
-
-				 if (is_null($existe_domicilio)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Dirección. <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
-        }
-
-         if (is_null($existe_canthijos)) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Cantidad Hijos <a href='persons_edit.php'>Ir a Datos Personales</a>";
-						 $falta_datos = 1;
-        }
-
-				
-         if ($count_educacion < 1 ) {
-            $textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Entidad Educativa <a href='vista_estudios_realizados_union_mec_list.php'>Ir a Estudios Realizados</a>";
-						 $falta_datos = 1;
-        }
-
-    }
-
-
-
-if ($falta_datos == '0' ){
-
-  echo '<script src="sweetalert2.all.min.js"></script>';
-	echo '<script>document.addEventListener("DOMContentLoaded", function() { Swal.fire({
-  position: "top-center",
-  icon: "success",
-  title: "¡Ya puedes postularte!",
-  showConfirmButton: false,
-  timer: 5500
-});
+			if ($count_idiomas < 1) {
+				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#5">Conocimiento de idiomas</a>';
+				$falta_datos = 1;
+			}
+			
+		} //end while
+		
+		if ($falta_datos == '0' ) {
+			echo '<script src="sweetalert2.all.min.js"></script>';
+			echo '<script>document.addEventListener("DOMContentLoaded", function() { Swal.fire({
+							position: "top-center",
+							icon: "success",
+							title: "¡Ya puedes postularte!",
+							showConfirmButton: false,
+							timer: 5500
+						});
 					});</script>';
+		} else {
+			// Obtener el contenido del array y unirlo con <br
+				
+			$mensaje = implode('<br>', $textoresultados);
+			
+			// Escapar comillas simples y comillas dobles para evitar problemas en el código JavaScript
+			$mensaje = str_replace("'", "\\'", $mensaje);
+			$mensaje = str_replace('"', '\\"', $mensaje);
+			
+			echo '<script src="sweetalert2.all.min.js"></script>';
+			echo '<script>
+							document.addEventListener("DOMContentLoaded", function() {
+								
+								Swal.fire({
+														title:"¡Datos Guardados!", 
+														confirmButtonText: "OK"
+													}).then((result) => {
+														if (result.isConfirmed) {
+															Swal.fire({
+																imageUrl: "images/imgob23/emplea_a.png",
+																imageAlt: "A tall image",
+																imageWidth: 450,
+																imageHeight: 100,
+																title: "Para que puedas Postularte a una Oferta de Empleo, completa tus datos de la sección:",
+																html: "\n' . $mensaje . ' ",
+																showCloseButton: true,
+																showConfirmButton: false
+															})
+														}
+													});
+								
+							});
+					</script>';
+		}
+	} //end verificardatospostulacion()
 
-
-
-}else{
-
-
-// Obtener el contenido del array y unirlo con <br>
-$mensaje = implode('<br>', $textoresultados);
-
-// Escapar comillas simples y comillas dobles para evitar problemas en el código JavaScript
-$mensaje = str_replace("'", "\\'", $mensaje);
-$mensaje = str_replace('"', "&quot;", $mensaje);
-
-
-
-echo '<script src="sweetalert2.all.min.js"></script>';
-echo '<script>
-			  document.addEventListener("DOMContentLoaded", function() {
-        Swal.fire({
-          imageUrl: "images/imgob23/emplea_a.png",
-          imageAlt: "A tall image",
-          title: "Cargá tu CV y postulate a estas vacancias",
-          html: "Completá aquí:\n' . $mensaje . '",
-          showConfirmButton: false
-          // confirmButtonText: "Completar"
-        }).then((result) => {
-          if (result.isConfirmed) {
-            // Redirigir a la página deseada, por ejemplo:
-            // window.location.href = "persons_edit.php";
-          }
-        });
-			 });
-      </script>';
-
-
-
-
-}
-
-}
-
-
-
-    
 ;
 
 

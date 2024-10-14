@@ -128,7 +128,7 @@ $tdatavacancia_salario_descripcion[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																															
+																																																																																																																														
 
 $tdatavacancia_salario_descripcion[".ajaxCodeSnippetAdded"] = false;
 

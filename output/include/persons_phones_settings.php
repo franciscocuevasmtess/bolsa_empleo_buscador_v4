@@ -2,15 +2,15 @@
 $tdatapersons_phones = array();
 $tdatapersons_phones[".searchableFields"] = array();
 $tdatapersons_phones[".ShortName"] = "persons_phones";
-$tdatapersons_phones[".OwnerID"] = "person_id";
+$tdatapersons_phones[".OwnerID"] = "";
 $tdatapersons_phones[".OriginalTable"] = "eportal.persons_phones";
 
 
-$tdatapersons_phones[".pagesByType"] = my_json_decode( "{\"list\":[\"list\"],\"search\":[\"search\"]}" );
+$tdatapersons_phones[".pagesByType"] = my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
 $tdatapersons_phones[".originalPagesByType"] = $tdatapersons_phones[".pagesByType"];
-$tdatapersons_phones[".pages"] = types2pages( my_json_decode( "{\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
+$tdatapersons_phones[".pages"] = types2pages( my_json_decode( "{\"add\":[\"add\"],\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdatapersons_phones[".originalPages"] = $tdatapersons_phones[".pages"];
-$tdatapersons_phones[".defaultPages"] = my_json_decode( "{\"list\":\"list\",\"search\":\"search\"}" );
+$tdatapersons_phones[".defaultPages"] = my_json_decode( "{\"add\":\"add\",\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"print\":\"print\",\"search\":\"search\",\"view\":\"view\"}" );
 $tdatapersons_phones[".originalDefaultPages"] = $tdatapersons_phones[".defaultPages"];
 
 //	field labels
@@ -31,10 +31,10 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelspersons_phones["Spanish"]["person_id"] = "Person Id";
 	$fieldToolTipspersons_phones["Spanish"]["person_id"] = "";
 	$placeHolderspersons_phones["Spanish"]["person_id"] = "";
-	$fieldLabelspersons_phones["Spanish"]["type"] = "Tipo";
+	$fieldLabelspersons_phones["Spanish"]["type"] = "Type";
 	$fieldToolTipspersons_phones["Spanish"]["type"] = "";
 	$placeHolderspersons_phones["Spanish"]["type"] = "";
-	$fieldLabelspersons_phones["Spanish"]["phone"] = "Teléfono";
+	$fieldLabelspersons_phones["Spanish"]["phone"] = "Phone";
 	$fieldToolTipspersons_phones["Spanish"]["phone"] = "";
 	$placeHolderspersons_phones["Spanish"]["phone"] = "";
 	if (count($fieldToolTipspersons_phones["Spanish"]))
@@ -49,7 +49,7 @@ if(mlang_getcurrentlang()=="Spanish")
 $tdatapersons_phones[".shortTableName"] = "persons_phones";
 $tdatapersons_phones[".nSecOptions"] = 0;
 
-$tdatapersons_phones[".mainTableOwnerID"] = "person_id";
+$tdatapersons_phones[".mainTableOwnerID"] = "";
 $tdatapersons_phones[".entityType"] = 0;
 $tdatapersons_phones[".connId"] = "eportal_at_192_168_70_170";
 
@@ -88,7 +88,7 @@ if( $pages[PAGE_ADD] ) {
 $tdatapersons_phones[".add"] = true;
 $tdatapersons_phones[".afterAddAction"] = 1;
 $tdatapersons_phones[".closePopupAfterAdd"] = 1;
-$tdatapersons_phones[".afterAddActionDetTable"] = "Detail tables not found!";
+$tdatapersons_phones[".afterAddActionDetTable"] = "";
 }
 
 if( $pages[PAGE_LIST] ) {
@@ -134,7 +134,7 @@ $tdatapersons_phones[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																				
+																																																																																																																																																																																																																																																																																																																																																																																																																																																																																				
 
 $tdatapersons_phones[".ajaxCodeSnippetAdded"] = false;
 
@@ -146,7 +146,7 @@ $tdatapersons_phones[".addPageEvents"] = false;
 $tdatapersons_phones[".isUseTimeForSearch"] = false;
 
 
-$tdatapersons_phones[".badgeColor"] = "2f4f4f";
+$tdatapersons_phones[".badgeColor"] = "cd5c5c";
 
 
 $tdatapersons_phones[".allSearchFields"] = array();
@@ -439,7 +439,7 @@ $tdatapersons_phones[".hideMobileList"] = array();
 //	Begin Edit Formats
 	$fdata["EditFormats"] = array();
 
-	$edata = array("EditFormat" => "Text field");
+	$edata = array("EditFormat" => "Lookup wizard");
 
 	
 		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
@@ -449,6 +449,34 @@ $tdatapersons_phones[".hideMobileList"] = array();
 	
 	
 
+// Begin Lookup settings
+				$edata["LookupType"] = 2;
+	$edata["LookupTable"] = "eportal.persons";
+			$edata["autoCompleteFieldsOnEdit"] = 0;
+	$edata["autoCompleteFields"] = array();
+		$edata["LCType"] = 0;
+
+	
+		
+	$edata["LinkField"] = "id";
+	$edata["LinkFieldType"] = 20;
+	$edata["DisplayField"] = "nombre";
+
+	
+
+	
+	$edata["LookupOrderBy"] = "";
+
+	
+	
+	
+	
+
+	
+	
+		$edata["SelectSize"] = 1;
+
+// End Lookup Settings
 
 
 	
@@ -463,19 +491,16 @@ $tdatapersons_phones[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "text";
-
-		$edata["EditParams"] = "";
-		
+	
+	
 		$edata["controlWidth"] = 200;
 
 //	Begin validation
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
+							
 	
-		$edata["autoUpdatable"] = true;
-
 //	End validation
 
 	
@@ -493,7 +518,7 @@ $tdatapersons_phones[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
+		$fdata["defaultSearchOption"] = "Contains";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -604,7 +629,7 @@ $tdatapersons_phones[".hideMobileList"] = array();
 	
 
 	
-	$edata["LookupOrderBy"] = "largue";
+	$edata["LookupOrderBy"] = "";
 
 	
 	
@@ -618,8 +643,7 @@ $tdatapersons_phones[".hideMobileList"] = array();
 // End Lookup Settings
 
 
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 	
@@ -639,8 +663,7 @@ $tdatapersons_phones[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+							
 	
 //	End validation
 
@@ -659,7 +682,7 @@ $tdatapersons_phones[".hideMobileList"] = array();
 
 
 // the field's search options settings
-		$fdata["defaultSearchOption"] = "Equals";
+		$fdata["defaultSearchOption"] = "Contains";
 
 			// the default search options list
 				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
@@ -756,8 +779,7 @@ $tdatapersons_phones[".hideMobileList"] = array();
 
 
 
-		$edata["IsRequired"] = true;
-
+	
 	
 	
 	
@@ -769,7 +791,7 @@ $tdatapersons_phones[".hideMobileList"] = array();
 	
 	
 	
-			$edata["HTML5InuptType"] = "tel";
+			$edata["HTML5InuptType"] = "text";
 
 		$edata["EditParams"] = "";
 		
@@ -779,8 +801,7 @@ $tdatapersons_phones[".hideMobileList"] = array();
 	$edata["validateAs"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
-						$edata["validateAs"]["basicValidate"][] = "IsRequired";
-		
+	
 	
 //	End validation
 
@@ -852,6 +873,24 @@ $masterTablesData["eportal.persons_phones"] = array();
 
 	
 	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="eportal.persons_data_types";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="eportal.persons_data_types";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "persons_data_types";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["eportal.persons_phones"][0] = $masterParams;
+				$masterTablesData["eportal.persons_phones"][0]["masterKeys"] = array();
+	$masterTablesData["eportal.persons_phones"][0]["masterKeys"][]="id";
+				$masterTablesData["eportal.persons_phones"][0]["detailKeys"] = array();
+	$masterTablesData["eportal.persons_phones"][0]["detailKeys"][]="type";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
 			$strOriginalDetailsTable="eportal.persons";
 	$masterParams = array();
 	$masterParams["mDataSourceTable"]="eportal.persons";
@@ -861,11 +900,29 @@ $masterTablesData["eportal.persons_phones"] = array();
 	$masterParams["detailKeys"]= array();
 
 	$masterParams["type"] = PAGE_LIST;
-					$masterTablesData["eportal.persons_phones"][0] = $masterParams;
-				$masterTablesData["eportal.persons_phones"][0]["masterKeys"] = array();
-	$masterTablesData["eportal.persons_phones"][0]["masterKeys"][]="id";
-				$masterTablesData["eportal.persons_phones"][0]["detailKeys"] = array();
-	$masterTablesData["eportal.persons_phones"][0]["detailKeys"][]="person_id";
+					$masterTablesData["eportal.persons_phones"][1] = $masterParams;
+				$masterTablesData["eportal.persons_phones"][1]["masterKeys"] = array();
+	$masterTablesData["eportal.persons_phones"][1]["masterKeys"][]="id";
+				$masterTablesData["eportal.persons_phones"][1]["detailKeys"] = array();
+	$masterTablesData["eportal.persons_phones"][1]["detailKeys"][]="person_id";
+		
+	//endif
+	
+	//if !@t.bReportCrossTab
+			$strOriginalDetailsTable="bolsa_empleo.bolsa_users";
+	$masterParams = array();
+	$masterParams["mDataSourceTable"]="bolsa_empleo.bolsa_users_cambio_contrasenha";
+	$masterParams["mOriginalTable"]= $strOriginalDetailsTable;
+	$masterParams["mShortTable"]= "bolsa_users_cambio_contrasenha";
+	$masterParams["masterKeys"]= array();
+	$masterParams["detailKeys"]= array();
+
+	$masterParams["type"] = PAGE_LIST;
+					$masterTablesData["eportal.persons_phones"][2] = $masterParams;
+				$masterTablesData["eportal.persons_phones"][2]["masterKeys"] = array();
+	$masterTablesData["eportal.persons_phones"][2]["masterKeys"][]="personaid";
+				$masterTablesData["eportal.persons_phones"][2]["detailKeys"] = array();
+	$masterTablesData["eportal.persons_phones"][2]["detailKeys"][]="person_id";
 		
 	//endif
 // -----------------end  prepare master-details data arrays ------------------------------//
@@ -1039,13 +1096,6 @@ $tdatapersons_phones[".sqlquery"] = $queryData_persons_phones;
 
 
 
-include_once(getabspath("include/persons_phones_events.php"));
-$tdatapersons_phones[".hasEvents"] = true;
+$tdatapersons_phones[".hasEvents"] = false;
 
-$query = &$queryData_persons_phones;
-$table = "eportal.persons_phones";
-// here goes EVENT_INIT_TABLE event
-$query->addWhere(" person_id = '".pg_escape_string($_SESSION["persona_id"])."'");
-;
-unset($query);
 ?>

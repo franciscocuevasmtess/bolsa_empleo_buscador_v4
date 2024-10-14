@@ -14,19 +14,17 @@ Runner.buttonEvents["verificar_datos"] = function( pageObj, proxy, pageid ) {
 			var ajax = ctrl;
 
 /*CODIGO JAVASCRIPT DATOS FALTANTES*/		
-if(result['faltan_datos']=='1'){
-
+if (result['faltan_datos'] == '1') {
 	Swal.fire({
-	 toast: true,
-	  position: "top-end",
-	  icon: "warning",
-	  title: "No olvides cargar los datos faltantes para postularte",
-	  html: result['mensajeVerificacion'],
-	  timerProgressBar: true,
-	  showConfirmButton: false,
-	  timer: 10000
+		toast: true,
+		position: "top-end",
+		icon: "warning",
+		title: "Para que puedas postularte a una oferta de empleo, completa tus datos de la sección:",
+		html: result['mensajeVerificacion'],
+		timerProgressBar: true,
+		showConfirmButton: false,
+		timer: 10000
 	});
-
 }
 /*-----------*/
 		}

@@ -5,97 +5,94 @@ Runner.buttonEvents["boton_postularse"] = function( pageObj, proxy, pageid ) {
 	if ( !pageObj.buttonEventBefore['boton_postularse'] ) {
 		pageObj.buttonEventBefore['boton_postularse'] = function( params, ctrl, pageObj, proxy, pageid, rowData, row, submit ) {		
 			var ajax = ctrl;
-var ell= document.createElement('div');
+	var ell = document.createElement('div');
 
-ell.innerHTML='<div><style>#close {float:left;display:inline-block;padding:2px 5px;background:#ccc;}</style><p>'+'¿Estás seguro que deseas Postularse a la siguiente Oferta de Empleo?'+'</p>'+
-				 "<table border='0'>"+
-					"<tr>	<td rowspan=3	 style='padding:10px'> <i class='bi bi-briefcase-fill fa-3x'></i></td>"+
-					"<td><b><p>"+row.getFieldValue("nombre_puesto")+"</p></b></td>	</tr>"+
-					"<tr>	<td><p>"+row.getFieldValue("legal")+"</p></td></tr>"+
-					"<tr>	<td><p>"+row.getFieldValue("ciudad")+", "+row.getFieldValue("departamento")+"</p></td>"+
-					"</tr>"+
-				"</table>"+
-				  "</div>";
-
-
-
-Swal.fire({
-	titleText:'Postularse a Oferta de Empleo',
-  html:ell,
-  confirmButtonColor: '#3085d6',
-  showCloseButton: true,
-  confirmButtonText: 'Confirmar'
-}).then(function(result){
-  if (result.isConfirmed) {
-		submit();
-pageObj.getItemButton('custom_postularse').addClass('disabled');
-
-     
-  }
-})
-
-
- // descomentar para frenar todo el sistema, usar submit(); para continuar
- return false;
-
+    ell.innerHTML = "<div>"
+            +"<style>#close {float:left; display:inline-block; padding:2px 5px; background:#ccc;}</style>"
+            +"<p>¿Estás seguro que deseas Postularse a la siguiente Oferta de Empleo?</p>"
+            +"<table border='0'>"
+            +"<tr>"
+            +"<td rowspan=3 style='padding:10px'><i class='bi bi-briefcase-fill fa-3x'></i></td>"
+            +"<td><b><p>" + row.getFieldValue("nombre_puesto") + "</p></b></td>"
+            +"</tr>"
+            +"<tr>"
+            +"<td><p>" + row.getFieldValue("legal") + "</p></td>"
+            +"</tr>"
+            +"<tr>"
+            +"<td><p>" + row.getFieldValue("ciudad") + ", " + row.getFieldValue("departamento") + "</p></td>"
+            +"</tr>"
+            +"</table>"
+            +"</div>";
+    
+    Swal.fire({
+	    titleText:'Postularse a Oferta de Empleo',
+        html:ell,
+        confirmButtonColor: '#3085d6',
+        showCloseButton: true,
+        confirmButtonText: 'Confirmar'
+    }).then(function(result){
+        if (result.isConfirmed) {
+		    submit();
+            pageObj.getItemButton('custom_postularse').addClass('disabled');
+        }
+    })
+    
+    // descomentar para frenar todo el sistema, usar submit(); para continuar
+    return false;
 		}
 	}
 	
 	if ( !pageObj.buttonEventAfter['boton_postularse'] ) {
 		pageObj.buttonEventAfter['boton_postularse'] = function( result, ctrl, pageObj, proxy, pageid, rowData, row, params ) {
 			var ajax = ctrl;
-if (result['falta_datos'] == 1){
-
-Swal.fire({
-  imageUrl: "images/imgob23/emplea_a.png",
-  imageAlt: "A tall image",
-  title: 'Cargá  tu CV y postulate a estas vacancias',
-  html: 'Completá aquí: ' + result["mensaje"],
-  showConfirmButton: false
- // confirmButtonText: 'Completar'
-}).then((result) => {
-  if (result.isConfirmed) {
-    // Redirigir a la página deseada, por ejemplo:
-    //window.location.href = "persons_edit.php";
-  }
-});
-
-
-}else{
-
-//pageObj.toggleItem("custom_cancelar_postu", true );
-//pageObj.toggleItem("custom_postularse", false );
-
-
-const Toast = Swal.mixin({
-  toast: true,
-  position: "top-end",
-  showConfirmButton: false,
-  timer: 10000,
-  timerProgressBar: true,
-  didOpen: (toast) => {
-    toast.onmouseenter = Swal.stopTimer;
-    toast.onmouseleave = Swal.resumeTimer;
-  }
-});
-
-
-Toast.fire({
-  icon: "success",
-  title: "<b>¡Felicidades!</b>",
-  html: "Te has postulado correctamente"
-});
-
-// Esperar 10 segundos (10000 milisegundos) y luego recargar la página
-setTimeout(() => {
-  location.reload();
-}, 10000);
-
-
-
-}
-
-
+	if (result['falta_datos'] == 1) {
+        Swal.fire({
+            imageUrl: "images/imgob23/emplea_a.png",
+            imageAlt: "A tall image",
+				imageWidth: 450,
+				imageHeight: 100,
+            //title: 'Cargá  tu CV y postulate a estas vacancias',
+            //html: 'Completá aquí: ' + result["mensaje"],
+				title: 'Para que puedas postularte a esta oferta de empleo, completa tus datos de la sección:',
+            html: result["mensaje"],
+				showCloseButton: true//,
+            //showConfirmButton: false
+            //confirmButtonText: 'OK'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Redirigir a la página deseada, por ejemplo:
+                //window.location.href = "persons_edit.php";
+					location.reload();
+            } else  {
+					location.reload();
+				}
+        });
+    } else {
+        //pageObj.toggleItem("custom_cancelar_postu", true );
+        //pageObj.toggleItem("custom_postularse", false );
+        const Toast = Swal.mixin({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 10000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.onmouseenter = Swal.stopTimer;
+                toast.onmouseleave = Swal.resumeTimer;
+            }
+        });
+        
+        Toast.fire({
+            icon: "success",
+            title: "<b>¡Felicidades!</b>",
+            html: "Te has postulado correctamente"
+        });
+        
+        // Esperar 10 segundos (10000 milisegundos) y luego recargar la página
+        setTimeout(() => {
+            location.reload();
+        }, 10000);
+    }
 		}
 	}
 	

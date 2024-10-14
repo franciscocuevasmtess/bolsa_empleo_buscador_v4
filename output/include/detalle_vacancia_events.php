@@ -59,6 +59,14 @@ function BeforeMoveNextList(&$data, &$row, &$record, $recordId, $pageObject)
 		$pageObject->hideItem("custom_cancelar_postu"); //custom_button1
 $pageObject->hideItem("custom_postularse"); //custom_button
 
+
+//vacancia cerrada
+if ($data['id_estado'] == 5) {
+	$pageObject->hideItem("text23", $recordId);
+	$pageObject->hideItem("grid_field16", $recordId); 
+}
+
+
 //por econom[ia, oculto hasta poder terminar la logina
 /*
 if (Security::isLoggedIn()) {

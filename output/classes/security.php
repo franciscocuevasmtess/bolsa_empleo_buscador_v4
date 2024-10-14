@@ -1472,7 +1472,11 @@ class Security
 		}
 		if( $securityType == stAD && !$provider["useDbGroups"] ) {
 			$userId = Security::getUserName();
+						storageSet( "OwnerID", $userId );
+			storageSet( "_bolsa_empleo.bolsa_users_cambio_contrasenha_OwnerID", $userId );
 		} else {
+						storageSet( "OwnerID", $data["id"] );
+			storageSet( "_bolsa_empleo.bolsa_users_cambio_contrasenha_OwnerID", $data["id"] );
 		}
 	}
 

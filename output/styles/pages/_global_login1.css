@@ -53,12 +53,14 @@ vertical-align: middle;
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url('https://fonts.googleapis.com/css?family=Nunito');
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
 body {
+    font-family: "Nunito", sans-serif!important;
   margin: 0;
   /*background: #e9ecee;*/
   background-image: linear-gradient(100deg,#4e49f8 0%,#d5018a 100%)!important;
@@ -13385,3 +13387,56 @@ span span span input[type=search]{
  width:60% !important;
 }
 
+
+
+/*NUEVO CSS*/
+/* Link */
+#gridRow10 span span a{
+ color:#2980b9;
+}
+/* Alert Division */
+#form_grid_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+ transform:translatex(0px) translatey(0px);
+}
+
+/* Span Tag */
+#form_grid_1 .alert span{
+ position:static;
+ display:inline;
+}
+
+/* Alert Division */
+#form_step2_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+
+/* Alert Division */
+#form_step3_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+/* Alert Division */
+#form_step4_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+/* Alert Division */
+#form_step5_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+#form_step6_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+#form_step7_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+#form_step8_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}

@@ -128,7 +128,7 @@ $tdatapersons_indigenas_types[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																															
+																																																																																																																														
 
 $tdatapersons_indigenas_types[".ajaxCodeSnippetAdded"] = false;
 

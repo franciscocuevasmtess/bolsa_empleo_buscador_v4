@@ -131,7 +131,7 @@ $tdatapersons_estado_civil_type[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																															
+																																																																																																																														
 
 $tdatapersons_estado_civil_type[".ajaxCodeSnippetAdded"] = false;
 

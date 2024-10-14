@@ -144,7 +144,7 @@ $tdatacvc_movilidad[".isUseAjaxSuggest"] = true;
 
 
 
-																																																																																																																																																																																																																														
+																																																																																																																																																																																																																																																												
 
 $tdatacvc_movilidad[".ajaxCodeSnippetAdded"] = false;
 
@@ -499,8 +499,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "nombre";
 
-				$edata["LookupWhere"] = "id_registro_conducir > 1";
-
+	
 
 	
 	$edata["LookupOrderBy"] = "nombre";
@@ -666,7 +665,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	$edata["LinkFieldType"] = 0;
 	$edata["DisplayField"] = "descripcion";
 
-				$edata["LookupWhere"] = "id_tipo_movilidad > 1 AND id_tipo_movilidad < 6";
+				$edata["LookupWhere"] = "id_tipo_movilidad < 6";
 
 
 	
@@ -782,7 +781,7 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 //  Begin View Formats
 	$fdata["ViewFormats"] = array();
 
-	$vdata = array("ViewFormat" => "Custom");
+	$vdata = array("ViewFormat" => "");
 
 	
 	
@@ -798,7 +797,8 @@ $tdatacvc_movilidad[".hideMobileList"] = array();
 	
 	
 	
-	
+		$vdata["NeedEncode"] = true;
+
 	
 		$vdata["truncateText"] = true;
 	$vdata["NumberOfChars"] = 80;

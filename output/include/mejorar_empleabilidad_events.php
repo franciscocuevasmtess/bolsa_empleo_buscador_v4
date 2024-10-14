@@ -67,6 +67,7 @@ function BeforeShowList(&$xt, &$templatefile, $pageObject)
 
 		$pageObject->hideItem("simple_grid_field2");
 
+
 $xt->assign("message", "Sin Datos. Añadir Comentario para mejorar empleabilidad");
 
 // Place event code here.

@@ -717,25 +717,25 @@ function CustomAdd(&$values, &$keys, &$error, $inline, $pageObject)
 		echo $output;
 	}
 
-	$sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.cvc_estudios_realizados(
-		fk_personaid, 
-		fecha_hasta, 
-		fecha_desde, 
-		fk_cvc_instituciones_educativas, 
-		fk_cvc_niveles_academicos, 
-		titulo_obtenido, 
-		anhos) 
-		values (':1',':2',':3',':4',':5',':6',':7');", 
-	$_SESSION["persona_id"], 
-	$values["fecha_hasta"], 
-	$values["fecha_desde"], 
-	$values["fk_cvc_instituciones_educativas"], 
-	$values["fk_cvc_niveles_academicos"], 
-	$values["titulo_obtenido"], 
-	$values["anhos"]);
-
+	$sql1 = DB::PrepareSQL("INSERT INTO bolsa_empleo.cvc_estudios_realizados(fk_personaid, 
+																		fecha_hasta, 
+																		fecha_desde, 
+																		fk_cvc_instituciones_educativas, 
+																		fk_cvc_niveles_academicos, 
+																		titulo_obtenido, 
+																		anhos) 
+														VALUES (':1',':2',':3',':4',':5',':6',':7');", 
+														$_SESSION["persona_id"], 
+														$values["fecha_hasta"], 
+														$values["fecha_desde"], 
+														$values["fk_cvc_instituciones_educativas"], 
+														$values["fk_cvc_niveles_academicos"], 
+														$values["titulo_obtenido"], 
+														$values["anhos"]
+													);
+	
 	debug_to_console($sql1);
-
+	
 	DB::Exec($sql1);
 
 	return false;
@@ -922,15 +922,14 @@ function AfterAdd(&$values, &$keys, $inline, $pageObject)
 	$falta_datos = 0;
 
 	$rs = DB::Query("SELECT
-			(SELECT foto FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_foto,
-			(SELECT resumen FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_resumen,
-			(SELECT COUNT(*) FROM eportal.persons_phones WHERE person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
-			(SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
-			(SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
-			(SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
-			(SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion
-		");
-	
+											(SELECT foto FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_foto,
+											(SELECT resumen FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_resumen,
+											(SELECT COUNT(*) FROM eportal.persons_phones WHERE person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
+											(SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
+											(SELECT domicilio FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
+											(SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
+											(SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion
+										");
 	while ($datafinal = $rs->fetchAssoc()) {
 		$existe_foto = $datafinal['existe_foto'];
 		$existe_resumen = $datafinal['existe_resumen'];
@@ -939,34 +938,34 @@ function AfterAdd(&$values, &$keys, $inline, $pageObject)
 		$existe_domicilio = $datafinal['existe_domicilio'];
 		$existe_canthijos = $datafinal['existe_canthijos'];
 		$count_educacion = $datafinal['count_educacion'];
-		
+
 		if (is_null($existe_foto)) {
 			// $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Foto de Perfil en Informacion Personal.";
 			// $falta_datos = 1;
 		}
 
 		if (is_null($existe_resumen)) {
-			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Resumen Personal <a href='persons_edit.php'>Ir a información personal</a>";
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Resumen Personal <a href='personas_pasos_edit.php'>Ir a información personal</a>";
 			$falta_datos = 1;
 		}
 
 		if ($count_phones < 1) {
-			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Numero de Contacto <a href='persons_phones_list.php'>Ir a teléfonos</a>";
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Numero de Contacto <a href='personas_pasos_edit.php'>Ir a teléfonos</a>";
 			$falta_datos = 1;
 		}
 
 		if (is_null($existe_city)) {
-			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Ciudad <a href='persons_edit.php'>Ir a información personal</a>";
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Ciudad <a href='personas_pasos_edit.php'>Ir a información personal</a>";
 			$falta_datos = 1;
 		}
 
 		if (is_null($existe_domicilio)) {
-			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Dirección. <a href='persons_edit.php'>Ir a información personal</a>";
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Dirección. <a href='personas_pasos_edit.php'>Ir a información personal</a>";
 			$falta_datos = 1;
 		}
 
 		if (is_null($existe_canthijos)) {
-			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Cantidad Hijos <a href='persons_edit.php'>Ir a información personal</a>";
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> '."Cantidad Hijos <a href='personas_pasos_edit.php'>Ir a información personal</a>";
 			$falta_datos = 1;
 		}
 
@@ -975,18 +974,16 @@ function AfterAdd(&$values, &$keys, $inline, $pageObject)
 			$falta_datos = 1;
 		}
 	}
-	
-	if ($falta_datos == '0' ){
+
+	if ($falta_datos == '0' ) {
 		$pageObject->setMessageType(MESSAGE_INFO);
 		$Mensaje = '<h4><span style="color: #000000; ">Información Registrada Correctamente</span></h4><p style="color: #000000; "> ¡Ahora puedes postularte!</p>
-			<div>
-				<a class="btn btn-sm btn-success" href="vacancia_list.php" id="viewPageButton1">Ir a las Ofertas Laborales</a>
-			</div>';
-
+								<div>
+									<a class="btn btn-sm btn-success" href="vacancia_list.php" id="viewPageButton1">Ir a las Ofertas Laborales</a>
+								</div>';
 		$pageObject->setMessage($Mensaje);
 	}
 
-	
 ;		
 } // function AfterAdd
 

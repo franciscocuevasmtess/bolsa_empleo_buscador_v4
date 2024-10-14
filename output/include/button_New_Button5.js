@@ -5,9 +5,36 @@ Runner.buttonEvents["New_Button5"] = function( pageObj, proxy, pageid ) {
 	if ( !pageObj.buttonEventBefore['New_Button5'] ) {
 		pageObj.buttonEventBefore['New_Button5'] = function( params, ctrl, pageObj, proxy, pageid, rowData, row, submit ) {		
 			var ajax = ctrl;
-if (confirm("Desea borrar el registro?"))
+/*if (confirm("Desea borrar el registro?"))
 return true;
 else 
+return false;*/
+
+ctrl.setEnabled();
+	
+Swal.fire({
+	title: "¿Estás Seguro?",
+	text: "No podrás revertir esto!",
+	icon: "warning",
+	showCancelButton: true,
+	confirmButtonColor: "#3085d6",
+	cancelButtonColor: "#d33",
+	cancelButtonText: "Cancelar",
+	confirmButtonText: "Si, eliminalo!"
+}).then((result) => {
+	if (result.isConfirmed) {
+		// Aquí se realiza la acción de eliminación
+		Swal.fire({
+			title: "Eliminado!",
+			text: "Este registro ha sido eliminado.",
+			icon: "success"
+		});
+
+		// submit si se confirma..
+		submit()
+	}
+});
+
 return false;
 		}
 	}

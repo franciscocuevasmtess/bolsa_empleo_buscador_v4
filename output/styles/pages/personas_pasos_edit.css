@@ -1,6 +1,9 @@
 [data-cellid="grid_c6"][data-page="personas_pasos_edit"][data-cellid="grid_c6"][data-page="personas_pasos_edit"][data-cellid="grid_c6"][data-page="personas_pasos_edit"] {
   font-family: "Open Sans";
 }
+[data-cellid="grid_c8"][data-page="personas_pasos_edit"][data-cellid="grid_c8"][data-page="personas_pasos_edit"][data-cellid="grid_c8"][data-page="personas_pasos_edit"] {
+  padding: 20px;
+}
 [data-cellid="step2_c"][data-page="personas_pasos_edit"][data-cellid="step2_c"][data-page="personas_pasos_edit"][data-cellid="step2_c"][data-page="personas_pasos_edit"] {
   font-family: "Open Sans";
 }
@@ -198,6 +201,9 @@
   text-shadow: none;
   color: #ffffff;
 }
+[data-page="personas_pasos_edit"][data-itemid="custom_button"] {
+  padding: 10px;
+}
 [data-page="personas_pasos_edit"][data-itemid="details_preview6"] {
   font-family: "Open Sans";
 }
@@ -221,3 +227,60 @@
  z-index:0;
 }
 
+/* Put  your custom CSS code here */
+
+[data-cellid="grid_c6"][data-page="personas_pasos_edit"][data-cellid="grid_c6"][data-page="personas_pasos_edit"][data-cellid="grid_c6"][data-page="personas_pasos_edit"] {
+  color: red;
+}
+
+
+[7:49, 11/9/2024] Ing. Cristian Aceval MTESS: /* Link */
+#gridRow10 span span a{
+ color:#2980b9;
+}
+[9:09, 11/9/2024] Ing. Cristian Aceval MTESS: /* Alert Division */
+#form_grid_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+ transform:translatex(0px) translatey(0px);
+}
+
+/* Span Tag */
+#form_grid_1 .alert span{
+ position:static;
+ display:inline;
+}
+
+/* Alert Division */
+#form_step2_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+
+/* Alert Division */
+#form_step3_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+/* Alert Division */
+#form_step4_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+/* Alert Division */
+#form_step5_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+#form_step6_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+#form_step7_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}
+#form_step8_1 tr .alert{
+ border-width:0.25px;
+ border-color:#ecf0f1;
+}

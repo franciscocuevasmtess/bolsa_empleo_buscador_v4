@@ -315,6 +315,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("cvc_movilidad" == $shortTName )
 		return true;
+	if ("bolsa_users_cambio_contrasenha" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -869,6 +871,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="bolsa_empleo.cvc_movilidad";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("bolsa_empleo.bolsa_users_cambio_contrasenha");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="bolsa_empleo.bolsa_users_cambio_contrasenha";
+	}
 	return $arr;
 }
 
@@ -934,6 +945,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="personas-pasos";
 	$arr[]="bolsa_empleo.bolsa_sexo";
 	$arr[]="bolsa_empleo.cvc_movilidad";
+	$arr[]="bolsa_empleo.bolsa_users_cambio_contrasenha";
 	return $arr;
 }
 
@@ -1831,6 +1843,11 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="bolsa_empleo.cvc_movilidad" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="bolsa_empleo.bolsa_users_cambio_contrasenha" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;
@@ -3857,6 +3874,7 @@ function GetBaseScriptsForPage($isDisplayLoading, $additionalScripts = "", $cust
 	$result = "";
 	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/loadfirst.js?41974")."\"></script>";
 
+	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/custom_functions.js?".$projectBuildKey)."\"></script>";
 
 	$result .= $additionalScripts;
 	$result .= "<script type=\"text/javascript\" src=\"".GetRootPathForResources("include/lang/".getLangFileName(mlang_getcurrentlang()).".js?41974")."\"></script>";

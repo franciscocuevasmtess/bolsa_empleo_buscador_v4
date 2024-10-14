@@ -199,9 +199,6 @@ pdfDocument = {
 				
 			{"text":"","hidden":"{$item_hide_inline_add}"},
 				
-				
-			{"text":""},
-				
 		  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',

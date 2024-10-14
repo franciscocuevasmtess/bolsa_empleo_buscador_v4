@@ -12,32 +12,33 @@ Runner.buttonEvents["share_vacancy"] = function( pageObj, proxy, pageid ) {
 	if ( !pageObj.buttonEventAfter['share_vacancy'] ) {
 		pageObj.buttonEventAfter['share_vacancy'] = function( result, ctrl, pageObj, proxy, pageid, rowData, row, params ) {
 			var ajax = ctrl;
-var ell = document.createElement('div');
-var che_url = result['url'];
-var texto = "Oferta de la Bolsa Pública de Empleo del Ministerio de Trabajo, Empleo y Seguridad Social (MTESS).\n" +
-            " Para ver el puesto de " + result['puesto'] + ", seguir el enlace: \n";
+	var ell = document.createElement('div');
+	var che_url = result['url'];
+	var texto = "Oferta de la Bolsa Pública de Empleo del Ministerio de Trabajo, Empleo y Seguridad Social (MTESS).\n" +
+					" Para ver el puesto de " + result['puesto'] + ", seguir el enlace: \n";
 
-var whatsappUrl = 'https://api.whatsapp.com/send/?text=' + encodeURIComponent(texto + ' ' + che_url);
+	var whatsappUrl = 'https://api.whatsapp.com/send/?text=' + encodeURIComponent(texto + ' ' + che_url);
 
-var html = '<p>' +
-                '<a style="padding: 10px;" target="_blank" href="' + whatsappUrl + '" data-action="share/whatsapp/share"> <i class="bi bi-whatsapp fa-2x"></i> </a> ' +
-            '</p>';
+	var html = '<p>' 
+					+'<a style="padding: 10px;" target="_blank" href="' + whatsappUrl + '" data-action="share/whatsapp/share"> <i class="bi bi-whatsapp fa-2x"></i> </a> ' 
+					+'</p>';
 
-ell.innerHTML = html;
+	ell.innerHTML = html;
 
-Swal.fire({
-    title: 'Compartir',
-    html: ell,
-    confirmButtonColor: '#3085d6',
-    showCloseButton: true,
-    confirmButtonText: 'Listo'
-}).then(function(result) {
-    if (result.isConfirmed) {
-        return false;
-    } else {
-        return false;
-    }
-});
+	Swal.fire({
+		//title: 'Compartir',
+		title: '¡Comparte esta oferta!',
+		html: ell,
+		confirmButtonColor: '#3085d6',
+		showCloseButton: true,
+		confirmButtonText: 'Listo'
+	}).then(function(result) {
+		if (result.isConfirmed) {
+			return false;
+		} else {
+			return false;
+		}
+	});
 
 		}
 	}

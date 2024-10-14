@@ -634,6 +634,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="bolsa_empleo.bolsa_users_cambio_contrasenha")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1217,6 +1221,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="bolsa_empleo.cvc_movilidad")
+		{
+			return false;
+		}
+		if($table=="bolsa_empleo.bolsa_users_cambio_contrasenha")
 		{
 			return false;
 		}

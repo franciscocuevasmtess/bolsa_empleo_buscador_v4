@@ -136,17 +136,17 @@ class ConnectionManager extends ConnectionManager_Base
 		$data["DBPath"] = "db"; //currently unused
 		$data["useServerMapPath"] = 1; //currently unused
 
-$host="192.168.70.170";
-$user="postgres";
-$password="mLxnvGxLX0ND4i2I";
-$options="";
-$dbname="eportal";
-$data["connInfo"][0] = $host;
-$data["connInfo"][1] = $user;
-$data["connInfo"][2] = $password;
-$data["connInfo"][3] = $options;
-$data["connInfo"][4] = $dbname;
-;
+		
+		//	Don't change any of these lines manually!
+		//	Use 'Server database connections' feature on the Output screen in PHPRunner instead.
+		$data["connInfo"][0] = "192.168.70.170";
+		$data["connInfo"][1] = "postgres";
+		$data["connInfo"][2] = "mLxnvGxLX0ND4i2I";
+		$data["connInfo"][3] = "";
+		$data["connInfo"][4] = "eportal";
+		$data["connInfo"][5] = ""; //currently unused
+		$data["connInfo"][6] = "1"; //currently unused
+		$data["ODBCString"] = "Driver={PostgreSQL Unicode};Server=192.168.70.170;Database=eportal;Uid=postgres;Pwd=mLxnvGxLX0ND4i2I";
 		// encription set
 		$data["EncryptInfo"] = array();
 		$data["EncryptInfo"]["mode"] = 0;
