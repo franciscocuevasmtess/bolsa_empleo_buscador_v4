@@ -1,0 +1,16 @@
+[Tue Apr 22 15:10:19.727037 2025] [core:warn] [pid 16644:tid 468] AH00117: Ignoring deprecated use of DefaultType in line 21 of C:/xampp/htdocs/bolsa_empleo_buscador_v4/tmp/webserver.conf.
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::4eae:fbef:67fe:b65c. Set the 'ServerName' directive globally to suppress this message
+[Tue Apr 22 15:10:19.744083 2025] [mpm_winnt:notice] [pid 16644:tid 468] AH00455: Apache/2.4.54 (Win64) PHP/7.4.30 configured -- resuming normal operations
+[Tue Apr 22 15:10:19.744083 2025] [mpm_winnt:notice] [pid 16644:tid 468] AH00456: Server built: Jul 26 2022 23:58:26
+[Tue Apr 22 15:10:19.746087 2025] [core:notice] [pid 16644:tid 468] AH00094: Command line: 'C:\\Program Files\\PHPRunner10.91\\EmbeddedServer64\\bin\\httpd.exe -d C:/Program Files/PHPRunner10.91/EmbeddedServer64 -d C:\\Program Files\\PHPRunner10.91\\EmbeddedServer64 -f C:\\xampp\\htdocs\\bolsa_empleo_buscador_v4\\tmp\\webserver.conf'
+[Tue Apr 22 15:10:19.748092 2025] [mpm_winnt:notice] [pid 16644:tid 468] AH00418: Parent: Created child process 16732
+[Tue Apr 22 15:10:19.915687 2025] [core:warn] [pid 16732:tid 444] AH00117: Ignoring deprecated use of DefaultType in line 21 of C:/xampp/htdocs/bolsa_empleo_buscador_v4/tmp/webserver.conf.
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::4eae:fbef:67fe:b65c. Set the 'ServerName' directive globally to suppress this message
+[Tue Apr 22 15:10:19.923782 2025] [core:warn] [pid 16732:tid 444] AH00117: Ignoring deprecated use of DefaultType in line 21 of C:/xampp/htdocs/bolsa_empleo_buscador_v4/tmp/webserver.conf.
+AH00558: httpd.exe: Could not reliably determine the server's fully qualified domain name, using fe80::4eae:fbef:67fe:b65c. Set the 'ServerName' directive globally to suppress this message
+[Tue Apr 22 15:10:19.938970 2025] [mpm_winnt:notice] [pid 16732:tid 444] AH00354: Child: Starting 64 worker threads.
+[Tue Apr 22 15:11:26.820609 2025] [php7:error] [pid 16732:tid 1316] [client 127.0.0.1:49260] script 'C:/xampp/htdocs/bolsa_empleo_buscador_v4/output/consultar_asegurado.php' not found or unable to stat
+[Tue Apr 22 15:11:28.201449 2025] [php7:error] [pid 16732:tid 1304] [client 127.0.0.1:49275] script 'C:/xampp/htdocs/bolsa_empleo_buscador_v4/output/consultar_asegurado.php' not found or unable to stat
+[Wed Apr 23 07:19:59.236432 2025] [mpm_winnt:notice] [pid 16644:tid 468] AH00422: Parent: Received shutdown signal -- Shutting down the server.
+[Wed Apr 23 07:20:01.250351 2025] [mpm_winnt:notice] [pid 16732:tid 444] AH00364: Child: All worker threads have exited.
+[Wed Apr 23 07:20:01.291071 2025] [mpm_winnt:notice] [pid 16644:tid 468] AH00430: Parent: Child process 16732 exited successfully.

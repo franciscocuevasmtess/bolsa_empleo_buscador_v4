@@ -1,0 +1,538 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<base href="{$projectPath}">
+		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-add" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="full"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class="r-align-center r-ori-vert			col-md-12
+	">
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class="r-align-center r-ori-vert			col-md-12
+	">
+	 
+		{BEGIN message_block}
+<div data-itemtype="add_message" data-itemid="add_message" {$item_add_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
+<h5>{$message}</h5>
+<div>
+{BEGIN message_back_button}
+		<button class="btn btn-sm btn-default" {$backbutton_attrs}>Regresar al menú</button>
+	{END message_back_button}
+{BEGIN view_page_button}
+	<button class="btn btn-sm btn-default" {$view_page_button_attrs}>Ver</button>
+{END view_page_button}
+{BEGIN edit_page_button}
+	<button class="btn btn-sm btn-default" {$edit_page_button_attrs}>Editar</button>
+{END edit_page_button}
+</div>
+</div>
+{END message_block}	</div>					</div>
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c11}
+<td
+	{$cell_grid_c11}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+			
+			data-cellId="grid_c11" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-page="ficha_social_add" data-small > 
+	<h2 class="ql-align-center">COMPOSICION DEL HOGAR</h2></span>
+	
+								</td>
+			{END cellblock_grid_c11}
+								</tr>
+	 
+	 
+														<tr {$row_grid_1} >
+										
+
+{BEGIN cellblock_grid_c1}
+<td
+	{$cell_grid_c1}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c1" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN cantidad_personas_hogar_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="cantidad_personas_hogar{$id}" data-itemtype="edit_field_label" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="cantidad_personas_hogar" data-fieldname="cantidad_personas_hogar" data-before-same-field {$required_attr_cantidad_personas_hogar}>
+		<label class="r-edit-label control-label" for="{$labelfor_cantidad_personas_hogar}">
+			{BEGIN cantidad_personas_hogar_label}{$label bolsa_empleo_ficha_social cantidad_personas_hogar }{END cantidad_personas_hogar_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END cantidad_personas_hogar_fieldblock}
+											{BEGIN cantidad_personas_hogar_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="cantidad_personas_hogar{$id}" data-itemtype="edit_field" min="1" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-field="cantidad_personas_hogar" data-fieldname="cantidad_personas_hogar" data-before-same-field {$required_attr_cantidad_personas_hogar}>
+		{$cantidad_personas_hogar_editcontrol}	</div>
+{END cantidad_personas_hogar_fieldblock}
+											{BEGIN cantidad_personas_hogar_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="cantidad_personas_hogar{$id}" data-itemtype="edit_field_tooltip" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-field="cantidad_personas_hogar" data-fieldname="cantidad_personas_hogar" >
+		<div data-helpfor="cantidad_personas_hogar" {$tooltipAttr bolsa_empleo_ficha_social cantidad_personas_hogar } >
+			<div class="text-muted">{$tooltip bolsa_empleo_ficha_social cantidad_personas_hogar }</div>
+		</div>
+	</div>
+{END cantidad_personas_hogar_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c1}
+								</tr>
+	 
+	 
+														<tr {$row_grid_2} >
+										
+
+{BEGIN cellblock_grid_c}
+<td
+	{$cell_grid_c}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN condicion_vivienda_id_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="condicion_vivienda_id{$id}" data-itemtype="edit_field_label" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="condicion_vivienda_id" data-fieldname="condicion_vivienda_id" data-before-same-field {$required_attr_condicion_vivienda_id}>
+		<label class="r-edit-label control-label" for="{$labelfor_condicion_vivienda_id}">
+			{BEGIN condicion_vivienda_id_label}{$label bolsa_empleo_ficha_social condicion_vivienda_id }{END condicion_vivienda_id_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END condicion_vivienda_id_fieldblock}
+											{BEGIN condicion_vivienda_id_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="condicion_vivienda_id{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="condicion_vivienda_id" data-fieldname="condicion_vivienda_id" data-before-same-field {$required_attr_condicion_vivienda_id}>
+		{$condicion_vivienda_id_editcontrol}	</div>
+{END condicion_vivienda_id_fieldblock}
+											{BEGIN condicion_vivienda_id_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="condicion_vivienda_id{$id}" data-itemtype="edit_field_tooltip" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-field="condicion_vivienda_id" data-fieldname="condicion_vivienda_id" >
+		<div data-helpfor="condicion_vivienda_id" {$tooltipAttr bolsa_empleo_ficha_social condicion_vivienda_id } >
+			<div class="text-muted">{$tooltip bolsa_empleo_ficha_social condicion_vivienda_id }</div>
+		</div>
+	</div>
+{END condicion_vivienda_id_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c}
+								</tr>
+	 
+	 
+														<tr {$row_grid_3} >
+										
+
+{BEGIN cellblock_grid_c2}
+<td
+	{$cell_grid_c2}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c2" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN cantidad_piezas_hogar_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="cantidad_piezas_hogar{$id}" data-itemtype="edit_field_label" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-field="cantidad_piezas_hogar" data-fieldname="cantidad_piezas_hogar" data-before-same-field {$required_attr_cantidad_piezas_hogar}>
+		<label class="r-edit-label control-label" for="{$labelfor_cantidad_piezas_hogar}">
+			{BEGIN cantidad_piezas_hogar_label}{$label bolsa_empleo_ficha_social cantidad_piezas_hogar }{END cantidad_piezas_hogar_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END cantidad_piezas_hogar_fieldblock}
+											{BEGIN cantidad_piezas_hogar_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="cantidad_piezas_hogar{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-field="cantidad_piezas_hogar" data-fieldname="cantidad_piezas_hogar" data-before-same-field {$required_attr_cantidad_piezas_hogar}>
+		{$cantidad_piezas_hogar_editcontrol}	</div>
+{END cantidad_piezas_hogar_fieldblock}
+											{BEGIN cantidad_piezas_hogar_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="cantidad_piezas_hogar{$id}" data-itemtype="edit_field_tooltip" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-field="cantidad_piezas_hogar" data-fieldname="cantidad_piezas_hogar" >
+		<div data-helpfor="cantidad_piezas_hogar" {$tooltipAttr bolsa_empleo_ficha_social cantidad_piezas_hogar } >
+			<div class="text-muted">{$tooltip bolsa_empleo_ficha_social cantidad_piezas_hogar }</div>
+		</div>
+	</div>
+{END cantidad_piezas_hogar_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c2}
+								</tr>
+	 
+	 
+														<tr {$row_grid_4} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN tiene_hijos_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="tiene_hijos{$id}" data-itemtype="edit_field_label" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-field="tiene_hijos" data-fieldname="tiene_hijos" data-before-same-field {$required_attr_tiene_hijos}>
+		<label class="r-edit-label control-label" for="{$labelfor_tiene_hijos}">
+			{BEGIN tiene_hijos_label}{$label bolsa_empleo_ficha_social tiene_hijos }{END tiene_hijos_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END tiene_hijos_fieldblock}
+											{BEGIN tiene_hijos_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="tiene_hijos{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-field="tiene_hijos" data-fieldname="tiene_hijos" data-before-same-field {$required_attr_tiene_hijos}>
+		{$tiene_hijos_editcontrol}	</div>
+{END tiene_hijos_fieldblock}
+											{BEGIN tiene_hijos_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="tiene_hijos{$id}" data-itemtype="edit_field_tooltip" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-field="tiene_hijos" data-fieldname="tiene_hijos" >
+		<div data-helpfor="tiene_hijos" {$tooltipAttr bolsa_empleo_ficha_social tiene_hijos } >
+			<div class="text-muted">{$tooltip bolsa_empleo_ficha_social tiene_hijos }</div>
+		</div>
+	</div>
+{END tiene_hijos_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+	 
+	 
+														<tr {$row_grid_5} >
+										
+
+{BEGIN cellblock_grid_c4}
+<td
+	{$cell_grid_c4}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c4" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN cantidad_hijos_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="cantidad_hijos{$id}" data-itemtype="edit_field_label" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-field="cantidad_hijos" data-fieldname="cantidad_hijos" data-before-same-field {$required_attr_cantidad_hijos}>
+		<label class="r-edit-label control-label" for="{$labelfor_cantidad_hijos}">
+			{BEGIN cantidad_hijos_label}{$label bolsa_empleo_ficha_social cantidad_hijos }{END cantidad_hijos_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END cantidad_hijos_fieldblock}
+											{BEGIN cantidad_hijos_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="cantidad_hijos{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-field="cantidad_hijos" data-fieldname="cantidad_hijos" data-before-same-field {$required_attr_cantidad_hijos}>
+		{$cantidad_hijos_editcontrol}	</div>
+{END cantidad_hijos_fieldblock}
+											{BEGIN cantidad_hijos_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="cantidad_hijos{$id}" data-itemtype="edit_field_tooltip" data-itemid="integrated_edit_field18" {$item_integrated_edit_field18} data-pageid="{$pageid}" data-field="cantidad_hijos" data-fieldname="cantidad_hijos" >
+		<div data-helpfor="cantidad_hijos" {$tooltipAttr bolsa_empleo_ficha_social cantidad_hijos } >
+			<div class="text-muted">{$tooltip bolsa_empleo_ficha_social cantidad_hijos }</div>
+		</div>
+	</div>
+{END cantidad_hijos_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c4}
+								</tr>
+	 
+	 
+														<tr {$row_grid_6} >
+										
+
+{BEGIN cellblock_grid_c12}
+<td
+	{$cell_grid_c12}
+	class="r-align-center r-ori-vert"
+	
+			data-single
+				data-fullwidth
+		
+			data-cellId="grid_c12" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				<span data-itemtype="text" data-itemid="text1" {$item_text1} data-pageid="{$pageid}" data-page="ficha_social_add" data-small > 
+	<h2 class="ql-align-center">INGRESOS DEL HOGAR</h2></span>
+	
+								</td>
+			{END cellblock_grid_c12}
+								</tr>
+	 
+	 
+														<tr {$row_grid_7} >
+										
+
+{BEGIN cellblock_grid_c5}
+<td
+	{$cell_grid_c5}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c5" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN persona_aportante_hogar_id_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="persona_aportante_hogar_id{$id}" data-itemtype="edit_field_label" data-itemid="integrated_edit_field19" {$item_integrated_edit_field19} data-pageid="{$pageid}" data-field="persona_aportante_hogar_id" data-fieldname="persona_aportante_hogar_id" data-before-same-field {$required_attr_persona_aportante_hogar_id}>
+		<label class="r-edit-label control-label" for="{$labelfor_persona_aportante_hogar_id}">
+			{BEGIN persona_aportante_hogar_id_label}{$label bolsa_empleo_ficha_social persona_aportante_hogar_id }{END persona_aportante_hogar_id_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END persona_aportante_hogar_id_fieldblock}
+											{BEGIN persona_aportante_hogar_id_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="persona_aportante_hogar_id{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="persona_aportante_hogar_id" data-fieldname="persona_aportante_hogar_id" data-before-same-field {$required_attr_persona_aportante_hogar_id}>
+		{$persona_aportante_hogar_id_editcontrol}	</div>
+{END persona_aportante_hogar_id_fieldblock}
+											{BEGIN persona_aportante_hogar_id_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="persona_aportante_hogar_id{$id}" data-itemtype="edit_field_tooltip" data-itemid="integrated_edit_field20" {$item_integrated_edit_field20} data-pageid="{$pageid}" data-field="persona_aportante_hogar_id" data-fieldname="persona_aportante_hogar_id" >
+		<div data-helpfor="persona_aportante_hogar_id" {$tooltipAttr bolsa_empleo_ficha_social persona_aportante_hogar_id } >
+			<div class="text-muted">{$tooltip bolsa_empleo_ficha_social persona_aportante_hogar_id }</div>
+		</div>
+	</div>
+{END persona_aportante_hogar_id_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c5}
+								</tr>
+	 
+	 
+														<tr {$row_grid_8} >
+										
+
+{BEGIN cellblock_grid_c6}
+<td
+	{$cell_grid_c6}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c6" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN ingreso_mensual_aproximado_id_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="ingreso_mensual_aproximado_id{$id}" data-itemtype="edit_field_label" data-itemid="integrated_edit_field21" {$item_integrated_edit_field21} data-pageid="{$pageid}" data-field="ingreso_mensual_aproximado_id" data-fieldname="ingreso_mensual_aproximado_id" data-before-same-field {$required_attr_ingreso_mensual_aproximado_id}>
+		<label class="r-edit-label control-label" for="{$labelfor_ingreso_mensual_aproximado_id}">
+			{BEGIN ingreso_mensual_aproximado_id_label}{$label bolsa_empleo_ficha_social ingreso_mensual_aproximado_id }{END ingreso_mensual_aproximado_id_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END ingreso_mensual_aproximado_id_fieldblock}
+											{BEGIN ingreso_mensual_aproximado_id_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="ingreso_mensual_aproximado_id{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-field="ingreso_mensual_aproximado_id" data-fieldname="ingreso_mensual_aproximado_id" data-before-same-field {$required_attr_ingreso_mensual_aproximado_id}>
+		{$ingreso_mensual_aproximado_id_editcontrol}	</div>
+{END ingreso_mensual_aproximado_id_fieldblock}
+											{BEGIN ingreso_mensual_aproximado_id_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="ingreso_mensual_aproximado_id{$id}" data-itemtype="edit_field_tooltip" data-itemid="integrated_edit_field22" {$item_integrated_edit_field22} data-pageid="{$pageid}" data-field="ingreso_mensual_aproximado_id" data-fieldname="ingreso_mensual_aproximado_id" >
+		<div data-helpfor="ingreso_mensual_aproximado_id" {$tooltipAttr bolsa_empleo_ficha_social ingreso_mensual_aproximado_id } >
+			<div class="text-muted">{$tooltip bolsa_empleo_ficha_social ingreso_mensual_aproximado_id }</div>
+		</div>
+	</div>
+{END ingreso_mensual_aproximado_id_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c6}
+								</tr>
+	 
+	 
+														<tr {$row_grid_9} >
+										
+
+{BEGIN cellblock_grid_c7}
+<td
+	{$cell_grid_c7}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c7" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN recibe_subsidio_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="recibe_subsidio{$id}" data-itemtype="edit_field_label" data-itemid="integrated_edit_field23" {$item_integrated_edit_field23} data-pageid="{$pageid}" data-field="recibe_subsidio" data-fieldname="recibe_subsidio" data-before-same-field {$required_attr_recibe_subsidio}>
+		<label class="r-edit-label control-label" for="{$labelfor_recibe_subsidio}">
+			{BEGIN recibe_subsidio_label}{$label bolsa_empleo_ficha_social recibe_subsidio }{END recibe_subsidio_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END recibe_subsidio_fieldblock}
+											{BEGIN recibe_subsidio_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="recibe_subsidio{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-field="recibe_subsidio" data-fieldname="recibe_subsidio" data-before-same-field {$required_attr_recibe_subsidio}>
+		{$recibe_subsidio_editcontrol}	</div>
+{END recibe_subsidio_fieldblock}
+											{BEGIN recibe_subsidio_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="recibe_subsidio{$id}" data-itemtype="edit_field_tooltip" data-itemid="integrated_edit_field24" {$item_integrated_edit_field24} data-pageid="{$pageid}" data-field="recibe_subsidio" data-fieldname="recibe_subsidio" >
+		<div data-helpfor="recibe_subsidio" {$tooltipAttr bolsa_empleo_ficha_social recibe_subsidio } >
+			<div class="text-muted">{$tooltip bolsa_empleo_ficha_social recibe_subsidio }</div>
+		</div>
+	</div>
+{END recibe_subsidio_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c7}
+								</tr>
+	 
+	 
+														<tr {$row_grid_10} >
+										
+
+{BEGIN cellblock_grid_c8}
+<td
+	{$cell_grid_c8}
+	class="r-align-center r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c8" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN acepta_terminos_condiciones_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="acepta_terminos_condiciones{$id}" data-itemtype="edit_field_label" data-itemid="integrated_edit_field25" {$item_integrated_edit_field25} data-pageid="{$pageid}" data-field="acepta_terminos_condiciones" data-fieldname="acepta_terminos_condiciones" data-before-same-field {$required_attr_acepta_terminos_condiciones}>
+		<label class="r-edit-label control-label" for="{$labelfor_acepta_terminos_condiciones}">
+			{BEGIN acepta_terminos_condiciones_label}{$label bolsa_empleo_ficha_social acepta_terminos_condiciones }{END acepta_terminos_condiciones_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END acepta_terminos_condiciones_fieldblock}
+											{BEGIN acepta_terminos_condiciones_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="acepta_terminos_condiciones{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="acepta_terminos_condiciones" data-fieldname="acepta_terminos_condiciones" data-before-same-field {$required_attr_acepta_terminos_condiciones}>
+		{$acepta_terminos_condiciones_editcontrol}	</div>
+{END acepta_terminos_condiciones_fieldblock}
+											{BEGIN acepta_terminos_condiciones_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="acepta_terminos_condiciones{$id}" data-itemtype="edit_field_tooltip" data-itemid="integrated_edit_field26" {$item_integrated_edit_field26} data-pageid="{$pageid}" data-field="acepta_terminos_condiciones" data-fieldname="acepta_terminos_condiciones" >
+		<div data-helpfor="acepta_terminos_condiciones" {$tooltipAttr bolsa_empleo_ficha_social acepta_terminos_condiciones } >
+			<div class="text-muted">{$tooltip bolsa_empleo_ficha_social acepta_terminos_condiciones }</div>
+		</div>
+	</div>
+{END acepta_terminos_condiciones_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c8}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="r-align-center r-ori-vert			col-md-12
+	">
+	 
+		<span data-itemtype="add_save" data-itemid="add_save" {$item_add_save} data-pageid="{$pageid}" data-page="ficha_social_add" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+					<span class="fa fa-check-circle"></span>
+							Postularse			</a>
+</span>
+	</div>					</div>
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c" data-pageid="{$pageid}"	{$cell_below-grid_c}
+	class="r-align-center r-ori-vert			col-md-12
+	">
+	 
+		<img src="{$file_url images/emplea_py_pie.png}" data-itemtype="image" data-itemid="image" {$item_image} data-pageid="{$pageid}" data-page="ficha_social_add" />
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+
+	{END body}
+	</body>
+</html>

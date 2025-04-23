@@ -1,0 +1,2 @@
+
+Runner.pages.PageSettings.addPageEvent('eportal.persons_referencia',Runner.pages.constants.PAGE_ADD,"afterPageReady",function(pageObj,proxy,pageid,inlineRow,inlineObject,row){var ctrl1=Runner.getControl(pageid,'cargo');ctrl1.addStyle('text-transform: uppercase;');var ctrl2=Runner.getControl(pageid,'nombre');ctrl2.addStyle('text-transform: uppercase;');;});

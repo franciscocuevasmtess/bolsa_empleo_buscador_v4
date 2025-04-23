@@ -1,0 +1,19 @@
+[data-page="persons_edit"][data-itemid="edit_header"] {
+  color: #ffffff;
+}
+[data-page="persons_edit"][data-itemid="page_image_ash8f23hr"] {
+  width: 400px;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="above-grid_c2"][data-page="persons_edit"][data-cellid="above-grid_c2"][data-page="persons_edit"][data-cellid="above-grid_c2"][data-page="persons_edit"] {
+ z-index:0;
+}
+
+/* Put  your custom CSS code here */
+
+[data-cellid="above-grid_c"][data-page="persons_edit"][data-cellid="above-grid_c"][data-page="persons_edit"][data-cellid="above-grid_c"][data-page="persons_edit"] {
+ z-index:0;
+}
+

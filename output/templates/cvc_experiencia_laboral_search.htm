@@ -1,0 +1,481 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>EmpleaPy :: Buscador :: {$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="icon" src="images/imgob23/gob_ico.png" type="image/x-icon" sizes="32x32"> 
+	<base href="{$projectPath}">
+	 <link rel="stylesheet" href="images/icons_v4/font/bootstrap-icons.css">
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.mtess.gov.py/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '14']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     crossorigin=""/>
+ <link rel="icon" href="https://emplea.mtess.gov.py/wp-content/uploads/2023/11/cropped-elemento_logo-emplea-py-colores-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://emplea.mtess.gov.py/wp-content/uploads/2023/11/cropped-elemento_logo-emplea-py-colores-180x180.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-search" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="search_header" data-itemid="search_header" {$item_search_header} data-pageid="{$pageid}" >{$pagetitlelabel bolsa_empleo_cvc_experiencia_laboral search}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	</div>					</div>
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="6"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="6"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN cvc_id_experiencia_laboral_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_cvc_id_experiencia_laboral}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="cvc_id_experiencia_laboral{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field" {$item_integrated_search_field} data-pageid="{$pageid}" data-field="cvc_id_experiencia_laboral" data-fieldname="cvc_id_experiencia_laboral" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_cvc_id_experiencia_laboral}">
+		{$label bolsa_empleo_cvc_experiencia_laboral cvc_id_experiencia_laboral }	</label>
+	<div class="r-search-option">
+		{$searchtype_cvc_id_experiencia_laboral}
+	</div>
+	<div class="r-search-field">
+		{$cvc_id_experiencia_laboral_editcontrol}	</div>
+	<div class="r-search-field">
+		{$cvc_id_experiencia_laboral_editcontrol1}
+	</div>
+	
+</div>
+
+{END cvc_id_experiencia_laboral_fieldblock}
+											
+{BEGIN fk_persona_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fk_persona_id}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fk_persona_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field1" {$item_integrated_search_field1} data-pageid="{$pageid}" data-field="fk_persona_id" data-fieldname="fk_persona_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fk_persona_id}">
+		{$label bolsa_empleo_cvc_experiencia_laboral fk_persona_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_fk_persona_id}
+	</div>
+	<div class="r-search-field">
+		{$fk_persona_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fk_persona_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END fk_persona_id_fieldblock}
+											
+{BEGIN fk_categoria_id_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fk_categoria_id}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fk_categoria_id{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field2" {$item_integrated_search_field2} data-pageid="{$pageid}" data-field="fk_categoria_id" data-fieldname="fk_categoria_id" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fk_categoria_id}">
+		{$label bolsa_empleo_cvc_experiencia_laboral fk_categoria_id }	</label>
+	<div class="r-search-option">
+		{$searchtype_fk_categoria_id}
+	</div>
+	<div class="r-search-field">
+		{$fk_categoria_id_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fk_categoria_id_editcontrol1}
+	</div>
+	
+</div>
+
+{END fk_categoria_id_fieldblock}
+											
+{BEGIN empresa_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_empresa}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="empresa{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field3" {$item_integrated_search_field3} data-pageid="{$pageid}" data-field="empresa" data-fieldname="empresa" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_empresa}">
+		{$label bolsa_empleo_cvc_experiencia_laboral empresa }	</label>
+	<div class="r-search-option">
+		{$searchtype_empresa}
+	</div>
+	<div class="r-search-field">
+		{$empresa_editcontrol}	</div>
+	<div class="r-search-field">
+		{$empresa_editcontrol1}
+	</div>
+	
+</div>
+
+{END empresa_fieldblock}
+											
+{BEGIN fk_puesto_ocupacion_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fk_puesto_ocupacion}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fk_puesto_ocupacion{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field4" {$item_integrated_search_field4} data-pageid="{$pageid}" data-field="fk_puesto_ocupacion" data-fieldname="fk_puesto_ocupacion" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fk_puesto_ocupacion}">
+		{$label bolsa_empleo_cvc_experiencia_laboral fk_puesto_ocupacion }	</label>
+	<div class="r-search-option">
+		{$searchtype_fk_puesto_ocupacion}
+	</div>
+	<div class="r-search-field">
+		{$fk_puesto_ocupacion_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fk_puesto_ocupacion_editcontrol1}
+	</div>
+	
+</div>
+
+{END fk_puesto_ocupacion_fieldblock}
+											
+{BEGIN anhos_de_experiencia_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_anhos_de_experiencia}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="anhos_de_experiencia{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="anhos_de_experiencia" data-fieldname="anhos_de_experiencia" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_anhos_de_experiencia}">
+		{$label bolsa_empleo_cvc_experiencia_laboral anhos_de_experiencia }	</label>
+	<div class="r-search-option">
+		{$searchtype_anhos_de_experiencia}
+	</div>
+	<div class="r-search-field">
+		{$anhos_de_experiencia_editcontrol}	</div>
+	<div class="r-search-field">
+		{$anhos_de_experiencia_editcontrol1}
+	</div>
+	
+</div>
+
+{END anhos_de_experiencia_fieldblock}
+											
+{BEGIN descripcion_puesto_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_descripcion_puesto}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="descripcion_puesto{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field6" {$item_integrated_search_field6} data-pageid="{$pageid}" data-field="descripcion_puesto" data-fieldname="descripcion_puesto" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_descripcion_puesto}">
+		{$label bolsa_empleo_cvc_experiencia_laboral descripcion_puesto }	</label>
+	<div class="r-search-option">
+		{$searchtype_descripcion_puesto}
+	</div>
+	<div class="r-search-field">
+		{$descripcion_puesto_editcontrol}	</div>
+	<div class="r-search-field">
+		{$descripcion_puesto_editcontrol1}
+	</div>
+	
+</div>
+
+{END descripcion_puesto_fieldblock}
+											
+{BEGIN fecha_inicio_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fecha_inicio}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fecha_inicio{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field7" {$item_integrated_search_field7} data-pageid="{$pageid}" data-field="fecha_inicio" data-fieldname="fecha_inicio" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fecha_inicio}">
+		{$label bolsa_empleo_cvc_experiencia_laboral fecha_inicio }	</label>
+	<div class="r-search-option">
+		{$searchtype_fecha_inicio}
+	</div>
+	<div class="r-search-field">
+		{$fecha_inicio_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fecha_inicio_editcontrol1}
+	</div>
+	
+</div>
+
+{END fecha_inicio_fieldblock}
+											
+{BEGIN fecha_fin_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fecha_fin}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fecha_fin{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field8" {$item_integrated_search_field8} data-pageid="{$pageid}" data-field="fecha_fin" data-fieldname="fecha_fin" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fecha_fin}">
+		{$label bolsa_empleo_cvc_experiencia_laboral fecha_fin }	</label>
+	<div class="r-search-option">
+		{$searchtype_fecha_fin}
+	</div>
+	<div class="r-search-field">
+		{$fecha_fin_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fecha_fin_editcontrol1}
+	</div>
+	
+</div>
+
+{END fecha_fin_fieldblock}
+											
+{BEGIN fk_habilidades_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fk_habilidades}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="fk_habilidades{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field9" {$item_integrated_search_field9} data-pageid="{$pageid}" data-field="fk_habilidades" data-fieldname="fk_habilidades" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_fk_habilidades}">
+		{$label bolsa_empleo_cvc_experiencia_laboral fk_habilidades }	</label>
+	<div class="r-search-option">
+		{$searchtype_fk_habilidades}
+	</div>
+	<div class="r-search-field">
+		{$fk_habilidades_editcontrol}	</div>
+	<div class="r-search-field">
+		{$fk_habilidades_editcontrol1}
+	</div>
+	
+</div>
+
+{END fk_habilidades_fieldblock}
+											
+{BEGIN meses_de_experiencia_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_meses_de_experiencia}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="meses_de_experiencia{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field10" {$item_integrated_search_field10} data-pageid="{$pageid}" data-field="meses_de_experiencia" data-fieldname="meses_de_experiencia" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_meses_de_experiencia}">
+		{$label bolsa_empleo_cvc_experiencia_laboral meses_de_experiencia }	</label>
+	<div class="r-search-option">
+		{$searchtype_meses_de_experiencia}
+	</div>
+	<div class="r-search-field">
+		{$meses_de_experiencia_editcontrol}	</div>
+	<div class="r-search-field">
+		{$meses_de_experiencia_editcontrol1}
+	</div>
+	
+</div>
+
+{END meses_de_experiencia_fieldblock}
+											
+{BEGIN periodo_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_periodo}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="periodo{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field11" {$item_integrated_search_field11} data-pageid="{$pageid}" data-field="periodo" data-fieldname="periodo" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_periodo}">
+		{$label bolsa_empleo_cvc_experiencia_laboral periodo }	</label>
+	<div class="r-search-option">
+		{$searchtype_periodo}
+	</div>
+	<div class="r-search-field">
+		{$periodo_editcontrol}	</div>
+	<div class="r-search-field">
+		{$periodo_editcontrol1}
+	</div>
+	
+</div>
+
+{END periodo_fieldblock}
+											
+{BEGIN anhos_de_experiencia_completa_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_anhos_de_experiencia_completa}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="anhos_de_experiencia_completa{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field12" {$item_integrated_search_field12} data-pageid="{$pageid}" data-field="anhos_de_experiencia_completa" data-fieldname="anhos_de_experiencia_completa" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_anhos_de_experiencia_completa}">
+		{$label bolsa_empleo_cvc_experiencia_laboral anhos_de_experiencia_completa }	</label>
+	<div class="r-search-option">
+		{$searchtype_anhos_de_experiencia_completa}
+	</div>
+	<div class="r-search-field">
+		{$anhos_de_experiencia_completa_editcontrol}	</div>
+	<div class="r-search-field">
+		{$anhos_de_experiencia_completa_editcontrol1}
+	</div>
+	
+</div>
+
+{END anhos_de_experiencia_completa_fieldblock}
+											
+{BEGIN proveedor_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_proveedor}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="proveedor{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field14" {$item_integrated_search_field14} data-pageid="{$pageid}" data-field="proveedor" data-fieldname="proveedor" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_proveedor}">
+		{$label bolsa_empleo_cvc_experiencia_laboral proveedor }	</label>
+	<div class="r-search-option">
+		{$searchtype_proveedor}
+	</div>
+	<div class="r-search-field">
+		{$proveedor_editcontrol}	</div>
+	<div class="r-search-field">
+		{$proveedor_editcontrol1}
+	</div>
+	
+</div>
+
+{END proveedor_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="6"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="search_search" data-itemid="search_search" {$item_search_search} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$searchbutton_attrs} data-page=undefined >
+							Buscar			</a>
+</span>
+	 
+		<span data-itemtype="search_reset" data-itemid="search_reset" {$item_search_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$resetbutton_attrs} >
+							Reiniciar			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="search_back_list" data-itemid="search_back_list" {$item_search_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" {$backbutton_attrs} >
+							Volver a la lista			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN cancel_button}
+<span data-itemtype="search_cancel" data-itemid="search_cancel" {$item_search_cancel} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="cancelButton{$id}" >
+							Cancelar			</a>
+</span>
+{END cancel_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

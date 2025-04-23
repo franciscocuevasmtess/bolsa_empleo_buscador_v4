@@ -1,0 +1,1803 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+			},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+		{BEGIN body}
+		{BEGIN embedded_grid_caption}
+			{
+				text: '{$jscaption detalle_vacancia}',
+			},
+		{END embedded_grid_caption}
+		{BEGIN embedded_page_title}
+			{
+				text: '{$jspagetitlelabel detalle_vacancia list}',
+			},
+		{END embedded_page_title}		
+		{ 
+			{BEGIN standalone_page}
+			pageBreak: 'before',
+			standAlonePage: true,
+			{END standalone_page}
+			{BEGIN embedded_grid}
+			embeddedPage: true,
+			{END embedded_grid}
+			layout: {
+				hLineWidth: function(i, node) { return 0; },
+				vLineWidth: function(i, node) { 
+					return 0; 
+				},
+				hLineColor: function(i, node) { return 'lightgray'; },
+				vLineColor: function(i, node) { return 'lightgray'; },
+			},
+			table: {
+				{BEGIN embedded_grid}
+				embeddedPage: true,
+				{END embedded_grid}
+				
+				tableForm: true,
+				headerRows: 1 
+								{BEGIN embedded_grid} -1 {END embedded_grid} ,
+
+				widths: [
+														"*",
+															],
+							
+				body: [
+				{BEGIN standalone_page}
+					[
+						{
+							colSpan: 1,
+							border:[false, false,false,false],
+							stack: [
+
+																										
+''
+,
+								
+																										
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_inline_add}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+											],
+						[
+																{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+							],
+		
+		]
+	}
+}
+,
+															]
+						},
+					],
+				{END standalone_page}
+
+																	
+	{BEGIN grid_row}
+	[ 
+	
+	{BEGIN grid_record}
+	{BEGIN grid_vrecord}
+	
+		{ 
+			layout: 'vrecord',
+			table: {
+				widths: ['*'],
+				body: [[
+					{
+						
+						table: {
+							tableForm: true,
+							widths: [
+																{BEGIN col_grid_0}
+								"26.666666666666668%",
+								{END col_grid_0}
+																{BEGIN col_grid_1}
+								"80%",
+								{END col_grid_1}
+																{BEGIN col_grid_2}
+								"26.666666666666668%",
+								{END col_grid_2}
+															],
+													heights: [
+															{BEGIN row_grid_0}			
+								"%",
+								{END row_grid_0}
+															{BEGIN row_grid_1}			
+								"%",
+								{END row_grid_1}
+															{BEGIN row_grid_2}			
+								"%",
+								{END row_grid_2}
+															{BEGIN row_grid_3}			
+								"%",
+								{END row_grid_3}
+															{BEGIN row_grid_4}			
+								"%",
+								{END row_grid_4}
+															{BEGIN row_grid_5}			
+								"%",
+								{END row_grid_5}
+															{BEGIN row_grid_6}			
+								"%",
+								{END row_grid_6}
+															{BEGIN row_grid_7}			
+								"%",
+								{END row_grid_7}
+															{BEGIN row_grid_8}			
+								"%",
+								{END row_grid_8}
+															{BEGIN row_grid_9}			
+								"%",
+								{END row_grid_9}
+															{BEGIN row_grid_10}			
+								"%",
+								{END row_grid_10}
+															{BEGIN row_grid_11}			
+								"%",
+								{END row_grid_11}
+															{BEGIN row_grid_12}			
+								"%",
+								{END row_grid_12}
+															{BEGIN row_grid_13}			
+								"%",
+								{END row_grid_13}
+															{BEGIN row_grid_14}			
+								"%",
+								{END row_grid_14}
+															{BEGIN row_grid_15}			
+								"%",
+								{END row_grid_15}
+															{BEGIN row_grid_16}			
+								"%",
+								{END row_grid_16}
+															{BEGIN row_grid_17}			
+								"%",
+								{END row_grid_17}
+															{BEGIN row_grid_18}			
+								"%",
+								{END row_grid_18}
+															{BEGIN row_grid_19}			
+								"%",
+								{END row_grid_19}
+															{BEGIN row_grid_20}			
+								"%",
+								{END row_grid_20}
+															{BEGIN row_grid_21}			
+								"%",
+								{END row_grid_21}
+															{BEGIN row_grid_22}			
+								"%",
+								{END row_grid_22}
+															{BEGIN row_grid_23}			
+								"%",
+								{END row_grid_23}
+														],
+													
+							body: [
+									
+				{BEGIN row_grid_0}
+				[
+																{BEGIN cellblock_grid_cell_top}
+{
+	cellId: 'cell_top',
+	col:0,
+	row:0,
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_top}
+			colSpan: {$colspan_grid_cell_top},
+			{END colspan_grid_cell_top}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_grid_inline_cancel}"},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_top}
+																		{ 
+				cellId: 'cell_top',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+																			{BEGIN cellblock_grid_cell_label19}
+{
+	cellId: 'cell_label19',
+	col:0,
+	row:0,
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label19}
+											],
+				{END row_grid_0}
+						{BEGIN row_grid_1}
+				[
+																{BEGIN cellblock_grid_cell_label15}
+{
+	cellId: 'cell_label15',
+	col:0,
+	row:0,
+			fieldName: 'nombre_puesto',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":{$nombre_puesto_pdfvalue},"hidden":"{$item_hide_grid_field8}","fontSize":24,"bold":true,"font":"Open Sans"},
+				
+				
+			{"text":{$id_estado_pdfvalue},"hidden":"{$item_hide_grid_field1}","fontSize":12,"bold":true,"font":"Open Sans"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label15}
+																							{BEGIN cellblock_grid_cell_label20}
+{
+	cellId: 'cell_label20',
+	col:0,
+	row:0,
+			fieldName: 'id_vacancias',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label20}
+			colSpan: {$colspan_grid_cell_label20},
+			{END colspan_grid_cell_label20}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"ID:","color":"#acacac","hidden":"{$item_hide_text2}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$id_vacancias_pdfvalue},"color":"#acacac","hidden":"{$item_hide_grid_field9}","fontSize":14,"font":"Open Sans"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_cell_label20}
+																		{ 
+				cellId: 'cell_label20',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_1}
+						{BEGIN row_grid_2}
+				[
+																{BEGIN cellblock_grid_cell_label17}
+{
+	cellId: 'cell_label17',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label17}
+			colSpan: {$colspan_grid_cell_label17},
+			{END colspan_grid_cell_label17}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<hr class=\"border border-secondary border-3 opacity-75\">","hidden":"{$item_hide_text4}","isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label17}
+																		{ 
+				cellId: 'cell_label17',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label17',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_2}
+						{BEGIN row_grid_3}
+				[
+																{BEGIN cellblock_grid_cell_label42}
+{
+	cellId: 'cell_label42',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+					{BEGIN rowspan_grid_cell_label42}
+			rowSpan: {$rowspan_grid_cell_label42},
+			{END rowspan_grid_cell_label42}
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<i class=\"bi bi-building\"></i>","hidden":"{$item_hide_text5}","fontSize":100,"font":"Open Sans","isHtml":true},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label42}
+																							{BEGIN cellblock_grid_cell_label38}
+{
+	cellId: 'cell_label38',
+	col:0,
+	row:0,
+			fieldName: 'legal',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":" <i class=\"bi bi-briefcase-fill\"></i> ","hidden":"{$item_hide_bi_briefcase_fill}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$legal_pdfvalue},"hidden":"{$item_hide_grid_field4}","fontSize":14,"font":"Open Sans"},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label38}
+																							{BEGIN cellblock_grid_cell_label44}
+{
+	cellId: 'cell_label44',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+					{BEGIN rowspan_grid_cell_label44}
+			rowSpan: {$rowspan_grid_cell_label44},
+			{END rowspan_grid_cell_label44}
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_cell_label44}
+											],
+				{END row_grid_3}
+						{BEGIN row_grid_4}
+				[
+											{ 
+				cellId: 'cell_label42',
+				row:  1,
+				col:  0,
+				text: '',
+				compensateColspan: true
+			},
+																			{BEGIN cellblock_grid_cell_label40}
+{
+	cellId: 'cell_label40',
+	col:0,
+	row:0,
+			fieldName: 'cantidad_vacancia',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":" <i class=\"bi bi-people-fill\"></i> Vacancias","hidden":"{$item_hide_bi_people_fill}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$cantidad_vacancia_pdfvalue},"hidden":"{$item_hide_grid_field6}","fontSize":16,"font":"Open Sans"},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label40}
+																		{ 
+				cellId: 'cell_label44',
+				row:  1,
+				col:  0,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_4}
+						{BEGIN row_grid_5}
+				[
+											{ 
+				cellId: 'cell_label42',
+				row:  2,
+				col:  0,
+				text: '',
+				compensateColspan: true
+			},
+																			{BEGIN cellblock_grid_cell_label43}
+{
+	cellId: 'cell_label43',
+	col:0,
+	row:0,
+			fieldName: 'id_cidudad',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<i class=\"bi bi-pin-map-fill\"></i>","hidden":"{$item_hide_tx_bi_pin_map_fill}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$id_cidudad_pdfvalue},"hidden":"{$item_hide_grid_field2}","fontSize":14,"font":"Open Sans"},
+				
+				
+			{"text":",","hidden":"{$item_hide_text}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$id_departamento_pdfvalue},"hidden":"{$item_hide_grid_field3}","fontSize":14,"font":"Open Sans"},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label43}
+																		{ 
+				cellId: 'cell_label44',
+				row:  2,
+				col:  0,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_5}
+						{BEGIN row_grid_6}
+				[
+																{BEGIN cellblock_grid_cell_label45}
+{
+	cellId: 'cell_label45',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label45}
+			colSpan: {$colspan_grid_cell_label45},
+			{END colspan_grid_cell_label45}
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_cell_label45}
+																		{ 
+				cellId: 'cell_label45',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label45',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_6}
+						{BEGIN row_grid_7}
+				[
+																{BEGIN cellblock_grid_cell_label46}
+{
+	cellId: 'cell_label46',
+	col:0,
+	row:0,
+			fieldName: 'descripcion_puesto',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label46}
+			colSpan: {$colspan_grid_cell_label46},
+			{END colspan_grid_cell_label46}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<i class=\"bi bi-cursor-fill\"></i>","hidden":"{$item_hide_text6}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":"{$jslabel detalle_vacancia descripcion_puesto }","hidden":"{$item_hide_grid_field_label2}","fontSize":14,"font":"Open Sans","bold":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label46}
+																		{ 
+				cellId: 'cell_label46',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label46',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_7}
+						{BEGIN row_grid_8}
+				[
+																{BEGIN cellblock_grid_cell_label48}
+{
+	cellId: 'cell_label48',
+	col:0,
+	row:0,
+			fieldName: 'descripcion_puesto',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label48}
+			colSpan: {$colspan_grid_cell_label48},
+			{END colspan_grid_cell_label48}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":{$descripcion_puesto_pdfvalue},"hidden":"{$item_hide_grid_field11}","fontSize":13,"font":"Open Sans"},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label48}
+																		{ 
+				cellId: 'cell_label48',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label48',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_8}
+						{BEGIN row_grid_9}
+				[
+																{BEGIN cellblock_grid_cell_label49}
+{
+	cellId: 'cell_label49',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label49}
+			colSpan: {$colspan_grid_cell_label49},
+			{END colspan_grid_cell_label49}
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_cell_label49}
+																		{ 
+				cellId: 'cell_label49',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label49',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_9}
+						{BEGIN row_grid_10}
+				[
+																{BEGIN cellblock_grid_cell_label51}
+{
+	cellId: 'cell_label51',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label51}
+			colSpan: {$colspan_grid_cell_label51},
+			{END colspan_grid_cell_label51}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<b>Ofrecemos</b>","hidden":"{$item_hide_text7}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label51}
+																		{ 
+				cellId: 'cell_label51',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label51',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_10}
+						{BEGIN row_grid_11}
+				[
+																{BEGIN cellblock_grid_cell_label52}
+{
+	cellId: 'cell_label52',
+	col:0,
+	row:0,
+			fieldName: 'salario',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label52}
+			colSpan: {$colspan_grid_cell_label52},
+			{END colspan_grid_cell_label52}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<i class=\"bi bi-cash\"></i> ","hidden":"{$item_hide_text8}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":" Salario:","hidden":"{$item_hide_text9}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$salario_pdfvalue},"hidden":"{$item_hide_grid_field5}","fontSize":14,"font":"Open Sans"},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label52}
+																		{ 
+				cellId: 'cell_label52',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label52',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_11}
+						{BEGIN row_grid_12}
+				[
+																{BEGIN cellblock_grid_cell_label53}
+{
+	cellId: 'cell_label53',
+	col:0,
+	row:0,
+			fieldName: 'id_descripcion_salario',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label53}
+			colSpan: {$colspan_grid_cell_label53},
+			{END colspan_grid_cell_label53}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<i class=\"bi bi-app-indicator\"></i>","hidden":"{$item_hide_text10}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":" Beneficios:","hidden":"{$item_hide_text11}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$id_descripcion_salario_pdfvalue},"hidden":"{$item_hide_grid_field10}","fontSize":14,"font":"Open Sans"},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label53}
+																		{ 
+				cellId: 'cell_label53',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label53',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_12}
+						{BEGIN row_grid_13}
+				[
+																{BEGIN cellblock_grid_cell_label54}
+{
+	cellId: 'cell_label54',
+	col:0,
+	row:0,
+			fieldName: 'tipo_contrato',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label54}
+			colSpan: {$colspan_grid_cell_label54},
+			{END colspan_grid_cell_label54}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<i class=\"bi bi-card-text\"></i>","hidden":"{$item_hide_text12}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":" Tipo de  Contrato:","hidden":"{$item_hide_text13}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$tipo_contrato_pdfvalue},"hidden":"{$item_hide_grid_field}","fontSize":14,"font":"Open Sans"},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label54}
+																		{ 
+				cellId: 'cell_label54',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label54',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_13}
+						{BEGIN row_grid_14}
+				[
+																{BEGIN cellblock_grid_cell_label56}
+{
+	cellId: 'cell_label56',
+	col:0,
+	row:0,
+			fieldName: 'modalidad_trabajo',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label56}
+			colSpan: {$colspan_grid_cell_label56},
+			{END colspan_grid_cell_label56}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<i class=\"bi bi-tag-fill\"></i>","hidden":"{$item_hide_text14}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":"Modalidad de trabajo:","hidden":"{$item_hide_text15}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$modalidad_trabajo_pdfvalue},"hidden":"{$item_hide_grid_field12}","fontSize":14,"font":"Open Sans"},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label56}
+																		{ 
+				cellId: 'cell_label56',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label56',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_14}
+						{BEGIN row_grid_15}
+				[
+																{BEGIN cellblock_grid_cell_label55}
+{
+	cellId: 'cell_label55',
+	col:0,
+	row:0,
+			fieldName: 'tipo_remuneracion',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label55}
+			colSpan: {$colspan_grid_cell_label55},
+			{END colspan_grid_cell_label55}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<i class=\"bi bi-calendar-check\"></i>","hidden":"{$item_hide_text16}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":"Tipo de remuneración:","hidden":"{$item_hide_text17}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$tipo_remuneracion_pdfvalue},"hidden":"{$item_hide_grid_field13}","fontSize":14,"font":"Open Sans"},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label55}
+																		{ 
+				cellId: 'cell_label55',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label55',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_15}
+						{BEGIN row_grid_16}
+				[
+																{BEGIN cellblock_grid_cell_label57}
+{
+	cellId: 'cell_label57',
+	col:0,
+	row:0,
+			fieldName: 'anos_experiencia_vacancia',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label57}
+			colSpan: {$colspan_grid_cell_label57},
+			{END colspan_grid_cell_label57}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<i class=\"bi bi-briefcase-fill\"></i>","hidden":"{$item_hide_text18}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":"Experiencia:","hidden":"{$item_hide_text19}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$anos_experiencia_vacancia_pdfvalue},"hidden":"{$item_hide_grid_field14}","fontSize":14,"font":"Open Sans"},
+				
+				
+			{"text":"año(s) ","hidden":"{$item_hide_text20}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$meses_experiencia_vacancia_pdfvalue},"hidden":"{$item_hide_grid_field15}","fontSize":14,"font":"Open Sans"},
+				
+				
+			{"text":"meses","hidden":"{$item_hide_text21}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label57}
+																		{ 
+				cellId: 'cell_label57',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label57',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_16}
+						{BEGIN row_grid_17}
+				[
+																{BEGIN cellblock_grid_cell_label58}
+{
+	cellId: 'cell_label58',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label58}
+			colSpan: {$colspan_grid_cell_label58},
+			{END colspan_grid_cell_label58}
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_cell_label58}
+																		{ 
+				cellId: 'cell_label58',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label58',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_17}
+						{BEGIN row_grid_18}
+				[
+																{BEGIN cellblock_grid_cell_label60}
+{
+	cellId: 'cell_label60',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label60}
+			colSpan: {$colspan_grid_cell_label60},
+			{END colspan_grid_cell_label60}
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_cell_label60}
+																		{ 
+				cellId: 'cell_label60',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label60',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_18}
+						{BEGIN row_grid_19}
+				[
+																{BEGIN cellblock_grid_cell_label59}
+{
+	cellId: 'cell_label59',
+	col:0,
+	row:0,
+			fieldName: 'fecha_creacion_vacancia',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label59}
+			colSpan: {$colspan_grid_cell_label59},
+			{END colspan_grid_cell_label59}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"<i class=\"bi bi-calendar3\"></i> <b>Publicado:</b>","hidden":"{$item_hide_text22}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$fecha_creacion_vacancia_pdfvalue},"hidden":"{$item_hide_grid_field7}","fontSize":14,"font":"Open Sans"},
+				
+				
+			{"text":"<b>Expira:</b>","hidden":"{$item_hide_text23}","fontSize":14,"font":"Open Sans","isHtml":true},
+				
+				
+			{"text":{$fecha_expiracion_vacancia_pdfvalue},"hidden":"{$item_hide_grid_field16}","fontSize":14,"font":"Open Sans"},
+				
+		  ],
+  "border": [false,false,false,false],
+      fillColor: "" ,        "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label59}
+																		{ 
+				cellId: 'cell_label59',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_label59',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_19}
+						{BEGIN row_grid_20}
+				[
+																{BEGIN cellblock_grid_cell_label47}
+{
+	cellId: 'cell_label47',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_label47}
+			colSpan: {$colspan_grid_cell_label47},
+			{END colspan_grid_cell_label47}
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_cell_label47}
+																		{ 
+				cellId: 'cell_label47',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+																			{BEGIN cellblock_grid_cell_label50}
+{
+	cellId: 'cell_label50',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_cell_label50}
+											],
+				{END row_grid_20}
+						{BEGIN row_grid_21}
+				[
+																{BEGIN cellblock_grid_cell_field}
+{
+	cellId: 'cell_field',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_field}
+			colSpan: {$colspan_grid_cell_field},
+			{END colspan_grid_cell_field}
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+				
+			{"text":""},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_field}
+																		{ 
+				cellId: 'cell_field',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'cell_field',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_21}
+						{BEGIN row_grid_22}
+				[
+																{BEGIN cellblock_grid_cell_label3}
+{
+	cellId: 'cell_label3',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_cell_label3}
+																							{BEGIN cellblock_grid_cell_field1}
+{
+	cellId: 'cell_field1',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_field1}
+																							{BEGIN cellblock_grid_cell_label35}
+{
+	cellId: 'cell_label35',
+	col:0,
+	row:0,
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label35}
+											],
+				{END row_grid_22}
+						{BEGIN row_grid_23}
+				[
+																{BEGIN cellblock_grid_cell_dpreview}
+{
+	cellId: 'cell_dpreview',
+	col:0,
+	row:0,
+				style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_cell_dpreview}
+			colSpan: {$colspan_grid_cell_dpreview},
+			{END colspan_grid_cell_dpreview}
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [false,false,false,false],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_dpreview}
+																		{ 
+				cellId: 'cell_dpreview',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+																			{BEGIN cellblock_grid_cell_label37}
+{
+	cellId: 'cell_label37',
+	col:0,
+	row:0,
+				style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_cell_label37}
+											],
+				{END row_grid_23}
+		
+							]
+						}
+					}
+				]]
+			}
+		},
+	{END grid_vrecord}
+	{END grid_record}
+	]
+,
+	{END grid_row}
+	
+									]
+			
+			}
+		},
+		{END body}
+	],
+	footer: [
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'center',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+			],
+	};
+
+
+pdfFonts = {$pdfFonts};

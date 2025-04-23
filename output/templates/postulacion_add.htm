@@ -1,0 +1,300 @@
+<!doctype html>
+<html  {$html_attrs}>
+	<head>
+				<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>EmpleaPy :: Buscador :: {$pagetitle}</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link rel="icon" src="images/imgob23/gob_ico.png" type="image/x-icon" sizes="32x32"> 
+	<base href="{$projectPath}">
+	 <link rel="stylesheet" href="images/icons_v4/font/bootstrap-icons.css">
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="https://analytics.mtess.gov.py/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '14']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Matomo Code -->
+ <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     crossorigin=""/>
+ <link rel="icon" href="https://emplea.mtess.gov.py/wp-content/uploads/2023/11/cropped-elemento_logo-emplea-py-colores-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://emplea.mtess.gov.py/wp-content/uploads/2023/11/cropped-elemento_logo-emplea-py-colores-180x180.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">		<link REL="stylesheet" href="styles/default.css?{$wizardBuildKey}" type="text/css">
+	{BEGIN rtlCSS}
+	<link REL="stylesheet" href="styles/defaultRTL.css?{$wizardBuildKey}" type="text/css">
+	{END rtlCSS}
+	{BEGIN styleCSSFiles}
+	<link REL="stylesheet" href="{$stylepath}" type="text/css">
+	{END styleCSSFiles}
+			
+	</head>
+
+	<body class="{$stylename} function-add" >
+	{BEGIN body}
+		{$header}
+		<style>
+			{$containerCss}
+		</style>
+		{$locking}
+		<div class="r-small-page" 
+			data-body-align="center"
+			data-body-width="standard"
+		>
+							{BEGIN top_block}
+<div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="small" {$form_top} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="top_c1" data-pageid="{$pageid}"	{$cell_top_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		<h2 data-itemtype="add_header" data-itemid="add_header" {$item_add_header} data-pageid="{$pageid}" >{$pagetitlelabel bolsa_empleo_postulacion add}</h2>
+	</div>					</div>
+	</div>		
+{END top_block}
+									{BEGIN above-grid_block}
+<div class="r-form" data-location="above-grid" id="form_above-grid_{$pageid}" data-makeup="small" {$form_above-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-12
+	">
+	 
+		{BEGIN message_block}
+<div data-itemtype="add_message" data-itemid="add_message" {$item_add_message} data-pageid="{$pageid}" class="alert {$message_class}" role="alert">
+<h5>{$message}</h5>
+<div>
+{BEGIN message_back_button}
+		
+	<button class="btn btn-sm btn-default" {$backbutton_attrs}>Volver a la lista</button>
+	{END message_back_button}
+{BEGIN view_page_button}
+	<button class="btn btn-sm btn-default" {$view_page_button_attrs}>Ver</button>
+{END view_page_button}
+{BEGIN edit_page_button}
+	<button class="btn btn-sm btn-default" {$edit_page_button_attrs}>Editar</button>
+{END edit_page_button}
+</div>
+</div>
+{END message_block}	</div>					</div>
+	</div>		
+{END above-grid_block}
+									{BEGIN grid_block}
+
+
+
+
+ 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="small" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="1"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_0} >
+										
+
+{BEGIN cellblock_grid_c3}
+<td
+	{$cell_grid_c3}
+	class=" r-ori-vert"
+	
+				data-fullwidth
+		
+			data-cellId="grid_c3" data-pageid="{$pageid}"
+		data-v-cell="4"
+		
+>
+	<div edit-form-cell class="clearfix">
+				
+{BEGIN id_vacancia_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id_vacancia}  r-vertical-field" 
+	data-signal-error-for="id_vacancia{$id}" {$required_attr_id_vacancia}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-field="id_vacancia" data-fieldname="id_vacancia" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_id_vacancia}">
+		{BEGIN id_vacancia_label}{$label bolsa_empleo_postulacion id_vacancia }{END id_vacancia_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$id_vacancia_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="id_vacancia" {$tooltipAttr bolsa_empleo_postulacion id_vacancia } >
+		<div class="text-muted" >
+		{$tooltip bolsa_empleo_postulacion id_vacancia }		</div>
+	</div>
+</div>
+
+
+{END id_vacancia_fieldblock}
+											
+{BEGIN id_estado_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_id_estado}  r-vertical-field" 
+	data-signal-error-for="id_estado{$id}" {$required_attr_id_estado}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="id_estado" data-fieldname="id_estado" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_id_estado}">
+		{BEGIN id_estado_label}{$label bolsa_empleo_postulacion id_estado }{END id_estado_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$id_estado_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="id_estado" {$tooltipAttr bolsa_empleo_postulacion id_estado } >
+		<div class="text-muted" >
+		{$tooltip bolsa_empleo_postulacion id_estado }		</div>
+	</div>
+</div>
+
+
+{END id_estado_fieldblock}
+											
+{BEGIN fecha_postulacion_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fecha_postulacion}  r-vertical-field" 
+	data-signal-error-for="fecha_postulacion{$id}" {$required_attr_fecha_postulacion}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-field="fecha_postulacion" data-fieldname="fecha_postulacion" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_fecha_postulacion}">
+		{BEGIN fecha_postulacion_label}{$label bolsa_empleo_postulacion fecha_postulacion }{END fecha_postulacion_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$fecha_postulacion_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="fecha_postulacion" {$tooltipAttr bolsa_empleo_postulacion fecha_postulacion } >
+		<div class="text-muted" >
+		{$tooltip bolsa_empleo_postulacion fecha_postulacion }		</div>
+	</div>
+</div>
+
+
+{END fecha_postulacion_fieldblock}
+											
+{BEGIN fk_personaid_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_fk_personaid}  r-vertical-field" 
+	data-signal-error-for="fk_personaid{$id}" {$required_attr_fk_personaid}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-field="fk_personaid" data-fieldname="fk_personaid" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_fk_personaid}">
+		{BEGIN fk_personaid_label}{$label bolsa_empleo_postulacion fk_personaid }{END fk_personaid_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$fk_personaid_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="fk_personaid" {$tooltipAttr bolsa_empleo_postulacion fk_personaid } >
+		<div class="text-muted" >
+		{$tooltip bolsa_empleo_postulacion fk_personaid }		</div>
+	</div>
+</div>
+
+
+{END fk_personaid_fieldblock}
+											
+{BEGIN metodo_insercion_fieldblock}
+
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_metodo_insercion}  r-vertical-field" 
+	data-signal-error-for="metodo_insercion{$id}" {$required_attr_metodo_insercion}
+	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="metodo_insercion" data-fieldname="metodo_insercion" >
+
+	<label class="r-edit-label control-label" for="{$labelfor_metodo_insercion}">
+		{BEGIN metodo_insercion_label}{$label bolsa_empleo_postulacion metodo_insercion }{END metodo_insercion_label}
+		<span class="icon-required"></span>
+	</label>
+	<div class="r-edit-field">
+		{$metodo_insercion_editcontrol}	</div>
+	<div class="r-edit-tooltip" data-helpfor="metodo_insercion" {$tooltipAttr bolsa_empleo_postulacion metodo_insercion } >
+		<div class="text-muted" >
+		{$tooltip bolsa_empleo_postulacion metodo_insercion }		</div>
+	</div>
+</div>
+
+
+{END metodo_insercion_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c3}
+								</tr>
+			</tbody></table>
+{END grid_block}
+									{BEGIN below-grid_block}
+<div class="r-form" data-location="below-grid" id="form_below-grid_{$pageid}" data-makeup="small" {$form_below-grid} data-pageid="{$pageid}"
+		data-v-width="4"
+	data-v-margin="1"
+	
+>		
+	 
+		<div class="row">
+			 
+				<div 
+	data-cellId="below-grid_c1" data-pageid="{$pageid}"	{$cell_below-grid_c1}
+	class="			col-md-12
+	">
+	 
+		<span data-itemtype="add_save" data-itemid="add_save" {$item_add_save} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary   
+	" {$savebutton_attrs} >
+							Guardar			</a>
+</span>
+	 
+		<span data-itemtype="add_reset" data-itemid="add_reset" {$item_add_reset} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="resetButton{$id}" >
+							Reiniciar			</a>
+</span>
+	 
+		{BEGIN back_button}
+<span data-itemtype="add_back_list" data-itemid="add_back_list" {$item_add_back_list} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="backButton{$id}" >
+							Volver a la lista			</a>
+</span>
+{END back_button}
+	 
+		{BEGIN cancel_button}
+<span data-itemtype="add_cancel" data-itemid="add_cancel" {$item_add_cancel} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-default   
+	" id="cancelButton{$id}" >
+							Cancelar			</a>
+</span>
+{END cancel_button}
+	</div>					</div>
+	</div>		
+{END below-grid_block}
+			</div>
+		{$footer}
+	{END body}
+	</body>
+</html>

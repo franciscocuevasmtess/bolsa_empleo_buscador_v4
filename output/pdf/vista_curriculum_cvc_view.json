@@ -1,0 +1,919 @@
+
+pdfDocument = {
+{BEGIN backgroundImage}
+	background: {
+		image: {$backgroundImage},
+		{BEGIN bgWidth}
+		imgWidth: {$bgWidth},
+		imgHeight: {$bgHeight},
+		{END bgWidth}
+	},
+{END backgroundImage}
+	styles: {
+				bodycell: {
+			fontSize:12,
+		},
+		headcell: {
+			fontSize:12,
+			bold: true
+		},
+
+	
+	},
+	defaultStyle: {
+		fontSize: 14,
+	},
+	"content": [
+								
+{
+	table: {
+	
+				
+		location: 'top',
+		
+		
+		widths: [
+								"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'above-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+					colSpan: 2,
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_breadcrumb}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+							],
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				tableForm: true,
+				
+		location: 'grid',
+		
+		
+		widths: [
+									{BEGIN col_grid_0}
+						166, 
+							{END col_grid_0}
+												{BEGIN col_grid_1}
+						166, 
+							{END col_grid_1}
+												{BEGIN col_grid_2}
+						166, 
+							{END col_grid_2}
+					 ],	
+		
+			heights: [
+								{BEGIN row_grid_0}
+						
+			"%",
+						{END row_grid_0}
+			 
+								{BEGIN row_grid_1}
+						
+			"%",
+						{END row_grid_1}
+			 
+								{BEGIN row_grid_2}
+						
+			"%",
+						{END row_grid_2}
+			 
+								{BEGIN row_grid_3}
+						
+			"%",
+						{END row_grid_3}
+			 
+								{BEGIN row_grid_4}
+						
+			"%",
+						{END row_grid_4}
+			 
+								{BEGIN row_grid_5}
+						
+			"%",
+						{END row_grid_5}
+			 
+								{BEGIN row_grid_6}
+						
+			"%",
+						{END row_grid_6}
+			 
+								{BEGIN row_grid_7}
+						
+			"%",
+						{END row_grid_7}
+			 
+								{BEGIN row_grid_8}
+						
+			"%",
+						{END row_grid_8}
+			 
+								{BEGIN row_grid_9}
+						
+			"%",
+						{END row_grid_9}
+			 
+								{BEGIN row_grid_10}
+						
+			"%",
+						{END row_grid_10}
+			 
+				],
+	
+		body: [
+				
+				{BEGIN row_grid_0}
+				[
+																{BEGIN cellblock_grid_c1}
+{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c1}
+			colSpan: {$colspan_grid_c1},
+			{END colspan_grid_c1}
+		
+		
+	
+			// [left, top, right, bottom]
+	margin: [ 0, 0, 0, 20 ],
+		
+	
+			"stack": [
+		
+				
+			{"text":{$pdf_image images/logo_cvc_final.png 1500 0},"hidden":"{$item_hide_image}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c1}
+																		{ 
+				cellId: 'c1',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'c1',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_0}
+						{BEGIN row_grid_1}
+				[
+																{BEGIN cellblock_grid_c10}
+{
+	cellId: 'c10',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":{$foto_pdfvalue},"hidden":"{$item_hide_integrated_edit_field}"},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c10}
+																							{BEGIN cellblock_grid_c13}
+{
+	cellId: 'c13',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"text":{$nombres_pdfvalue},"hidden":"{$item_hide_integrated_edit_field1}","bold":true},
+				
+				
+			{"text":{$domicilio_pdfvalue},"hidden":"{$item_hide_integrated_edit_field2}"},
+				
+				
+			{"text":{$localidad_pdfvalue},"hidden":"{$item_hide_integrated_edit_field3}"},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'center',
+     
+      
+      },
+
+{END cellblock_grid_c13}
+																							{BEGIN cellblock_grid_c11}
+{
+	cellId: 'c11',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":{$qr_pdfvalue},"hidden":"{$item_hide_integrated_edit_field31}"},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_c11}
+											],
+				{END row_grid_1}
+						{BEGIN row_grid_2}
+				[
+																{BEGIN cellblock_grid_c24}
+{
+	cellId: 'c24',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c24}
+			colSpan: {$colspan_grid_c24},
+			{END colspan_grid_c24}
+		
+		
+	
+			// [left, top, right, bottom]
+	margin: [ 0, 20, 0, 20 ],
+		
+	
+			"stack": [
+		
+				
+			{"text":{$resumen_pdfvalue},"hidden":"{$item_hide_integrated_edit_field4}","bold":true},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'center',
+     
+      
+      },
+
+{END cellblock_grid_c24}
+																		{ 
+				cellId: 'c24',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'c24',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_2}
+						{BEGIN row_grid_3}
+				[
+																{BEGIN cellblock_grid_c12}
+{
+	cellId: 'c12',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel bolsa_empleo_vista_curriculum_cvc valor }","bold":true},{"text":{$valor_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel bolsa_empleo_vista_curriculum_cvc sexo }","bold":true},{"text":{$sexo_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'right',
+     
+      
+      },
+
+{END cellblock_grid_c12}
+																							{BEGIN cellblock_grid_c15}
+{
+	cellId: 'c15',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel bolsa_empleo_vista_curriculum_cvc fechanac }","bold":true},{"text":{$fechanac_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel bolsa_empleo_vista_curriculum_cvc edad }","bold":true},{"text":{$edad_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'center',
+     
+      
+      },
+
+{END cellblock_grid_c15}
+																							{BEGIN cellblock_grid_c25}
+{
+	cellId: 'c25',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel bolsa_empleo_vista_curriculum_cvc nacionalidad1 }","bold":true},{"text":{$nacionalidad1_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel bolsa_empleo_vista_curriculum_cvc estado_civil }","bold":true},{"text":{$estado_civil_pdfvalue}}],"margin":[0,0,0,15]},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_c25}
+											],
+				{END row_grid_3}
+						{BEGIN row_grid_4}
+				[
+																{BEGIN cellblock_grid_c14}
+{
+	cellId: 'c14',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c14}
+			colSpan: {$colspan_grid_c14},
+			{END colspan_grid_c14}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			 {BEGIN details_vista_para_curri_experiencia_laboral}
+			{$displayDetailTable_vista_para_curri_experiencia_laboral }
+		{END details_vista_para_curri_experiencia_laboral},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'center',
+     
+      
+      },
+
+{END cellblock_grid_c14}
+																		{ 
+				cellId: 'c14',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'c14',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_4}
+						{BEGIN row_grid_5}
+				[
+																{BEGIN cellblock_grid_c16}
+{
+	cellId: 'c16',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c16}
+			colSpan: {$colspan_grid_c16},
+			{END colspan_grid_c16}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			 {BEGIN details_vista_curri_estudios_realizados}
+			{$displayDetailTable_vista_curri_estudios_realizados }
+		{END details_vista_curri_estudios_realizados},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'center',
+     
+      
+      },
+
+{END cellblock_grid_c16}
+																		{ 
+				cellId: 'c16',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'c16',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_5}
+						{BEGIN row_grid_6}
+				[
+																{BEGIN cellblock_grid_c18}
+{
+	cellId: 'c18',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c18}
+			colSpan: {$colspan_grid_c18},
+			{END colspan_grid_c18}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			 {BEGIN details_vista_curri_programas_realizados}
+			{$displayDetailTable_vista_curri_programas_realizados }
+		{END details_vista_curri_programas_realizados},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'center',
+     
+      
+      },
+
+{END cellblock_grid_c18}
+																		{ 
+				cellId: 'c18',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'c18',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_6}
+						{BEGIN row_grid_7}
+				[
+																{BEGIN cellblock_grid_c3}
+{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c3}
+			colSpan: {$colspan_grid_c3},
+			{END colspan_grid_c3}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			 {BEGIN details_vista_curri_idiomas}
+			{$displayDetailTable_vista_curri_idiomas }
+		{END details_vista_curri_idiomas},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'center',
+     
+      
+      },
+
+{END cellblock_grid_c3}
+																		{ 
+				cellId: 'c3',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'c3',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_7}
+						{BEGIN row_grid_8}
+				[
+																{BEGIN cellblock_grid_c4}
+{
+	cellId: 'c4',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c4}
+			colSpan: {$colspan_grid_c4},
+			{END colspan_grid_c4}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			 {BEGIN details_vista_curri_movilidad}
+			{$displayDetailTable_vista_curri_movilidad }
+		{END details_vista_curri_movilidad},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'center',
+     
+      
+      },
+
+{END cellblock_grid_c4}
+																		{ 
+				cellId: 'c4',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'c4',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_8}
+						{BEGIN row_grid_9}
+				[
+																{BEGIN cellblock_grid_c8}
+{
+	cellId: 'c8',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c8}
+			colSpan: {$colspan_grid_c8},
+			{END colspan_grid_c8}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			 {BEGIN details_vista_curri_telefonos}
+			{$displayDetailTable_vista_curri_telefonos }
+		{END details_vista_curri_telefonos},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'center',
+     
+      
+      },
+
+{END cellblock_grid_c8}
+																		{ 
+				cellId: 'c8',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'c8',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_9}
+						{BEGIN row_grid_10}
+				[
+																{BEGIN cellblock_grid_c6}
+{
+	cellId: 'c6',
+	col:0,
+	row:0,
+			
+		
+	//	dynamic colspan/rowspan
+
+					{BEGIN colspan_grid_c6}
+			colSpan: {$colspan_grid_c6},
+			{END colspan_grid_c6}
+		
+		
+	
+			
+	
+			"stack": [
+		
+				
+			 {BEGIN details_vista_curri_referencia_laborales}
+			{$displayDetailTable_vista_curri_referencia_laborales }
+		{END details_vista_curri_referencia_laborales},
+				
+		  ],
+  "border": [false,false,false,false],
+              "alignment": 'center',
+     
+      
+      },
+
+{END cellblock_grid_c6}
+																		{ 
+				cellId: 'c6',
+				row:  0,
+				col:  1,
+				text: '',
+				compensateColspan: true
+			},
+														{ 
+				cellId: 'c6',
+				row:  0,
+				col:  2,
+				text: '',
+				compensateColspan: true
+			},
+							],
+				{END row_grid_10}
+		
+		]
+	}
+}
+,
+		
+								
+{
+	table: {
+	
+				
+		location: 'below-grid',
+		
+		
+		widths: [
+								"*", 
+											"*", 
+					 ],	
+		
+	
+		body: [
+				
+				[
+																{
+	cellId: 'c1',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c2',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":""},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+											],
+		
+		]
+	}
+}
+,
+			]
+};
+
+pdfFonts = {$pdfFonts};
+  
