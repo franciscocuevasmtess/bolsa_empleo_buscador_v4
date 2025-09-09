@@ -114,7 +114,7 @@ if(isset($param1)){
 
 
 
-$jasper_url = "http://192.168.70.179:8080/services/repository?wsdl";
+$jasper_url = "http://192.168.100.108:8080/services/repository?wsdl";
 
 $jasper_username = "jasperadmin";
 $jasper_password = "IDf1yUbWX2U2Sg1Q"; 

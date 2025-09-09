@@ -460,20 +460,13 @@ function InitLookupLinks()
 			$lookupTableLinks["bolsa_empleo.vacancia_requisito"]["vacancia_habilidad_conocimiento.id_vacancia_requisito"] = array();
 		}
 		$lookupTableLinks["bolsa_empleo.vacancia_requisito"]["vacancia_habilidad_conocimiento.id_vacancia_requisito"]["edit"] = array("table" => "bolsa_empleo.vacancia_habilidad_conocimiento", "field" => "id_vacancia_requisito", "page" => "edit");
-		if( !isset( $lookupTableLinks["bolsa_empleo.vacancia"] ) ) {
-			$lookupTableLinks["bolsa_empleo.vacancia"] = array();
-		}
-		if( !isset( $lookupTableLinks["bolsa_empleo.vacancia"]["postulacion.id_vacancia"] )) {
-			$lookupTableLinks["bolsa_empleo.vacancia"]["postulacion.id_vacancia"] = array();
-		}
-		$lookupTableLinks["bolsa_empleo.vacancia"]["postulacion.id_vacancia"]["edit"] = array("table" => "bolsa_empleo.postulacion", "field" => "id_vacancia", "page" => "edit");
 		if( !isset( $lookupTableLinks["bolsa_empleo.estado_postulacion"] ) ) {
 			$lookupTableLinks["bolsa_empleo.estado_postulacion"] = array();
 		}
-		if( !isset( $lookupTableLinks["bolsa_empleo.estado_postulacion"]["postulacion.id_estado"] )) {
-			$lookupTableLinks["bolsa_empleo.estado_postulacion"]["postulacion.id_estado"] = array();
+		if( !isset( $lookupTableLinks["bolsa_empleo.estado_postulacion"]["postulacion.id_estado_postulado"] )) {
+			$lookupTableLinks["bolsa_empleo.estado_postulacion"]["postulacion.id_estado_postulado"] = array();
 		}
-		$lookupTableLinks["bolsa_empleo.estado_postulacion"]["postulacion.id_estado"]["edit"] = array("table" => "bolsa_empleo.postulacion", "field" => "id_estado", "page" => "edit");
+		$lookupTableLinks["bolsa_empleo.estado_postulacion"]["postulacion.id_estado_postulado"]["edit"] = array("table" => "bolsa_empleo.postulacion", "field" => "id_estado_postulado", "page" => "edit");
 		if( !isset( $lookupTableLinks["eportal.persons"] ) ) {
 			$lookupTableLinks["eportal.persons"] = array();
 		}
@@ -481,6 +474,20 @@ function InitLookupLinks()
 			$lookupTableLinks["eportal.persons"]["postulacion.fk_personaid"] = array();
 		}
 		$lookupTableLinks["eportal.persons"]["postulacion.fk_personaid"]["edit"] = array("table" => "bolsa_empleo.postulacion", "field" => "fk_personaid", "page" => "edit");
+		if( !isset( $lookupTableLinks["bolsa_empleo.vacancia_estado"] ) ) {
+			$lookupTableLinks["bolsa_empleo.vacancia_estado"] = array();
+		}
+		if( !isset( $lookupTableLinks["bolsa_empleo.vacancia_estado"]["postulacion.id_estado_vacancia"] )) {
+			$lookupTableLinks["bolsa_empleo.vacancia_estado"]["postulacion.id_estado_vacancia"] = array();
+		}
+		$lookupTableLinks["bolsa_empleo.vacancia_estado"]["postulacion.id_estado_vacancia"]["edit"] = array("table" => "bolsa_empleo.postulacion", "field" => "id_estado_vacancia", "page" => "edit");
+		if( !isset( $lookupTableLinks["bolsa_empleo.feria_empleo"] ) ) {
+			$lookupTableLinks["bolsa_empleo.feria_empleo"] = array();
+		}
+		if( !isset( $lookupTableLinks["bolsa_empleo.feria_empleo"]["postulacion.fk_id_feria_empleo"] )) {
+			$lookupTableLinks["bolsa_empleo.feria_empleo"]["postulacion.fk_id_feria_empleo"] = array();
+		}
+		$lookupTableLinks["bolsa_empleo.feria_empleo"]["postulacion.fk_id_feria_empleo"]["edit"] = array("table" => "bolsa_empleo.postulacion", "field" => "fk_id_feria_empleo", "page" => "edit");
 		if( !isset( $lookupTableLinks["bolsa_empleo.cvc_niveles_academicos1"] ) ) {
 			$lookupTableLinks["bolsa_empleo.cvc_niveles_academicos1"] = array();
 		}

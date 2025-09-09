@@ -173,16 +173,34 @@ pdfDocument = {
 			{"hidden":"{$item_hide_integrated_edit_field1}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion id_vacancia }","bold":true},{"text":{$id_vacancia_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
-			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion id_estado }","bold":true},{"text":{$id_estado_pdfvalue}}],"margin":[0,0,0,15]},
-				
-				
 			{"hidden":"{$item_hide_integrated_edit_field3}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion fecha_postulacion }","bold":true},{"text":{$fecha_postulacion_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
 			{"hidden":"{$item_hide_integrated_edit_field4}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion fk_personaid }","bold":true},{"text":{$fk_personaid_pdfvalue}}],"margin":[0,0,0,15]},
 				
 				
-			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion metodo_insercion }","bold":true},{"text":{$metodo_insercion_pdfvalue}}],"margin":[0,0,0,15]},
+			{"hidden":"{$item_hide_integrated_edit_field2}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion id_estado_postulado }","bold":true},{"text":{$id_estado_postulado_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field5}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion estado_postulado }","bold":true},{"text":{$estado_postulado_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field6}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion id_estado_vacancia }","bold":true},{"text":{$id_estado_vacancia_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field7}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion estado_vacancia }","bold":true},{"text":{$estado_vacancia_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field8}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion fk_id_feria_empleo }","bold":true},{"text":{$fk_id_feria_empleo_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field9}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion feria_empleo }","bold":true},{"text":{$feria_empleo_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field10}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion nombre_puesto }","bold":true},{"text":{$nombre_puesto_pdfvalue}}],"margin":[0,0,0,15]},
+				
+				
+			{"hidden":"{$item_hide_integrated_edit_field11}","stack":[{"text":"{$jslabel bolsa_empleo_postulacion descripcion_puesto }","bold":true},{"text":{$descripcion_puesto_pdfvalue}}],"margin":[0,0,0,15]},
 				
 		  ],
   "border": [ false, false, false, false ],

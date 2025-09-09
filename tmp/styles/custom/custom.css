@@ -13416,3 +13416,74 @@ span span span input[type=search]{
 
 
 
+.r-edit-field .input .button .select .textarea {
+    color: #fff;
+}
+
+.bs-ctrlspan {
+ color: #ffffff;
+}
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    color: #fff;
+    background-color: #4e49f8;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+    list-style: none;
+    color: #000;
+}
+
+/* Cambia texto de elementos .text-muted a blanco, excepto en modales */
+body:not(.modal-open) .text-muted {
+    color: white !important;
+}
+
+/* PAra bandera Emplea Py */ 
+
+.card-container {
+  position: relative;
+  margin-top: 10px; /* o padding-top si preferís */
+  padding-left: 10px;
+}
+.badge-especial {
+  position: absolute;
+  top: 0px;     /* antes estaba en 0 */
+  left: 15px;    /* antes estaba en 0 */
+  width: 0;
+  height: 0;
+  border-top: 80px solid rgba(40, 167, 69, 0.85);
+  border-right: 80px solid transparent;
+  z-index: 10;
+  pointer-events: none;
+}
+.badge-especial::after {
+  content: "EmpleaPy Joven";
+  position: absolute;
+  top: -53px;
+  left: -4px;
+  width: 56px;
+  transform: rotate(-45deg);
+  color: white;
+  font-size: 8px;
+  font-weight: 400;
+  font-family: "Segoe UI", sans-serif;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .badge-especial {
+    left: 5px;
+  }
+}
+@media (max-width: 576px) {
+  .badge-especial {
+    left: 0px;
+  }
+  .panel-body {
+  position: relative;
+  overflow: hidden; /* opcional, para evitar que se desborde contenido */
+}
+  
+}

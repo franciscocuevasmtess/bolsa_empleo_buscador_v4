@@ -1,6 +1,14 @@
 [data-page="cvc_experiencia_laboral_edit"][data-itemid="edit_header"] {
   color: #000000;
 }
+[data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"] > * > label,
+[data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"] > * > * > input,
+[data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"] > * > * > textarea,
+[data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"] > * > * > select,
+[data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"] > * > * > .r-readonly-control,
+[data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"][data-page="cvc_experiencia_laboral_edit"][data-itemid="integrated_edit_field8"] > * > * > * > select {
+  color: #000000;
+}
 [data-page="cvc_experiencia_laboral_edit"][data-itemid="page_image_ash8f23hr"] {
   width: 400px;
 }

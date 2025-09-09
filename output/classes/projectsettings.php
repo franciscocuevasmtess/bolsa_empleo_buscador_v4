@@ -3700,6 +3700,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "personas_aportantes_hogar" ] = "bolsa_empleo.personas_aportantes_hogar";
 	$projectEntities[ "bolsa_empleo.ingreso_mensual_aproximado" ] = array( "url" => "ingreso_mensual_aproximado", "type" => 0 );
 	$projectEntitiesReverse[ "ingreso_mensual_aproximado" ] = "bolsa_empleo.ingreso_mensual_aproximado";
+	$projectEntities[ "bolsa_empleo.estado_postulacion" ] = array( "url" => "estado_postulacion", "type" => 0 );
+	$projectEntitiesReverse[ "estado_postulacion" ] = "bolsa_empleo.estado_postulacion";
 }
 
 function findTable( $table ) {

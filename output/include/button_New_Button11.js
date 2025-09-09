@@ -30,10 +30,10 @@ Runner.buttonEvents["New_Button11"] = function( pageObj, proxy, pageid ) {
 	
 	var estado_civil = document.getElementById('readonly_value_estado_civil_' + pageid).value;
 	params["estado_civil"] = estado_civil;
-	
+	/*
 	var canthijos = document.getElementById('value_canthijos_' + pageid).value;
 	params["canthijos"] = canthijos;
-	
+	*/
 	var city_id = document.getElementById('value_city_id_' + pageid).value;
 	params["city_id"] = city_id;
 	
@@ -42,7 +42,7 @@ Runner.buttonEvents["New_Button11"] = function( pageObj, proxy, pageid ) {
 	
 	var domicilio = document.getElementById('value_domicilio_' + pageid).value;
 	params["domicilio"] = domicilio;
-    
+   /* 
 	var selectedValueEsIndigena = document.getElementById('value_esindigena_' + pageid).value;
 	params["selectedValueEsIndigena"] = selectedValueEsIndigena;
 	
@@ -51,7 +51,7 @@ Runner.buttonEvents["New_Button11"] = function( pageObj, proxy, pageid ) {
 	
 	var porcentaje_discapacidad = document.getElementById('value_porcentaje_discapacidad_' + pageid).value;
 	params["porcentaje_discapacidad"] = porcentaje_discapacidad;
-	
+	*/
 	var nro_cel = document.getElementById('value_nro_cel_' + pageid).value;
 	params["nro_cel"] = nro_cel;
 	
@@ -67,7 +67,7 @@ Runner.buttonEvents["New_Button11"] = function( pageObj, proxy, pageid ) {
 			text: "Por favor, describe brevemente tu profesión."
 		});
 	}
-	
+	/*
 	if (!canthijos) {
 		error = true;
 		Swal.fire({
@@ -83,7 +83,7 @@ Runner.buttonEvents["New_Button11"] = function( pageObj, proxy, pageid ) {
 			text: "La cantidad de hijos no puede ser negativa."
 		});
 	}
-	
+	*/
 	if (!city_id) {
 		// El campo está vacío o es un valor "falso".
 		error = true;
@@ -103,7 +103,7 @@ Runner.buttonEvents["New_Button11"] = function( pageObj, proxy, pageid ) {
 			text: "Ingresa tu dirección completa."
 		});
 	}
-	
+	/*
 	if (!selectedValueEsIndigena) {
 		// El campo está vacío o es un valor "falso".
 		error = true;
@@ -123,7 +123,7 @@ Runner.buttonEvents["New_Button11"] = function( pageObj, proxy, pageid ) {
 			text: "Indica si tienes alguna discapacidad."
 		});
 	}
-	
+	*/
 	if (!nro_cel) {
 		// El campo está vacío o es un valor "falso".
 		error = true;

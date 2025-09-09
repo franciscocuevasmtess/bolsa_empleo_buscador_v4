@@ -55,5 +55,31 @@
 
 
 	$menuNodes[] = $menuNode;
+	$menuNode = array();
+	$menuNode["id"] = "18";
+	$menuNode["name"] = "Mis Postulaciones";
+	$menuNode["href"] = "mypage.htm";
+	$menuNode["type"] = "Leaf";
+	$menuNode["table"] = "bolsa_empleo.postulacion";
+	$menuNode["style"] = "";
+	$menuNode["params"] = "";
+	$menuNode["parent"] = "0";
+	$menuNode["nameType"] = "Text";
+	$menuNode["linkType"] = "Internal";
+	$menuNode["pageType"] = strtolower("List");//
+	$menuNode["pageId"] = "";
+	$menuNode["openType"] = "None";
+
+	$menuNode["icon"] = "glyphicon-th-list";
+	$menuNode["iconType"] = "2";
+	$menuNode["iconShow"] = "1";
+
+		$menuNode["color"] = "";
+
+	$menuNode["title"] = "Mis Postulaciones";
+
+
+
+	$menuNodes[] = $menuNode;
 	$menuNodesCache[ "main" ] = $menuNodes;
 ?>

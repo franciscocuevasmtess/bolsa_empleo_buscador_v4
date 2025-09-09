@@ -2809,7 +2809,8 @@ $tdatacvc_experiencia_laboral[".hideMobileList"] = array();
 	$edata["validateAs"]["basicValidate"] = array();
 	$edata["validateAs"]["customMessages"] = array();
 	
-	
+		$edata["autoUpdatable"] = true;
+
 //	End validation
 
 	

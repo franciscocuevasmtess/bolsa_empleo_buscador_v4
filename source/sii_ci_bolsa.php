@@ -14,7 +14,7 @@ if(isset($tipod)){
 //Preguntar al reop
 
 $empleado_id="";
-$link = pg_Connect("dbname=eportal host=192.168.70.186 user=postgres password=i54R1943cMzrkbH1");
+$link = pg_Connect("dbname=eportal host=192.168.100.196 user=postgres password=i54R1943cMzrkbH1");
 $rs = pg_exec($link,"
 			SELECT
 			eportal.persons_docs.person_id,
@@ -75,6 +75,7 @@ $rs = pg_exec($link,"
 			$client = curl_init($url);
 			curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 			$response = curl_exec($client);	
+			$response = ltrim($response, "\xEF\xBB\xBF");
 			$result = json_decode(($response),true);
 							$datos=$result['obtenerPersonaPorNroCedulaResponse'] ;
 							//print_r($datos);	
@@ -87,7 +88,7 @@ $rs = pg_exec($link,"
 					echo "Ha sucesido el siguiente error: ".$value['error'];
 				}else{
 							//nacionalidad
-							$link = pg_Connect("dbname=eportal host=192.168.70.186 user=postgres password=i54R1943cMzrkbH1");
+							$link = pg_Connect("dbname=eportal host=192.168.100.196 user=postgres password=i54R1943cMzrkbH1");
 															$rs = pg_exec($link,"
 																				SELECT eportal.country.code 
 																				FROM eportal.country 

@@ -652,6 +652,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="bolsa_empleo.estado_postulacion")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -1255,6 +1259,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="bolsa_empleo.ingreso_mensual_aproximado")
+		{
+			return false;
+		}
+		if($table=="bolsa_empleo.estado_postulacion")
 		{
 			return false;
 		}

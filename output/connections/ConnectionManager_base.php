@@ -304,6 +304,7 @@ class ConnectionManager_Base
 		$connectionsIds["bolsa_empleo.condicion_vivienda"] = "eportal_at_192_168_70_170";
 		$connectionsIds["bolsa_empleo.personas_aportantes_hogar"] = "eportal_at_192_168_70_170";
 		$connectionsIds["bolsa_empleo.ingreso_mensual_aproximado"] = "eportal_at_192_168_70_170";
+		$connectionsIds["bolsa_empleo.estado_postulacion"] = "eportal_at_192_168_70_170";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

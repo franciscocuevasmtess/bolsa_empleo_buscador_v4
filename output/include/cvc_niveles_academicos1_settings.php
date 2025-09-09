@@ -649,6 +649,7 @@ $proto11["m_srcTableName"] = "bolsa_empleo.cvc_niveles_academicos1";
 $proto11["m_columns"] = array();
 $proto11["m_columns"][] = "cvc_id_niveles_academicos";
 $proto11["m_columns"][] = "descripcion";
+$proto11["m_columns"][] = "orden";
 $obj = new SQLTable($proto11);
 
 $proto10["m_table"] = $obj;

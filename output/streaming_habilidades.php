@@ -7,7 +7,7 @@ header('Expires: 0');
 include("include/dbcommon.php");
 
 // Datos de conexión
-$host = "192.168.70.186";
+$host = "192.168.100.196";
 $dbname = "eportal";
 $user = "postgres";
 $password = "i54R1943cMzrkbH1";

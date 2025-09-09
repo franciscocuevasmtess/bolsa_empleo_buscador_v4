@@ -383,28 +383,6 @@
 
 {END id_vacancia_fieldblock}
 											
-{BEGIN id_estado_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_id_estado}  r-vertical-field" 
-	data-signal-error-for="id_estado{$id}" {$required_attr_id_estado}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-field="id_estado" data-fieldname="id_estado" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_id_estado}">
-		{BEGIN id_estado_label}{$label bolsa_empleo_postulacion id_estado }{END id_estado_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$id_estado_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="id_estado" {$tooltipAttr bolsa_empleo_postulacion id_estado } >
-		<div class="text-muted" >
-		{$tooltip bolsa_empleo_postulacion id_estado }		</div>
-	</div>
-</div>
-
-
-{END id_estado_fieldblock}
-											
 {BEGIN fecha_postulacion_fieldblock}
 
 
@@ -448,28 +426,6 @@
 
 
 {END fk_personaid_fieldblock}
-											
-{BEGIN metodo_insercion_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_metodo_insercion}  r-vertical-field" 
-	data-signal-error-for="metodo_insercion{$id}" {$required_attr_metodo_insercion}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-field="metodo_insercion" data-fieldname="metodo_insercion" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_metodo_insercion}">
-		{BEGIN metodo_insercion_label}{$label bolsa_empleo_postulacion metodo_insercion }{END metodo_insercion_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$metodo_insercion_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="metodo_insercion" {$tooltipAttr bolsa_empleo_postulacion metodo_insercion } >
-		<div class="text-muted" >
-		{$tooltip bolsa_empleo_postulacion metodo_insercion }		</div>
-	</div>
-</div>
-
-
-{END metodo_insercion_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

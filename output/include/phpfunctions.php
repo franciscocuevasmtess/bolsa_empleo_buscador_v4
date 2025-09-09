@@ -1424,6 +1424,123 @@ $formattedDate = strftime('%A %d de %B %Y', $date->getTimestamp()); // Imprimir 
 $value = utf8_encode($formattedDate);;
 		return $value;
 	}
+				if($table=="bolsa_empleo.postulacion" && $field=="id_vacancia")
+	{
+		 $link= "vacancia_list.php?q=(id_vacancias~equals~".$data['id_vacancia'].")";
+
+$enlace = '
+				<a href="'.$link.'" class="btn btn-success"  style="min-width: 80px; text-align: center;">
+					   <i class="bi bi-search"></i>  '.$data['id_vacancia'].'
+					</a>
+				';
+
+$value= $enlace;;
+		return $value;
+	}
+				if($table=="bolsa_empleo.postulacion" && $field=="id_estado_postulado")
+	{
+		if ($data["id_estado_postulado"] == '6') {  
+	$value = "<span class='badge badge-rechazado'>" . $value . "</span>";  //Rojo medio claro
+} else 
+if ($data["id_estado_postulado"] == '5') {  
+	$value = "<span class='badge badge-pendiente'>" . $value . "</span>"; //caqui
+} else
+if ($data["id_estado_postulado"] == '4') {  
+	$value = "<span class='badge badge-busqueda'>" . $value . "</span>";  //Verde
+} else {
+  $value = "<span class='badge badge-defecto'>" . $value . "</span>";  //Verde
+}
+;
+		return $value;
+	}
+				if($table=="bolsa_empleo.postulacion" && $field=="id_estado_vacancia")
+	{
+		if ($data["id_estado"] == '1') {  
+     $value="<span class='badge badge-pendiente'>" .$value . "</span>"; 
+}
+
+
+if ($data["id_estado_vacancia"] == '2') {  
+     $value="<span class='badge badge-busqueda'>" .$value . "</span>";  
+}
+
+if ($data["id_estado_vacancia"] == '3') {  
+     $value="<span class='badge badge-evaluacion'>" .$value . "</span>";  
+}
+
+if ($data["id_estado_vacancia"] == '4') {  
+     $value="<span class='badge badge-rechazado'>" .$value . "</span>";  
+}
+
+if ($data["id_estado_vacancia"] == '5') {  
+     $value="<span class='badge badge-completada'>" .$value . "</span>";  
+}
+
+if ($data["id_estado_vacancia"] == '6') {  
+     $value="<span class='badge badge-cerrada'>" .$value . "</span>";  
+};
+		return $value;
+	}
+				if($table=="bolsa_empleo.postulacion" && $field=="estado_vacancia")
+	{
+		if ($data["estado_vacancia"] == '1') {  
+     $value="<span class='badge badge-pendiente'>" .$value . "</span>"; 
+}
+
+
+if ($data["estado_vacancia"] == '2') {  
+     $value="<span class='badge badge-busqueda'>" .$value . "</span>";  
+}
+
+if ($data["estado_vacancia"] == '3') {  
+     $value="<span class='badge badge-evaluacion'>" .$value . "</span>";  
+}
+
+if ($data["estado_vacancia"] == '4') {  
+     $value="<span class='badge badge-rechazado'>" .$value . "</span>";  
+}
+
+if ($data["estado_vacancia"] == '5') {  
+     $value="<span class='badge badge-completada'>" .$value . "</span>";  
+}
+
+if ($data["estado_vacancia"] == '6') {  
+     $value="<span class='badge badge-cerrada'>" .$value . "</span>";  
+};
+		return $value;
+	}
+				if($table=="bolsa_empleo.postulacion" && $field=="fk_id_feria_empleo")
+	{
+		if($data["es_programa"]){
+	$texto="<span class='badge badge-feria' id='".$data["id_vacancias"]."'>" .$value. "</span>"; 
+	$descripcion=$data["descripcion_feria"];
+	$nombre=$data["nombre_feria"];
+
+
+
+	$value=$texto.'
+
+
+
+	<script>
+		 document.getElementById("'.$data["id_vacancias"].'").addEventListener("click", function() {
+			  Swal.fire({
+					title: "'.addslashes($nombre).'",
+					html: "'.addslashes($descripcion).'", 
+					confirmButtonText: "Aceptar"
+			  });
+		 });
+	</script>
+
+	';
+}else{
+	$value="<span class='badge badge-feria' id='".$data["id_vacancias"]."'>" .$value. "</span>"; 
+}
+
+
+;
+		return $value;
+	}
 				if($table=="personas-pasos" && $field=="sexo")
 	{
 		if ($value["sexo"] == 'F') {  
@@ -1592,6 +1709,10 @@ function GetAutoUpdateValue($field, $ptype, $table="")
 				if($table=="bolsa_empleo.cvc_experiencia_laboral" && $field=="fk_persona_id")
 	{
 		return $_SESSION["persona_id"];
+	}
+				if($table=="bolsa_empleo.cvc_experiencia_laboral" && $field=="proveedor" && $ptype=="edit")
+	{
+		return $value;
 	}
 				if($table=="vista_para_curri_experiencia_laboral" && $field=="fk_persona_id")
 	{

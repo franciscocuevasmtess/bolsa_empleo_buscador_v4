@@ -141,10 +141,8 @@ pdfDocument = {
 	
 			"text": [
 		
-				
-			{"text":"","hidden":"{$item_hide_breadcrumb}"},
-				
-		  ],
+				'',
+	  ],
   "border": [ false, false, false, false ],
               "alignment": 'left',
      
@@ -203,6 +201,54 @@ pdfDocument = {
 				
 				[
 																{
+	cellId: 'c',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"Historial de postulaciones","color":"#ffffff","hidden":"{$item_hide_text}","fontSize":30,"bold":true,"isHtml":true},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'left',
+     
+      
+      },
+
+																							{
+	cellId: 'c3',
+	col:0,
+	row:0,
+			
+		
+	//	static colspan/rowspan
+		
+			
+			
+	
+			"text": [
+		
+				
+			{"text":"","hidden":"{$item_hide_simple_search}"},
+				
+		  ],
+  "border": [ false, false, false, false ],
+              "alignment": 'right',
+     
+      
+      },
+
+											],
+						[
+																{
 	cellId: 'c1',
 	col:0,
 	row:0,
@@ -216,13 +262,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_add}"},
-				
-				
 			{"text":"","hidden":"{$item_hide_inline_add}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_delete}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -245,13 +285,10 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"Mostrando %first% - %last% de %total%","hidden":"{$item_hide_details_found}","isHtml":true,"page_indicator":true},
+			{"text":"Mostrando %first% - %last% de %total%","color":"#ffffff","hidden":"{$item_hide_details_found}","bold":true,"isHtml":true,"page_indicator":true},
 				
 				
 			{"text":"","hidden":"{$item_hide_page_size}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_print_panel}"},
 				
 		  ],
   "border": [ false, false, false, false ],
@@ -302,66 +339,9 @@ pdfDocument = {
       },
 
 {END cellblock_grid_headcell_icons}
-																							{BEGIN cellblock_grid_headcell_checkbox}
-{
-	cellId: 'headcell_checkbox',
-	col:0,
-	row:0,
-				style: 'headcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_grid_checkbox_head}"},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_headcell_checkbox}
 																							{BEGIN cellblock_grid_headcell_field}
 {
 	cellId: 'headcell_field',
-	col:0,
-	row:0,
-			fieldName: 'id_postulacion',
-				style: 'headcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				
-			{"text":"{$jslabel bolsa_empleo_postulacion id_postulacion }","hidden":"{$item_hide_simple_grid_field6}","bold":true},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": '{$id_postulacion_align}',
-     
-      
-      },
-
-{END cellblock_grid_headcell_field}
-																							{BEGIN cellblock_grid_headcell_field1}
-{
-	cellId: 'headcell_field1',
 	col:0,
 	row:0,
 			fieldName: 'id_vacancia',
@@ -378,7 +358,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel bolsa_empleo_postulacion id_vacancia }","hidden":"{$item_hide_simple_grid_field7}","bold":true},
+			{"text":"{$jslabel bolsa_empleo_postulacion id_vacancia }","hidden":"{$item_hide_simple_grid_field6}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -387,13 +367,13 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field1}
-																							{BEGIN cellblock_grid_headcell_field2}
+{END cellblock_grid_headcell_field}
+																							{BEGIN cellblock_grid_headcell_field1}
 {
-	cellId: 'headcell_field2',
+	cellId: 'headcell_field1',
 	col:0,
 	row:0,
-			fieldName: 'id_estado',
+			fieldName: 'nombre_vacancia',
 				style: 'headcell',
 		
 		
@@ -407,11 +387,40 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel bolsa_empleo_postulacion id_estado }","hidden":"{$item_hide_simple_grid_field8}","bold":true},
+			{"text":"{$jslabel bolsa_empleo_postulacion nombre_vacancia }","hidden":"{$item_hide_grid_field}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
-              "alignment": '{$id_estado_align}',
+              "alignment": '{$nombre_vacancia_align}',
+     
+      
+      },
+
+{END cellblock_grid_headcell_field1}
+																							{BEGIN cellblock_grid_headcell_field2}
+{
+	cellId: 'headcell_field2',
+	col:0,
+	row:0,
+			fieldName: 'id_estado_vacancia',
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"{$jslabel bolsa_empleo_postulacion id_estado_vacancia }","hidden":"{$item_hide_simple_grid_field7}","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$id_estado_vacancia_align}',
      
       
       },
@@ -420,6 +429,64 @@ pdfDocument = {
 																							{BEGIN cellblock_grid_headcell_field3}
 {
 	cellId: 'headcell_field3',
+	col:0,
+	row:0,
+			fieldName: 'fk_id_feria_empleo',
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"{$jslabel bolsa_empleo_postulacion fk_id_feria_empleo }","hidden":"{$item_hide_simple_grid_field8}","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$fk_id_feria_empleo_align}',
+     
+      
+      },
+
+{END cellblock_grid_headcell_field3}
+																							{BEGIN cellblock_grid_headcell_field4}
+{
+	cellId: 'headcell_field4',
+	col:0,
+	row:0,
+			fieldName: 'id_postulacion',
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"{$jslabel bolsa_empleo_postulacion id_postulacion }","hidden":"{$item_hide_simple_grid_field9}","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$id_postulacion_align}',
+     
+      
+      },
+
+{END cellblock_grid_headcell_field4}
+																							{BEGIN cellblock_grid_headcell_field5}
+{
+	cellId: 'headcell_field5',
 	col:0,
 	row:0,
 			fieldName: 'fecha_postulacion',
@@ -436,7 +503,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"{$jslabel bolsa_empleo_postulacion fecha_postulacion }","hidden":"{$item_hide_simple_grid_field9}","bold":true},
+			{"text":"{$jslabel bolsa_empleo_postulacion fecha_postulacion }","hidden":"{$item_hide_simple_grid_field10}","bold":true},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -445,65 +512,36 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_headcell_field3}
-																							{BEGIN cellblock_grid_headcell_field4}
-{
-	cellId: 'headcell_field4',
-	col:0,
-	row:0,
-			fieldName: 'fk_personaid',
-				style: 'headcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				
-			{"text":"{$jslabel bolsa_empleo_postulacion fk_personaid }","hidden":"{$item_hide_simple_grid_field10}","bold":true},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": '{$fk_personaid_align}',
-     
-      
-      },
-
-{END cellblock_grid_headcell_field4}
-																							{BEGIN cellblock_grid_headcell_field5}
-{
-	cellId: 'headcell_field5',
-	col:0,
-	row:0,
-			fieldName: 'metodo_insercion',
-				style: 'headcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				
-			{"text":"{$jslabel bolsa_empleo_postulacion metodo_insercion }","hidden":"{$item_hide_simple_grid_field11}","bold":true},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": '{$metodo_insercion_align}',
-     
-      
-      },
-
 {END cellblock_grid_headcell_field5}
+																							{BEGIN cellblock_grid_headcell_field6}
+{
+	cellId: 'headcell_field6',
+	col:0,
+	row:0,
+			fieldName: 'id_estado_postulado',
+				style: 'headcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":"{$jslabel bolsa_empleo_postulacion id_estado_postulado }","hidden":"{$item_hide_simple_grid_field11}","bold":true},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$id_estado_postulado_align}',
+     
+      
+      },
+
+{END cellblock_grid_headcell_field6}
 											],
 				{END row_grid_0}
 		
@@ -531,13 +569,7 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":"","hidden":"{$item_hide_grid_edit}"},
-				
-				
 			{"text":"","hidden":"{$item_hide_grid_inline_cancel}"},
-				
-				
-			{"text":"","hidden":"{$item_hide_grid_view}"},
 				
 		  ],
   "border": [ true, true, true, true ],
@@ -547,66 +579,9 @@ pdfDocument = {
       },
 
 {END cellblock_grid_cell_icons}
-																							{BEGIN cellblock_grid_cell_checkbox}
-{
-	cellId: 'cell_checkbox',
-	col:0,
-	row:0,
-				style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				
-			{"text":"","hidden":"{$item_hide_grid_checkbox}"},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_cell_checkbox}
 																							{BEGIN cellblock_grid_cell_field}
 {
 	cellId: 'cell_field',
-	col:0,
-	row:0,
-			fieldName: 'id_postulacion',
-				style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				
-			{"text":{$id_postulacion_pdfvalue},"hidden":"{$item_hide_simple_grid_field}"},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": '{$id_postulacion_align}',
-     
-      
-      },
-
-{END cellblock_grid_cell_field}
-																							{BEGIN cellblock_grid_cell_field1}
-{
-	cellId: 'cell_field1',
 	col:0,
 	row:0,
 			fieldName: 'id_vacancia',
@@ -632,13 +607,13 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field1}
-																							{BEGIN cellblock_grid_cell_field2}
+{END cellblock_grid_cell_field}
+																							{BEGIN cellblock_grid_cell_field1}
 {
-	cellId: 'cell_field2',
+	cellId: 'cell_field1',
 	col:0,
 	row:0,
-			fieldName: 'id_estado',
+			fieldName: 'nombre_vacancia',
 				style: 'bodycell',
 		
 		
@@ -652,11 +627,40 @@ pdfDocument = {
 			"text": [
 		
 				
-			{"text":{$id_estado_pdfvalue},"hidden":"{$item_hide_simple_grid_field2}"},
+			{"text":{$nombre_vacancia_pdfvalue},"hidden":"{$item_hide_grid_field2}"},
 				
 		  ],
   "border": [ true, true, true, true ],
-              "alignment": '{$id_estado_align}',
+              "alignment": '{$nombre_vacancia_align}',
+     
+      
+      },
+
+{END cellblock_grid_cell_field1}
+																							{BEGIN cellblock_grid_cell_field2}
+{
+	cellId: 'cell_field2',
+	col:0,
+	row:0,
+			fieldName: 'id_estado_vacancia',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":{$id_estado_vacancia_pdfvalue},"hidden":"{$item_hide_simple_grid_field2}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$id_estado_vacancia_align}',
      
       
       },
@@ -665,6 +669,64 @@ pdfDocument = {
 																							{BEGIN cellblock_grid_cell_field3}
 {
 	cellId: 'cell_field3',
+	col:0,
+	row:0,
+			fieldName: 'fk_id_feria_empleo',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":{$fk_id_feria_empleo_pdfvalue},"hidden":"{$item_hide_simple_grid_field4}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$fk_id_feria_empleo_align}',
+     
+      
+      },
+
+{END cellblock_grid_cell_field3}
+																							{BEGIN cellblock_grid_cell_field4}
+{
+	cellId: 'cell_field4',
+	col:0,
+	row:0,
+			fieldName: 'id_postulacion',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":{$id_postulacion_pdfvalue},"hidden":"{$item_hide_simple_grid_field}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$id_postulacion_align}',
+     
+      
+      },
+
+{END cellblock_grid_cell_field4}
+																							{BEGIN cellblock_grid_cell_field5}
+{
+	cellId: 'cell_field5',
 	col:0,
 	row:0,
 			fieldName: 'fecha_postulacion',
@@ -690,65 +752,36 @@ pdfDocument = {
       
       },
 
-{END cellblock_grid_cell_field3}
-																							{BEGIN cellblock_grid_cell_field4}
-{
-	cellId: 'cell_field4',
-	col:0,
-	row:0,
-			fieldName: 'fk_personaid',
-				style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				
-			{"text":{$fk_personaid_pdfvalue},"hidden":"{$item_hide_simple_grid_field4}"},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": '{$fk_personaid_align}',
-     
-      
-      },
-
-{END cellblock_grid_cell_field4}
-																							{BEGIN cellblock_grid_cell_field5}
-{
-	cellId: 'cell_field5',
-	col:0,
-	row:0,
-			fieldName: 'metodo_insercion',
-				style: 'bodycell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				
-			{"text":{$metodo_insercion_pdfvalue},"hidden":"{$item_hide_simple_grid_field5}"},
-				
-		  ],
-  "border": [ true, true, true, true ],
-              "alignment": '{$metodo_insercion_align}',
-     
-      
-      },
-
 {END cellblock_grid_cell_field5}
+																							{BEGIN cellblock_grid_cell_field6}
+{
+	cellId: 'cell_field6',
+	col:0,
+	row:0,
+			fieldName: 'id_estado_postulado',
+				style: 'bodycell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				
+			{"text":{$id_estado_postulado_pdfvalue},"hidden":"{$item_hide_simple_grid_field5}"},
+				
+		  ],
+  "border": [ true, true, true, true ],
+              "alignment": '{$id_estado_postulado_align}',
+     
+      
+      },
+
+{END cellblock_grid_cell_field6}
 											],
 				{END row_grid_1}
 		
@@ -784,32 +817,6 @@ pdfDocument = {
       },
 
 {END cellblock_grid_footcell_icons}
-																							{BEGIN cellblock_grid_footcell_checkbox}
-{
-	cellId: 'footcell_checkbox',
-	col:0,
-	row:0,
-				style: 'footcell',
-		
-		
-	//	dynamic colspan/rowspan
-
-		
-		
-	
-			
-	
-			"text": [
-		
-				'',
-	  ],
-  "border": [ true, true, true, true ],
-              "alignment": 'left',
-     
-      
-      },
-
-{END cellblock_grid_footcell_checkbox}
 																							{BEGIN cellblock_grid_footcell_field}
 {
 	cellId: 'footcell_field',
@@ -966,6 +973,32 @@ pdfDocument = {
       },
 
 {END cellblock_grid_footcell_field5}
+																							{BEGIN cellblock_grid_footcell_field6}
+{
+	cellId: 'footcell_field6',
+	col:0,
+	row:0,
+				style: 'footcell',
+		
+		
+	//	dynamic colspan/rowspan
+
+		
+		
+	
+			
+	
+			"text": [
+		
+				'',
+	  ],
+  "border": [ true, true, true, true ],
+              "alignment": 'left',
+     
+      
+      },
+
+{END cellblock_grid_footcell_field6}
 											],
 				{END row_grid_2}
 		

@@ -325,6 +325,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("ingreso_mensual_aproximado" == $shortTName )
 		return true;
+	if ("estado_postulacion" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -924,6 +926,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="bolsa_empleo.ingreso_mensual_aproximado";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("bolsa_empleo.estado_postulacion");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="bolsa_empleo.estado_postulacion";
+	}
 	return $arr;
 }
 
@@ -994,6 +1005,7 @@ function GetTablesListWithoutSecurity()
 	$arr[]="bolsa_empleo.condicion_vivienda";
 	$arr[]="bolsa_empleo.personas_aportantes_hogar";
 	$arr[]="bolsa_empleo.ingreso_mensual_aproximado";
+	$arr[]="bolsa_empleo.estado_postulacion";
 	return $arr;
 }
 
@@ -1916,6 +1928,11 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="bolsa_empleo.ingreso_mensual_aproximado" )
+	{
+//	default permissions
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="bolsa_empleo.estado_postulacion" )
 	{
 //	default permissions
 		return "ADESPI".$extraPerm;

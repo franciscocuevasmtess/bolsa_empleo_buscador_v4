@@ -331,7 +331,7 @@
 			 
 				<div 
 	data-cellId="above-grid_c2" data-pageid="{$pageid}" data-page="personas_pasos_edit"	{$cell_above-grid_c2}
-	class=" r-ori-vert			col-md-6
+	class=" r-ori-vert			col-md-12
 	">
 	 
 		<ul class="nav nav-pills nav-justified" id="stepnav{$id}"  data-stepcontrol data-itemtype="step_nav" data-itemid="step_nav" {$item_step_nav} data-pageid="{$pageid}" data-page="personas_pasos_edit">
@@ -344,27 +344,7 @@
 			<li role="presentation" data-step="2">
 			<a href="#">Experiencia Laboral <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span></a>
 		</li>
-			<li role="presentation" data-step="3">
-			<a href="#">Referencias Personales <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">4</span></a>
-		</li>
-			<li role="presentation" data-step="4">
-			<a href="#">Conocimiento de Idiomas <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">5</span></a>
-		</li>
-			<li role="presentation" data-step="5">
-			<a href="#">Habilidades Informáticas <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">6</span></a>
-		</li>
-			<li role="presentation" data-step="6">
-			<a href="#">Tipo de Movilidad <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">7</span></a>
-		</li>
-			<li role="presentation" data-step="7">
-			<a href="#">Mejorar Empleabilidad <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">8</span></a>
-		</li>
-	</ul>	</div>			 
-				<div 
-	data-cellId="above-grid_c" data-pageid="{$pageid}" data-page="personas_pasos_edit"	{$cell_above-grid_c}
-	class=" r-ori-vert			col-md-6
-	">
-	</div>					</div>
+	</ul>	</div>					</div>
 	 
 		<div class="row">
 			 
@@ -440,7 +420,7 @@
 >
 	<div edit-form-cell class="clearfix">
 				<span data-itemtype="text" data-itemid="text1" {$item_text1} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-small > 
-	<div class="alert alert-light"><h4>Agregá tus datos personales para que podamos identificarte y contactarnos contigo.</h4><span class="badge text-bg-primary">PASOS 1/8</span>
+	<div class="alert alert-light"><h4>Agregá tus datos personales para que podamos identificarte y contactarnos contigo.</h4><span class="badge text-bg-primary">PASOS 1/3</span>
 </div></span>
 	
 								</td>
@@ -484,204 +464,25 @@
 		
 >
 	<div edit-form-cell class="clearfix">
-				
-{BEGIN foto_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_foto}  r-vertical-field" 
-	data-signal-error-for="foto{$id}" {$required_attr_foto}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="foto" data-fieldname="foto" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_foto}">
-		{BEGIN foto_label}{$label personas_pasos foto }{END foto_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$foto_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="foto" {$tooltipAttr personas_pasos foto } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos foto }		</div>
+				{BEGIN foto_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="foto{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label" {$item_edit_field_label} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="foto" data-fieldname="foto" data-before-same-field {$required_attr_foto}>
+		<label class="r-edit-label control-label" for="{$labelfor_foto}">
+			{BEGIN foto_label}{$label personas_pasos foto }{END foto_label}
+			<span class="icon-required"></span>
+		</label>
 	</div>
-</div>
-
-
 {END foto_fieldblock}
-											
-{BEGIN resumen_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_resumen}  r-vertical-field" 
-	data-signal-error-for="resumen{$id}" {$required_attr_resumen}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="resumen" data-fieldname="resumen" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_resumen}">
-		{BEGIN resumen_label}{$label personas_pasos resumen }{END resumen_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$resumen_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="resumen" {$tooltipAttr personas_pasos resumen } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos resumen }		</div>
+											{BEGIN foto_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="foto{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field16" {$item_integrated_edit_field16} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="foto" data-fieldname="foto" data-before-same-field {$required_attr_foto}>
+		{$foto_editcontrol}	</div>
+{END foto_fieldblock}
+											{BEGIN foto_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="foto{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip" {$item_edit_field_tooltip} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="foto" data-fieldname="foto" >
+		<div data-helpfor="foto" {$tooltipAttr personas_pasos foto } >
+			<div class="text-muted">{$tooltip personas_pasos foto }</div>
+		</div>
 	</div>
-</div>
-
-
-{END resumen_fieldblock}
-											
-{BEGIN nombre_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_nombre}  r-vertical-field" 
-	data-signal-error-for="nombre{$id}" {$required_attr_nombre}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nombre" data-fieldname="nombre" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_nombre}">
-		{BEGIN nombre_label}{$label personas_pasos nombre }{END nombre_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$nombre_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="nombre" {$tooltipAttr personas_pasos nombre } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos nombre }		</div>
-	</div>
-</div>
-
-
-{END nombre_fieldblock}
-											
-{BEGIN apellidos_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_apellidos}  r-vertical-field" 
-	data-signal-error-for="apellidos{$id}" {$required_attr_apellidos}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="apellidos" data-fieldname="apellidos" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_apellidos}">
-		{BEGIN apellidos_label}{$label personas_pasos apellidos }{END apellidos_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$apellidos_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="apellidos" {$tooltipAttr personas_pasos apellidos } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos apellidos }		</div>
-	</div>
-</div>
-
-
-{END apellidos_fieldblock}
-											
-{BEGIN nacionalidad_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_nacionalidad}  r-vertical-field" 
-	data-signal-error-for="nacionalidad{$id}" {$required_attr_nacionalidad}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nacionalidad" data-fieldname="nacionalidad" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_nacionalidad}">
-		{BEGIN nacionalidad_label}{$label personas_pasos nacionalidad }{END nacionalidad_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$nacionalidad_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="nacionalidad" {$tooltipAttr personas_pasos nacionalidad } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos nacionalidad }		</div>
-	</div>
-</div>
-
-
-{END nacionalidad_fieldblock}
-											
-{BEGIN fechanac_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_fechanac}  r-vertical-field" 
-	data-signal-error-for="fechanac{$id}" {$required_attr_fechanac}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="fechanac" data-fieldname="fechanac" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_fechanac}">
-		{BEGIN fechanac_label}{$label personas_pasos fechanac }{END fechanac_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$fechanac_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="fechanac" {$tooltipAttr personas_pasos fechanac } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos fechanac }		</div>
-	</div>
-</div>
-
-
-{END fechanac_fieldblock}
-											
-{BEGIN sexo_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_sexo}  r-vertical-field" 
-	data-signal-error-for="sexo{$id}" {$required_attr_sexo}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="sexo" data-fieldname="sexo" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_sexo}">
-		{BEGIN sexo_label}{$label personas_pasos sexo }{END sexo_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$sexo_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="sexo" {$tooltipAttr personas_pasos sexo } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos sexo }		</div>
-	</div>
-</div>
-
-
-{END sexo_fieldblock}
-											
-{BEGIN estado_civil_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_estado_civil}  r-vertical-field" 
-	data-signal-error-for="estado_civil{$id}" {$required_attr_estado_civil}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="estado_civil" data-fieldname="estado_civil" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_estado_civil}">
-		{BEGIN estado_civil_label}{$label personas_pasos estado_civil }{END estado_civil_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$estado_civil_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="estado_civil" {$tooltipAttr personas_pasos estado_civil } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos estado_civil }		</div>
-	</div>
-</div>
-
-
-{END estado_civil_fieldblock}
-											
-{BEGIN canthijos_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_canthijos}  r-vertical-field" 
-	data-signal-error-for="canthijos{$id}" {$required_attr_canthijos}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field6" {$item_integrated_edit_field6} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="canthijos" data-fieldname="canthijos" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_canthijos}">
-		{BEGIN canthijos_label}{$label personas_pasos canthijos }{END canthijos_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$canthijos_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="canthijos" {$tooltipAttr personas_pasos canthijos } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos canthijos }		</div>
-	</div>
-</div>
-
-
-{END canthijos_fieldblock}
+{END foto_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}
@@ -699,239 +500,439 @@
 		
 >
 	<div edit-form-cell class="clearfix">
-				
-{BEGIN city_id_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_city_id}  r-vertical-field" 
-	data-signal-error-for="city_id{$id}" {$required_attr_city_id}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="city_id" data-fieldname="city_id" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_city_id}">
-		{BEGIN city_id_label}{$label personas_pasos city_id }{END city_id_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$city_id_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="city_id" {$tooltipAttr personas_pasos city_id } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos city_id }		</div>
+				{BEGIN city_id_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="city_id{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label9" {$item_edit_field_label9} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="city_id" data-fieldname="city_id" data-before-same-field {$required_attr_city_id}>
+		<label class="r-edit-label control-label" for="{$labelfor_city_id}">
+			{BEGIN city_id_label}{$label personas_pasos city_id }{END city_id_label}
+			<span class="icon-required"></span>
+		</label>
 	</div>
-</div>
-
-
 {END city_id_fieldblock}
-											
-{BEGIN distrito_id_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_distrito_id}  r-vertical-field" 
-	data-signal-error-for="distrito_id{$id}" {$required_attr_distrito_id}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="distrito_id" data-fieldname="distrito_id" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_distrito_id}">
-		{BEGIN distrito_id_label}{$label personas_pasos distrito_id }{END distrito_id_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$distrito_id_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="distrito_id" {$tooltipAttr personas_pasos distrito_id } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos distrito_id }		</div>
+											{BEGIN city_id_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="city_id{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field8" {$item_integrated_edit_field8} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="city_id" data-fieldname="city_id" data-before-same-field {$required_attr_city_id}>
+		{$city_id_editcontrol}	</div>
+{END city_id_fieldblock}
+											{BEGIN city_id_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="city_id{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip9" {$item_edit_field_tooltip9} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="city_id" data-fieldname="city_id" >
+		<div data-helpfor="city_id" {$tooltipAttr personas_pasos city_id } >
+			<div class="text-muted">{$tooltip personas_pasos city_id }</div>
+		</div>
 	</div>
-</div>
-
-
-{END distrito_id_fieldblock}
-											
-{BEGIN domicilio_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_domicilio}  r-vertical-field" 
-	data-signal-error-for="domicilio{$id}" {$required_attr_domicilio}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="domicilio" data-fieldname="domicilio" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_domicilio}">
-		{BEGIN domicilio_label}{$label personas_pasos domicilio }{END domicilio_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$domicilio_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="domicilio" {$tooltipAttr personas_pasos domicilio } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos domicilio }		</div>
-	</div>
-</div>
-
-
-{END domicilio_fieldblock}
-											
-{BEGIN esindigena_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_esindigena}  r-vertical-field" 
-	data-signal-error-for="esindigena{$id}" {$required_attr_esindigena}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field10" {$item_integrated_edit_field10} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="esindigena" data-fieldname="esindigena" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_esindigena}">
-		{BEGIN esindigena_label}{$label personas_pasos esindigena }{END esindigena_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$esindigena_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="esindigena" {$tooltipAttr personas_pasos esindigena } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos esindigena }		</div>
-	</div>
-</div>
-
-
-{END esindigena_fieldblock}
-											
-{BEGIN multiselect_discapacidades_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_multiselect_discapacidades}  r-vertical-field" 
-	data-signal-error-for="multiselect_discapacidades{$id}" {$required_attr_multiselect_discapacidades}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field11" {$item_integrated_edit_field11} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="multiselect_discapacidades" data-fieldname="multiselect_discapacidades" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_multiselect_discapacidades}">
-		{BEGIN multiselect_discapacidades_label}{$label personas_pasos multiselect_discapacidades }{END multiselect_discapacidades_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$multiselect_discapacidades_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="multiselect_discapacidades" {$tooltipAttr personas_pasos multiselect_discapacidades } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos multiselect_discapacidades }		</div>
-	</div>
-</div>
-
-
-{END multiselect_discapacidades_fieldblock}
-											
-{BEGIN porcentaje_discapacidad_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_porcentaje_discapacidad}  r-vertical-field" 
-	data-signal-error-for="porcentaje_discapacidad{$id}" {$required_attr_porcentaje_discapacidad}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field13" {$item_integrated_edit_field13} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="porcentaje_discapacidad" data-fieldname="porcentaje_discapacidad" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_porcentaje_discapacidad}">
-		{BEGIN porcentaje_discapacidad_label}{$label personas_pasos porcentaje_discapacidad }{END porcentaje_discapacidad_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$porcentaje_discapacidad_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="porcentaje_discapacidad" {$tooltipAttr personas_pasos porcentaje_discapacidad } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos porcentaje_discapacidad }		</div>
-	</div>
-</div>
-
-
-{END porcentaje_discapacidad_fieldblock}
-											
-{BEGIN adjunto_potencial_discapacidad_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_adjunto_potencial_discapacidad}  r-vertical-field" 
-	data-signal-error-for="adjunto_potencial_discapacidad{$id}" {$required_attr_adjunto_potencial_discapacidad}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field14" {$item_integrated_edit_field14} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="adjunto_potencial_discapacidad" data-fieldname="adjunto_potencial_discapacidad" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_adjunto_potencial_discapacidad}">
-		{BEGIN adjunto_potencial_discapacidad_label}{$label personas_pasos adjunto_potencial_discapacidad }{END adjunto_potencial_discapacidad_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$adjunto_potencial_discapacidad_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="adjunto_potencial_discapacidad" {$tooltipAttr personas_pasos adjunto_potencial_discapacidad } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos adjunto_potencial_discapacidad }		</div>
-	</div>
-</div>
-
-
-{END adjunto_potencial_discapacidad_fieldblock}
-											
-{BEGIN adjunto_certificado_discapacidad_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_adjunto_certificado_discapacidad}  r-vertical-field" 
-	data-signal-error-for="adjunto_certificado_discapacidad{$id}" {$required_attr_adjunto_certificado_discapacidad}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field15" {$item_integrated_edit_field15} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="adjunto_certificado_discapacidad" data-fieldname="adjunto_certificado_discapacidad" >
-
-	<label class="r-edit-label control-label" for="{$labelfor_adjunto_certificado_discapacidad}">
-		{BEGIN adjunto_certificado_discapacidad_label}{$label personas_pasos adjunto_certificado_discapacidad }{END adjunto_certificado_discapacidad_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$adjunto_certificado_discapacidad_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="adjunto_certificado_discapacidad" {$tooltipAttr personas_pasos adjunto_certificado_discapacidad } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos adjunto_certificado_discapacidad }		</div>
-	</div>
-</div>
-
-
-{END adjunto_certificado_discapacidad_fieldblock}
-											
-{BEGIN nro_cel_fieldblock}
-
-
-<div class="r-integrated-field form-group clearfix {$fielddispclass_nro_cel}  r-vertical-field" 
-	data-signal-error-for="nro_cel{$id}" {$required_attr_nro_cel}
-	data-itemtype="integrated_edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nro_cel" data-fieldname="nro_cel" data-before-same-field >
-
-	<label class="r-edit-label control-label" for="{$labelfor_nro_cel}">
-		{BEGIN nro_cel_label}{$label personas_pasos nro_cel }{END nro_cel_label}
-		<span class="icon-required"></span>
-	</label>
-	<div class="r-edit-field">
-		{$nro_cel_editcontrol}	</div>
-	<div class="r-edit-tooltip" data-helpfor="nro_cel" {$tooltipAttr personas_pasos nro_cel } >
-		<div class="text-muted" >
-		{$tooltip personas_pasos nro_cel }		</div>
-	</div>
-</div>
-
-
-{END nro_cel_fieldblock}
-											<span data-itemtype="custom_button" data-itemid="custom_button" {$item_custom_button} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-small data-button-item>
-	<a type="button" title="Guardar los cambios de la Información Básica" class="btn btn-default   
-	" id="New_Button11" href="javascript:void(0)" typeid="ib" >
-					<span class="fa fa-save"></span>
-							Guardar			</a>
-</span>
+{END city_id_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c}
 								</tr>
 	 
 	 
-		
-						<tr>
-						
+														<tr {$row_grid_4} >
+										
 
-{BEGIN cellblock_grid_c5}
+{BEGIN cellblock_grid_c9}
 <td
-	{$cell_grid_c5}
-	class="r-align-left r-ori-vert"
+	{$cell_grid_c9}
+	class=" r-ori-vert"
 	
-			data-single
-				data-fullwidth
-		
-	ocolspan="2"		data-cellId="grid_c5" data-pageid="{$pageid}"
-		data-v-cell="4"
+			
+			data-cellId="grid_c9" data-pageid="{$pageid}"
+		data-v-cell="2"
 		
 >
 	<div edit-form-cell class="clearfix">
-									</td>
-			{END cellblock_grid_c5}
+				{BEGIN resumen_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="resumen{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label1" {$item_edit_field_label1} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="resumen" data-fieldname="resumen" data-before-same-field {$required_attr_resumen}>
+		<label class="r-edit-label control-label" for="{$labelfor_resumen}">
+			{BEGIN resumen_label}{$label personas_pasos resumen }{END resumen_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END resumen_fieldblock}
+											{BEGIN resumen_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="resumen{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field17" {$item_integrated_edit_field17} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="resumen" data-fieldname="resumen" data-before-same-field {$required_attr_resumen}>
+		{$resumen_editcontrol}	</div>
+{END resumen_fieldblock}
+											{BEGIN resumen_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="resumen{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip1" {$item_edit_field_tooltip1} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="resumen" data-fieldname="resumen" >
+		<div data-helpfor="resumen" {$tooltipAttr personas_pasos resumen } >
+			<div class="text-muted">{$tooltip personas_pasos resumen }</div>
+		</div>
+	</div>
+{END resumen_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c9}
+			 
+																
+
+{BEGIN cellblock_grid_c24}
+<td
+	{$cell_grid_c24}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c24" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN distrito_id_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="distrito_id{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label10" {$item_edit_field_label10} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="distrito_id" data-fieldname="distrito_id" data-before-same-field {$required_attr_distrito_id}>
+		<label class="r-edit-label control-label" for="{$labelfor_distrito_id}">
+			{BEGIN distrito_id_label}{$label personas_pasos distrito_id }{END distrito_id_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END distrito_id_fieldblock}
+											{BEGIN distrito_id_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="distrito_id{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field9" {$item_integrated_edit_field9} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="distrito_id" data-fieldname="distrito_id" data-before-same-field {$required_attr_distrito_id}>
+		{$distrito_id_editcontrol}	</div>
+{END distrito_id_fieldblock}
+											{BEGIN distrito_id_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="distrito_id{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip10" {$item_edit_field_tooltip10} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="distrito_id" data-fieldname="distrito_id" >
+		<div data-helpfor="distrito_id" {$tooltipAttr personas_pasos distrito_id } >
+			<div class="text-muted">{$tooltip personas_pasos distrito_id }</div>
+		</div>
+	</div>
+{END distrito_id_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c24}
 								</tr>
 	 
 	 
 														<tr {$row_grid_5} >
+										
+
+{BEGIN cellblock_grid_c10}
+<td
+	{$cell_grid_c10}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c10" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN nombre_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="nombre{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label2" {$item_edit_field_label2} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nombre" data-fieldname="nombre" data-before-same-field {$required_attr_nombre}>
+		<label class="r-edit-label control-label" for="{$labelfor_nombre}">
+			{BEGIN nombre_label}{$label personas_pasos nombre }{END nombre_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END nombre_fieldblock}
+											{BEGIN nombre_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="nombre{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field" {$item_integrated_edit_field} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nombre" data-fieldname="nombre" data-before-same-field {$required_attr_nombre}>
+		{$nombre_editcontrol}	</div>
+{END nombre_fieldblock}
+											{BEGIN nombre_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="nombre{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip2" {$item_edit_field_tooltip2} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nombre" data-fieldname="nombre" >
+		<div data-helpfor="nombre" {$tooltipAttr personas_pasos nombre } >
+			<div class="text-muted">{$tooltip personas_pasos nombre }</div>
+		</div>
+	</div>
+{END nombre_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c10}
+			 
+																
+
+{BEGIN cellblock_grid_c23}
+<td
+	{$cell_grid_c23}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c23" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN domicilio_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="domicilio{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label11" {$item_edit_field_label11} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="domicilio" data-fieldname="domicilio" data-before-same-field {$required_attr_domicilio}>
+		<label class="r-edit-label control-label" for="{$labelfor_domicilio}">
+			{BEGIN domicilio_label}{$label personas_pasos domicilio }{END domicilio_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END domicilio_fieldblock}
+											{BEGIN domicilio_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="domicilio{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field7" {$item_integrated_edit_field7} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="domicilio" data-fieldname="domicilio" data-before-same-field {$required_attr_domicilio}>
+		{$domicilio_editcontrol}	</div>
+{END domicilio_fieldblock}
+											{BEGIN domicilio_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="domicilio{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip11" {$item_edit_field_tooltip11} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="domicilio" data-fieldname="domicilio" >
+		<div data-helpfor="domicilio" {$tooltipAttr personas_pasos domicilio } >
+			<div class="text-muted">{$tooltip personas_pasos domicilio }</div>
+		</div>
+	</div>
+{END domicilio_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c23}
+								</tr>
+	 
+	 
+														<tr {$row_grid_6} >
+										
+
+{BEGIN cellblock_grid_c11}
+<td
+	{$cell_grid_c11}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c11" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN apellidos_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="apellidos{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label3" {$item_edit_field_label3} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="apellidos" data-fieldname="apellidos" data-before-same-field {$required_attr_apellidos}>
+		<label class="r-edit-label control-label" for="{$labelfor_apellidos}">
+			{BEGIN apellidos_label}{$label personas_pasos apellidos }{END apellidos_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END apellidos_fieldblock}
+											{BEGIN apellidos_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="apellidos{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field1" {$item_integrated_edit_field1} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="apellidos" data-fieldname="apellidos" data-before-same-field {$required_attr_apellidos}>
+		{$apellidos_editcontrol}	</div>
+{END apellidos_fieldblock}
+											{BEGIN apellidos_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="apellidos{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip3" {$item_edit_field_tooltip3} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="apellidos" data-fieldname="apellidos" >
+		<div data-helpfor="apellidos" {$tooltipAttr personas_pasos apellidos } >
+			<div class="text-muted">{$tooltip personas_pasos apellidos }</div>
+		</div>
+	</div>
+{END apellidos_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c11}
+			 
+																
+
+{BEGIN cellblock_grid_c25}
+<td
+	{$cell_grid_c25}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c25" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN estado_civil_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="estado_civil{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label7" {$item_edit_field_label7} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="estado_civil" data-fieldname="estado_civil" data-before-same-field {$required_attr_estado_civil}>
+		<label class="r-edit-label control-label" for="{$labelfor_estado_civil}">
+			{BEGIN estado_civil_label}{$label personas_pasos estado_civil }{END estado_civil_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END estado_civil_fieldblock}
+											{BEGIN estado_civil_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="estado_civil{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field5" {$item_integrated_edit_field5} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="estado_civil" data-fieldname="estado_civil" data-before-same-field {$required_attr_estado_civil}>
+		{$estado_civil_editcontrol}	</div>
+{END estado_civil_fieldblock}
+											{BEGIN estado_civil_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="estado_civil{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip7" {$item_edit_field_tooltip7} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="estado_civil" data-fieldname="estado_civil" >
+		<div data-helpfor="estado_civil" {$tooltipAttr personas_pasos estado_civil } >
+			<div class="text-muted">{$tooltip personas_pasos estado_civil }</div>
+		</div>
+	</div>
+{END estado_civil_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c25}
+								</tr>
+	 
+	 
+														<tr {$row_grid_7} >
+										
+
+{BEGIN cellblock_grid_c12}
+<td
+	{$cell_grid_c12}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c12" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN nacionalidad_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="nacionalidad{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label4" {$item_edit_field_label4} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nacionalidad" data-fieldname="nacionalidad" data-before-same-field {$required_attr_nacionalidad}>
+		<label class="r-edit-label control-label" for="{$labelfor_nacionalidad}">
+			{BEGIN nacionalidad_label}{$label personas_pasos nacionalidad }{END nacionalidad_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END nacionalidad_fieldblock}
+											{BEGIN nacionalidad_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="nacionalidad{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field2" {$item_integrated_edit_field2} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nacionalidad" data-fieldname="nacionalidad" data-before-same-field {$required_attr_nacionalidad}>
+		{$nacionalidad_editcontrol}	</div>
+{END nacionalidad_fieldblock}
+											{BEGIN nacionalidad_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="nacionalidad{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip4" {$item_edit_field_tooltip4} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nacionalidad" data-fieldname="nacionalidad" >
+		<div data-helpfor="nacionalidad" {$tooltipAttr personas_pasos nacionalidad } >
+			<div class="text-muted">{$tooltip personas_pasos nacionalidad }</div>
+		</div>
+	</div>
+{END nacionalidad_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c12}
+			 
+																
+
+{BEGIN cellblock_grid_c1}
+<td
+	{$cell_grid_c1}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c1" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN sexo_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="sexo{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label6" {$item_edit_field_label6} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="sexo" data-fieldname="sexo" data-before-same-field {$required_attr_sexo}>
+		<label class="r-edit-label control-label" for="{$labelfor_sexo}">
+			{BEGIN sexo_label}{$label personas_pasos sexo }{END sexo_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END sexo_fieldblock}
+											{BEGIN sexo_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="sexo{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field4" {$item_integrated_edit_field4} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="sexo" data-fieldname="sexo" data-before-same-field {$required_attr_sexo}>
+		{$sexo_editcontrol}	</div>
+{END sexo_fieldblock}
+											{BEGIN sexo_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="sexo{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip6" {$item_edit_field_tooltip6} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="sexo" data-fieldname="sexo" >
+		<div data-helpfor="sexo" {$tooltipAttr personas_pasos sexo } >
+			<div class="text-muted">{$tooltip personas_pasos sexo }</div>
+		</div>
+	</div>
+{END sexo_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c1}
+								</tr>
+	 
+	 
+														<tr {$row_grid_8} >
+										
+
+{BEGIN cellblock_grid_c13}
+<td
+	{$cell_grid_c13}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c13" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN fechanac_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="fechanac{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label5" {$item_edit_field_label5} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="fechanac" data-fieldname="fechanac" data-before-same-field {$required_attr_fechanac}>
+		<label class="r-edit-label control-label" for="{$labelfor_fechanac}">
+			{BEGIN fechanac_label}{$label personas_pasos fechanac }{END fechanac_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END fechanac_fieldblock}
+											{BEGIN fechanac_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="fechanac{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field3" {$item_integrated_edit_field3} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="fechanac" data-fieldname="fechanac" data-before-same-field {$required_attr_fechanac}>
+		{$fechanac_editcontrol}	</div>
+{END fechanac_fieldblock}
+											{BEGIN fechanac_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="fechanac{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip5" {$item_edit_field_tooltip5} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="fechanac" data-fieldname="fechanac" >
+		<div data-helpfor="fechanac" {$tooltipAttr personas_pasos fechanac } >
+			<div class="text-muted">{$tooltip personas_pasos fechanac }</div>
+		</div>
+	</div>
+{END fechanac_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c13}
+			 
+																
+
+{BEGIN cellblock_grid_c26}
+<td
+	{$cell_grid_c26}
+	class=" r-ori-vert"
+	
+			
+			data-cellId="grid_c26" data-pageid="{$pageid}"
+		data-v-cell="2"
+		
+>
+	<div edit-form-cell class="clearfix">
+				{BEGIN nro_cel_fieldblock}
+	<div class="r-edit-label" data-signal-error-for="nro_cel{$id}" data-itemtype="edit_field_label" data-itemid="edit_field_label17" {$item_edit_field_label17} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nro_cel" data-fieldname="nro_cel" data-before-same-field {$required_attr_nro_cel}>
+		<label class="r-edit-label control-label" for="{$labelfor_nro_cel}">
+			{BEGIN nro_cel_label}{$label personas_pasos nro_cel }{END nro_cel_label}
+			<span class="icon-required"></span>
+		</label>
+	</div>
+{END nro_cel_fieldblock}
+											{BEGIN nro_cel_fieldblock}
+	<div class="r-edit-field" data-signal-error-for="nro_cel{$id}" data-itemtype="edit_field" data-itemid="integrated_edit_field12" {$item_integrated_edit_field12} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nro_cel" data-fieldname="nro_cel" data-before-same-field {$required_attr_nro_cel}>
+		{$nro_cel_editcontrol}	</div>
+{END nro_cel_fieldblock}
+											{BEGIN nro_cel_fieldblock}
+	<div class="r-edit-tooltip" data-signal-error-for="nro_cel{$id}" data-itemtype="edit_field_tooltip" data-itemid="edit_field_tooltip17" {$item_edit_field_tooltip17} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-field="nro_cel" data-fieldname="nro_cel" >
+		<div data-helpfor="nro_cel" {$tooltipAttr personas_pasos nro_cel } >
+			<div class="text-muted">{$tooltip personas_pasos nro_cel }</div>
+		</div>
+	</div>
+{END nro_cel_fieldblock}
+	
+								</td>
+			{END cellblock_grid_c26}
+								</tr>
+	 
+	 
+																</tbody></table>
+				
+{BEGIN details_persons_referencia}
+<div data-itemtype="details_preview" data-itemid="details_preview2" {$item_details_preview2} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_persons_referencia}			
+							<span>
+					{$detailslButtons_persons_referencia}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_persons_referencia}
+		</div>
+	</div>
+</div>
+{END details_persons_referencia}
+	
+				 
+	 
+												<table 
+	data-body-align="center"
+	data-location="grid" id="form_grid_{$pageid}" data-makeup="topbar" {$form_grid} data-pageid="{$pageid}" 
+	class="r-edit-form" cellpadding="0" cellspacing="0" 
+	{$grid_hiddenattr} 
+		data-form-width="2"
+		
+		data-v-width="4"
+	>
+	<tbody>
+										<tr {$row_grid_10} >
 										
 
 {BEGIN cellblock_grid_c8}
@@ -939,15 +940,20 @@
 	{$cell_grid_c8}
 	class="r-align-right r-ori-vert"
 	
-			data-single
 				data-fullwidth
 		
-	ocolspan="2"		data-cellId="grid_c8" data-pageid="{$pageid}" data-page="personas_pasos_edit"
+	ocolspan="2"		data-cellId="grid_c8" data-pageid="{$pageid}"
 		data-v-cell="4"
 		
 >
 	<div edit-form-cell class="clearfix">
-				
+				<span data-itemtype="custom_button" data-itemid="custom_button" {$item_custom_button} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-small data-button-item>
+	<a type="button" title="Guardar los cambios de la Información Básica" class="btn btn-default   
+	" id="New_Button11" href="javascript:void(0)" typeid="ib" >
+					<span class="fa fa-save"></span>
+							Guardar			</a>
+</span>
+											
 {BEGIN id_fieldblock}
 
 
@@ -1011,7 +1017,7 @@
 >
 	<div edit-form-cell class="clearfix">
 				<span data-itemtype="text" data-itemid="text2" {$item_text2} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-small > 
-	<div class="alert alert-light" role="alert"><h4>Completa tu perfil académico y aumenta tus oportunidades laborales. ¡Agrega tus Estudios y destaca tus Conocimientos!</h4><span class="badge text-bg-primary">PASOS 2/8</span></div></span>
+	<div class="alert alert-light" role="alert"><h4>Completa tu perfil académico y aumenta tus oportunidades laborales. ¡Agrega tus Estudios y destaca tus Conocimientos!</h4><span class="badge text-bg-primary">PASOS 2/3</span></div></span>
 	
 								</td>
 			{END cellblock_step2_c}
@@ -1037,6 +1043,48 @@
 	</div>
 </div>
 {END details_vista_estudios_realizados_union_mec}
+	
+				 
+	 
+												
+{BEGIN details_cvc_programas}
+<div data-itemtype="details_preview" data-itemid="details_preview4" {$item_details_preview4} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_cvc_programas}			
+							<span>
+					{$detailslButtons_cvc_programas}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_cvc_programas}
+		</div>
+	</div>
+</div>
+{END details_cvc_programas}
+	
+				 
+	 
+												
+{BEGIN details_cvc_idiomas}
+<div data-itemtype="details_preview" data-itemid="details_preview3" {$item_details_preview3} data-pageid="{$pageid}" class="bs-details"> 
+	<div class="panel panel-info details-grid">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+							{$details_pagetitle_cvc_idiomas}			
+							<span>
+					{$detailslButtons_cvc_idiomas}
+																				</span>
+			</h4>
+		</div>
+		<div class="panel-body">
+			{$displayDetailTable_cvc_idiomas}
+		</div>
+	</div>
+</div>
+{END details_cvc_idiomas}
 	
 				{END step2_block}
 </div>	
@@ -1076,7 +1124,7 @@
 	<div edit-form-cell class="clearfix">
 				<span data-itemtype="text" data-itemid="text3" {$item_text3} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-small > 
 	<div class="alert alert-light"><h4>Muéstranos tus logros. Incluye tu experiencia laboral y destaca tus habilidades para las Empresas.
-</h4><span class="badge text-bg-primary">PASOS 3/8</span></div></span>
+</h4><span class="badge text-bg-primary">PASOS 3/3</span></div></span>
 	
 								</td>
 			{END cellblock_step3_c}
@@ -1104,330 +1152,6 @@
 {END details_cvc_experiencia_laboral}
 	
 				{END step3_block}
-</div>	
-				<div id="step_3_{$id}" class="stepFrame" data-step="3" style="display:none">
-		{BEGIN step4_block}
-
-
-
-
- 
-	 
-												<table 
-	data-body-align="center"
-	data-location="step4" id="form_step4_{$pageid}" data-makeup="topbar" {$form_step4} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="1"
-		
-		data-v-width="4"
-	>
-	<tbody>
-										<tr {$row_step4_0} >
-										
-
-{BEGIN cellblock_step4_c}
-<td
-	{$cell_step4_c}
-	class="r-align-center r-ori-vert"
-	
-			data-single
-				data-fullwidth
-		
-			data-cellId="step4_c" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				<span data-itemtype="text" data-itemid="text4" {$item_text4} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-small > 
-	<div class="alert alert-light"><h4>Para validar tu experiencia, te solicitamos que agregues al menos una Referencia Profesional y/o una Referencia Personal. Hacé clic en el botón "Añadir Nuevo" para incluir sus datos de contacto.
-</h4><span class="badge text-bg-primary">PASOS 4/8</span></div></span>
-	
-								</td>
-			{END cellblock_step4_c}
-								</tr>
-	 
-	 
-																</tbody></table>
-				
-{BEGIN details_persons_referencia}
-<div data-itemtype="details_preview" data-itemid="details_preview2" {$item_details_preview2} data-pageid="{$pageid}" class="bs-details"> 
-	<div class="panel panel-info details-grid">
-		<div class="panel-heading">
-			<h4 class="panel-title">
-							{$details_pagetitle_persons_referencia}			
-							<span>
-					{$detailslButtons_persons_referencia}
-																				</span>
-			</h4>
-		</div>
-		<div class="panel-body">
-			{$displayDetailTable_persons_referencia}
-		</div>
-	</div>
-</div>
-{END details_persons_referencia}
-	
-				{END step4_block}
-</div>	
-				<div id="step_4_{$id}" class="stepFrame" data-step="4" style="display:none">
-		{BEGIN step5_block}
-
-
-
-
- 
-	 
-												<table 
-	data-body-align="center"
-	data-location="step5" id="form_step5_{$pageid}" data-makeup="topbar" {$form_step5} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="1"
-		
-		data-v-width="4"
-	>
-	<tbody>
-										<tr {$row_step5_0} >
-										
-
-{BEGIN cellblock_step5_c}
-<td
-	{$cell_step5_c}
-	class="r-align-center r-ori-vert"
-	
-			data-single
-				data-fullwidth
-		
-			data-cellId="step5_c" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				<span data-itemtype="text" data-itemid="text5" {$item_text5} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-small > 
-	<div class="alert alert-light"><h4>Para conocer mejor tus habilidades, te invitamos a agregar los idiomas que hablas y tu nivel de dominio.</h4><span class="badge text-bg-primary">PASOS 5/8</span></div></span>
-	
-								</td>
-			{END cellblock_step5_c}
-								</tr>
-	 
-	 
-																</tbody></table>
-				
-{BEGIN details_cvc_idiomas}
-<div data-itemtype="details_preview" data-itemid="details_preview3" {$item_details_preview3} data-pageid="{$pageid}" class="bs-details"> 
-	<div class="panel panel-info details-grid">
-		<div class="panel-heading">
-			<h4 class="panel-title">
-							{$details_pagetitle_cvc_idiomas}			
-							<span>
-					{$detailslButtons_cvc_idiomas}
-																				</span>
-			</h4>
-		</div>
-		<div class="panel-body">
-			{$displayDetailTable_cvc_idiomas}
-		</div>
-	</div>
-</div>
-{END details_cvc_idiomas}
-	
-				{END step5_block}
-</div>	
-				<div id="step_5_{$id}" class="stepFrame" data-step="5" style="display:none">
-		{BEGIN step6_block}
-
-
-
-
- 
-	 
-												<table 
-	data-body-align="center"
-	data-location="step6" id="form_step6_{$pageid}" data-makeup="topbar" {$form_step6} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="1"
-		
-		data-v-width="4"
-	>
-	<tbody>
-										<tr {$row_step6_0} >
-										
-
-{BEGIN cellblock_step6_c1}
-<td
-	{$cell_step6_c1}
-	class="r-align-center r-ori-vert"
-	
-			data-single
-				data-fullwidth
-		
-			data-cellId="step6_c1" data-pageid="{$pageid}"
-		data-v-cell=""
-		
->
-	<div edit-form-cell class="clearfix">
-				<span data-itemtype="text" data-itemid="text6" {$item_text6} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-small > 
-	<div class="alert alert-light"><h4>Demuestra tus conocimientos técnicos. Indica tus habilidades informáticas y el nivel de dominio de cada una. Hacé clic en el botón "Añadir Nuevo" para comenzar.
-</h4><span class="badge text-bg-primary">PASOS 6/8</span></div></span>
-	
-								</td>
-			{END cellblock_step6_c1}
-								</tr>
-	 
-	 
-																</tbody></table>
-				
-{BEGIN details_cvc_programas}
-<div data-itemtype="details_preview" data-itemid="details_preview4" {$item_details_preview4} data-pageid="{$pageid}" class="bs-details"> 
-	<div class="panel panel-info details-grid">
-		<div class="panel-heading">
-			<h4 class="panel-title">
-							{$details_pagetitle_cvc_programas}			
-							<span>
-					{$detailslButtons_cvc_programas}
-																				</span>
-			</h4>
-		</div>
-		<div class="panel-body">
-			{$displayDetailTable_cvc_programas}
-		</div>
-	</div>
-</div>
-{END details_cvc_programas}
-	
-				{END step6_block}
-</div>	
-				<div id="step_6_{$id}" class="stepFrame" data-step="6" style="display:none">
-		{BEGIN step7_block}
-
-
-
-
- 
-	 
-												<table 
-	data-body-align="center"
-	data-location="step7" id="form_step7_{$pageid}" data-makeup="topbar" {$form_step7} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="1"
-		
-		data-v-width="4"
-	>
-	<tbody>
-										<tr {$row_step7_0} >
-										
-
-{BEGIN cellblock_step7_c1}
-<td
-	{$cell_step7_c1}
-	class="r-align-center r-ori-vert"
-	
-			data-single
-				data-fullwidth
-		
-			data-cellId="step7_c1" data-pageid="{$pageid}"
-		data-v-cell=""
-		
->
-	<div edit-form-cell class="clearfix">
-				<span data-itemtype="text" data-itemid="text7" {$item_text7} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-small > 
-	<div class="alert alert-light"><h4>Para evaluar los beneficios que más te interesan, por favor indica si cuentas con movilidad propia </h4><span class="badge text-bg-primary">PASOS 7/8</span></div></span>
-	
-								</td>
-			{END cellblock_step7_c1}
-								</tr>
-	 
-	 
-																</tbody></table>
-				
-{BEGIN details_cvc_movilidad}
-<div data-itemtype="details_preview" data-itemid="details_preview6" {$item_details_preview6} data-pageid="{$pageid}" data-page="personas_pasos_edit" class="bs-details"> 
-	<div class="panel panel-info details-grid">
-		<div class="panel-heading">
-			<h4 class="panel-title">
-							{$details_pagetitle_cvc_movilidad}			
-							<span>
-					{$detailslButtons_cvc_movilidad}
-																				</span>
-			</h4>
-		</div>
-		<div class="panel-body">
-			{$displayDetailTable_cvc_movilidad}
-		</div>
-	</div>
-</div>
-{END details_cvc_movilidad}
-	
-				{END step7_block}
-</div>	
-				<div id="step_7_{$id}" class="stepFrame" data-step="7" style="display:none">
-		{BEGIN step8_block}
-
-
-
-
- 
-	 
-												<table 
-	data-body-align="center"
-	data-location="step8" id="form_step8_{$pageid}" data-makeup="topbar" {$form_step8} data-pageid="{$pageid}" 
-	class="r-edit-form" cellpadding="0" cellspacing="0" 
-	{$grid_hiddenattr} 
-		data-form-width="1"
-		
-		data-v-width="4"
-	>
-	<tbody>
-										<tr {$row_step8_0} >
-										
-
-{BEGIN cellblock_step8_c}
-<td
-	{$cell_step8_c}
-	class="r-align-center r-ori-vert"
-	
-			data-single
-				data-fullwidth
-		
-			data-cellId="step8_c" data-pageid="{$pageid}"
-		data-v-cell="2"
-		
->
-	<div edit-form-cell class="clearfix">
-				<span data-itemtype="text" data-itemid="text8" {$item_text8} data-pageid="{$pageid}" data-page="personas_pasos_edit" data-small > 
-	<div class="alert alert-light"><h4>Descubrí nuevas oportunidades. ¡Indica las áreas en las que te gustaría capacitarte y te recomendaremos los cursos perfectos para vos!</h4>
-<span class="badge text-bg-primary">PASOS 8/8</span>
-</div></span>
-	
-								</td>
-			{END cellblock_step8_c}
-								</tr>
-	 
-	 
-																</tbody></table>
-				
-{BEGIN details_mejorar_empleabilidad}
-<div data-itemtype="details_preview" data-itemid="details_preview5" {$item_details_preview5} data-pageid="{$pageid}" class="bs-details"> 
-	<div class="panel panel-info details-grid">
-		<div class="panel-heading">
-			<h4 class="panel-title">
-							{$details_pagetitle_mejorar_empleabilidad}			
-							<span>
-					{$detailslButtons_mejorar_empleabilidad}
-																				</span>
-			</h4>
-		</div>
-		<div class="panel-body">
-			{$displayDetailTable_mejorar_empleabilidad}
-		</div>
-	</div>
-</div>
-{END details_mejorar_empleabilidad}
-	
-				{END step8_block}
 </div>	
 	{END steps_block}	</div>
 <div class="r-below">

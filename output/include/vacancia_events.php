@@ -227,8 +227,8 @@ if ($data['id_estado'] == 2) {
 } //fin estado activo
 
 
-// Vacancia Cerrada
-if ($data['id_estado'] == 5) {
+// Vacancia Cerrada o en evaluacion o en evaluacion-empresa
+if ($data['id_estado'] == 5 || $data['id_estado'] == 3 || $data['id_estado'] == 10) {
 	$pageObject->hideItem("custom_postularse", $recordId);			// postularse
 	$pageObject->hideItem("custom_cancelar_postu", $recordId);	// cancelar postulacion
 	$pageObject->hideItem("custom_button", $recordId);						// cancelar postulacion
@@ -355,11 +355,9 @@ $rsDatos = DB::Query("
 		(SELECT COUNT(*) FROM eportal.persons_phones WHERE type = 2 and person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
 		(SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
 		(SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
-		(SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
 		(SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion,
 		(SELECT COUNT(*) FROM bolsa_empleo.cvc_experiencia_laboral WHERE fk_persona_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_experiencia_laboral,
-		(SELECT COUNT(*) FROM eportal.persons_referencia WHERE id_persona = '".pg_escape_string($_SESSION["persona_id"])."') AS count_referencias_personales,
-		(SELECT COUNT(*) FROM bolsa_empleo.cvc_idiomas WHERE fk_personaid = '".pg_escape_string($_SESSION["persona_id"])."') AS count_idiomas
+		(SELECT COUNT(*) FROM eportal.persons_referencia WHERE id_persona = '".pg_escape_string($_SESSION["persona_id"])."') AS count_referencias_personales
 ");
 
 while ($datafinal = $rsDatos->fetchAssoc()) {
@@ -367,11 +365,11 @@ while ($datafinal = $rsDatos->fetchAssoc()) {
 	$count_phones = $datafinal['count_phones'];
 	$existe_city = $datafinal['existe_city'];
 	$existe_domicilio = $datafinal['existe_domicilio'];
-	$existe_canthijos = $datafinal['existe_canthijos'];
+	//$existe_canthijos = $datafinal['existe_canthijos'];
 	$count_educacion = $datafinal['count_educacion'];
 	$count_experiencia_laboral = $datafinal['count_experiencia_laboral'];
 	$count_referencias_personales = $datafinal['count_referencias_personales'];
-	$count_idiomas = $datafinal['count_idiomas'];
+//	$count_idiomas = $datafinal['count_idiomas'];
 
 	if (is_null($existe_resumen)) {
 		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Resumen Personal)</a>';
@@ -392,12 +390,12 @@ while ($datafinal = $rsDatos->fetchAssoc()) {
 		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php"> Información Básica (Dirección)</a>';
 		$falta_datos = 1;
 	}
-
+/*
 	if (is_null($existe_canthijos)) {
 		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Cantidad de Hijos)</a>';
 		$falta_datos = 1;
 	}
-    
+    */
 	if ($count_educacion < 1 ) {
 		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#2">Estudios Realizados</a>';
 		$falta_datos = 1;
@@ -409,14 +407,14 @@ while ($datafinal = $rsDatos->fetchAssoc()) {
 	}
 
 	if ($count_referencias_personales < 1) {
-		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#4">Referencias Personales</a>';
+		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#1">Referencias Personales</a>';
 		$falta_datos = 1;
 	}
-
+/*
 	if ($count_idiomas < 1) {
-		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#5">Conocimiento de idiomas</a>';
+		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#2">Conocimiento de idiomas</a>';
 		$falta_datos = 1;
-	}
+	}*/
 }
 
 
@@ -428,6 +426,8 @@ if ($falta_datos == '1' ) {
 	$pageObject->setProxyValue("faltan_datos", "0");
 	$pageObject->setProxyValue("mensajeVerificacion", $textoresultados);
 }
+
+
 
 ;		
 } // function BeforeShowList

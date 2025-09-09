@@ -263,7 +263,7 @@ $tdatabolsa_users_cambio_contrasenha[".strOrderBy"] = $tstrOrderBy;
 $tdatabolsa_users_cambio_contrasenha[".orderindexes"] = array();
 
 
-$tdatabolsa_users_cambio_contrasenha[".sqlHead"] = "SELECT bu.id,  bu.nro_documento,  bu.clave,  bu.email,  bu.groupid,  bu.active,  bu.reset_token,  bu.reset_date,  bu.fecha_alta,  bu.llave,  bu.estado_llave,  bu.senadis,  bu.trabajo_antes,  bu.userpic,  bu.personaid,  bu.fullname,  bu.username,  bu.hash_generado,  bu.adjunto_foto_perfil,  bu.clave AS repetir_clave,  pp.phone,  bu.id as llave_id";
+$tdatabolsa_users_cambio_contrasenha[".sqlHead"] = "SELECT bu.id,  bu.nro_documento,  bu.clave,  bu.email,  bu.groupid,  bu.active,  bu.reset_token,  bu.reset_date,  bu.fecha_alta,  bu.llave,  bu.estado_llave,  bu.senadis,  bu.trabajo_antes,  bu.userpic,  bu.personaid,  bu.fullname,  bu.username,  bu.hash_generado,  bu.adjunto_foto_perfil,  bu.clave AS repetir_clave,  pp.phone,  bu.id AS llave_id";
 $tdatabolsa_users_cambio_contrasenha[".sqlFrom"] = "FROM bolsa_empleo.bolsa_users AS bu  LEFT OUTER JOIN eportal.persons_phones AS pp ON bu.personaid = pp.person_id";
 $tdatabolsa_users_cambio_contrasenha[".sqlWhereExpr"] = "";
 $tdatabolsa_users_cambio_contrasenha[".sqlTail"] = "";
@@ -3437,7 +3437,7 @@ function createSqlQuery_bolsa_users_cambio_contrasenha()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "bu.id,  bu.nro_documento,  bu.clave,  bu.email,  bu.groupid,  bu.active,  bu.reset_token,  bu.reset_date,  bu.fecha_alta,  bu.llave,  bu.estado_llave,  bu.senadis,  bu.trabajo_antes,  bu.userpic,  bu.personaid,  bu.fullname,  bu.username,  bu.hash_generado,  bu.adjunto_foto_perfil,  bu.clave AS repetir_clave,  pp.phone,  bu.id as llave_id";
+$proto0["m_strFieldList"] = "bu.id,  bu.nro_documento,  bu.clave,  bu.email,  bu.groupid,  bu.active,  bu.reset_token,  bu.reset_date,  bu.fecha_alta,  bu.llave,  bu.estado_llave,  bu.senadis,  bu.trabajo_antes,  bu.userpic,  bu.personaid,  bu.fullname,  bu.username,  bu.hash_generado,  bu.adjunto_foto_perfil,  bu.clave AS repetir_clave,  pp.phone,  bu.id AS llave_id";
 $proto0["m_strFrom"] = "FROM bolsa_empleo.bolsa_users AS bu  LEFT OUTER JOIN eportal.persons_phones AS pp ON bu.personaid = pp.person_id";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";

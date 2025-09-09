@@ -67,7 +67,7 @@
 	 
 		{BEGIN cvc_id_niveles_academicos_fieldheadercolumn}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="cvc_id_niveles_academicos" data-fieldname="cvc_id_niveles_academicos" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="cvc_id_niveles_academicos" data-fieldname="cvc_id_niveles_academicos" 
 
 	
 	
@@ -97,7 +97,7 @@
 	 
 		{BEGIN descripcion_fieldheadercolumn}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field3" {$item_simple_grid_field3} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="descripcion" data-fieldname="descripcion" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="descripcion" data-fieldname="descripcion" 
 
 	
 	
@@ -111,6 +111,36 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field1}
+									{BEGIN cellblock_grid_headcell_field2}
+	<th
+	
+	{$cell_grid_headcell_field2}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$orden_class}	"
+
+			data-field="orden"
+	
+	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN orden_fieldheadercolumn}
+<span 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="orden" data-fieldname="orden" 
+
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_cvc_niveles_academicos orden }</span>
+			</span>
+	</span>
+{END orden_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field2}
 							</tr>
 															
 					{END grid_header}
@@ -164,6 +194,27 @@
 {END descripcion_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field1}
+									{BEGIN cellblock_grid_cell_field2}
+	<td
+	
+	{$cell_grid_cell_field2}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$orden_class}	"
+
+			data-field="orden"
+	
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN orden_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="orden" data-fieldname="orden" data-default-width >
+{$orden_value}
+</span>
+{END orden_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field2}
 							</tr>
 										
 											{END grid_row}
@@ -205,6 +256,21 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field1}
+									{BEGIN cellblock_grid_footcell_field2}
+	<td
+	
+	{$cell_grid_footcell_field2}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$orden_class}	"
+
+	
+	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="cvc_niveles_academicos_masterlist"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field2}
 							</tr>
 					
 					</tfoot>

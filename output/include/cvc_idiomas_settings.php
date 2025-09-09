@@ -40,7 +40,7 @@ if(mlang_getcurrentlang()=="Spanish")
 	$fieldLabelscvc_idiomas["Spanish"]["fk_personaid"] = "Fk Personaid";
 	$fieldToolTipscvc_idiomas["Spanish"]["fk_personaid"] = "";
 	$placeHolderscvc_idiomas["Spanish"]["fk_personaid"] = "";
-	$pageTitlescvc_idiomas["Spanish"]["list"] = "Nivel de Idiomas";
+	$pageTitlescvc_idiomas["Spanish"]["list"] = "Conocimiento de Idiomas";
 	$pageTitlescvc_idiomas["Spanish"]["add"] = "Nivel de Idiomas, Añadir nuevo";
 	$pageTitlescvc_idiomas["Spanish"]["edit"] = "Nivel de Idiomas, Editar [{%id_cvc_idiomas}]";
 	if (count($fieldToolTipscvc_idiomas["Spanish"]))

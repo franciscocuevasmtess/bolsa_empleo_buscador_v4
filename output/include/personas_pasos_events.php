@@ -64,7 +64,7 @@ function BeforeEdit(&$values, &$sqlValues, $where, &$oldvalues, &$keys, &$messag
 
 		$cantidadDeElementos = $cantidadDeElementos + 1;
 	}
-
+/*
 	if ($existeEntregaEnArray == 1 and $cantidadDeElementos > 1 ) {
 		$message = "Si seleccionó NINGUNA DISCAPACIDAD, solamente esa debe estar, no seleccione otras más!!" ;
 		return false;
@@ -73,6 +73,7 @@ function BeforeEdit(&$values, &$sqlValues, $where, &$oldvalues, &$keys, &$messag
 	if ($existeEntregaEnArray == 1 and $cantidadDeElementos == 1 ) {
 		$values['porcentaje_discapacidad'] = 0;
 	}
+*/
 
 	$values["resumen"] = strtoupper($values["resumen"]);
 	$values["domicilio"] = strtoupper($values["domicilio"]);
@@ -174,16 +175,12 @@ function CustomEdit(&$values, $where, &$oldvalues, &$keys, &$error, $inline, $pa
 
 	if (empty($oldvalues["foto"])) {
 	  $sql = "UPDATE eportal.persons 
-							SET canthijos = '".pg_escape_string($values["canthijos"])."',
+							SET
 									domicilio = '".pg_escape_string($values["domicilio"])."',
 									estado_civil = '".pg_escape_string($values["estado_civil"])."', 
 									city_id = '".pg_escape_string($values["city_id"])."', 
 									distrito_id = '".pg_escape_string($values["distrito_id"])."',
-									esindigena = '".pg_escape_string($values["esindigena"])."', 
-									/*foto = '".pg_escape_bytea($values["foto"])."',*/ 
-									porcentaje_discapacidad = '".pg_escape_string($values["porcentaje_discapacidad"])."',
-									adjunto_certificado_discapacidad = '".pg_escape_string($values["adjunto_certificado_discapacidad"])."', 
-									adjunto_potencial_discapacidad = '".pg_escape_string($values["adjunto_potencial_discapacidad"])."', 
+									/*foto = '".pg_escape_bytea($values["foto"])."',*/ 					
 									resumen = '".pg_escape_string($values["resumen"])."' 
 							WHERE id = '".pg_escape_string($keys["id"])."'";
 		CustomQuery($sql);
@@ -191,16 +188,12 @@ function CustomEdit(&$values, $where, &$oldvalues, &$keys, &$error, $inline, $pa
 
 	if (!empty($values["foto"])) {
 		$sql2 = "UPDATE eportal.persons 
-							SET canthijos = '".pg_escape_string($values["canthijos"])."',
+							SET 
 									domicilio = '".pg_escape_string($values["domicilio"])."',
 									estado_civil = '".pg_escape_string($values["estado_civil"])."', 
 									city_id = '".pg_escape_string($values["city_id"])."', 
-									distrito_id = '".pg_escape_string($values["distrito_id"])."',
-									esindigena = '".pg_escape_string($values["esindigena"])."', 
-									foto = '".pg_escape_bytea($values["foto"])."', 
-									porcentaje_discapacidad = '".pg_escape_string($values["porcentaje_discapacidad"])."',
-									adjunto_certificado_discapacidad = '".pg_escape_string($values["adjunto_certificado_discapacidad"])."', 
-									adjunto_potencial_discapacidad = '".pg_escape_string($values["adjunto_potencial_discapacidad"])."', 
+									distrito_id = '".pg_escape_string($values["distrito_id"])."',								
+									foto = '".pg_escape_bytea($values["foto"])."', 							
 									resumen = '".pg_escape_string($values["resumen"])."'  
 								WHERE id = '".pg_escape_string($keys["id"])."'";
 		  CustomQuery($sql2);
@@ -208,26 +201,17 @@ function CustomEdit(&$values, $where, &$oldvalues, &$keys, &$error, $inline, $pa
 	
 	if (!empty($oldvalues["foto"])) {
 		$sql3 = DB::PrepareSQL("UPDATE eportal.persons 
-                            SET canthijos = ':1',
-                                domicilio = ':2', 
-                                estado_civil = ':3', 
-                                city_id = ':4', 
-                                distrito_id = ':5',
-                                esindigena = ':6',
-                                porcentaje_discapacidad = ':7',
-                                adjunto_certificado_discapacidad = ':8', 
-                                adjunto_potencial_discapacidad = ':9', 
-                                resumen = ':10' 
-                            WHERE id = ':11'",
-																		$values["canthijos"],
+                            SET 
+                                domicilio = ':1', 
+                                estado_civil = ':2', 
+                                city_id = ':3', 
+                                distrito_id = ':4',
+                                resumen = ':5' 
+                            WHERE id = ':6'",														
 																		$values["domicilio"],
 																		$values["estado_civil"],
 																		$values["city_id"],
-																		$values["distrito_id"],
-																		$values["esindigena"],
-																		$values["porcentaje_discapacidad"], 
-																		$values["adjunto_certificado_discapacidad"],
-																		$values["adjunto_potencial_discapacidad"],
+																		$values["distrito_id"],																
 																		$values["resumen"],
 																		$keys["id"]);
         DB::Exec($sql3);
@@ -321,7 +305,8 @@ function ProcessValuesEdit(&$values, $pageObject)
 {
 
 				//**********  Check if specific record exists  ************//
-    $strSQLExists = DB::PrepareSQL("SELECT string_agg(CAST(tipo_discapacidad_id AS varchar), ',') 
+  /*
+  $strSQLExists = DB::PrepareSQL("SELECT string_agg(CAST(tipo_discapacidad_id AS varchar), ',') 
                                     FROM eportal.persons_discapacidades 
                                     WHERE person_id = ':1'", $values["id"]);
     $rsExists = DB::Query($strSQLExists);
@@ -329,6 +314,7 @@ function ProcessValuesEdit(&$values, $pageObject)
     if ($data) {
         $values['multiselect_discapacidades'] = $data["string_agg"];
     }
+*/
 
     $strSQLExists2 = DB::PrepareSQL("SELECT phone 
                                      FROM eportal.persons_phones 

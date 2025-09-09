@@ -37,6 +37,10 @@ class class_GlobalEvents extends eventsBase
 		$this->events["AfterUnsuccessfulLogin"]=true;
 
 
+		$this->events["BeforeShowRegister"]=true;
+
+		$this->events["BeforeShowRemindPwd"]=true;
+
 
 //	onscreen events
 		$this->events["bolsa_empleo_vacancia_map"] = true;
@@ -61,160 +65,180 @@ class class_GlobalEvents extends eventsBase
 function BeforeLogin(&$username, &$password, &$message, $pageObject, &$values)
 {
 
-		//NO PERMITIR PUNTOS EN USERNAME
+		// NO PERMITIR PUNTOS EN USERNAME
 if (preg_match('/^[0-9]+[A-Z]?$/', $username) == FALSE) {
-	$message = "No ha introducido caracteres numéricos. Por favor, asegúrese de introducir correctamente el número de cédula " . $cedula_valida;
+	$message = "No ha introducido caracteres numéricos. Por favor, asegúrese de introducir correctamente el número de cédula";
 	return false;
 }
 
 // Si existe usuario no verificar mas IC, hare que el motor de phprunner verifique la contrasena existente
 $strSQLExistsic = "SELECT * 
-												FROM bolsa_empleo.bolsa_users 
-												WHERE nro_documento = '" . pg_escape_string($username) . "'";
+											FROM bolsa_empleo.bolsa_users 
+											WHERE nro_documento = '" . pg_escape_string($username) . "'";
 $rsExistsic = db_query($strSQLExistsic, $conn);
 $dataic = db_fetch_array($rsExistsic);
-if (!$dataic) {	
-	$pagina_inicio1 = file_get_contents('https://bolsa.mtess.gov.py/buscador/sii_ci_bolsa.php?ci=' . $username);
-	// Obtenemos valor del Campo Fecha de Nacimiento
-	$array1 = explode(':', $pagina_inicio1);
-	$fechaNacimiento = trim(pg_escape_string(utf8_encode($array1[3])));
-	// Reformatear la fecha (de 'Y-m-d' a 'dmY')
-	$fechaReformateada = date("dmY", strtotime($fechaNacimiento));
-	$_SESSION['fecha_nac_para_password'] = $fechaReformateada;
 
-	// VERIFICAR SI ES MAYOR DE EDAD
-	$fechaNac = new DateTime($fechaNacimiento);
-	$hoy = new DateTime();
-	$edad = $hoy->diff($fechaNac);
-	$edad_anios = $edad->format("%y");
+if (!$dataic) {
+	// Función para consultar la API con cURL
+	$apiResponse = consultarIDENTIFI($username);
 	
-	if ($edad_anios < 18) {
-		$message = "Lo sentimos, pero no cumples con los criterios de edad requeridos para acceder a la plataforma.";
+	if ($apiResponse === false) {
+		$message = "Lo sentimos, en este momento no podemos confirmar fecha de nacimiento. Por favor, inténtelo más tarde.";
 		return false;
 	}
 	
-	//VERIFICAR SI ES MENOR DE 75 ANHOS
-	if ($edad_anios > 75) {
-		$message = "Lo sentimos, pero no cumples con los criterios de edad requeridos para acceder a la plataforma.";
-		return false;
-	}
+	$array = explode(':', $apiResponse);
 	
-	//COMPARAR QUE LA FECHA DE NACIMIENTO COINCIDA CON LA CONTRASEÑA
-	if (strcmp ($password , $fechaReformateada ) !== 0 ) {
-		$message = "Por favor, verifica los datos proporcionados e intenta nuevamente.";
-		return false;
-	}
+	if (isset($array[3])) {
+		/*
+		$fechaNacimiento = trim(pg_escape_string(utf8_encode($array[3])));
+		$fechaReformateada = date("dmY", strtotime($fechaNacimiento));
+		$_SESSION['fecha_nac_para_password'] = $fechaReformateada;
+		
+		// VERIFICAR SI ES MAYOR DE EDAD
+		$fechaNacTimestamp = strtotime($fechaNacimiento);
+		$hoyTimestamp = time();
+		
+		// Calcular la diferencia en años
+		$edad_anios = date('Y', $hoyTimestamp) - date('Y', $fechaNacTimestamp);
+		
+		// Ajustar si aún no ha cumplido años este año
+		if (date('md', $hoyTimestamp) < date('md', $fechaNacTimestamp)) {
+			$edad_anios--;
+		}
+		*/
+		
+		$fechaNacimiento = trim(strip_tags($array[3]));
+		$fechaNacimiento = preg_replace('/\s+/', '', $fechaNacimiento);
+		$fechaNacimiento = preg_match('/\d{4}-\d{2}-\d{2}/', $fechaNacimiento, $matches) ? $matches[0] : '';
+		// Reformatear la fecha (de 'Y-m-d' a 'dmY')
+		$fechaReformateada = date("dmY", strtotime($fechaNacimiento));
+		$_SESSION['fecha_nac_para_password'] = $fechaReformateada;
+		// Calcular edad con strtotime.
+		$timestamp_nacimiento = strtotime($fechaNacimiento);
+		$hoy = time();
+		$edad_anios = floor(($hoy - $timestamp_nacimiento) / (365.25 * 24 * 60 * 60));
+		
+		if ($edad_anios < 18) {
+			$message = "Lo sentimos, pero no cumples con los criterios de edad requeridos para acceder a la plataforma.";
+			return false;
+		}
 
+		// VERIFICAR SI ES MENOR DE 75 AÑOS
+		if ($edad_anios > 75) {
+			$message = "Lo sentimos, pero no cumples con los criterios de edad requeridos para acceder a la plataforma.";
+			return false;
+		}
+			
+		// COMPARAR QUE LA FECHA DE NACIMIENTO COINCIDA CON LA CONTRASEÑA
+		if (strcmp($password, $fechaReformateada) !== 0) {
+			$message = "Por favor, verifica los datos proporcionados e intenta nuevamente." . $edad_anios;
+			return false;
+		}
+	} else {
+		$message = "Lo sentimos, en este momento no podemos confirmar fecha de nacimiento. Por favor, inténtelo más tarde.";
+		return false;
+	}
 }
 
-
-//Sólo le dejaré entrar si existe la persona.
+// Sólo le dejaré entrar si existe la persona.
 $strSQLExistsl = "SELECT * 
 											FROM eportal.persons_docs 
 											WHERE valor = '" . pg_escape_string($username) . "'";
-$rsExistsl = db_query($strSQLExistsl,$conn);
+$rsExistsl = db_query($strSQLExistsl, $conn);
 $datal = db_fetch_array($rsExistsl);
-if(!$datal) {
-	//Insertar Paraguayo
-	$pagina_inicio = file_get_contents('https://bolsa.mtess.gov.py/buscador/sii_ci_bolsa.php?ci=' . $username);
-	$array = explode(':', $pagina_inicio);
-	
-	if (isset($array[3])) {
-		// CONSULTA EN ESTADO CIVIL PARA OBTENER LA ID Y PODER INSERTAR DE ESE MODO
-		$estado_civil = "SELECT eportal.persons_estado_civil_type.id AS estado_civil 
+    
+if (!$datal) {
+	// Consultar API nuevamente si es necesario
+	$apiResponse = consultarIDENTIFI($username);
+
+	if ($apiResponse !== false) {
+		$array = explode(':', $apiResponse);
+
+		if (isset($array[3])) {
+			// CONSULTA EN ESTADO CIVIL PARA OBTENER LA ID Y PODER INSERTAR DE ESE MODO
+			$estado_civil = "SELECT eportal.persons_estado_civil_type.id AS estado_civil 
 													FROM eportal.persons_estado_civil_type 
-													WHERE eportal.persons_estado_civil_type.id = '" . $array[5] . "'";
-		$resul_estado_civil = db_query($estado_civil, $conn);
-		$data_estado_civil = db_fetch_array($resul_estado_civil);
-		
-		// CONSULTA PARA OBTENER EL CODIGO DE NACIONALIDAD PARA EL INSERT
-		$nacionalidad = "SELECT eportal.country.code 
+													WHERE eportal.persons_estado_civil_type.id = '" . pg_escape_string($array[5]) . "'";
+			$resul_estado_civil = db_query($estado_civil, $conn);
+			$data_estado_civil = db_fetch_array($resul_estado_civil);
+
+			// CONSULTA PARA OBTENER EL CODIGO DE NACIONALIDAD PARA EL INSERT
+			$nacionalidad = "SELECT eportal.country.code 
 													FROM eportal.country 
-													WHERE eportal.country.code = '" . $array[2] . "'";
-		$resul_nacionalidad = db_query($nacionalidad, $conn);
-		$data_resul_nacionalidad = db_fetch_array($resul_nacionalidad);
-		
-		//Insertar Persona.
-		$sql_insert = "INSERT INTO eportal.persons(nombre, apellidos, nacionalidad, fechanac, sexo, estado_civil, actualizado) 
-											VALUES ('" . trim(pg_escape_string(utf8_encode($array[0]))) . "','" 
-																	. trim(pg_escape_string(utf8_encode($array[1]))) . "','" 
-																	. trim(pg_escape_string(utf8_encode($data_resul_nacionalidad['code']))) . "','" 
-																	. trim(pg_escape_string(utf8_encode($array[3]))) . "','" 
-																	. trim(pg_escape_string(utf8_encode($array[5]))) . "','" 
-																	. trim(pg_escape_string(utf8_encode($data_estado_civil['estado_civil']))) . "',
+													WHERE eportal.country.code = '" . pg_escape_string($array[2]) . "'";
+			$resul_nacionalidad = db_query($nacionalidad, $conn);
+			$data_resul_nacionalidad = db_fetch_array($resul_nacionalidad);
+
+			// Insertar Persona.
+			$sql_insert = "INSERT INTO eportal.persons(nombre, apellidos, nacionalidad, fechanac, sexo, estado_civil, actualizado) 
+												VALUES ('" . trim(pg_escape_string(utf8_encode($array[0]))) . "','" 
+																		. trim(pg_escape_string(utf8_encode($array[1]))) . "','" 
+																		. trim(pg_escape_string(utf8_encode($data_resul_nacionalidad['code']))) . "','" 
+																		. trim(pg_escape_string(utf8_encode($array[3]))) . "','" 
+																		. trim(pg_escape_string(utf8_encode($array[5]))) . "','" 
+																		. trim(pg_escape_string(utf8_encode($data_estado_civil['estado_civil']))) . "',
 																		1) returning id;";
-		$rs_insert = db_query($sql_insert, $conn);
-		while ($row_insert = pg_fetch_row($rs_insert)) { 
-			$userdata["id_person"] = $row_insert[0];
-			$sql_insert_2 = "INSERT INTO eportal.persons_docs (doctype_id, person_id, valor)
-													VALUES ('1', '" . $row_insert[0] . "', '" . trim(pg_escape_string(utf8_encode($username))) . "');";
-			db_query($sql_insert_2, $conn);
-		} //FIN while		
-	} //FIN insertar documento de identidad	
-} //FIN !$datal
+			$rs_insert = db_query($sql_insert, $conn);
+			
+			while ($row_insert = pg_fetch_row($rs_insert)) { 
+				$userdata["id_person"] = $row_insert[0];
+				$sql_insert_2 = "INSERT INTO eportal.persons_docs (doctype_id, person_id, valor)
+														VALUES ('1', '" . $row_insert[0] . "', '" . trim(pg_escape_string(utf8_encode($username))) . "');";
+				db_query($sql_insert_2, $conn);
+			}
+		}
+	}
+}
 
-
-//Si existe usuario
-$strSQLExists2 = "SELECT username, 
-															clave, 
-															email, 
-															fullname, 
-															groupid, 
-															active, 
-															personaid, 
-															nro_documento, 
-															reset_token, 
-															reset_date 
-											FROM bolsa_empleo.bolsa_users 
-											WHERE nro_documento = '" . pg_escape_string($username) . "'";
+// Si existe usuario
+$strSQLExists2 = "SELECT username, clave, email, fullname, groupid, active, personaid, nro_documento, reset_token, reset_date 
+                  FROM bolsa_empleo.bolsa_users 
+                  WHERE nro_documento = '" . pg_escape_string($username) . "'";
 $rsExists2 = db_query($strSQLExists2, $conn);
 $data2 = db_fetch_array($rsExists2);
+
 if ($data2) {
 	$_SESSION['contra'] = $data2['clave'];
 	$_SESSION["persona_id"] = $data2["personaid"];
 }
 
 if (!$data2) {
-	//Sólo le dejaré entrar si existe el usuario.
+	// Sólo le dejaré entrar si existe el usuario.
 	$strSQLExists3 = "SELECT * 
-													FROM eportal.persons_docs pd 
-															JOIN eportal.eportal.persons p ON pd.person_id = p.id 
-													WHERE pd.valor = '" . pg_escape_string($username) . "'";
+                    FROM eportal.persons_docs pd 
+													JOIN eportal.persons p ON pd.person_id = p.id 
+                    WHERE pd.valor = '" . pg_escape_string($username) . "'";
 	$rsExists3 = db_query($strSQLExists3, $conn);
 	$data3 = db_fetch_array($rsExists3);
+  
 	if ($data3) {
 		// Genera una cadena aleatoria única
-		$randomString = bin2hex(random_bytes(16)); // Cambia la longitud según tus necesidades
-		// Combina la cadena aleatoria con un valor único (por ejemplo, la fecha actual)
-		$uniqueValue = now(); // Puedes usar otro valor único si lo prefieres
-		// Concatena la cadena aleatoria y el valor único
+		$randomString = bin2hex(random_bytes(16));
+		$uniqueValue = time();
 		$combinedString = $randomString . $uniqueValue;
-		// Calcula el hash utilizando SHA-384
 		$uniqueHash = hash('sha384', $combinedString);
-		// $uniqueHash ahora contiene un hash único utilizando SHA-384 que puedes usar en tus consultas
-		
-		//Insertar Usuario
+   
+		// Insertar Usuario
 		$insert_usuario = "INSERT INTO bolsa_empleo.bolsa_users(username, clave, email, fullname, groupid, active, personaid, nro_documento, hash_generado)
-														VALUES('" . pg_escape_string($username) . "','" 
-																				. pg_escape_string($_SESSION['fecha_nac_para_password']) . "', '" 
-																				. pg_escape_string($_SESSION['User_Email']) . "', '" 
-																				. pg_escape_string($data3['nombre']) . ' ' . $data3['apellidos'] . "', 
-																				'3', 
-																				1,
-																				'" . pg_escape_string($data3['id']) . "', '"
-																				. pg_escape_string($username) . "','" 
-																				. pg_escape_string($uniqueHash)."') RETURNING clave;";
+													VALUES('" . pg_escape_string($username) . "','" 
+														. pg_escape_string($_SESSION['fecha_nac_para_password']) . "', '" 
+														. pg_escape_string($_SESSION['User_Email']) . "', '" 
+														. pg_escape_string($data3['nombre'] . ' ' . $data3['apellidos']) . "', 
+														'3', 
+														1,
+														'" . pg_escape_string($data3['id']) . "', '"
+														. pg_escape_string($username) . "','" 
+													. pg_escape_string($uniqueHash) . "') RETURNING clave;";
 		$rx = db_query($insert_usuario, $conn);
 		$row = db_fetch_array($rx);
 		$new_id = $row['clave'];
 		$_SESSION['contra'] = $new_id;
 		$_SESSION["persona_id"] = $data3["id"];
-
-	} //FIN $data3
-} //FIN !$data2	
+	}
+}    
 
 return true;
-
 ;		
 } // function BeforeLogin
 
@@ -252,7 +276,9 @@ return true;
 function AfterSuccessfulLogin($username, $password, &$data, $pageObject)
 {
 
-		$SQLllave = "UPDATE bolsa_empleo.bolsa_users 
+		//die("die13 " . "after succesful login");
+
+$SQLllave = "UPDATE bolsa_empleo.bolsa_users 
 								SET estado_llave = 0 
 								WHERE username = '" . pg_escape_string($_SESSION['usuario']) . "'";
 CustomQuery($SQLllave);
@@ -262,6 +288,12 @@ $_SESSION["persona_id"] = $data["personaid"];
 $_SESSION["hash_generado"] = $data["hash_generado"];
 $_SESSION["cedula"] = $data["nro_documento"];
 
+// Habilidad por default para los casos de IPS y REOP...
+$sqlHabilidad = DB::PrepareSQL("SELECT id_habilidad FROM bolsa_empleo.habilidades WHERE descripcion = 'SIN DATOS' ");
+$resultHabilidad = DB::Query($sqlHabilidad);
+$dataHabilidad = $resultHabilidad->fetchAssoc();
+
+//die("die14 " . "after succesful login");
 // INICIO traer datos MEC ultimo-grado
 $json_url = 'https://integra.mtess.gov.py/api-al/mec-ultimo-grado/' . $_SESSION["cedula"];
 // Configura el tiempo límite en segundos (por ejemplo, 10 segundos)
@@ -530,8 +562,9 @@ while( $data1 = $rsExistsl->fetchAssoc() ) {
 																																												fecha_inicio, 
 																																												fecha_fin, 
 																																												meses_de_experiencia, 
-																																												proveedor) 
-															VALUES (':1',':2',':3',':4',':5',':6',':7',':8') ON CONFLICT ON CONSTRAINT cvc_experiencia_laboral_empresa_proveedor_key
+																																												proveedor,
+																																												fk_habilidades) 
+															VALUES (':1',':2',':3',':4',':5',':6',':7',':8',':9') ON CONFLICT ON CONSTRAINT cvc_experiencia_laboral_empresa_proveedor_key
     DO NOTHING;",
 																				$_SESSION["persona_id"],
 																				$data1['nombre_empresa'],
@@ -540,8 +573,11 @@ while( $data1 = $rsExistsl->fetchAssoc() ) {
 																				$data1['fecha_entrada'],
 																				$data1['fecha_salida'],
 																				$data1['meses_experiencia'],
-																				$data1['proveedor']);
+																				$data1['proveedor'],
+																				$dataHabilidad['id_habilidad']
+);
 	DB::Exec($sql1);
+
 }
 
 
@@ -563,8 +599,9 @@ while( $data2 = $rsExists2->fetchAssoc() ) {
 																																												fecha_inicio, 
 																																												fecha_fin, 
 																																												meses_de_experiencia, 
-																																												proveedor) 
-																VALUES (':1',':2',':3',':4',':5',':6',':7') ON CONFLICT ON CONSTRAINT cvc_experiencia_laboral_empresa_proveedor_key
+																																												proveedor,
+																																												fk_habilidades) 
+																VALUES (':1',':2',':3',':4',':5',':6',':7',':8') ON CONFLICT ON CONSTRAINT cvc_experiencia_laboral_empresa_proveedor_key
     DO NOTHING;",
 																					$_SESSION["persona_id"], 
 																					$data2['nombre_empresa'],
@@ -572,12 +609,10 @@ while( $data2 = $rsExists2->fetchAssoc() ) {
 																					$data2['fecha_entrada'],
 																					$data2['fecha_salida'],
 																					$data2['meses_experiencia'], 
-																					$data2['proveedor']);
+																					$data2['proveedor'],
+																					$dataHabilidad['id_habilidad']);
 	DB::Exec($sql2);
 }
-
-//header("Location: vacancia_list.php");
-//exit();
 
 // ******************** //
 // VALIDACION PARA SABER SI LA CONTRASEÑA ES LA FECHA DE NACIMIENTO, REDIRECCIONAR AL USUARIO PARA QUE REALIZE EL CAMBIO CORRESPONDIENTE.
@@ -771,6 +806,63 @@ function BeforeShowLogin(&$xt, &$templatefile, $pageObject)
 						  </div>';
 
 	$xt->assign('header', $header_x);
+
+
+
+
+
+
+
+//modificar footer
+$newfooter='
+
+	
+
+<footer>
+<section id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sx-12 col-sm-4 text-center">
+                        <div class="external-link">
+                            <img 
+                                src="images/imgob23/elemento_zocalo-GOV-PY.png" class="image wp-image-113  attachment-full size-full" 
+                                alt="Tabicón del Gobierno y Trabajo" decoding="async" style="max-width: 100%; height: auto;" 
+                               decoding="async" loading="lazy" 
+                                 sizes="(max-width: 200px) 100vw, 200px">
+                        </div>
+                    </div>
+    
+                    <div class="col-sx-12 col-sm-4">
+                        <div class="external-link">			<div class="textwidget"><h3>Informaciones</h3>
+                        <p><strong>Dirección</strong>: Avda. Perú esquina Río de Janeiro.</p>
+                        <p><strong>Teléfono</strong>:&nbsp;    (021) 729 0100
+    </a></p>
+                        <p><strong>Correo electrónico</strong>:&nbsp;<a href="mailto:empleapyjoven@mtess.gov.py">empleapyjoven@mtess.gov.py</a></p>
+</div>
+		</div>                    </div>
+    
+                    <div class="col-sx-12 col-sm-4 text-center">
+                        <div class="widget_text external-link">
+                            <div class="textwidget custom-html-widget">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </footer>
+
+       
+        <script src="sweetalert2.all.min.js" crossorigin=""></script>
+
+';
+
+
+
+	$xt->assign('footer', $newfooter);
+
+
 ;		
 } // function BeforeShowLogin
 
@@ -899,7 +991,7 @@ function ModifyMenu(&$menu)
 function AfterUnsuccessfulLogin($username, $password, &$message, $pageObject, $userdata)
 {
 
-			$message = "Usuario o Contraseña incorrectos";
+		$message = "Usuario o Contraseña incorrectos";
 ;		
 } // function AfterUnsuccessfulLogin
 
@@ -945,6 +1037,180 @@ function AfterUnsuccessfulLogin($username, $password, &$message, $pageObject, $u
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				// Before display
+function BeforeShowRegister(&$xt, &$templatefile, $pageObject)
+{
+
+		
+
+//modificar footer
+$newfooter='
+
+	
+
+<footer>
+<section id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sx-12 col-sm-4 text-center">
+                        <div class="external-link">
+                            <img 
+                                src="images/imgob23/elemento_zocalo-GOV-PY.png" class="image wp-image-113  attachment-full size-full" 
+                                alt="Tabicón del Gobierno y Trabajo" decoding="async" style="max-width: 100%; height: auto;" 
+                               decoding="async" loading="lazy" 
+                                 sizes="(max-width: 200px) 100vw, 200px">
+                        </div>
+                    </div>
+    
+                    <div class="col-sx-12 col-sm-4">
+                        <div class="external-link">			<div class="textwidget"><h3>Informaciones</h3>
+                        <p><strong>Dirección</strong>: Avda. Perú esquina Río de Janeiro.</p>
+                        <p><strong>Teléfono</strong>:&nbsp;    (021) 729 0100
+    </a></p>
+                        <p><strong>Correo electrónico</strong>:&nbsp;<a href="mailto:emplea@mtess.gov.py">emplea@mtess.gov.py</a></p>
+</div>
+		</div>                    </div>
+    
+                    <div class="col-sx-12 col-sm-4 text-center">
+                        <div class="widget_text external-link">
+                            <div class="textwidget custom-html-widget">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </footer>
+
+       
+        <script src="sweetalert2.all.min.js" crossorigin=""></script>
+
+';
+
+
+
+	$xt->assign('footer', $newfooter);
+
+;		
+} // function BeforeShowRegister
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+				// Before display
+function BeforeShowRemindPwd(&$xt, &$templatefile, $pageObject)
+{
+
+		
+
+//modificar footer
+$newfooter='
+
+	
+
+<footer>
+<section id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sx-12 col-sm-4 text-center">
+                        <div class="external-link">
+                            <img 
+                                src="images/imgob23/elemento_zocalo-GOV-PY.png" class="image wp-image-113  attachment-full size-full" 
+                                alt="Tabicón del Gobierno y Trabajo" decoding="async" style="max-width: 100%; height: auto;" 
+                               decoding="async" loading="lazy" 
+                                 sizes="(max-width: 200px) 100vw, 200px">
+                        </div>
+                    </div>
+    
+                    <div class="col-sx-12 col-sm-4">
+                        <div class="external-link">			<div class="textwidget"><h3>Informaciones</h3>
+                        <p><strong>Dirección</strong>: Avda. Perú esquina Río de Janeiro.</p>
+                        <p><strong>Teléfono</strong>:&nbsp;    (021) 729 0100
+    </a></p>
+                        <p><strong>Correo electrónico</strong>:&nbsp;<a href="mailto:emplea@mtess.gov.py">emplea@mtess.gov.py</a></p>
+</div>
+		</div>                    </div>
+    
+                    <div class="col-sx-12 col-sm-4 text-center">
+                        <div class="widget_text external-link">
+                            <div class="textwidget custom-html-widget">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </footer>
+
+       
+        <script src="sweetalert2.all.min.js" crossorigin=""></script>
+
+';
+
+
+
+	$xt->assign('footer', $newfooter);
+
+;		
+} // function BeforeShowRemindPwd
+
 		
 		
 		

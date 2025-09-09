@@ -205,7 +205,7 @@ function base64UrlDecode(string $base64Url): string
 										$username=$_SESSION['UserID_idelec'];
 
 
-										$página_inicio1 = file_get_contents('https://rut.mtess.gov.py/q_ci.php?s=6b058cef6ad66a79cdf1187cf4ced6e7&q='.$username);
+										$página_inicio1 = file_get_contents('https://bolsa.mtess.gov.py/q_ci.php?s=6b058cef6ad66a79cdf1187cf4ced6e7&q='.$username);
 									//echo $página_inicio;
 									//obtenemos valor del Campo IC
 									$array1 = explode(':', $página_inicio1);
@@ -231,7 +231,7 @@ function base64UrlDecode(string $base64Url): string
 										if(!$datal)
 										{
 													//insertar paraguayo
-													$página_inicio = file_get_contents('https://rut.mtess.gov.py/q_ci.php?s=6b058cef6ad66a79cdf1187cf4ced6e7&q='.$username);
+													$página_inicio = file_get_contents('https://bolsa.mtess.gov.py/q_ci.php?s=6b058cef6ad66a79cdf1187cf4ced6e7&q='.$username);
 													//echo $página_inicio;
 													//obtenemos valor del Campo CI
 													$array = explode(':', $página_inicio);

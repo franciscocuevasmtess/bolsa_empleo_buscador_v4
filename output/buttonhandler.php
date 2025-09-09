@@ -1109,25 +1109,24 @@ function buttonHandler_boton_postularse($params)
 
 	RunnerContext::push( new RunnerContextItem( $params["location"], $contextParams));
 	// Server - Boton Postularse.
-
 $record = $button->getCurrentRecord();
+
+$es_programa = $params["es_programa"]; // Default 0 si no existe
 $result["id_vacancias"] = $record["id_vacancias"];
 $textoresultados = array();
 $falta_datos = 0;
 $mensajeH1 = "Para que puedas postularte a esta oferta de empleo, completa tus datos de la sección:";
 
 $rs = DB::Query("
-	SELECT
+SELECT
 	(SELECT foto FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_foto,
 	(SELECT resumen FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_resumen,
 	(SELECT COUNT(*) FROM eportal.persons_phones WHERE type = 2 and person_id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_phones,
 	(SELECT city_id FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_city,
-	(SELECT domicilio FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_domicilio,
-	(SELECT canthijos FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_canthijos,
+	(SELECT domicilio FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_domicilio,	
 	(SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '" . pg_escape_string($_SESSION["cedula"]) . "') AS count_educacion,
 	(SELECT COUNT(*) FROM bolsa_empleo.cvc_experiencia_laboral WHERE fk_persona_id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_experiencia_laboral,
-	(SELECT COUNT(*) FROM eportal.persons_referencia WHERE id_persona = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_referencias_personales,
-	(SELECT COUNT(*) FROM bolsa_empleo.cvc_idiomas WHERE fk_personaid = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_idiomas
+	(SELECT COUNT(*) FROM eportal.persons_referencia WHERE id_persona = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_referencias_personales
 ");
 while ($datafinal = $rs->fetchAssoc()) {
 	$existe_foto = $datafinal['existe_foto'];
@@ -1135,94 +1134,70 @@ while ($datafinal = $rs->fetchAssoc()) {
 	$count_phones = $datafinal['count_phones'];
 	$existe_city = $datafinal['existe_city'];
 	$existe_domicilio = $datafinal['existe_domicilio'];
-	$existe_canthijos = $datafinal['existe_canthijos'];
 	$count_educacion = $datafinal['count_educacion'];
 	$count_experiencia_laboral = $datafinal['count_experiencia_laboral'];
 	$count_referencias_personales = $datafinal['count_referencias_personales'];
-	$count_idiomas = $datafinal['count_idiomas'];
-	
-	if (is_null($existe_foto)) {
-		// $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Foto de Perfil en Informacion Personal.";
-		// $falta_datos = 1;
-	}
 	
 	if (is_null($existe_resumen)) {
 		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Resumen Personal)</a>';
 		$falta_datos = 1;
 	}
-
+	
 	if ($count_phones < 1) {
 		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Número de Teléfono(WhatsApp))</a>';
 		$falta_datos = 1;
 	}
-
+	
 	if (is_null($existe_city)) {
 		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Ciudad)</a>';
 		$falta_datos = 1;
 	}
-
+	
 	if (is_null($existe_domicilio)) {
 		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php"> Información Básica (Dirección)</a>';
 		$falta_datos = 1;
 	}
-
-	if (is_null($existe_canthijos)) {
-		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Cantidad de Hijos)</a>';
-		$falta_datos = 1;
-	}
-
+	
 	if ($count_educacion < 1 ) {
 		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#2">Estudios Realizados</a>';
 		$falta_datos = 1;
 	}
-
+	
 	if ($count_experiencia_laboral < 1) {
 		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#3">Experiencia Laboral</a>';
 		$falta_datos = 1;
 	}
-
+	
 	if ($count_referencias_personales < 1) {
-		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#4">Referencias Personales</a>';
+		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#1">Referencias Personales</a>';
 		$falta_datos = 1;
 	}
-
-	if ($count_idiomas < 1) {
-		$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#5">Conocimiento de idiomas</a>';
-		$falta_datos = 1;
-	}
-
 }
 
-
-
-
-
-
-
-
-
-
-/* Requisitos para Subsidio */
-if ($params["es_programa"]) {
-	// $textoresultados[] = "Bandera Feria: ".$_SESSION["es_programa_id_feria"];
-	// $textoresultados[] = "<br />Bandera Edad: ".$_SESSION["bandera_edad"];
-	// $textoresultados[] = "<br />Bandera Formación: ".$_SESSION["bandera_formacion"];
-	// $textoresultados[] = "<br />Bandera Cotización: ".$_SESSION["bandera_cotizacion"];
-				
+// Requisitos para Subsidio 
+if ($es_programa === 1) {
+	
 	// Edad
-	if ($_SESSION["bandera_edad"] > 17 && $_SESSION["bandera_edad"] < 30) {
+	if ($_SESSION["bandera_edad"] > 17 && $_SESSION["bandera_edad"] < 24) {
 		// $textoresultados[] = "<br />Bandera Edad: ".$_SESSION["bandera_edad"];
 	} else {
 		$falta_datos = 1;
-		$textoresultados[] = "<br /><i class='bi bi-dot'></i> No cumple con la edad comprendida entre 18 y 29 años.";
+		$textoresultados[] = "<br /><i class='bi bi-dot'></i> No cumple con la edad comprendida entre 18 y 23 años.";
 	}
 	
-	// Cotizacino
-	if ($_SESSION["bandera_cotizacion"] < 24) {
-		// $textoresultados[] = "<br />Bandera Cotizacion: ".$_SESSION["bandera_cotizacion"];
+	// Cotizacion
+	if (is_numeric($_SESSION["bandera_cotizacion"])) {
+		//if (isset($_SESSION["bandera_cotizacion"])) {
+			if ($_SESSION["bandera_cotizacion"] >= 0 && $_SESSION["bandera_cotizacion"] <= 12) {
+				$falta_datos = 0;
+			} else { // Significa que es mayor a 12
+				$falta_datos = 1;
+				$textoresultados[] = "<br /><i class='bi bi-dot'></i> No cumple requisito de Cotización: Tiene más de 12 cotizaciones en el seguro social.";
+			}
+		//}
 	} else {
 		$falta_datos = 1;
-		$textoresultados[] = "<br /><i class='bi bi-dot'></i> No cumple requisito de Cotización: Tiene más de 24 cotizaciones en el seguro social.";
+		$textoresultados[] = "<br /><i class='bi bi-dot'></i> No podemos comprobar aportes en este momento, por favor inténtelo más tarde.";
 	}
 	
 	// Registro en reop
@@ -1232,7 +1207,6 @@ if ($params["es_programa"]) {
 		$falta_datos = 1;
 		$textoresultados[] = "<br /><i class='bi bi-dot'></i> No cumple con el requisito de no tener registro en el REOP o Inactivo por más de 60 Días";
 	}
-	
 	// Registro en reop
 	if ($_SESSION["bandera_funcionario_publico"] == 0) {
 		// $textoresultados[] = "<br />Bandera registro REOP: ".$_SESSION["bandera_reop"];
@@ -1240,45 +1214,35 @@ if ($params["es_programa"]) {
 		$falta_datos = 1;
 		$textoresultados[] = "<br /><i class='bi bi-dot'></i> No cumple con el requisito de no ser funcionario público";
 	}
-	
-	$mensajeH1 = "Lo sentimos: <br /> No puedes postularte a esta vacancia porque no cumples con lo siguiente:"; 
+	$mensajeH1 = "Lo sentimos: <br /> No puedes postularte a esta vacancia porque no cumples con lo siguiente:";
+
 } else {
 	// No es una vacancia que corresponda a la feria de vacancias para subsidio entonces no hay nada que validar.
-	// $textoresultados[] = "No es Bandera Feria: ".$_SESSION["es_programa_id_feria"];
-	// $falta_datos = 1;
 }
 
-  
-
-	
-
-
-
 if ($falta_datos == '0' ) {
-	/* Si la postulación es para emplea py entonces va a verificar que no falten datos y enviará a el formulario de postulación donde se cargará la postulación */
-	if ($params["es_programa"]) {
-		/* bandera de condición de emplea py joven 1 para abrir el formulario */
+	// Si la postulación es para emplea py entonces va a verificar que no falten datos y enviará a el formulario de postulación donde se cargará la postulación 
+	if ($es_programa === 1) {
+		// bandera de condición de emplea py joven 1 para abrir el formulario 
 		$result["emplea_py_joven"] = 1;
 		$_SESSION["emplea_joven_vacancia"] = $result["id_vacancias"];
 		$_SESSION["emplea_joven_persona"] = $_SESSION["persona_id"];
 	} else {
-		/* bandera de condición de emplea py 0 para definir que no es emplea py joven */
+		// bandera de condición de emplea py 0 para definir que no es emplea py joven 
 		$result["emplea_py_joven"] = 0;
 		$result['falta_datos'] = 0;
 		$strSQLExistsinsert = DB::PrepareSQL("INSERT INTO bolsa_empleo.postulacion(id_vacancia, id_estado, fk_personaid, metodo_insercion) 
-																						VALUES (':1',':2',':3',':4');", $result["id_vacancias"], 1, $_SESSION["persona_id"], 'VIA_POSTULACION_DEL_USUARIO');
+																								VALUES (':1', ':2', ':3', ':4');", 
+																								$result["id_vacancias"], 1, $_SESSION["persona_id"], 'VIA_POSTULACION_DEL_USUARIO');
 		DB::Exec($strSQLExistsinsert);
-		
-		
-		//*********************************************************************************************//
 		// Obtener la imagen de la base de datos
 		$result_img_perfil = DB::Query("
 				SELECT imagen_perfil 
 				FROM bolsa_empleo.vacancia 
 				WHERE id_vacancias = " . $result["id_vacancias"]
 		);
-		$data_img_perfil = $result_img_perfil->fetchAssoc();
 		
+		$data_img_perfil = $result_img_perfil->fetchAssoc();
 		if ($data_img_perfil && !empty($data_img_perfil['imagen_perfil'])) {
 			// Convertir BYTEA a base64
 			$imagen_binaria = pg_unescape_bytea($data_img_perfil['imagen_perfil']); // Decodificar BYTEA
@@ -1292,13 +1256,12 @@ if ($falta_datos == '0' ) {
 			$result['imagen_perfil'] = null; // Si no hay imagen
 		}
 	}
-	//*********************************************************************************************//
-	
 } else {
 	$result['falta_datos'] = 1;
 	$result['mensaje'] = $textoresultados;
-	$result['mensaje_h1'] = $mensajeH1; //para el comentario en el swal
+	$result['mensaje_h1'] = $mensajeH1; // Para el comentario en el swal
 }
+
 ;
 	RunnerContext::pop();
 	echo my_json_encode($result);
@@ -1846,8 +1809,7 @@ function buttonHandler_verificar_datos($params)
             (SELECT resumen FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_resumen,
             (SELECT COUNT(*) FROM eportal.persons_phones WHERE type = 2 and person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
             (SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
-            (SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
-            (SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
+            (SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,            
             (SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion,
             (SELECT COUNT(*) FROM bolsa_empleo.cvc_experiencia_laboral WHERE fk_persona_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_experiencia_laboral,
             (SELECT COUNT(*) FROM eportal.persons_referencia WHERE id_persona = '".pg_escape_string($_SESSION["persona_id"])."') AS count_referencias_personales,
@@ -1859,7 +1821,6 @@ function buttonHandler_verificar_datos($params)
         $count_phones = $datafinal['count_phones'];
         $existe_city = $datafinal['existe_city'];
         $existe_domicilio = $datafinal['existe_domicilio'];
-        $existe_canthijos = $datafinal['existe_canthijos'];
         $count_educacion = $datafinal['count_educacion'];
 				$count_experiencia_laboral = $datafinal['count_experiencia_laboral'];
         $count_referencias_personales = $datafinal['count_referencias_personales'];
@@ -1883,12 +1844,7 @@ function buttonHandler_verificar_datos($params)
         if (is_null($existe_domicilio)) {
 						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php"> Información Básica (Dirección)</a>';
             $falta_datos = 1;
-        }
-    
-        if (is_null($existe_canthijos)) {
-						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Cantidad de Hijos)</a>';
-            $falta_datos = 1;
-        }
+        }       
     
         if ($count_educacion < 1 ) {
 						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#2">Estudios Realizados</a>';
@@ -1902,12 +1858,12 @@ function buttonHandler_verificar_datos($params)
         }
 
         if ($count_referencias_personales < 1) {
-						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#4">Referencias Personales</a>';
+						$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#1">Referencias Personales</a>';
             $falta_datos = 1;
         }
 
         if ($count_idiomas < 1) {
-							$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#5">Conocimiento de idiomas</a>';
+							$textoresultados[] = '<br /><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#2">Conocimiento de idiomas</a>';
             $falta_datos = 1;
         }
 
@@ -2100,15 +2056,15 @@ function buttonHandler_New_Button11($params)
 		$result["fechanac"] = $params["fechanac"];
 		$result["sexo"] = $params["sexo"];
 		$result["estado_civil"] = $params["estado_civil"];
-		$result["canthijos"] = $params["canthijos"];
+		//$result["canthijos"] = $params["canthijos"];
 		$result["city_id"] = $params["city_id"];
 		$result["distrito_id"] = $params["distrito_id"];
 		$result["domicilio"] = $params["domicilio"];
-		$result["esindigena"] = $params["selectedValueEsIndigena"];
-		$result["multiselec_discapacidades"] = $params["selectedValueMultiSelecDiscapacidades"];
-		$result["porcentaje_discapacidad"] = $params["porcentaje_discapacidad"];
-		$result["adjunto_certificado_discapacidad"] = $record["adjunto_certificado_discapacidad"];
-		$result["adjunto_potencial_discapacidad"] = $record["adjunto_potencial_discapacidad"];
+		//$result["esindigena"] = $params["selectedValueEsIndigena"];
+		//$result["multiselec_discapacidades"] = $params["selectedValueMultiSelecDiscapacidades"];
+		//$result["porcentaje_discapacidad"] = $params["porcentaje_discapacidad"];
+		//$result["adjunto_certificado_discapacidad"] = $record["adjunto_certificado_discapacidad"];
+		//$result["adjunto_potencial_discapacidad"] = $record["adjunto_potencial_discapacidad"];
 		$result["nro_cel"] = $params["nro_cel"];
 		
 		
@@ -2162,6 +2118,7 @@ function buttonHandler_New_Button11($params)
 			$result["persons_referencia_error"] = false;
 		}
 
+/*
 		//Validación para conocimiento de idiomas.
 		$sqlIdiomas = DB::PrepareSQL("SELECT COUNT(*) as total 
 																			FROM bolsa_empleo.cvc_idiomas 
@@ -2174,24 +2131,26 @@ function buttonHandler_New_Button11($params)
 		} else {
 			$result["cvc_idiomas_error"] = false;
 		}
-		
+		*/
 		
 		//if ( !$result["cvc_estudios_realizados_error"] && !$result["cvc_experiencia_laboral_error"] && !$result["persons_referencia_error"] && !$result["cvc_idiomas_error"] ) {
 			 //no hay error, continuar con los siguientes pasos.
 				
 		//borrar y volver a cargar discapacidades
-		$sqldisb = DB::PrepareSQL("DELETE 
+	/*
+  	$sqldisb = DB::PrepareSQL("DELETE 
 																	FROM eportal.persons_discapacidades 
 																	WHERE person_id = ':1'", $result["id"]);
 		DB::Exec($sqldisb);
+*/
 		//insertar discapacidad
-		$zonas_cuerpo = explode(",", $result["multiselec_discapacidades"]);
+	/*	$zonas_cuerpo = explode(",", $result["multiselec_discapacidades"]);
 		foreach ($zonas_cuerpo as $value) {
 			$sqldis = DB::PrepareSQL("INSERT INTO eportal.persons_discapacidades(person_id, tipo_discapacidad_id) 
 																		VALUES (':1',':2')", $result["id"], $value);
 			DB::Exec($sqldis);
 		}
-
+*/
 		//borrar y volver a cargar tel
 		$sqldisb = DB::PrepareSQL("DELETE 
 																	FROM eportal.persons_phones 
@@ -2209,7 +2168,7 @@ function buttonHandler_New_Button11($params)
 		//$result["validacion_pasos_error"] = true;
 	//}
 
-	if ( $result["cvc_estudios_realizados_error"] || $result["cvc_experiencia_laboral_error"] || $result["persons_referencia_error"] || $result["cvc_idiomas_error"] ) {
+	if ( $result["cvc_estudios_realizados_error"] || $result["cvc_experiencia_laboral_error"] || $result["persons_referencia_error"]  ) {
 		$result["validacion_pasos_error"] = true;
 	}
 	//**********  ***********************************************************  ************//

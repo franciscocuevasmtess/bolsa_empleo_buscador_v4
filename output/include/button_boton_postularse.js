@@ -7,14 +7,19 @@ Runner.buttonEvents["boton_postularse"] = function( pageObj, proxy, pageid ) {
 			var ajax = ctrl;
 // Client Before - Boton Postularse.
 
-/* Obtiene el valor del tipo de feria */
-var es_programa = row.getFieldValue("es_programa"); 
-params["es_programa"] = es_programa;
+// Obtiene el valor del tipo de feria
+var es_programa = row.getFieldValue("es_programa");
 
-/* Si la feria es emplea py joven no abre la ventana de confirmación */
-if (es_programa) {
+// Convertir a 1/0 si la base de datos lo requiere
+// Versión con validación robusta
+params["es_programa"] = es_programa === "t" ? 1 : 
+                        es_programa === "f" ? 0 : 
+                        0; // Valor por defecto (ej: null → 0)
+
+// Si la feria es emplea py joven no abre la ventana de confirmación.
+if (params["es_programa"] === 1) {
 	return true;
-} else {	
+} else {
 	var htmlElement = document.createElement('div');
 	htmlElement.innerHTML = `<div>
 		<style>
@@ -24,11 +29,9 @@ if (es_programa) {
 				padding: 2px 5px; 
 				background: #ccc;
 			}
-			
 			.postulacion-table {
 				width: 100%;
 			}
-			
 			.postulacion-table td {
 				padding: 10px;
 				vertical-align: top;
@@ -73,13 +76,13 @@ if (es_programa) {
 	// descomentar para frenar todo el sistema, usar submit(); para continuar
 	return false;
 }
+
 		}
 	}
 	
 	if ( !pageObj.buttonEventAfter['boton_postularse'] ) {
 		pageObj.buttonEventAfter['boton_postularse'] = function( result, ctrl, pageObj, proxy, pageid, rowData, row, params ) {
 			var ajax = ctrl;
-// Client After - Boton Postularse.
 
 if (result['falta_datos'] == 1) {
 	Swal.fire({
@@ -128,13 +131,11 @@ if (result['falta_datos'] == 1) {
 					toast.onmouseleave = Swal.resumeTimer;
 				}
 			});
-		
 			Toast.fire({
 				icon: "success",
 				title: "<b>¡Felicidades!</b>",
 				html: "Te has postulado correctamente"
 			});
-		
 			// Esperar 10 segundos (10000 milisegundos) y luego recargar la página
 			setTimeout(() => {
 				location.reload();
@@ -150,6 +151,7 @@ if (result['falta_datos'] == 1) {
 	} // end if emplea_py_joven else
 
 } // end if falta_datos else
+
 
 		}
 	}

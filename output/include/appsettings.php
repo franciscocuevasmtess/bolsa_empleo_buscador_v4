@@ -788,9 +788,9 @@ $suggestAllContent = true;
 $strLastSQL = "";
 $showCustomMarkerOnPrint = false;
 
-$projectBuildKey = "4070_1743775850";
+$projectBuildKey = "4415_1756988851";
 $wizardBuildKey = "41974";
-$projectBuildNumber = "4070";
+$projectBuildNumber = "4415";
 
 $mlang_messages = array();
 $mlang_charsets = array();
@@ -877,6 +877,7 @@ $tableCaptions["Spanish"]["bolsa_empleo_ficha_social"] = "Ficha Social";
 $tableCaptions["Spanish"]["bolsa_empleo_condicion_vivienda"] = "Condicion Vivienda";
 $tableCaptions["Spanish"]["bolsa_empleo_personas_aportantes_hogar"] = "Personas Aportantes Hogar";
 $tableCaptions["Spanish"]["bolsa_empleo_ingreso_mensual_aproximado"] = "Ingreso Mensual Aproximado";
+$tableCaptions["Spanish"]["bolsa_empleo_estado_postulacion"] = "Estado Postulacion";
 
 
 $globalEvents = new class_GlobalEvents;
@@ -997,151 +998,147 @@ $fieldFilterValueShrinkPostfix = "...";
 // here goes EVENT_INIT_APP event
 setlocale(LC_TIME, 'es_ES.UTF-8','esp');
 
-	function verify2($bundle, $key) {
-		return hash_equals(
-													hash_hmac('sha256', mb_substr($bundle, 64, null, '8bit'), $key),
-													mb_substr($bundle, 0, 64, '8bit')
-											);
+function verify2($bundle, $key) {
+	return hash_equals(hash_hmac('sha256', mb_substr($bundle, 64, null, '8bit'), $key), mb_substr($bundle, 0, 64, '8bit'));
+}
+
+function decrypt2($hash, $password) {
+	$iv = hex2bin(substr($hash, 0, 32));
+	$data = hex2bin(substr($hash, 32));
+	$key = $password;
+	if (!verify2($data, $key)) {
+		return null;
 	}
 
-	function decrypt2($hash, $password) {
-		$iv = hex2bin(substr($hash, 0, 32));
-		$data = hex2bin(substr($hash, 32));
-		$key = $password;
-		if (!verify2($data, $key)) {
-			return null;
-		}
-		
-		return openssl_decrypt(mb_substr($data, 64, null, '8bit'), 'aes-256-ctr', $key, OPENSSL_RAW_DATA, $iv);
-	}
+	return openssl_decrypt(mb_substr($data, 64, null, '8bit'), 'aes-256-ctr', $key, OPENSSL_RAW_DATA, $iv);
+}
 	
-	if ($_GET["encoding"]) {
-		$sql = DB::PrepareSQL("select * from bolsa_empleo.bolsa_users where username = ':1'", $_SESSION['usuario']);
-		$rs = DB::Query($sql);
-		$data = $rs->fetchAssoc();
-		if ($data['estado_llave'] == '1') {
-			$decrypted_string = decrypt2($_GET["encoding"], $data['llave']);
-			$porciones = explode('&', $decrypted_string);
-		
-			if (Security::checkUsernamePassword($_SESSION['usuario'],$_SESSION['contra'])) {
-				Security::loginAs($porciones[0], true);
-			}
-		} else {
-			Security::logout();
-			header("Location: vacancia_list.php");
-			exit();
-		}
-	}
+if ($_GET["encoding"]) {
+	$sql = DB::PrepareSQL("select * from bolsa_empleo.bolsa_users where username = ':1'", $_SESSION['usuario']);
+	$rs = DB::Query($sql);
+	$data = $rs->fetchAssoc();
+	if ($data['estado_llave'] == '1') {
+		$decrypted_string = decrypt2($_GET["encoding"], $data['llave']);
+		$porciones = explode('&', $decrypted_string);
 
-	//llamar funcion popup verificacion datos vacancias
-	function verificardatospostulacion() {
-		$textoresultados = array();
-		$falta_datos = 0;
+		if (Security::checkUsernamePassword($_SESSION['usuario'],$_SESSION['contra'])) {
+			Security::loginAs($porciones[0], true);
+		}
+	} else {
+		Security::logout();
+		header("Location: vacancia_list.php");
+		exit();
+	}
+}
+
+// llamar funcion popup verificacion datos vacancias
+function verificardatospostulacion() {
+	$textoresultados = array();
+	$falta_datos = 0;
 		
-		$rs = DB::Query("SELECT
+	$rs = DB::Query("SELECT
 												(SELECT foto FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_foto,
 												(SELECT resumen FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_resumen,
 												(SELECT COUNT(*) FROM eportal.persons_phones WHERE type = 2 and person_id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_phones,
 												(SELECT city_id FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_city,
 												(SELECT domicilio FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_domicilio,
-												(SELECT canthijos FROM eportal.persons WHERE id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS existe_canthijos,
 												(SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '" . pg_escape_string($_SESSION["cedula"]) . "') AS count_educacion,
 												(SELECT COUNT(*) FROM bolsa_empleo.cvc_experiencia_laboral WHERE fk_persona_id = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_experiencia_laboral,
-												(SELECT COUNT(*) FROM eportal.persons_referencia WHERE id_persona = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_referencias_personales,
-												(SELECT COUNT(*) FROM bolsa_empleo.cvc_idiomas WHERE fk_personaid = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_idiomas
+												(SELECT COUNT(*) FROM eportal.persons_referencia WHERE id_persona = '" . pg_escape_string($_SESSION["persona_id"]) . "') AS count_referencias_personales
 										");
+	while ($datafinal = $rs->fetchAssoc()) {
+		$existe_foto = $datafinal['existe_foto'];
+		$existe_resumen = $datafinal['existe_resumen'];
+		$count_phones = $datafinal['count_phones'];
+		$existe_city = $datafinal['existe_city'];
+		$existe_domicilio = $datafinal['existe_domicilio'];
+		// $existe_canthijos = $datafinal['existe_canthijos'];
+		$count_educacion = $datafinal['count_educacion'];
+		$count_experiencia_laboral = $datafinal['count_experiencia_laboral'];
+		$count_referencias_personales = $datafinal['count_referencias_personales'];
+		// $count_idiomas = $datafinal['count_idiomas'];
 		
-		while ($datafinal = $rs->fetchAssoc()) {
-			$existe_foto = $datafinal['existe_foto'];
-			$existe_resumen = $datafinal['existe_resumen'];
-			$count_phones = $datafinal['count_phones'];
-			$existe_city = $datafinal['existe_city'];
-			$existe_domicilio = $datafinal['existe_domicilio'];
-			$existe_canthijos = $datafinal['existe_canthijos'];
-			$count_educacion = $datafinal['count_educacion'];
-			$count_experiencia_laboral = $datafinal['count_experiencia_laboral'];
-			$count_referencias_personales = $datafinal['count_referencias_personales'];
-			$count_idiomas = $datafinal['count_idiomas'];
-			
-			if (is_null($existe_foto)) {
-				// $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Foto de Perfil en Informacion Personal.";
-				// $falta_datos = 1;
-			}
-			
-			if (is_null($existe_resumen)) {
-				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Resumen Personal)</a>';
-				$falta_datos = 1;
-			}
-			
-			if ($count_phones < 1) {
-				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Número de Teléfono(WhatsApp))</a>';
-				$falta_datos = 1;
-			}
-			
-			if (is_null($existe_city)) {
-				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Ciudad)</a>';
-				$falta_datos = 1;
-			}
-			
-			if (is_null($existe_domicilio)) {
-				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php"> Información Básica (Dirección)</a>';
-				$falta_datos = 1;
-			}
-			
-			if (is_null($existe_canthijos)) {
-				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Cantidad de Hijos)</a>';
-				$falta_datos = 1;
-			}
-			
-			if ($count_educacion < 1) {
-				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#2">Estudios Realizados</a>';
-				$falta_datos = 1;
-			}
-			
-			if ($count_experiencia_laboral < 1) {
-				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#3">Experiencia Laboral</a>';
-				$falta_datos = 1;
-			}
-
-			if ($count_referencias_personales < 1) {
-				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#4">Referencias Personales</a>';
-				$falta_datos = 1;
-			}
-
-			if ($count_idiomas < 1) {
-				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#5">Conocimiento de idiomas</a>';
-				$falta_datos = 1;
-			}
-			
-		} //end while
+		if (is_null($existe_foto)) {
+			// $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Foto de Perfil en Informacion Personal.";
+			// $falta_datos = 1;
+		}
 		
-		if ($falta_datos == '0' ) {
-			echo '<script src="sweetalert2.all.min.js"></script>';
-			echo '<script>document.addEventListener("DOMContentLoaded", function() { Swal.fire({
-							position: "top-center",
-							icon: "success",
-							title: "¡Ya puedes postularte!",
-							showConfirmButton: false,
-							timer: 5500
-						});
-					});</script>';
-		} else {
-			// Obtener el contenido del array y unirlo con <br
-				
-			$mensaje = implode('<br>', $textoresultados);
+		if (is_null($existe_resumen)) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Resumen Personal)</a>';
+			$falta_datos = 1;
+		}
 			
-			// Escapar comillas simples y comillas dobles para evitar problemas en el código JavaScript
-			$mensaje = str_replace("'", "\\'", $mensaje);
-			$mensaje = str_replace('"', '\\"', $mensaje);
+		if ($count_phones < 1) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Número de Teléfono(WhatsApp))</a>';
+			$falta_datos = 1;
+		}
 			
-			echo '<script src="sweetalert2.all.min.js"></script>';
-			echo '<script>
-							document.addEventListener("DOMContentLoaded", function() {
-								
+		if (is_null($existe_city)) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Ciudad)</a>';
+			$falta_datos = 1;
+		}
+			
+		if (is_null($existe_domicilio)) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php"> Información Básica (Dirección)</a>';
+			$falta_datos = 1;
+		}
+		/*
+		if (is_null($existe_canthijos)) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php">Información Básica (Cantidad de Hijos)</a>';
+			$falta_datos = 1;
+		}
+		*/
+		if ($count_educacion < 1) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#2">Estudios Realizados</a>';
+			$falta_datos = 1;
+		}
+			
+		if ($count_experiencia_laboral < 1) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#3">Experiencia Laboral</a>';
+			$falta_datos = 1;
+		}
+		
+		if ($count_referencias_personales < 1) {
+				$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#1">Referencias Personales</a>';
+				$falta_datos = 1;
+		}
+		/*
+		if ($count_idiomas < 1) {
+			$textoresultados[] = '<br><i class="bi bi-dot"></i> <a href="personas_pasos_edit.php#2">Conocimiento de idiomas</a>';
+			$falta_datos = 1;
+		}
+		*/
+	} //end while
+		
+	if ($falta_datos == '0' ) {
+		echo '<script src="sweetalert2.all.min.js"></script>';
+		echo '<script>
+			document.addEventListener("DOMContentLoaded", function() { 
+				Swal.fire({
+					position: "top-center",
+					icon: "success",
+					title: "¡Ya puedes postularte!",
+					showConfirmButton: false,
+					timer: 5500
+				});
+			});
+		</script>';
+	} else {
+		// Obtener el contenido del array y unirlo con <br
+		$mensaje = implode('<br>', $textoresultados);
+		
+		// Escapar comillas simples y comillas dobles para evitar problemas en el código JavaScript
+		$mensaje = str_replace("'", "\\'", $mensaje);
+		$mensaje = str_replace('"', '\\"', $mensaje);
+		
+		echo '<script src="sweetalert2.all.min.js"></script>';
+		echo '<script>
+							document.addEventListener("DOMContentLoaded", function() {						
 								Swal.fire({
 														title:"¡Datos Guardados!", 
 														confirmButtonText: "OK"
-													}).then((result) => {
+											})
+											.then((result) => {
 														if (result.isConfirmed) {
 															Swal.fire({
 																imageUrl: "images/imgob23/emplea_a.png",
@@ -1154,12 +1151,157 @@ setlocale(LC_TIME, 'es_ES.UTF-8','esp');
 																showConfirmButton: false
 															})
 														}
-													});
-								
+											});
 							});
 					</script>';
+	}
+} //end verificardatospostulacion()
+
+
+// pasar nro de cédula y obtener datos de identificaciones. 
+function consultarIDENTIFI($username) {
+	//die("die1");
+	// Limpiar y validar el número de cédula
+	$cedula = limpiarYValidarCedula($username);
+	//die("die2");
+	if ($cedula === false) {
+		//die("die3");
+		error_log("Número de cédula inválido: " . $username);
+		return false;
+	}
+	
+	//die("die4");
+	$url = 'https://bolsa.mtess.gov.py/buscador/sii_ci_bolsa.php?ci=' . $cedula;
+	$ch = curl_init();
+
+	curl_setopt_array($ch, [
+		CURLOPT_URL => $url,
+		CURLOPT_RETURNTRANSFER => true,
+		CURLOPT_TIMEOUT => 10,
+		CURLOPT_CONNECTTIMEOUT => 10,
+		/*CURLOPT_SSL_VERIFYPEER => true,*/
+		CURLOPT_SSL_VERIFYPEER => false,
+		CURLOPT_SSL_VERIFYHOST => 2,
+		CURLOPT_USERAGENT => 'Mozilla/5.0 (compatible; PHP)',
+		CURLOPT_FAILONERROR => true,
+		CURLOPT_FOLLOWLOCATION => true,
+		CURLOPT_MAXREDIRS => 3
+	]);
+	
+	$response = curl_exec($ch);
+	$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+	$error = curl_error($ch);
+	$errno = curl_errno($ch);
+	curl_close($ch);
+	
+	// Manejo de errores de cURL
+	if ($errno !== 0) {
+		//die("die5");
+		$errorMessages = [
+			CURLE_OPERATION_TIMEDOUT => "Timeout: La consulta excedió el tiempo límite de 10 segundos",
+			CURLE_COULDNT_CONNECT => "Error de conexión: No se pudo conectar al servidor",
+			CURLE_SSL_CONNECT_ERROR => "Error SSL: Problema con la conexión segura",
+			CURLE_HTTP_RETURNED_ERROR => "Error HTTP: El servidor devolvió un código de error"
+		];
+		
+		$errorMessage = $errorMessages[$errno] ?? "Error cURL ($errno): " . $error;
+		die("die5 " . $errorMessage);
+		error_log("Error API para cédula $cedula: " . $errorMessage);
+		return [
+			'error' => $errorMessage,
+     'http_code' => $httpCode,
+     'cedula' => $cedula
+		];
+	}
+	
+	// Verificar código HTTP
+	if ($httpCode !== 200) {
+		error_log("Error HTTP $httpCode para cédula $cedula");
+		//die("die6 " . "El servidor respondió con código HTTP ".$httpCode);
+		return [
+			'error' => "El servidor respondió con código HTTP $httpCode",
+			'http_code' => $httpCode,
+			'cedula' => $cedula
+		];
+	}
+  
+	// Verificar respuesta vacía
+  if (empty($response)) {
+		error_log("Respuesta vacía del servidor para cédula $cedula");
+		//die("die7 " . "El servidor respondió con una respuesta vacía ".$httpCode);
+		return [
+			'error' => "El servidor respondió con una respuesta vacía",
+			'http_code' => $httpCode,
+			'cedula' => $cedula
+		];
+  }
+  
+	// Verificar si la respuesta contiene un error
+	if (esRespuestaDeError($response)) {
+		error_log("La API devolvió un error para cédula $cedula: " . substr($response, 0, 100));
+		//die("die8 " . "La API devolvió un error para cédula: ".$cedula);
+		return [
+			'error' => "La cédula no existe o no pudo ser procesada",
+			'http_code' => $httpCode,
+			'cedula' => $cedula,
+			'respuesta' => $response
+		];
+	}
+	
+	return $response;
+}
+
+function limpiarYValidarCedula($cedula) {
+	// Remover caracteres no numéricos excepto letras al final
+	$cedulaLimpia = preg_replace('/[^0-9A-Za-z]/', '', $cedula);
+	
+	// Convertir a mayúsculas para consistencia
+	$cedulaLimpia = strtoupper($cedulaLimpia);
+	
+	// Separar números y posible letra al final
+	if (preg_match('/^(\d+)([A-Z])?$/', $cedulaLimpia, $matches)) {
+		//die("die9 " . "limpiarYValidarCedula: ".$cedulaLimpia);
+	  $numeros = $matches[1];
+	  $letra = $matches[2] ?? '';
+	  
+	  // Validar que tenga entre 5 y 8 dígitos (rango típico cédulas paraguayas)
+	  if (strlen($numeros) < 5 || strlen($numeros) > 8) {
+			return false;
+	  }
+	  
+	  // Reconstruir la cédula con la letra si existe
+	  return $numeros . $letra;
+	}//else{die("die10 " . "limpiarYValidarCedula: ".$cedulaLimpia);}
+	
+	return false;
+}
+
+function esRespuestaDeError($response) {
+	// Patrones que indican error en la respuesta
+	$patronesError = [
+		'/error/i',
+		'/no existe/i',
+		'/invalid/i',
+		'/not found/i',
+		'/sin resultado/i',
+		'/null/i',
+		'/^\s*$/',
+		'/:\s*$/' // Respuesta que termina con ":" (sin datos)
+	];
+	
+	foreach ($patronesError as $patron) {
+		if (preg_match($patron, $response)) {
+			return true;
 		}
-	} //end verificardatospostulacion()
+	}
+	
+	// Verificar si la respuesta tiene el formato esperado (debe contener varios ":")
+	if (substr_count($response, ':') < 3) {
+		return true;
+	}
+  
+	return false;
+}
 
 ;
 

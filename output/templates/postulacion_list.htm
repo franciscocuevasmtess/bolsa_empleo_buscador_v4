@@ -49,7 +49,7 @@
 				 
 				class="r-topheader" 
 				data-resize-name="topbar"
-				data-body-align="left"
+				data-body-align="center"
 			>
 								{BEGIN supertop_block}
 <nav class="navbar navbar-default" 
@@ -219,97 +219,6 @@
 			</span>
 							 
 							 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="simple_search" {$item_simple_search} data-topcell-item-type="simple_search" >
-				<span data-itemtype="simple_search" data-itemid="simple_search" {$item_simple_search} data-pageid="{$pageid}" class="form-group">
-
-<div  class="input-group">
-{BEGIN searchform_text}
-	<input type="search" class="form-control" {$searchfor_attrs} size="25">
-{END searchform_text}
-	<span class="input-group-btn">
-	{BEGIN searchform_showall}
-				<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Mostrar todo">
-			<span class="glyphicon glyphicon-remove"></span>
-		</button>
-	{END searchform_showall}
-
-	{BEGIN searchform_search}
-	<button {$searchbutton_attrs} class="btn btn-primary" >
-		<span class="glyphicon glyphicon-search"></span>
-	</button>
-	{END searchform_search}
-	</span>
-</div>
-		
-</span>			</span>
-		 
-				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
-				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
-	<span class="dropdown ">
-		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
-										<span class="glyphicon glyphicon-cog"></span>
-												<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu">
-							{BEGIN exportselected_link}
-	<li data-itemtype="export_selected" data-itemid="export_selected" {$item_export_selected} data-pageid="{$pageid}" data-small >
-				<a  href="#" {$exportselectedlink_attrs} {$exportselectedlink_span}  title="" >
-				
-		Exportar seleccionados		
-		</a>
-	</li>
-{END exportselected_link}
-							{BEGIN deleteselected_link}
-	<li data-itemtype="delete_selected" data-itemid="delete_selected" {$item_delete_selected} data-pageid="{$pageid}" data-small >
-				<a  href="#" {$deleteselectedlink_attrs} {$deleteselectedlink_span}  title="" >
-				
-		Borrar articulos seleccionados		
-		</a>
-	</li>
-{END deleteselected_link}
-							<li role="separator" class="divider"></li>								<li data-itemtype="advsearch_link" data-itemid="advsearch_link" {$item_advsearch_link} data-pageid="{$pageid}" data-small >
-				<a   href="postulacion_search.php{$stateLink_full}" {$advsearchlink_attrs}  title="" >
-				
-		Búsqueda avanzada		
-		</a>
-	</li>
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="showOptPanel{$id}"  title="" >
-				
-		Mostrar panel de búsqueda		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-							{BEGIN searchPanelTopButtons}
-	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
-				<a  id="hideOptPanel{$id}"  title="" >
-				
-		Ocultar panel de búsqueda		
-		</a>
-	</li>
-{END searchPanelTopButtons}
-							<li role="separator" class="divider"></li>							{BEGIN export_link}
-	<li data-itemtype="export" data-itemid="export" {$item_export} data-pageid="{$pageid}" data-small >
-				<a  href="#" {$exportlink_attrs}  title="" >
-				
-		Exportar resultados		
-		</a>
-	</li>
-{END export_link}
-							<li role="separator" class="divider"></li>							{BEGIN import_link}
-	<li data-itemtype="import" data-itemid="import" {$item_import} data-pageid="{$pageid}" data-small >
-				<a  {$importlink_attrs} href="postulacion_import.php{$stateLink_full}"  title="" >
-				
-		Importar		
-		</a>
-	</li>
-{END import_link}
-					</ul>
-	</span>
-</span>
-			</span>
-		 
 				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c2" data-pageid="{$pageid}" data-itemid="loginform_login" {$item_loginform_login} data-topcell-item-type="loginform_login" >
 				{BEGIN guestloginbutton}
 <span data-itemtype="loginform_login" data-itemid="loginform_login" {$item_loginform_login} data-pageid="{$pageid}" data-small data-button-item>
@@ -329,14 +238,6 @@
 						{END userbutton_icon}{$userbutton_image}			{$username}			<span class="caret"></span>
 		</button>
 		<ul class="dropdown-menu">
-							{BEGIN userinfo_link}
-	<li data-itemtype="userinfo_link" data-itemid="userinfo_link" {$item_userinfo_link} data-pageid="{$pageid}" data-small >
-				<a  href="userinfo.php"  title="" >
-				
-		Perfil del usuario		
-		</a>
-	</li>
-{END userinfo_link}
 							{BEGIN logoutbutton}
 	<li data-itemtype="logout_link" data-itemid="logout_link" {$item_logout_link} data-pageid="{$pageid}" data-small >
 				<a  href="#" {$logoutlink_attrs}  title="" >
@@ -345,14 +246,6 @@
 		</a>
 	</li>
 {END logoutbutton}
-							{BEGIN changepwd_link}
-	<li data-itemtype="changepassword_link" data-itemid="changepassword_link" {$item_changepassword_link} data-pageid="{$pageid}" data-small >
-				<a  href="changepwd.php" {$changepwdlink_attrs} id="changePasswordButton{$id}"  title="" >
-				
-		Cambiar contraseña		
-		</a>
-	</li>
-{END changepwd_link}
 					</ul>
 	</span>
 </span>
@@ -362,7 +255,7 @@
 {END supertop_block}
 					{$locking}
 			</div>	
-			<div data-body-align="left"  data-body-width="standard" class="r-body" data-resize-top="topbar" >
+			<div data-body-align="center"  data-body-width="standard" class="r-body" data-resize-top="topbar" >
 				<div class="r-top">
 								{BEGIN top_block}
 <div class="r-form" data-location="top" id="form_top_{$pageid}" data-makeup="topbar" {$form_top} data-pageid="{$pageid}" >		
@@ -374,23 +267,7 @@
 	class=" r-ori-vert			col-md-12
 	
 ">
-		 
-		{BEGIN breadcrumb}
-<ol class="breadcrumb" data-itemtype="breadcrumb" data-itemid="breadcrumb" {$item_breadcrumb} data-pageid="{$pageid}">
-<li ><a href="{$crumb_home_link}"><span class="glyphicon glyphicon-home"></span></a>{$crumb_dropdown}</li>
-{BEGIN crumb}
-  <li class="{$crumb_item_class}">
-{BEGIN crumb_title_link}
-	<a {$crumb_attrs}>{$crumb_title}</a>
-{END crumb_title_link}
-{BEGIN crumb_title_span}
-	<span {$crumb_attrs}>{$crumb_title}</span>
-{END crumb_title_span}	
-	{$crumb_dropdown}
-  </li>
-{END crumb}
-</ol>
-{END breadcrumb}		</div>					</div>
+			</div>					</div>
 			 
 				<div class="row">
 			 
@@ -419,135 +296,6 @@
 	class=" r-ori-vert			"
 			 
 	data-cellId="left_c1" data-pageid="{$pageid}">
- 
-<!-- Begin Search panel content -->
-<div class="searchOptions panel panel-primary searchPanelContainer " {$srchOpt_attrs} data-itemtype="search_panel" data-itemid="search_panel" {$item_search_panel} data-pageid="{$pageid}"	 >
-
-	<div class="panel-heading">
-		<div class="btn-group r-sp-addfield" id="addSearchFieldButton{$id}">
-			<button id="showHideControlChooseMenu{$id}" type="button" class="btn btn-default dropdown-toggle btn-sm )" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			Búsqueda			<span class="caret"></span>
-			</button>
-		</div>
-
-
-		<div class="btn-group r-sp-options" id="searchPanelOptions{$id}">
-			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<span class="glyphicon glyphicon glyphicon-option-vertical"></span>
-			</button>
-			<ul class="dropdown-menu dropdown-left">
-				<li id="showHideSearchType{$id}" {$showHideCtrlsOpt_attrs}><a>Mostrar opciones</a></li>
-				<li role="separator" class="divider"></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAll" {$all_checkbox}><label for="radioAll"><span class="glyphicon">&nbsp;</span>todas las condiciones</label></a></li>
-				<li class="srchCritTop" style="display: none;"><a><input type="radio" name="srchType{$id}" id="radioAny" {$any_checkbox}><label for="radioAny"><span class="glyphicon">&nbsp;</span>cualquier condición</label></a></li>
-				<li role="separator" class="divider"></li>
-				<li><a class="close-button"><span class="glyphicon glyphicon-remove">&nbsp;</span>esconder</a></li>
-			</ul>
-		</div>
-
-
-		</div>
-	<div class="panel-body controlsBlock" {$bottomSearchButt_attrs} >
-
-
-		
-		{BEGIN searchCtrlBlock}
-		<div class="srchPanelRow form-group" {$filterRow_attrs}>
-			<label>{$fLabel}</label>	{$delCtrlButt}
-				<span class="rnr-searchtype">{$searchtype}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol}</span>
-				<span class="rnr-searchcontrol">{$searchcontrol1}</span>
-		</div>
-		{END searchCtrlBlock}
-																		{BEGIN searchCtrlBlock_fecha_postulacion}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_fecha_postulacion}" {$filterRow_attrs_fecha_postulacion}>
-			<label>{$label bolsa_empleo_postulacion fecha_postulacion }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_fecha_postulacion}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_fecha_postulacion}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_fecha_postulacion}</span>
-						</div>
-		{END searchCtrlBlock_fecha_postulacion}
-																{BEGIN searchCtrlBlock_metodo_insercion}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_metodo_insercion}" {$filterRow_attrs_metodo_insercion}>
-			<label>{$label bolsa_empleo_postulacion metodo_insercion }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_metodo_insercion}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_metodo_insercion}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_metodo_insercion}</span>
-						</div>
-		{END searchCtrlBlock_metodo_insercion}
-																{BEGIN searchCtrlBlock_id_vacancia}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_id_vacancia}" {$filterRow_attrs_id_vacancia}>
-			<label>{$label bolsa_empleo_postulacion id_vacancia }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_id_vacancia}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_id_vacancia}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_id_vacancia}</span>
-						</div>
-		{END searchCtrlBlock_id_vacancia}
-																{BEGIN searchCtrlBlock_id_postulacion}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_id_postulacion}" {$filterRow_attrs_id_postulacion}>
-			<label>{$label bolsa_empleo_postulacion id_postulacion }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_id_postulacion}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_id_postulacion}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_id_postulacion}</span>
-						</div>
-		{END searchCtrlBlock_id_postulacion}
-																{BEGIN searchCtrlBlock_id_estado}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_id_estado}" {$filterRow_attrs_id_estado}>
-			<label>{$label bolsa_empleo_postulacion id_estado }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_id_estado}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_id_estado}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_id_estado}</span>
-						</div>
-		{END searchCtrlBlock_id_estado}
-																{BEGIN searchCtrlBlock_fk_personaid}
-
-
-		<div class="form-group srchPanelRow {$filterRow_class_fk_personaid}" {$filterRow_attrs_fk_personaid}>
-			<label>{$label bolsa_empleo_postulacion fk_personaid }</label>
-
-							{$delCtrlButt}
-			
-								<span class="rnr-searchtype">{$searchtype_fk_personaid}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol_fk_personaid}</span>
-								<span class="rnr-searchcontrol">{$searchcontrol1_fk_personaid}</span>
-						</div>
-		{END searchCtrlBlock_fk_personaid}
-		
-
-	</div>
-
-	<div class="panel-footer bottomSearchButt" {$bottomSearchButt_attrs}>
-		<button class="btn btn-primary btn-sm" id="searchButton{$id}" {$searchbutton_attrs}>Buscar</button>
-
-				<button class="btn btn-default btn-sm" {$showAllCont_attrs} {$showallbutton_attrs}>Mostrar todo</button>
-	</div>
-</div>
-<!-- End Search panel content -->
 </td>
 							</tr>
 					
@@ -564,20 +312,53 @@
 				<div class="row">
 			 
 				<div 
-	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
-	class="			col-md-6
+	data-cellId="above-grid_c" data-pageid="{$pageid}"	{$cell_above-grid_c}
+	class=" r-ori-vert			col-md-6
 	
 ">
 		{BEGIN firstAboveGridCell}
 		 
-		{BEGIN add_link}
-<span data-itemtype="add" data-itemid="add" {$item_add} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-primary   
-	" {$addlink_attrs} href="postulacion_add.php{$stateLink_full}" >
-							Añadir nuevo			</a>
-</span>
-{END add_link}
-	 
+		<span data-itemtype="text" data-itemid="text" {$item_text} data-pageid="{$pageid}" data-page="postulacion_list" data-small > 
+	Historial de postulaciones</span>
+			{END firstAboveGridCell}	
+	</div>			 
+				<div 
+	data-cellId="above-grid_c3" data-pageid="{$pageid}"	{$cell_above-grid_c3}
+	class="r-align-right r-ori-vert			col-md-6
+	
+">
+		 
+		<span data-itemtype="simple_search" data-itemid="simple_search" {$item_simple_search} data-pageid="{$pageid}" class="form-group">
+
+<div  class="input-group">
+{BEGIN searchform_text}
+	<input type="search" class="form-control" {$searchfor_attrs} size="25">
+{END searchform_text}
+	<span class="input-group-btn">
+	{BEGIN searchform_showall}
+				<button class="btn btn-default" {$showAllCont_attrs} {$showallbutton_attrs} title="Mostrar todo">
+			<span class="glyphicon glyphicon-remove"></span>
+		</button>
+	{END searchform_showall}
+
+	{BEGIN searchform_search}
+	<button {$searchbutton_attrs} class="btn btn-primary" >
+		<span class="glyphicon glyphicon-search"></span>
+	</button>
+	{END searchform_search}
+	</span>
+</div>
+		
+</span>		</div>					</div>
+			 
+				<div class="row">
+			 
+				<div 
+	data-cellId="above-grid_c1" data-pageid="{$pageid}"	{$cell_above-grid_c1}
+	class=" r-ori-vert			col-md-6
+	
+">
+		 
 		{BEGIN inlineadd_link}
 <span data-itemtype="inline_add" data-itemid="inline_add" {$item_inline_add} data-pageid="{$pageid}" data-small data-button-item>
 	<a type="button" title="" class="btn btn-primary   
@@ -585,104 +366,18 @@
 							Añadir nuevo			</a>
 </span>
 {END inlineadd_link}
-	 
-		{BEGIN deleteselected_link}
-<span data-itemtype="delete" data-itemid="delete" {$item_delete} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-default   
-	" {$deleteselectedlink_attrs} {$deleteselectedlink_span} disabled >
-							Borrar artículos seleccionados			</a>
-</span>
-{END deleteselected_link}
-			{END firstAboveGridCell}	
-	</div>			 
+		</div>			 
 				<div 
 	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
 	class="r-align-right			col-md-6
 	
 ">
 		 
-		<span data-itemtype="details_found" data-itemid="details_found" {$item_details_found} data-pageid="{$pageid}" data-small >
+		<span data-itemtype="details_found" data-itemid="details_found" {$item_details_found} data-pageid="{$pageid}" data-page="postulacion_list" data-small >
 {$mlp_push}{$mlparam first var first_shown}{$mlparam last var last_shown}{$mlparam total var records_found}{mlang_message DISPLAYING}{$mlp_pop}</span>	 
 		<span data-itemtype="page_size" data-itemid="page_size" {$item_page_size} data-pageid="{$pageid}" >
 		{$recsPerPage}
-</span>	 
-		{BEGIN print_friendly}
-<span id="printpanelblock{$id}"  data-pageid="{$pageid}" {$printpanel_hiddenattr} data-itemtype="print_panel" data-itemid="print_panel" {$item_print_panel} data-pageid="{$pageid}">
-	<button title="Página para imprimir" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-					<span class="glyphicon glyphicon-print"></span>
-				<span class="caret"></span>
-	</button>
-	<ul class="dropdown-menu pull-right">
-										 
-				 
-					<li class="container-fluid 
-										">
-									<div id="print_friendly_scope{$id}">
-	<div class="row">
-		<div class="col-md-4">
-			Rango:		</div>
-
-			 
-		{BEGIN print_friendly_all}
-		<div class="col-md-8">
-			<label for="printAll{$id}">
-				<input type="radio" id="printAll{$id}" data-href="postulacion_print.php?all=1&amp;{$crosstable_attrs}" name="printScope" >
-									Imprimir todas las páginas							</label>
-		</div>
-		{END print_friendly_all}
-		</div>
-		<div class="row">
-		<div class="col-md-4">&nbsp;</div>
-		<div class="col-md-8">
-			<label for="printPage{$id}">
-				<input name="printScope" id="printPage{$id}" type="radio" checked data-href="postulacion_print.php?{$crosstable_attrs}">
-				Imprimir esta página			</label>
-		</div>
-	</div>
-		
-		 
-	<div class="row">
-		<div class="col-md-4">
-			&nbsp;
-		</div>
-		<div class="col-md-8">
-			<label style="color: gray;" for="printSelection{$id}">
-			<input name="printScope" disabled="disabled" id="printSelection{$id}" type="radio" >
-			Imprimir la selección			</label>
-		</div>
-	</div>
-	</div>
-				 
-					</li>
-											<li class="divider" role="separator"></li>
-																				 
-				 
-					<li class="container-fluid 
-										">
-									<div>
-	<label for="printPerPage{$id}">
-					Resultados por página							
-	</label>
-	<input type="number" id="printPerPage{$id}" value="{$print_recspp}" class="rnr-printrecspp">		
-</div>
-				 
-					</li>
-											<li class="divider" role="separator"></li>
-																				 
-				 
-					<li class="container-fluid 
-					 text-center 					">
-									<span data-itemtype="print_button" data-itemid="print_button" {$item_print_button} data-pageid="{$pageid}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-primary   
-	" id="print_friendly_button{$id}" >
-							Imprimir			</a>
-</span>
-				 
-					</li>
-															</ul>
-</span>
-{END print_friendly}
-		</div>					</div>
+</span>		</div>					</div>
 			</div>		
 {END above-grid_block}
 	</div>
@@ -703,17 +398,20 @@
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="id_vacancia"]:before {
 		content: "{$label bolsa_empleo_postulacion id_vacancia}";
 	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="id_estado"]:before {
-		content: "{$label bolsa_empleo_postulacion id_estado}";
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="id_estado_postulado"]:before {
+		content: "{$label bolsa_empleo_postulacion id_estado_postulado}";
 	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="fecha_postulacion"]:before {
+				[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="fecha_postulacion"]:before {
 		content: "{$label bolsa_empleo_postulacion fecha_postulacion}";
 	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="fk_personaid"]:before {
-		content: "{$label bolsa_empleo_postulacion fk_personaid}";
+				[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="id_estado_vacancia"]:before {
+		content: "{$label bolsa_empleo_postulacion id_estado_vacancia}";
 	}
-			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="metodo_insercion"]:before {
-		content: "{$label bolsa_empleo_postulacion metodo_insercion}";
+				[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="fk_id_feria_empleo"]:before {
+		content: "{$label bolsa_empleo_postulacion fk_id_feria_empleo}";
+	}
+						[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="nombre_vacancia"]:before {
+		content: "{$label bolsa_empleo_postulacion nombre_vacancia}";
 	}
 	}
 </style>
@@ -745,80 +443,24 @@
 	
 	</th>
 	{END cellblock_grid_headcell_icons}
-									{BEGIN cellblock_grid_headcell_checkbox}
-	<th
-	
-	{$cell_grid_headcell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_headcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_list"	
-		data-checkbox-cell
-	>
-
-	 
-		{BEGIN checkbox_column}
-<span data-itemtype="grid_checkbox_head" data-itemid="grid_checkbox_head" {$item_grid_checkbox_head} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkboxheader_attrs}>
-</span>
-{END checkbox_column}
-	
-	</th>
-	{END cellblock_grid_headcell_checkbox}
 									{BEGIN cellblock_grid_headcell_field}
 	<th
 	
 	{$cell_grid_headcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$id_postulacion_class}	"
-
-			data-field="id_postulacion"
-	
-	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN id_postulacion_fieldheadercolumn}
-	{BEGIN id_postulacion_fieldheader}
-<span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_postulacion" data-fieldname="id_postulacion" 
-
-			{$id_postulacion_orderlinkattrs}
-	
-	
-	>
-	<span class="text-label">
-		<span>{$label bolsa_empleo_postulacion id_postulacion }</span>
-					{$arrow_icon_id_postulacion}
-			</span>
-	</span>
-	{END id_postulacion_fieldheader}
-{END id_postulacion_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field}
-									{BEGIN cellblock_grid_headcell_field1}
-	<th
-	
-	{$cell_grid_headcell_field1}
-	{$recordattrs}
-	class="
 		 r-ori-vert		 {$id_vacancia_class}	"
 
 			data-field="id_vacancia"
 	
-	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
 		{BEGIN id_vacancia_fieldheadercolumn}
 	{BEGIN id_vacancia_fieldheader}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_vacancia" data-fieldname="id_vacancia" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_vacancia" data-fieldname="id_vacancia" 
 
 			{$id_vacancia_orderlinkattrs}
 	
@@ -834,6 +476,40 @@
 
 	
 	</th>
+	{END cellblock_grid_headcell_field}
+									{BEGIN cellblock_grid_headcell_field1}
+	<th
+	
+	{$cell_grid_headcell_field1}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$nombre_vacancia_class}	"
+
+			data-field="nombre_vacancia"
+	
+	data-cellId="grid_headcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN nombre_vacancia_fieldheadercolumn}
+	{BEGIN nombre_vacancia_fieldheader}
+<span 
+	data-itemtype="grid_field_label" data-itemid="grid_field" {$item_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="nombre_vacancia" data-fieldname="nombre_vacancia" 
+
+			{$nombre_vacancia_orderlinkattrs}
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_postulacion nombre_vacancia }</span>
+					{$arrow_icon_nombre_vacancia}
+			</span>
+	</span>
+	{END nombre_vacancia_fieldheader}
+{END nombre_vacancia_fieldheadercolumn}
+
+	
+	</th>
 	{END cellblock_grid_headcell_field1}
 									{BEGIN cellblock_grid_headcell_field2}
 	<th
@@ -841,30 +517,30 @@
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$id_estado_class}	"
+		 r-ori-vert		 {$id_estado_vacancia_class}	"
 
-			data-field="id_estado"
+			data-field="id_estado_vacancia"
 	
 	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN id_estado_fieldheadercolumn}
-	{BEGIN id_estado_fieldheader}
+		{BEGIN id_estado_vacancia_fieldheadercolumn}
+	{BEGIN id_estado_vacancia_fieldheader}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado" data-fieldname="id_estado" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado_vacancia" data-fieldname="id_estado_vacancia" 
 
-			{$id_estado_orderlinkattrs}
+			{$id_estado_vacancia_orderlinkattrs}
 	
 	
 	>
 	<span class="text-label">
-		<span>{$label bolsa_empleo_postulacion id_estado }</span>
-					{$arrow_icon_id_estado}
+		<span>{$label bolsa_empleo_postulacion id_estado_vacancia }</span>
+					{$arrow_icon_id_estado_vacancia}
 			</span>
 	</span>
-	{END id_estado_fieldheader}
-{END id_estado_fieldheadercolumn}
+	{END id_estado_vacancia_fieldheader}
+{END id_estado_vacancia_fieldheadercolumn}
 
 	
 	</th>
@@ -875,18 +551,86 @@
 	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
+		 r-ori-vert		 {$fk_id_feria_empleo_class}	"
+
+			data-field="fk_id_feria_empleo"
+	
+	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN fk_id_feria_empleo_fieldheadercolumn}
+	{BEGIN fk_id_feria_empleo_fieldheader}
+<span 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fk_id_feria_empleo" data-fieldname="fk_id_feria_empleo" 
+
+			{$fk_id_feria_empleo_orderlinkattrs}
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_postulacion fk_id_feria_empleo }</span>
+					{$arrow_icon_fk_id_feria_empleo}
+			</span>
+	</span>
+	{END fk_id_feria_empleo_fieldheader}
+{END fk_id_feria_empleo_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field3}
+									{BEGIN cellblock_grid_headcell_field4}
+	<th
+	
+	{$cell_grid_headcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_postulacion_class}	"
+
+			data-field="id_postulacion"
+	
+	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_postulacion_fieldheadercolumn}
+	{BEGIN id_postulacion_fieldheader}
+<span 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_postulacion" data-fieldname="id_postulacion" 
+
+			{$id_postulacion_orderlinkattrs}
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_postulacion id_postulacion }</span>
+					{$arrow_icon_id_postulacion}
+			</span>
+	</span>
+	{END id_postulacion_fieldheader}
+{END id_postulacion_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field4}
+									{BEGIN cellblock_grid_headcell_field5}
+	<th
+	
+	{$cell_grid_headcell_field5}
+	{$recordattrs}
+	class="
 		 r-ori-vert		 {$fecha_postulacion_class}	"
 
 			data-field="fecha_postulacion"
 	
-	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
 		{BEGIN fecha_postulacion_fieldheadercolumn}
 	{BEGIN fecha_postulacion_fieldheader}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fecha_postulacion" data-fieldname="fecha_postulacion" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fecha_postulacion" data-fieldname="fecha_postulacion" 
 
 			{$fecha_postulacion_orderlinkattrs}
 	
@@ -902,75 +646,41 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field3}
-									{BEGIN cellblock_grid_headcell_field4}
-	<th
-	
-	{$cell_grid_headcell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$fk_personaid_class}	"
-
-			data-field="fk_personaid"
-	
-	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN fk_personaid_fieldheadercolumn}
-	{BEGIN fk_personaid_fieldheader}
-<span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fk_personaid" data-fieldname="fk_personaid" 
-
-			{$fk_personaid_orderlinkattrs}
-	
-	
-	>
-	<span class="text-label">
-		<span>{$label bolsa_empleo_postulacion fk_personaid }</span>
-					{$arrow_icon_fk_personaid}
-			</span>
-	</span>
-	{END fk_personaid_fieldheader}
-{END fk_personaid_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field4}
-									{BEGIN cellblock_grid_headcell_field5}
-	<th
-	
-	{$cell_grid_headcell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$metodo_insercion_class}	"
-
-			data-field="metodo_insercion"
-	
-	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN metodo_insercion_fieldheadercolumn}
-	{BEGIN metodo_insercion_fieldheader}
-<span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="metodo_insercion" data-fieldname="metodo_insercion" 
-
-			{$metodo_insercion_orderlinkattrs}
-	
-	
-	>
-	<span class="text-label">
-		<span>{$label bolsa_empleo_postulacion metodo_insercion }</span>
-					{$arrow_icon_metodo_insercion}
-			</span>
-	</span>
-	{END metodo_insercion_fieldheader}
-{END metodo_insercion_fieldheadercolumn}
-
-	
-	</th>
 	{END cellblock_grid_headcell_field5}
+									{BEGIN cellblock_grid_headcell_field6}
+	<th
+	
+	{$cell_grid_headcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_estado_postulado_class}	"
+
+			data-field="id_estado_postulado"
+	
+	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_estado_postulado_fieldheadercolumn}
+	{BEGIN id_estado_postulado_fieldheader}
+<span 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado_postulado" data-fieldname="id_estado_postulado" 
+
+			{$id_estado_postulado_orderlinkattrs}
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_postulacion id_estado_postulado }</span>
+					{$arrow_icon_id_estado_postulado}
+			</span>
+	</span>
+	{END id_estado_postulado_fieldheader}
+{END id_estado_postulado_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field6}
 							</tr>
 															
 					{END grid_header}
@@ -988,24 +698,13 @@
 	{$cell_grid_cell_icons}
 	{$recordattrs}
 	class="
-					"
+		 r-ori-vert			"
 
 	
 	data-cellId="grid_cell_icons" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_list"		data-control-cell
 	
 	>
 
-	 
-		{BEGIN edit_column}
-{BEGIN edit_link}
-<span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="Editar" class="btn-link   
-	 glyphicon glyphicon-pencil" href="postulacion_edit.php?{$editlink}" {$editlink_attrs} title="Editar" >		
-				
-								</a>
-</span>
-{END edit_link}
-{END edit_column}
 	 
 		{BEGIN inline_cancel}
 <span data-itemtype="grid_inline_cancel" data-itemid="grid_inline_cancel" {$item_grid_inline_cancel} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
@@ -1015,76 +714,20 @@
 								</a>
 </span>
 {END inline_cancel}
-	 
-		{BEGIN view_column}
-{BEGIN view_link}
-<span data-itemtype="grid_view" data-itemid="grid_view" {$item_grid_view} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="Ver registro" class="btn-link   
-	 glyphicon glyphicon-search" href="postulacion_view.php?{$editlink}" {$viewlink_attrs} title="Ver" >		
-				
-								</a>
-</span>
-{END view_link}
-{END view_column}
 	
 	</td>
 	{END cellblock_grid_cell_icons}
-									{BEGIN cellblock_grid_cell_checkbox}
-	<td
-	
-	{$cell_grid_cell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_cell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"		data-control-cell
-	
-		data-checkbox-cell
-	>
-
-	 
-		{BEGIN checkbox_column}
-<span data-itemtype="grid_checkbox" data-itemid="grid_checkbox" {$item_grid_checkbox} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkbox_attrs}
-		>
-</span>	
-{END checkbox_column}
-	
-	</td>
-	{END cellblock_grid_cell_checkbox}
 									{BEGIN cellblock_grid_cell_field}
 	<td
 	
 	{$cell_grid_cell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$id_postulacion_class}	"
-
-			data-field="id_postulacion"
-	
-	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN id_postulacion_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_postulacion" data-fieldname="id_postulacion" data-default-width >
-{$id_postulacion_value}
-</span>
-{END id_postulacion_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field}
-									{BEGIN cellblock_grid_cell_field1}
-	<td
-	
-	{$cell_grid_cell_field1}
-	{$recordattrs}
-	class="
 		 r-ori-vert		 {$id_vacancia_class}	"
 
 			data-field="id_vacancia"
 	
-	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1094,6 +737,27 @@
 </span>
 {END id_vacancia_fieldcolumn}	
 	</td>
+	{END cellblock_grid_cell_field}
+									{BEGIN cellblock_grid_cell_field1}
+	<td
+	
+	{$cell_grid_cell_field1}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$nombre_vacancia_class}	"
+
+			data-field="nombre_vacancia"
+	
+	data-cellId="grid_cell_field1" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN nombre_vacancia_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="grid_field2" {$item_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="nombre_vacancia" data-fieldname="nombre_vacancia" data-default-width >
+{$nombre_vacancia_value}
+</span>
+{END nombre_vacancia_fieldcolumn}	
+	</td>
 	{END cellblock_grid_cell_field1}
 									{BEGIN cellblock_grid_cell_field2}
 	<td
@@ -1101,19 +765,19 @@
 	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$id_estado_class}	"
+		 r-ori-vert		 {$id_estado_vacancia_class}	"
 
-			data-field="id_estado"
+			data-field="id_estado_vacancia"
 	
 	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN id_estado_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado" data-fieldname="id_estado" data-default-width >
-{$id_estado_value}
+		{BEGIN id_estado_vacancia_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado_vacancia" data-fieldname="id_estado_vacancia" data-default-width >
+{$id_estado_vacancia_value}
 </span>
-{END id_estado_fieldcolumn}	
+{END id_estado_vacancia_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field2}
 									{BEGIN cellblock_grid_cell_field3}
@@ -1122,11 +786,53 @@
 	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
+		 r-ori-vert		 {$fk_id_feria_empleo_class}	"
+
+			data-field="fk_id_feria_empleo"
+	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN fk_id_feria_empleo_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fk_id_feria_empleo" data-fieldname="fk_id_feria_empleo" data-default-width >
+{$fk_id_feria_empleo_value}
+</span>
+{END fk_id_feria_empleo_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field3}
+									{BEGIN cellblock_grid_cell_field4}
+	<td
+	
+	{$cell_grid_cell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_postulacion_class}	"
+
+			data-field="id_postulacion"
+	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_postulacion_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field" {$item_simple_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_postulacion" data-fieldname="id_postulacion" data-default-width >
+{$id_postulacion_value}
+</span>
+{END id_postulacion_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field4}
+									{BEGIN cellblock_grid_cell_field5}
+	<td
+	
+	{$cell_grid_cell_field5}
+	{$recordattrs}
+	class="
 		 r-ori-vert		 {$fecha_postulacion_class}	"
 
 			data-field="fecha_postulacion"
 	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -1136,49 +842,28 @@
 </span>
 {END fecha_postulacion_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field3}
-									{BEGIN cellblock_grid_cell_field4}
-	<td
-	
-	{$cell_grid_cell_field4}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$fk_personaid_class}	"
-
-			data-field="fk_personaid"
-	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN fk_personaid_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field4" {$item_simple_grid_field4} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fk_personaid" data-fieldname="fk_personaid" data-default-width >
-{$fk_personaid_value}
-</span>
-{END fk_personaid_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field4}
-									{BEGIN cellblock_grid_cell_field5}
-	<td
-	
-	{$cell_grid_cell_field5}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$metodo_insercion_class}	"
-
-			data-field="metodo_insercion"
-	
-	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN metodo_insercion_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="metodo_insercion" data-fieldname="metodo_insercion" data-default-width >
-{$metodo_insercion_value}
-</span>
-{END metodo_insercion_fieldcolumn}	
-	</td>
 	{END cellblock_grid_cell_field5}
+									{BEGIN cellblock_grid_cell_field6}
+	<td
+	
+	{$cell_grid_cell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_estado_postulado_class}	"
+
+			data-field="id_estado_postulado"
+	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_estado_postulado_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado_postulado" data-fieldname="id_estado_postulado" data-default-width >
+{$id_estado_postulado_value}
+</span>
+{END id_estado_postulado_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field6}
 							</tr>
 										
 											{END grid_row}
@@ -1205,28 +890,13 @@
 	
 	</td>
 	{END cellblock_grid_footcell_icons}
-									{BEGIN cellblock_grid_footcell_checkbox}
-	<td
-	
-	{$cell_grid_footcell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_checkbox}
 									{BEGIN cellblock_grid_footcell_field}
 	<td
 	
 	{$cell_grid_footcell_field}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$id_postulacion_class}	"
+		 r-ori-vert		 {$id_vacancia_class}	"
 
 	
 	data-cellId="grid_footcell_field" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_list"	
@@ -1241,7 +911,7 @@
 	{$cell_grid_footcell_field1}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$id_vacancia_class}	"
+		 r-ori-vert		 {$nombre_vacancia_class}	"
 
 	
 	data-cellId="grid_footcell_field1" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_list"	
@@ -1256,7 +926,7 @@
 	{$cell_grid_footcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$id_estado_class}	"
+		 r-ori-vert		 {$id_estado_vacancia_class}	"
 
 	
 	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_list"	
@@ -1271,7 +941,7 @@
 	{$cell_grid_footcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$fecha_postulacion_class}	"
+		 r-ori-vert		 {$fk_id_feria_empleo_class}	"
 
 	
 	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_list"	
@@ -1286,7 +956,7 @@
 	{$cell_grid_footcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$fk_personaid_class}	"
+		 r-ori-vert		 {$id_postulacion_class}	"
 
 	
 	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_list"	
@@ -1301,7 +971,7 @@
 	{$cell_grid_footcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$metodo_insercion_class}	"
+		 r-ori-vert		 {$fecha_postulacion_class}	"
 
 	
 	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_list"	
@@ -1310,6 +980,21 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field5}
+									{BEGIN cellblock_grid_footcell_field6}
+	<td
+	
+	{$cell_grid_footcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_estado_postulado_class}	"
+
+	
+	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field6}
 							</tr>
 					
 					</tfoot>

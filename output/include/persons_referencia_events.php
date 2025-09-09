@@ -340,8 +340,7 @@ $rs = DB::Query("
         (SELECT resumen FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_resumen,
         (SELECT COUNT(*) FROM eportal.persons_phones WHERE person_id = '".pg_escape_string($_SESSION["persona_id"])."') AS count_phones,
         (SELECT city_id FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_city,
-        (SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,
-        (SELECT canthijos FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_canthijos,
+        (SELECT domicilio  FROM eportal.persons WHERE id = '".pg_escape_string($_SESSION["persona_id"])."') AS existe_domicilio,       
         (SELECT COUNT(*) FROM bolsa_empleo.vista_estudios_realizados_union_mec WHERE nro_documento = '".pg_escape_string($_SESSION["cedula"])."') AS count_educacion
 " );
 
@@ -354,7 +353,7 @@ $rs = DB::Query("
        $count_phones = $datafinal['count_phones'];
        $existe_city = $datafinal['existe_city'];
        $existe_domicilio = $datafinal['existe_domicilio'];
-       $existe_canthijos = $datafinal['existe_canthijos'];
+      // $existe_canthijos = $datafinal['existe_canthijos'];
        $count_educacion = $datafinal['count_educacion'];
 
 
@@ -383,12 +382,12 @@ $rs = DB::Query("
             $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Dirección. <a href='persons_edit.php'>Ir a información personal</a>";
 						 $falta_datos = 1;
         }
-
+/*
          if (is_null($existe_canthijos)) {
             $textoresultados[] = '<br><i class="bi bi-dot"></i> '."Cantidad Hijos <a href='persons_edit.php'>Ir a información personal</a>";
 						 $falta_datos = 1;
         }
-
+*/
 				
          if ($count_educacion < 1 ) {
             $textoresultados[] = '<br><i class="bi bi-dot"></i> '."1 Entidad Educativa <a href='vista_estudios_realizados_union_mec_list.php'>Ir a Estudios Realizados</a>";

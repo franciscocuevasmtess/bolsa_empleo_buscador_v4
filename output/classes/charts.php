@@ -500,6 +500,8 @@ class Chart
 			return true;
 		if("bolsa_empleo.ingreso_mensual_aproximado" == $this->chrt_array['tables'][0])
 			return true;
+		if("bolsa_empleo.estado_postulacion" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

@@ -196,7 +196,7 @@ $this->settings["language"] = "es";                                          // 
 $this->settings["allowClear"] = true;                                        // if it shows an icon to leave the field empty. Values "true" and "false"
 $this->settings["FieldWidth"] = "340px";                                     // Field width, can be defined in "px" or "%"
 $this->settings["multiple"] = true;                                         // Possible selection of multiple values? Possible values "false" or "true"
-$this->settings["DefaultValue"] = null;                                      // Value for default
+$this->settings["DefaultValue"] = 171;                                      // Value for default
 $this->settings["SessionDependenteValue"] = null;                            // Key Session variable for dependente LOOKUP
 
 // Only if it has been indicated that they are Multiple values

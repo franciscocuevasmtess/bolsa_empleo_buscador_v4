@@ -219,7 +219,36 @@
 			</span>
 							 
 							 
-				<span class="navbar-form r-align-right r-ori-vert navbar-collapse" data-cellId="supertop_c" data-pageid="{$pageid}" data-page="vacancia_list" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c" data-pageid="{$pageid}" data-page="vacancia_list" data-itemid="list_options" {$item_list_options} data-topcell-item-type="list_options" >
+				<span data-itemtype="list_options" data-itemid="list_options" {$item_list_options} data-pageid="{$pageid}" data-small data-button-item>
+	<span class="dropdown ">
+		<button type="button" title="" class="btn btn-default   dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">		
+										<span class="glyphicon glyphicon-cog"></span>
+												<span class="caret"></span>
+		</button>
+		<ul class="dropdown-menu">
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="show_search_panel" data-itemid="show_search_panel" {$item_show_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="showOptPanel{$id}"  title="" >
+				
+		Mostrar panel de búsqueda		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+							{BEGIN searchPanelTopButtons}
+	<li data-itemtype="hide_search_panel" data-itemid="hide_search_panel" {$item_hide_search_panel} data-pageid="{$pageid}" data-small >
+				<a  id="hideOptPanel{$id}"  title="" >
+				
+		Ocultar panel de búsqueda		
+		</a>
+	</li>
+{END searchPanelTopButtons}
+					</ul>
+	</span>
+</span>
+			</span>
+		 
+				<span class="navbar-form r-align-right navbar-collapse" data-cellId="supertop_c" data-pageid="{$pageid}" data-page="vacancia_list" data-itemid="username_button" {$item_username_button} data-topcell-item-type="username_button" >
 				{BEGIN loggedas_message}
 <span data-itemtype="username_button" data-itemid="username_button" {$item_username_button} data-pageid="{$pageid}" data-page="vacancia_list" data-small data-button-item>
 	<span class="dropdown ">
@@ -477,10 +506,10 @@
 							<td 
 	class="r-align-left				{$nombre_puesto_class}
 			"
-			 
+	colspan="2"		 
 		data-field=""
 	 
-	data-cellId="grid_cell_field23" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="vacancia_list" data-label-col>
+	data-cellId="grid_cell_field23" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="vacancia_list">
  
 {BEGIN nombre_puesto_fieldcolumn}
 <span data-itemtype="grid_field" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-page="vacancia_list" data-record-id="{$recId}" data-field="nombre_puesto" data-fieldname="nombre_puesto" data-default-width >
@@ -498,46 +527,6 @@
 {$id_vacancias_value}
 </span>
 {END id_vacancias_fieldcolumn}</td>
-						 
-							<td 
-	class="r-align-right r-ori-vert			"
-		rowspan="8"	 
-	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="vacancia_list" data-value-col>
- 
-{BEGIN edit_column}
-{BEGIN edit_link}
-<span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-page="vacancia_list" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="Editar" class="btn btn-success  btn-sm 
-	" href="vacancia_edit.php?page=edit&{$editlink}" {$editlink_attrs} title="Editar" data-page="edit" >
-					<span class="fa fa-search"></span>
-							Ver perfil			</a>
-</span>
-{END edit_link}
-{END edit_column}
- 
-<span data-itemtype="custom_button" data-itemid="custom_button_share_vacancy" {$item_custom_button_share_vacancy} data-pageid="{$pageid}" data-page="vacancia_list" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-warning  btn-sm 
-	" id="share_vacancy" href="javascript:void(0)" typeid="ib" >
-					<span class="fa fa-share-alt"></span>
-							Compartir			</a>
-</span>
- 
-<span data-itemtype="custom_button" data-itemid="custom_postularse" {$item_custom_postularse} data-pageid="{$pageid}" data-page="vacancia_list" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-primary  btn-sm 
-	" id="boton_postularse" href="javascript:void(0)" typeid="ib" >
-					<span class="fa fa-check-circle-o"></span>
-							Postularse			</a>
-</span>
- 
-<span data-itemtype="custom_button" data-itemid="custom_cancelar_postu" {$item_custom_cancelar_postu} data-pageid="{$pageid}" data-page="vacancia_list" data-record-id="{$recId}" data-small data-button-item>
-	<a type="button" title="" class="btn btn-danger  btn-sm 
-	" id="boton_salir_postulacion" href="javascript:void(0)" typeid="ib" >
-					<span class="fa fa-sign-out"></span>
-							Cancelar Postulación			</a>
-</span>
- 
-<img src="{$file_url images/emplea_py_joven.png}" data-itemtype="image" data-itemid="logo_emplea_py_joven" {$item_logo_emplea_py_joven} data-pageid="{$pageid}" data-page="vacancia_list" data-record-id="{$recId}" />
-</td>
 											</tr>
 									 
 										<tr>
@@ -569,6 +558,46 @@
 {$legal_value}
 </span>
 {END legal_fieldcolumn}</td>
+						 
+							<td 
+	class="r-align-right r-ori-vert			"
+		rowspan="7"	 
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="vacancia_list" data-value-col>
+ 
+{BEGIN edit_column}
+{BEGIN edit_link}
+<span data-itemtype="grid_edit" data-itemid="grid_edit" {$item_grid_edit} data-pageid="{$pageid}" data-page="vacancia_list" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Editar" class="btn btn-success  btn-sm 
+	" href="vacancia_edit.php?page=edit&{$editlink}" {$editlink_attrs} title="Editar" data-page="edit" >
+					<span class="fa fa-search"></span>
+							Ver perfil			</a>
+</span>
+{END edit_link}
+{END edit_column}
+ 
+<span data-itemtype="custom_button" data-itemid="custom_button_share_vacancy" {$item_custom_button_share_vacancy} data-pageid="{$pageid}" data-page="vacancia_list" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-warning  btn-sm 
+	" id="share_vacancy" href="javascript:void(0)" typeid="ib" >
+					<span class="fa fa-share-alt"></span>
+							Compartir			</a>
+</span>
+ 
+<span data-itemtype="custom_button" data-itemid="custom_postularse" {$item_custom_postularse} data-pageid="{$pageid}" data-page="vacancia_list" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-primary  btn-sm 
+	" id="boton_postularse" href="javascript:void(0)" typeid="ib" >
+					<span class="fa fa-check-circle-o"></span>
+							Postularse			</a>
+</span>
+ 
+<span data-itemtype="custom_button" data-itemid="custom_cancelar_postu" {$item_custom_cancelar_postu} data-pageid="{$pageid}" data-page="vacancia_list" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-danger  btn-sm 
+	" id="boton_salir_postulacion" href="javascript:void(0)" typeid="ib" >
+					<span class="fa fa-sign-out"></span>
+							Cancelar			</a>
+</span>
+ 
+<img src="{$file_url images/emplea_py_joven.png}" data-itemtype="image" data-itemid="logo_emplea_py_joven" {$item_logo_emplea_py_joven} data-pageid="{$pageid}" data-page="vacancia_list" data-record-id="{$recId}" />
+</td>
 											</tr>
 									 
 										<tr>

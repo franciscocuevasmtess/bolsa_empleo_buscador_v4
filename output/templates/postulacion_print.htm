@@ -151,7 +151,7 @@
 	 
 		{BEGIN id_postulacion_fieldheadercolumn}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_postulacion" data-fieldname="id_postulacion" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field12" {$item_simple_grid_field12} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_postulacion" data-fieldname="id_postulacion" 
 
 	
 	
@@ -181,7 +181,7 @@
 	 
 		{BEGIN id_vacancia_fieldheadercolumn}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_vacancia" data-fieldname="id_vacancia" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field13" {$item_simple_grid_field13} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_vacancia" data-fieldname="id_vacancia" 
 
 	
 	
@@ -201,47 +201,17 @@
 	{$cell_grid_headcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$id_estado_class}	"
+		 r-ori-vert		 {$fecha_postulacion_class}	"
 
-			data-field="id_estado"
+			data-field="fecha_postulacion"
 	
 	data-cellId="grid_headcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN id_estado_fieldheadercolumn}
-<span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado" data-fieldname="id_estado" 
-
-	
-	
-	>
-	<span class="text-label">
-		<span>{$label bolsa_empleo_postulacion id_estado }</span>
-			</span>
-	</span>
-{END id_estado_fieldheadercolumn}
-
-	
-	</th>
-	{END cellblock_grid_headcell_field2}
-									{BEGIN cellblock_grid_headcell_field3}
-	<th
-	
-	{$cell_grid_headcell_field3}
-	{$recordattrs}
-	class="
-		 r-ori-vert		 {$fecha_postulacion_class}	"
-
-			data-field="fecha_postulacion"
-	
-	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
 		{BEGIN fecha_postulacion_fieldheadercolumn}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fecha_postulacion" data-fieldname="fecha_postulacion" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field14" {$item_simple_grid_field14} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fecha_postulacion" data-fieldname="fecha_postulacion" 
 
 	
 	
@@ -254,24 +224,24 @@
 
 	
 	</th>
-	{END cellblock_grid_headcell_field3}
-									{BEGIN cellblock_grid_headcell_field4}
+	{END cellblock_grid_headcell_field2}
+									{BEGIN cellblock_grid_headcell_field3}
 	<th
 	
-	{$cell_grid_headcell_field4}
+	{$cell_grid_headcell_field3}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$fk_personaid_class}	"
 
 			data-field="fk_personaid"
 	
-	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
 		{BEGIN fk_personaid_fieldheadercolumn}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fk_personaid" data-fieldname="fk_personaid" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field15" {$item_simple_grid_field15} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fk_personaid" data-fieldname="fk_personaid" 
 
 	
 	
@@ -284,6 +254,36 @@
 
 	
 	</th>
+	{END cellblock_grid_headcell_field3}
+									{BEGIN cellblock_grid_headcell_field4}
+	<th
+	
+	{$cell_grid_headcell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_estado_postulado_class}	"
+
+			data-field="id_estado_postulado"
+	
+	data-cellId="grid_headcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_estado_postulado_fieldheadercolumn}
+<span 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field16" {$item_simple_grid_field16} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado_postulado" data-fieldname="id_estado_postulado" 
+
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_postulacion id_estado_postulado }</span>
+			</span>
+	</span>
+{END id_estado_postulado_fieldheadercolumn}
+
+	
+	</th>
 	{END cellblock_grid_headcell_field4}
 									{BEGIN cellblock_grid_headcell_field5}
 	<th
@@ -291,30 +291,210 @@
 	{$cell_grid_headcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$metodo_insercion_class}	"
+		 r-ori-vert		 {$estado_postulado_class}	"
 
-			data-field="metodo_insercion"
+			data-field="estado_postulado"
 	
 	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN metodo_insercion_fieldheadercolumn}
+		{BEGIN estado_postulado_fieldheadercolumn}
 <span 
-	data-itemtype="grid_field_label" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="metodo_insercion" data-fieldname="metodo_insercion" 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field17" {$item_simple_grid_field17} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="estado_postulado" data-fieldname="estado_postulado" 
 
 	
 	
 	>
 	<span class="text-label">
-		<span>{$label bolsa_empleo_postulacion metodo_insercion }</span>
+		<span>{$label bolsa_empleo_postulacion estado_postulado }</span>
 			</span>
 	</span>
-{END metodo_insercion_fieldheadercolumn}
+{END estado_postulado_fieldheadercolumn}
 
 	
 	</th>
 	{END cellblock_grid_headcell_field5}
+									{BEGIN cellblock_grid_headcell_field6}
+	<th
+	
+	{$cell_grid_headcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_estado_vacancia_class}	"
+
+			data-field="id_estado_vacancia"
+	
+	data-cellId="grid_headcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_estado_vacancia_fieldheadercolumn}
+<span 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field18" {$item_simple_grid_field18} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado_vacancia" data-fieldname="id_estado_vacancia" 
+
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_postulacion id_estado_vacancia }</span>
+			</span>
+	</span>
+{END id_estado_vacancia_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field6}
+									{BEGIN cellblock_grid_headcell_field7}
+	<th
+	
+	{$cell_grid_headcell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$estado_vacancia_class}	"
+
+			data-field="estado_vacancia"
+	
+	data-cellId="grid_headcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN estado_vacancia_fieldheadercolumn}
+<span 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field19" {$item_simple_grid_field19} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="estado_vacancia" data-fieldname="estado_vacancia" 
+
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_postulacion estado_vacancia }</span>
+			</span>
+	</span>
+{END estado_vacancia_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field7}
+									{BEGIN cellblock_grid_headcell_field8}
+	<th
+	
+	{$cell_grid_headcell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$fk_id_feria_empleo_class}	"
+
+			data-field="fk_id_feria_empleo"
+	
+	data-cellId="grid_headcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN fk_id_feria_empleo_fieldheadercolumn}
+<span 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field20" {$item_simple_grid_field20} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fk_id_feria_empleo" data-fieldname="fk_id_feria_empleo" 
+
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_postulacion fk_id_feria_empleo }</span>
+			</span>
+	</span>
+{END fk_id_feria_empleo_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field8}
+									{BEGIN cellblock_grid_headcell_field9}
+	<th
+	
+	{$cell_grid_headcell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$feria_empleo_class}	"
+
+			data-field="feria_empleo"
+	
+	data-cellId="grid_headcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN feria_empleo_fieldheadercolumn}
+<span 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field21" {$item_simple_grid_field21} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="feria_empleo" data-fieldname="feria_empleo" 
+
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_postulacion feria_empleo }</span>
+			</span>
+	</span>
+{END feria_empleo_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field9}
+									{BEGIN cellblock_grid_headcell_field10}
+	<th
+	
+	{$cell_grid_headcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$nombre_puesto_class}	"
+
+			data-field="nombre_puesto"
+	
+	data-cellId="grid_headcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN nombre_puesto_fieldheadercolumn}
+<span 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field22" {$item_simple_grid_field22} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="nombre_puesto" data-fieldname="nombre_puesto" 
+
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_postulacion nombre_puesto }</span>
+			</span>
+	</span>
+{END nombre_puesto_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field10}
+									{BEGIN cellblock_grid_headcell_field11}
+	<th
+	
+	{$cell_grid_headcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$descripcion_puesto_class}	"
+
+			data-field="descripcion_puesto"
+	
+	data-cellId="grid_headcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN descripcion_puesto_fieldheadercolumn}
+<span 
+	data-itemtype="grid_field_label" data-itemid="simple_grid_field23" {$item_simple_grid_field23} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="descripcion_puesto" data-fieldname="descripcion_puesto" 
+
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label bolsa_empleo_postulacion descripcion_puesto }</span>
+			</span>
+	</span>
+{END descripcion_puesto_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field11}
 							</tr>
 															
 					{END grid_header}
@@ -374,32 +554,11 @@
 	{$cell_grid_cell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$id_estado_class}	"
-
-			data-field="id_estado"
-	
-	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	 
-		{BEGIN id_estado_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado" data-fieldname="id_estado" data-default-width >
-{$id_estado_value}
-</span>
-{END id_estado_fieldcolumn}	
-	</td>
-	{END cellblock_grid_cell_field2}
-									{BEGIN cellblock_grid_cell_field3}
-	<td
-	
-	{$cell_grid_cell_field3}
-	{$recordattrs}
-	class="
 		 r-ori-vert		 {$fecha_postulacion_class}	"
 
 			data-field="fecha_postulacion"
 	
-	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field2" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -409,18 +568,18 @@
 </span>
 {END fecha_postulacion_fieldcolumn}	
 	</td>
-	{END cellblock_grid_cell_field3}
-									{BEGIN cellblock_grid_cell_field4}
+	{END cellblock_grid_cell_field2}
+									{BEGIN cellblock_grid_cell_field3}
 	<td
 	
-	{$cell_grid_cell_field4}
+	{$cell_grid_cell_field3}
 	{$recordattrs}
 	class="
 		 r-ori-vert		 {$fk_personaid_class}	"
 
 			data-field="fk_personaid"
 	
-	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_cell_field3" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
@@ -430,6 +589,27 @@
 </span>
 {END fk_personaid_fieldcolumn}	
 	</td>
+	{END cellblock_grid_cell_field3}
+									{BEGIN cellblock_grid_cell_field4}
+	<td
+	
+	{$cell_grid_cell_field4}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_estado_postulado_class}	"
+
+			data-field="id_estado_postulado"
+	
+	data-cellId="grid_cell_field4" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_estado_postulado_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field2" {$item_simple_grid_field2} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado_postulado" data-fieldname="id_estado_postulado" data-default-width >
+{$id_estado_postulado_value}
+</span>
+{END id_estado_postulado_fieldcolumn}	
+	</td>
 	{END cellblock_grid_cell_field4}
 									{BEGIN cellblock_grid_cell_field5}
 	<td
@@ -437,21 +617,147 @@
 	{$cell_grid_cell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$metodo_insercion_class}	"
+		 r-ori-vert		 {$estado_postulado_class}	"
 
-			data-field="metodo_insercion"
+			data-field="estado_postulado"
 	
 	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
 	 
-		{BEGIN metodo_insercion_fieldcolumn}
-<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="metodo_insercion" data-fieldname="metodo_insercion" data-default-width >
-{$metodo_insercion_value}
+		{BEGIN estado_postulado_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field5" {$item_simple_grid_field5} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="estado_postulado" data-fieldname="estado_postulado" data-default-width >
+{$estado_postulado_value}
 </span>
-{END metodo_insercion_fieldcolumn}	
+{END estado_postulado_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field5}
+									{BEGIN cellblock_grid_cell_field6}
+	<td
+	
+	{$cell_grid_cell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_estado_vacancia_class}	"
+
+			data-field="id_estado_vacancia"
+	
+	data-cellId="grid_cell_field6" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN id_estado_vacancia_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field6" {$item_simple_grid_field6} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="id_estado_vacancia" data-fieldname="id_estado_vacancia" data-default-width >
+{$id_estado_vacancia_value}
+</span>
+{END id_estado_vacancia_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field6}
+									{BEGIN cellblock_grid_cell_field7}
+	<td
+	
+	{$cell_grid_cell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$estado_vacancia_class}	"
+
+			data-field="estado_vacancia"
+	
+	data-cellId="grid_cell_field7" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN estado_vacancia_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field7" {$item_simple_grid_field7} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="estado_vacancia" data-fieldname="estado_vacancia" data-default-width >
+{$estado_vacancia_value}
+</span>
+{END estado_vacancia_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field7}
+									{BEGIN cellblock_grid_cell_field8}
+	<td
+	
+	{$cell_grid_cell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$fk_id_feria_empleo_class}	"
+
+			data-field="fk_id_feria_empleo"
+	
+	data-cellId="grid_cell_field8" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN fk_id_feria_empleo_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field8" {$item_simple_grid_field8} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="fk_id_feria_empleo" data-fieldname="fk_id_feria_empleo" data-default-width >
+{$fk_id_feria_empleo_value}
+</span>
+{END fk_id_feria_empleo_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field8}
+									{BEGIN cellblock_grid_cell_field9}
+	<td
+	
+	{$cell_grid_cell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$feria_empleo_class}	"
+
+			data-field="feria_empleo"
+	
+	data-cellId="grid_cell_field9" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN feria_empleo_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field9" {$item_simple_grid_field9} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="feria_empleo" data-fieldname="feria_empleo" data-default-width >
+{$feria_empleo_value}
+</span>
+{END feria_empleo_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field9}
+									{BEGIN cellblock_grid_cell_field10}
+	<td
+	
+	{$cell_grid_cell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$nombre_puesto_class}	"
+
+			data-field="nombre_puesto"
+	
+	data-cellId="grid_cell_field10" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN nombre_puesto_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field10" {$item_simple_grid_field10} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="nombre_puesto" data-fieldname="nombre_puesto" data-default-width >
+{$nombre_puesto_value}
+</span>
+{END nombre_puesto_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field10}
+									{BEGIN cellblock_grid_cell_field11}
+	<td
+	
+	{$cell_grid_cell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$descripcion_puesto_class}	"
+
+			data-field="descripcion_puesto"
+	
+	data-cellId="grid_cell_field11" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN descripcion_puesto_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="simple_grid_field11" {$item_simple_grid_field11} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="descripcion_puesto" data-fieldname="descripcion_puesto" data-default-width >
+{$descripcion_puesto_value}
+</span>
+{END descripcion_puesto_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field11}
 							</tr>
 										
 											</tbody>
@@ -499,7 +805,7 @@
 	{$cell_grid_footcell_field2}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$id_estado_class}	"
+		 r-ori-vert		 {$fecha_postulacion_class}	"
 
 	
 	data-cellId="grid_footcell_field2" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_print"	
@@ -514,7 +820,7 @@
 	{$cell_grid_footcell_field3}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$fecha_postulacion_class}	"
+		 r-ori-vert		 {$fk_personaid_class}	"
 
 	
 	data-cellId="grid_footcell_field3" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_print"	
@@ -529,7 +835,7 @@
 	{$cell_grid_footcell_field4}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$fk_personaid_class}	"
+		 r-ori-vert		 {$id_estado_postulado_class}	"
 
 	
 	data-cellId="grid_footcell_field4" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_print"	
@@ -544,7 +850,7 @@
 	{$cell_grid_footcell_field5}
 	{$recordattrs}
 	class="
-		 r-ori-vert		 {$metodo_insercion_class}	"
+		 r-ori-vert		 {$estado_postulado_class}	"
 
 	
 	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_print"	
@@ -553,6 +859,96 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field5}
+									{BEGIN cellblock_grid_footcell_field6}
+	<td
+	
+	{$cell_grid_footcell_field6}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$id_estado_vacancia_class}	"
+
+	
+	data-cellId="grid_footcell_field6" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_print"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field6}
+									{BEGIN cellblock_grid_footcell_field7}
+	<td
+	
+	{$cell_grid_footcell_field7}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$estado_vacancia_class}	"
+
+	
+	data-cellId="grid_footcell_field7" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_print"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field7}
+									{BEGIN cellblock_grid_footcell_field8}
+	<td
+	
+	{$cell_grid_footcell_field8}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$fk_id_feria_empleo_class}	"
+
+	
+	data-cellId="grid_footcell_field8" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_print"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field8}
+									{BEGIN cellblock_grid_footcell_field9}
+	<td
+	
+	{$cell_grid_footcell_field9}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$feria_empleo_class}	"
+
+	
+	data-cellId="grid_footcell_field9" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_print"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field9}
+									{BEGIN cellblock_grid_footcell_field10}
+	<td
+	
+	{$cell_grid_footcell_field10}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$nombre_puesto_class}	"
+
+	
+	data-cellId="grid_footcell_field10" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_print"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field10}
+									{BEGIN cellblock_grid_footcell_field11}
+	<td
+	
+	{$cell_grid_footcell_field11}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$descripcion_puesto_class}	"
+
+	
+	data-cellId="grid_footcell_field11" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="postulacion_print"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field11}
 							</tr>
 					
 					</tfoot>

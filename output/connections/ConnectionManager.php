@@ -121,11 +121,11 @@ class ConnectionManager extends ConnectionManager_Base
 		$data = array();
 		$data["dbType"] = 4;
 		$data["connId"] = "eportal_at_192_168_70_170";
-		$data["connName"] = "eportal at 192.168.70.170";
+		$data["connName"] = "eportal at 192.168.123.51";
 		$data["connStringType"] = "postgre";
-		$data["connectionString"] = "postgre;192.168.70.170;postgres;mLxnvGxLX0ND4i2I;;eportal;;1;"; //currently unused
+		$data["connectionString"] = "postgre;192.168.123.51;postgres;mLxnvGxLX0ND4i2I;;eportal;;1;"; //currently unused
 
-		$this->_connectionsIdByName["eportal at 192.168.70.170"] = "eportal_at_192_168_70_170";
+		$this->_connectionsIdByName["eportal at 192.168.123.51"] = "eportal_at_192_168_70_170";
 
 		$data["connInfo"] = array();
 		$data["ODBCUID"] = "postgres";
@@ -136,9 +136,9 @@ class ConnectionManager extends ConnectionManager_Base
 		$data["DBPath"] = "db"; //currently unused
 		$data["useServerMapPath"] = 1; //currently unused
 
-$host="192.168.70.170";
-$user="franciscocuevas";
-$password="6XP4fJe8tX7sdTaL6Rfk";
+$host="192.168.123.51";
+$user="postgres";
+$password="mLxnvGxLX0ND4i2I";
 $options="";
 $dbname="eportal";
 $data["connInfo"][0] = $host;

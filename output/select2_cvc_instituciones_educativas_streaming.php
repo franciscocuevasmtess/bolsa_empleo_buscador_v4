@@ -11,7 +11,7 @@ include("include/dbcommon.php");
 
 // Conexión a la base de datos
 //Produccion
-$host = "192.168.70.186";
+$host = "192.168.100.196";
 $dbname = "eportal";
 $user = "postgres";
 $password = "i54R1943cMzrkbH1";
